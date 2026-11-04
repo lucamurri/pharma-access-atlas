@@ -1,0 +1,94 @@
+<p class="eyebrow">Methodology &amp; sources</p>
+<h1>How the atlas is built</h1>
+<p class="lede">Every number on this site comes from a public source and links to it. Where a value could not be
+  verified, it is left blank and flagged. Nothing is estimated.</p>
+<p class="muted">Data last updated: <strong>{{data_as_of}}</strong>.</p>
+
+<div class="prose">
+<h2>Which drugs are included</h2>
+<p>{{n}} innovative medicines whose <strong>first FDA approval</strong> and <strong>first European Commission
+  marketing authorisation</strong> both fall between 1 January 2019 and 31 December 2025. They were chosen to
+  mix therapy areas (oncology, rare disease, immunology, cardiometabolic including GLP-1s, neurology), company
+  origins, and cases where Europe approved first. The list is curated, not a random sample, so the findings
+  describe these drugs and do not necessarily hold for all new medicines.</p>
+
+<h2>Definitions</h2>
+<dl>
+  <dt><strong>FDA approval date</strong></dt>
+  <dd>Approval date of the drug's original application (NDA or BLA) in Drugs@FDA. Later approvals for new
+    indications are ignored. For cell and gene therapies (regulated by FDA's CBER and absent from openFDA),
+    the date of the original BLA approval letter.</dd>
+  <dt><strong>EC approval date</strong></dt>
+  <dd>Date of the European Commission's initial marketing authorisation, as published by the EMA.</dd>
+  <dt><strong>US-to-EU approval lag</strong></dt>
+  <dd>EC approval date minus FDA approval date, in days. Negative means the EU approved first.</dd>
+  <dt><strong>Italy access delay</strong></dt>
+  <dd>Days from EC approval to publication in the <em>Gazzetta Ufficiale</em> of the first AIFA determination
+    granting reimbursement by the national health service (class A or H). Classes C and C(nn) mean the drug
+    may be sold but is not reimbursed. Drugs still not reimbursed are shown as “waiting” with the days elapsed
+    up to the date we checked, and are <em>excluded</em> from the median. The median therefore
+    <em>understates</em> the true delay.</dd>
+  <dt><strong>Germany G-BA rating</strong></dt>
+  <dd>The result of the drug's first concluded early benefit assessment (AMNOG, § 35a SGB V). A decision can
+    split patients into groups with different ratings; we show the <em>best</em> rating across groups and flag
+    whether any group got “no added benefit”. In Germany a drug is reimbursed from launch. The assessment,
+    usually about six months later, shapes the negotiated price, so it measures
+    <em>value recognised</em>, not an access delay.</dd>
+  <dt><strong>Orphan status</strong></dt>
+  <dd>US: an FDA orphan designation for the indication of first approval (FDA OOPD database). EU: the EMA's
+    current orphan flag. A drug whose orphan status was later withdrawn shows “no”.</dd>
+  <dt><strong>Medicare negotiation</strong></dt>
+  <dd>Whether CMS selected the drug under the Inflation Reduction Act, and if so the Maximum Fair Price (MFP)
+    and the list price that CMS reports for a 30-day supply.</dd>
+</dl>
+
+<h2>Data sources</h2>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+  <thead><tr><th scope="col">Source</th><th scope="col">Used for</th><th scope="col">How it's collected</th><th scope="col">Terms</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><a href="https://open.fda.gov/apis/drug/drugsfda/">openFDA Drugs@FDA</a></th><td>FDA approval dates, applicant, review priority</td><td>API, refreshed monthly</td><td>Public domain</td></tr>
+    <tr><th scope="row"><a href="https://www.fda.gov/vaccines-blood-biologics">FDA CBER approval letters</a></th><td>Approval dates for Carvykti, Zolgensma, Hemgenix</td><td>Manual</td><td>Public domain</td></tr>
+    <tr><th scope="row"><a href="https://www.accessdata.fda.gov/scripts/opdlisting/oopd/">FDA Orphan Drug Designations (OOPD)</a></th><td>US orphan designation</td><td>Manual</td><td>Public domain</td></tr>
+    <tr><th scope="row"><a href="https://www.ema.europa.eu/en/medicines/download-medicine-data">EMA medicine data</a></th><td>CHMP opinion and EC approval dates, EU orphan, conditional approval, holder</td><td>Download, refreshed monthly</td><td>Reuse with acknowledgement</td></tr>
+    <tr><th scope="row"><a href="https://www.gazzettaufficiale.it/">Gazzetta Ufficiale</a> · <a href="https://www.aifa.gov.it/">AIFA</a></th><td>Italian reimbursement date and class</td><td>Manual</td><td>Official acts (not copyrighted); AIFA data CC BY 4.0</td></tr>
+    <tr><th scope="row"><a href="https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/">G-BA benefit assessments</a></th><td>AMNOG decision date and rating</td><td>Manual</td><td>Free reuse; no distortion of decisions</td></tr>
+    <tr><th scope="row"><a href="https://www.cms.gov/initiatives/medicare-prescription-drug-affordability/overview/medicare-drug-price-negotiation-program/selected-drugs-negotiated-prices">CMS Medicare Drug Price Negotiation</a></th><td>Selection, Maximum Fair Price; list price from fact sheets</td><td>Data file refreshed monthly; list price manual</td><td>Public domain</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="prose">
+<h2>Quality checks</h2>
+<p>An automated validation step runs before every publication and stops the build if any non-blank value lacks
+  a source link and retrieval date, if dates are illogical (for example, Italian reimbursement before EU
+  approval), or if a drug appears twice. The pipeline code and every input file are
+  <a href="{{repo_url}}">public on GitHub</a>.</p>
+
+<h2>What is and isn't covered</h2>
+<ul>
+  <li><strong>Prices are mostly out of scope.</strong> US list prices (WAC) are not freely available, and
+    European net prices are confidential. The only prices shown are those CMS publishes for drugs selected
+    for Medicare negotiation ({{cms_n_selected}} of {{n}} here).</li>
+  <li><strong>Few drugs here can be negotiated yet.</strong> By law a drug becomes eligible 7 years after
+    approval (11 for biologics). Rybelsus and Wegovy are included only because CMS grouped all semaglutide
+    products with Ozempic (approved 2017).</li>
+  <li><strong>Early access in Italy is not counted.</strong> Payment under Law 648/96 or the AIFA 5% fund can
+    precede full reimbursement (for example Zolgensma and Skyclarys). We count only the reimbursement determination.</li>
+  <li><strong>Regional access in Italy</strong> (inclusion in regional formularies) can add months after national
+    reimbursement and is not measured.</li>
+  <li><strong>Germany measures value, not delay.</strong> See the definition above.</li>
+  <li><strong>US access depends on insurers.</strong> FDA approval does not guarantee coverage. US payer
+    coverage decisions are not public in a comparable form and are not measured.</li>
+  <li><strong>Judgement calls</strong> (for example a suspended first G-BA procedure, or a drug first classed
+    as not reimbursed) are documented next to each value in the source tables on every drug brief.</li>
+</ul>
+
+<h2>Disclaimer</h2>
+<div class="callout">
+  <p>This is an independent research portfolio project. It is <strong>not medical, legal or investment
+    advice</strong>, and it is not affiliated with any regulator, agency or company mentioned. Data can
+    contain errors. Always check the linked official source before relying on a value.</p>
+</div>
+</div>
