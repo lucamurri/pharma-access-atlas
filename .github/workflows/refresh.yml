@@ -1,0 +1,63 @@
+# Monthly refresh of the automatable sources (openFDA, EMA, CMS).
+# Commits only if the data actually changed, then redeploys the site.
+# Manual CSVs in data/manual/ are never touched by this workflow.
+name: Monthly data refresh
+
+on:
+  schedule:
+    - cron: "17 6 3 * *"   # 06:17 UTC on the 3rd of every month
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write   # needed to keep this schedule alive (see last step)
+  pages: write
+  id-token: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Download fresh data, rebuild, validate. Fails (and commits nothing) on any error.
+      - name: Fetch, build and validate
+        run: python pipeline/run_all.py
+
+      # Make sure the written findings still match the new data before publishing.
+      - name: Check site still builds
+        run: python pipeline/build_site.py
+
+      - name: Commit if data changed
+        id: commit
+        run: |
+          if git diff --quiet -- data/; then
+            echo "No data changes this month."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/
+            git commit -m "Monthly data refresh $(date -u +%Y-%m-%d)"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # GitHub pauses scheduled workflows in repos with no activity for 60 days.
+      # Re-enabling the workflow through the API keeps the monthly schedule running
+      # even in months when nothing changed (no empty commits needed).
+      - name: Keep the schedule alive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/refresh.yml/enable"
+
+  deploy:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy.yml
