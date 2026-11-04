@@ -144,9 +144,18 @@ def ema_fields(record: dict, retrieved: str) -> dict:
         return sourced(record[key].lower() if record[key] else None, url, retrieved)
 
     opinion = iso_from_ddmmyyyy(record["opinion_adopted_date"])
+    ec = iso_from_ddmmyyyy(record["marketing_authorisation_date"])
+    if opinion and ec and opinion > ec:
+        # The EMA file's opinion field sometimes holds a LATER procedure's opinion
+        # (e.g. after a re-authorisation), not the one that led to first approval.
+        opinion_field = missing(notes=f"EMA file gives an opinion date ({opinion}) later than the first EC "
+                                      "approval, so it cannot be the initial opinion; left blank")
+    elif opinion:
+        opinion_field = sourced(opinion, url, retrieved)
+    else:
+        opinion_field = missing(notes="Opinion date is blank in the EMA data file")
     return {
-        "ema_opinion_date": (sourced(opinion, url, retrieved) if opinion
-                             else missing(notes="Opinion date is blank in the EMA data file")),
+        "ema_opinion_date": opinion_field,
         "ec_approval_date": sourced(iso_from_ddmmyyyy(record["marketing_authorisation_date"]), url, retrieved,
                                     "Initial EU marketing authorisation date"),
         "ema_holder": sourced(record["marketing_authorisation_developer_applicant_holder"], url, retrieved),

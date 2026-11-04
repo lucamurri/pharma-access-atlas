@@ -3243,11 +3243,11 @@
           "notes": "Not yet researched"
         },
         "ema_opinion_date": {
-          "value": "2023-08-16",
-          "status": "verified",
-          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/artesunate-amivas",
-          "retrieved_date": "2026-11-03",
-          "notes": ""
+          "value": null,
+          "status": "unknown",
+          "source_url": null,
+          "retrieved_date": null,
+          "notes": "EMA file gives an opinion date (2023-08-16) later than the first EC approval, so it cannot be the initial opinion; left blank"
         },
         "ec_approval_date": {
           "value": "2021-11-22",
