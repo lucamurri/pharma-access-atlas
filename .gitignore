@@ -8,4 +8,4 @@ _site/
 docs/linkedin-post-draft.md
 
 # Duplicate copies created by macOS file sync (e.g. "file 2.json")
-* 2.*
+* [0-9].*
