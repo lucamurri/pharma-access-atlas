@@ -66,17 +66,17 @@
         <th scope="row"><a href="${Atlas.briefUrl(r.id)}">${Atlas.esc(Atlas.drugName(r))}</a>
           ${r.cohort === "reference" ? ' <span class="pill">Ref.</span>' : ""}
           <br><span class="muted small">${Atlas.esc(r.inn)}</span></th>
-        <td>${Atlas.esc(r.area)}</td>
-        <td>${Atlas.esc(r.company)}</td>
-        <td style="white-space:nowrap">${Atlas.fmtDate(r.fda_date)}</td>
-        <td style="white-space:nowrap">${Atlas.fmtDate(r.ec_date)}</td>
-        <td class="num">${r.lag ?? "n/a"}</td>
-        <td class="num">${italyCell(r)}</td>
-        <td>${ratingPill(r)}</td>
-        <td>${r.fr_asmr ? `ASMR ${r.fr_asmr}` : r.fr_smr === "insufficient" ? "SMR insufficient"
+        <td data-label="Area">${Atlas.esc(r.area)}</td>
+        <td data-label="Company">${Atlas.esc(r.company)}</td>
+        <td data-label="FDA approval" style="white-space:nowrap">${Atlas.fmtDate(r.fda_date)}</td>
+        <td data-label="EC approval" style="white-space:nowrap">${Atlas.fmtDate(r.ec_date)}</td>
+        <td class="num" data-label="US→EU lag (days)">${r.lag ?? "n/a"}</td>
+        <td class="num" data-label="Italy delay (days)">${italyCell(r)}</td>
+        <td data-label="Germany G-BA">${ratingPill(r)}</td>
+        <td data-label="France HAS">${r.fr_asmr ? `ASMR ${r.fr_asmr}` : r.fr_smr === "insufficient" ? "SMR insufficient"
               : r.fr_pending ? '<span class="pill">no opinion yet</span>' : '<span class="muted">n/a</span>'}</td>
-        <td>${r.en_decision ? Atlas.esc(r.en_decision) : r.en_pending ? '<span class="pill">in progress</span>' : '<span class="muted">n/a</span>'}</td>
-        <td>${orphanCell(r)}</td>
+        <td data-label="England NICE">${r.en_decision ? Atlas.esc(r.en_decision) : r.en_pending ? '<span class="pill">in progress</span>' : '<span class="muted">n/a</span>'}</td>
+        <td data-label="Orphan">${orphanCell(r)}</td>
       </tr>`).join("") || '<tr><td colspan="11">No drugs match these filters.</td></tr>';
 
     el("result-count").textContent = `Showing ${visible.length} of ${rows.length} drugs`;
@@ -103,6 +103,8 @@
     });
   });
   Object.values(controls).forEach(input => input.addEventListener("input", render));
-  el("filters").addEventListener("reset", () => setTimeout(render, 0));
+  // Phones hide the column headers, so a menu offers the same sorts.
+  el("f-sort").addEventListener("input", e => { [sortKey, sortDir] = e.target.value.split(":"); render(); });
+  el("filters").addEventListener("reset", () => { sortKey = "brand_us"; sortDir = "asc"; setTimeout(render, 0); });
   render();
 })();

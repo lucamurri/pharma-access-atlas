@@ -25,6 +25,7 @@ from common import PROCESSED, ROOT, write_json
 SITE = ROOT / "site"
 OUT = ROOT / "_site"
 REPO_URL = "https://github.com/lucamurri/pharma-access-atlas"
+SITE_URL = "https://lucamurri.github.io/pharma-access-atlas/"
 
 NAV = [
     ("index.html", "Overview"),
@@ -37,8 +38,9 @@ NAV = [
 
 PAGES = {
     "index.html": ("Pharma Access Atlas: how fast new drugs reach patients in the US and Europe",
-                   "Approval, benefit assessment and reimbursement timelines for 205 new drugs across the US, "
-                   "Italy, Germany, France and England, with a public source for every number."),
+                   "Approval, benefit assessment and reimbursement timelines for every new drug approved by both "
+                   "the FDA and the EU in 2019-2025, across the US, Italy, Germany, France and England, with a "
+                   "public source for every number."),
     "explorer.html": ("Drug explorer | Pharma Access Atlas", "Sortable, filterable table of every drug in the atlas."),
     "companies.html": ("Company scorecard | Pharma Access Atlas",
                        "How quickly each company's new drugs reached patients in Europe, and how they were rated."),
@@ -53,7 +55,8 @@ esc = html.escape
 # ---------------------------------------------------------------------------
 # Layout
 # ---------------------------------------------------------------------------
-def layout(title: str, description: str, body: str, active: str, root: str, data_as_of: str, scripts=()) -> str:
+def layout(title: str, description: str, body: str, active: str, root: str, data_as_of: str, scripts=(),
+           path: str = "") -> str:
     current = ' aria-current="page"'
     nav = "\n".join(
         f'<li><a href="{root}{href}"{current if href == active else ""}>{label}</a></li>'
@@ -67,6 +70,19 @@ def layout(title: str, description: str, body: str, active: str, root: str, data
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
+<link rel="canonical" href="{SITE_URL}{path}">
+<link rel="icon" href="{root}assets/img/favicon.svg" type="image/svg+xml">
+<!-- Link previews (LinkedIn, Slack, iMessage, X): one site-wide image, per-page title and summary. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pharma Access Atlas">
+<meta property="og:title" content="{esc(title)}">
+<meta property="og:description" content="{esc(description)}">
+<meta property="og:url" content="{SITE_URL}{path}">
+<meta property="og:image" content="{SITE_URL}assets/img/social.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pharma Access Atlas: how fast do new drugs reach patients in the US and Europe?">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="{root}assets/css/style.css">
 {script_tags}
 </head>
@@ -197,6 +213,10 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
         events.append({"label": "Italy: still waiting", "date": row["it_checked"], "kind": "pending"})
         as_of = row["it_checked"]
     svg = timeline_svg(events, as_of)
+    # The same events as a plain list, shown instead of the drawing on narrow screens.
+    tl_list = '<ol class="timeline-list">' + "".join(
+        f'<li><span>{esc(e["label"])}</span><span class="tl-when">{esc(fmt_date(e["date"]))}</span></li>'
+        for e in sorted((e for e in events if e["date"]), key=lambda e: e["date"])) + "</ol>"
 
     # --- key numbers ------------------------------------------------------
     lag = row["lag"]
@@ -310,7 +330,7 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
 
   <section aria-labelledby="tl-h">
     <h2 id="tl-h">Timeline</h2>
-    <div class="timeline-wrap">{svg}</div>
+    <div class="timeline-wrap">{svg}{tl_list}</div>
   </section>
 
   <section class="kpis" aria-label="Key numbers">
@@ -405,13 +425,15 @@ def main() -> None:
         values[key] = value if is_year or not isinstance(value, int) else f"{value:,}"
     scripts = {"index.html": ["vendor/chart.umd.min.js", "js/common.js", "js/overview.js"],
                "explorer.html": ["js/common.js", "js/explorer.js"],
-               "companies.html": ["js/common.js", "js/companies.js"]}
+               "companies.html": ["js/common.js", "js/companies.js"],
+               "insights.html": ["vendor/chart.umd.min.js", "js/common.js", "js/insights.js"]}
     for page, (title, description) in PAGES.items():
         template = (SITE / "pages" / page).read_text(encoding="utf-8")
         if page == "insights.html" and findings is None:
             template = '<h1>Insights</h1><p class="callout">Draft build: findings are being rewritten.</p>'
         body = fill(template, values)
-        (OUT / page).write_text(layout(title, description, body, page, "", as_of, scripts.get(page, ())), encoding="utf-8")
+        (OUT / page).write_text(layout(title, description, body, page, "", as_of, scripts.get(page, ()),
+                                       path="" if page == "index.html" else page), encoding="utf-8")
 
     # One brief per drug, ordered as in the drug list.
     so_what = {k: "<ul>" + "".join(f"<li>{esc(b)}</li>" for b in v) + "</ul>" for k, v in bullets.items()}
@@ -422,10 +444,18 @@ def main() -> None:
         body = brief_page(by_id[row["id"]], row, prev_next, as_of)
         body = body.replace("{{so_what}}", so_what[row["id"]])
         title = f'{row["brand_us"]} market-access brief | Pharma Access Atlas'
-        desc = f'Approval and access timeline for {row["brand_us"]} ({row["inn"]}) in the US, EU, Italy, Germany, France and England.'
+        # The preview text is the drug's own first two "so what" bullets (already checked against the data).
+        desc = f'{row["brand_us"]} ({row["inn"]}): ' + " ".join(bullets[row["id"]][:2])
+        if len(desc) > 200:
+            desc = desc[:197].rsplit(" ", 1)[0] + "…"
         (OUT / "drugs" / f'{row["id"]}.html').write_text(
-            layout(title, desc, body, "explorer.html", "../", as_of), encoding="utf-8")
+            layout(title, desc, body, "explorer.html", "../", as_of, path=f'drugs/{row["id"]}.html'), encoding="utf-8")
 
+    # Sitemap so search engines find every page and brief (submit it in Google Search Console).
+    urls = [SITE_URL + ("" if p == "index.html" else p) for p in PAGES] + [f'{SITE_URL}drugs/{r["id"]}.html' for r in rows]
+    (OUT / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "".join(f"  <url><loc>{u}</loc><lastmod>{as_of}</lastmod></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
     print(f"  ok   built {len(PAGES)} pages + {len(rows)} drug briefs into _site/")
 
 

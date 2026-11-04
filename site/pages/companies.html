@@ -17,10 +17,21 @@
         <option value="1">All {{n_companies}} companies</option>
       </select>
     </label>
+    <label class="mobile-only">Sort by
+      <select id="sc-sort">
+        <option value="n:desc">Drugs (most first)</option>
+        <option value="it_sort:asc">Italy (fastest first)</option>
+        <option value="lag_median:asc">US→EU lag (shortest first)</option>
+        <option value="de_pct:desc">Germany: added benefit (highest first)</option>
+        <option value="fr_pct:desc">France: improvement (highest first)</option>
+        <option value="en_pct:desc">England: positive (highest first)</option>
+        <option value="company:asc">Company (A–Z)</option>
+      </select>
+    </label>
   </form>
   <p class="result-count" id="sc-count" aria-live="polite"></p>
   <div class="table-scroll">
-    <table class="data-table" id="scorecard">
+    <table class="data-table cards" id="scorecard">
       <caption class="visually-hidden">Company scorecard, sortable by each column</caption>
       <thead>
         <tr>

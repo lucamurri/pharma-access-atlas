@@ -37,13 +37,13 @@
       <tr>
         <th scope="row"><a href="explorer.html?company=${encodeURIComponent(c.company)}">${Atlas.esc(c.company)}</a>
           <br><span class="muted small">${Atlas.esc(c.drugs.join(", "))}</span></th>
-        <td class="num">${c.n}</td>
-        <td class="num">${c.lag_median !== null ? Math.floor(c.lag_median + 0.5).toLocaleString("en-US") : "n/a"}
-          ${c.eu_first ? `<br><span class="muted small">${c.eu_first} EU first</span>` : ""}</td>
-        <td class="num">${italy(c)}</td>
-        <td class="num">${share(c.de_pos, c.de_n)}</td>
-        <td class="num">${share(c.fr_pos, c.fr_n)}</td>
-        <td class="num">${share(c.en_pos, c.en_n)}</td>
+        <td class="num" data-label="Drugs"><span>${c.n}</span></td>
+        <td class="num" data-label="US→EU lag, median days"><span>${c.lag_median !== null ? Math.floor(c.lag_median + 0.5).toLocaleString("en-US") : "n/a"}
+          ${c.eu_first ? `<br><span class="muted small">${c.eu_first} EU first</span>` : ""}</span></td>
+        <td class="num" data-label="Italy: half reimbursed within (days)"><span>${italy(c)}</span></td>
+        <td class="num" data-label="Germany: added benefit"><span>${share(c.de_pos, c.de_n)}</span></td>
+        <td class="num" data-label="France: improvement"><span>${share(c.fr_pos, c.fr_n)}</span></td>
+        <td class="num" data-label="England: positive"><span>${share(c.en_pos, c.en_n)}</span></td>
       </tr>`).join("");
     el("sc-count").textContent = `Showing ${visible.length} of ${companies.length} companies`;
 
@@ -68,5 +68,7 @@
     });
   });
   el("sc-min").addEventListener("input", render);
+  // Phones hide the column headers, so a menu offers the same sorts.
+  el("sc-sort").addEventListener("input", e => { [sortKey, sortDir] = e.target.value.split(":"); render(); });
   render();
 })();

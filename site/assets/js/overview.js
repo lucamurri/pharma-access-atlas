@@ -66,6 +66,8 @@
   // Read the step curve on every day so the tooltip can compare countries on the same day.
   const reachedBy = (steps, day) => { let v = 0; for (const [t, p] of steps) { if (t > day) break; v = p; } return v; };
   const grid = Array.from({ length: HORIZON + 1 }, (_, d) => d);
+  // On phones: shorter axis labels and less room reserved for the end labels.
+  const narrow = document.getElementById("chart-countries").parentElement.clientWidth < 520;
   const curveLabels = {
     id: "curveLabels",
     afterDatasetsDraw(chart) {
@@ -75,7 +77,7 @@
       }).sort((p, q) => p.y - q.y);
       for (let k = 1; k < ends.length; k++) ends[k].y = Math.max(ends[k].y, ends[k - 1].y + 15); // avoid overlaps
       ctx.save();
-      ctx.font = `600 12px ${Chart.defaults.font.family}`; ctx.textBaseline = "middle";
+      ctx.font = `600 ${narrow ? 11 : 12}px ${Chart.defaults.font.family}`; ctx.textBaseline = "middle";
       ends.forEach(({ i, y }) => {
         const ct = countries[i];
         ctx.fillStyle = ct.color; ctx.beginPath(); ctx.arc(chartArea.right + 8, y, 4, 0, 2 * Math.PI); ctx.fill();
@@ -96,14 +98,15 @@
       pointHoverBorderColor: c.surface, pointHoverBorderWidth: 2,
     })) },
     options: {
-      maintainAspectRatio: false, layout: { padding: { right: 110 } },
+      maintainAspectRatio: false, layout: { padding: { right: narrow ? 100 : 110 } },
       interaction: { mode: "index", intersect: false },
       scales: {
         x: { type: "linear", min: 0, max: HORIZON, grid: { color: c.grid }, border: { display: false },
              title: { display: true, text: "Days after European Commission approval" },
-             ticks: { stepSize: 365, callback: v => (v === 0 ? "0" : `${v} (${v / 365} yr)`) } },
+             ticks: { stepSize: 365, maxRotation: 0,
+                      callback: v => (v === 0 ? "0" : narrow ? `${v / 365} yr` : `${v} (${v / 365} yr)`) } },
         y: { min: 0, max: 100, grid: { color: c.grid }, border: { display: false },
-             title: { display: true, text: "Drugs that reached the milestone" }, ticks: { stepSize: 25, callback: v => `${v}%` } },
+             title: { display: !narrow, text: "Drugs that reached the milestone" }, ticks: { stepSize: 25, callback: v => `${v}%` } },
       },
       plugins: { tooltip: { ...tooltip, displayColors: true, boxPadding: 4, callbacks: {
         title: items => `Day ${items[0].parsed.x} after EU approval`,

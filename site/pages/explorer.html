@@ -22,12 +22,23 @@
   <label>First approved (year)
     <select id="f-year"><option value="">All</option></select>
   </label>
+  <label class="mobile-only">Sort by
+    <select id="f-sort">
+      <option value="brand_us:asc">Drug (A–Z)</option>
+      <option value="lag:desc">US→EU lag (longest first)</option>
+      <option value="it_sort:asc">Italy delay (shortest first)</option>
+      <option value="it_sort:desc">Italy delay (longest first)</option>
+      <option value="ec_date:desc">EC approval (newest first)</option>
+      <option value="gba_sort:asc">Germany rating (best first)</option>
+      <option value="fr_sort:asc">France rating (best first)</option>
+    </select>
+  </label>
   <button type="reset" id="f-reset">Clear filters</button>
 </form>
 
 <p class="result-count" id="result-count" aria-live="polite"></p>
 <div class="table-scroll">
-  <table class="data-table" id="explorer">
+  <table class="data-table cards" id="explorer">
     <caption class="visually-hidden">Drugs, sortable by each column</caption>
     <thead>
       <tr>
