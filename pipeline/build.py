@@ -202,6 +202,9 @@ SMR_ORDER = ["important", "moderate", "low", "insufficient"]
 ASMR_ORDER = ["I", "II", "III", "IV", "V"]
 
 
+FR_FIELDS = ("fr_has_date", "fr_has_smr_best", "fr_has_asmr_best", "fr_has_any_insufficient")
+
+
 def france_fields(drug_id: str, has: dict, retrieved: str) -> dict:
     """HAS first opinion: best SMR and ASMR across indications, and the date."""
     entry = has.get(drug_id) or {}
@@ -302,6 +305,10 @@ def main() -> None:
                       "de_gba_rating_best", "de_gba_any_no_added_benefit", "de_gba_orphan_route"]:
             f[field] = manual_field(manual, did, field)
         f.update(france_fields(did, has, has_retrieved))
+        # Researched HAS values fill gaps the automated BDPM files leave; they never override them.
+        for field in FR_FIELDS:
+            if f[field]["value"] is None and (did, field) in manual:
+                f[field] = manual_field(manual, did, field)
         for field in ["en_nice_decision", "en_nice_date", "en_nice_ta"]:
             f[field] = manual_field(manual, did, field)
         f.update(cms_fields(drug, cms_rows, cms_url, cms_retrieved))

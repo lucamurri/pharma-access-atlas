@@ -87,4 +87,5 @@ MANUAL_FILES = {
     "us_fda.csv": ["us_orphan_designated", "fda_approval_date", "fda_application", "fda_brand"],
     "cms_list_prices.csv": ["cms_list_price_30day", "cms_list_price_year"],
     "england_nice.csv": ["en_nice_decision", "en_nice_date", "en_nice_ta"],
+    "france_has.csv": ["fr_has_date", "fr_has_smr_best", "fr_has_asmr_best", "fr_has_any_insufficient"],
 }
