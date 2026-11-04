@@ -162,6 +162,13 @@ details.sources { margin-top: 2.5rem; }
 details.sources summary { font-weight: 600; }
 .pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
 
+/* ---------- Insights ---------- */
+.findings section { border-top: 1px solid var(--border); padding-top: 0.5rem; margin-top: 2rem; }
+.findings h2 { font-size: 1.35rem; margin-top: 1rem; }
+.finding-num { display: inline-block; min-width: 1.7em; height: 1.7em; line-height: 1.7em; text-align: center; margin-right: 0.5rem;
+  background: var(--accent); color: var(--bg); font-family: var(--font-sans); font-size: 0.8em; border-radius: 50%; vertical-align: 0.1em; }
+.so-what-line { background: var(--surface); border-left: 3px solid var(--accent); padding: 0.6rem 0.9rem; }
+
 /* ---------- Methodology / about ---------- */
 .callout { border-left: 3px solid var(--accent); background: var(--surface); padding: 0.9rem 1.1rem; margin: 1.5rem 0; max-width: 46rem; }
 .callout p:last-child { margin-bottom: 0; }

@@ -1,8 +1,80 @@
 <p class="eyebrow">Insights</p>
-<h1>What the data says</h1>
-<p class="lede">Findings drawn only from the {{n}} drugs in the atlas, written in plain business language.</p>
+<h1>Six findings on getting new drugs to patients</h1>
+<p class="lede">Drawn only from the {{n}} drugs in the atlas. The sample is curated and small, so read these as
+  patterns in this set of medicines, not laws of the market. Each finding states how many drugs it rests on.</p>
 
-<div class="callout">
-  <p>The written findings are added in the next phase (insights &amp; briefs). Until then, the
-    <a href="index.html">overview charts</a> and <a href="explorer.html">drug explorer</a> show the underlying data.</p>
+<div class="prose findings">
+
+<section aria-labelledby="f1">
+  <h2 id="f1"><span class="finding-num">1</span> Approval is the short part of the wait: Italian reimbursement takes more than twice as long as the US-to-EU gap</h2>
+  <p>Across the set, EU approval came a median {{lag_median}} days after FDA approval. Reimbursement in Italy
+    then took a median <strong>{{it_lag_median}} days more</strong>, counted to publication in the Gazzetta Ufficiale.
+    End to end, reimbursed access in Italy came a median <strong>{{fda_to_it_median}} days</strong>
+    (over two years) after the American approval ({{it_n}} reimbursed drugs). This understates the wait:
+    {{it_n_waiting}} drugs ({{it_waiting_names}}) were still not reimbursed when checked.</p>
+  <p class="so-what-line"><strong>So what:</strong> for European launch planning, the pricing and reimbursement
+    process, not the regulator, is the critical path. It deserves the same early investment as the regulatory filing.</p>
+</section>
+
+<section aria-labelledby="f2">
+  <h2 id="f2"><span class="finding-num">2</span> Orphan status is not a fast track to Italian reimbursement</h2>
+  <p>Drugs with an orphan designation in the US or EU were reimbursed in Italy a median <strong>{{orph_it}} days</strong>
+    after EU approval ({{orph_n}} drugs), essentially the same as the <strong>{{non_it}} days</strong> for
+    non-orphan drugs ({{non_n}} drugs). Drugs holding EU orphan status did somewhat better, at a median {{eu_orph_it}} days
+    ({{eu_orph_n}} drugs) versus {{eu_non_it}} ({{eu_non_n}} drugs), roughly {{eu_orph_gap}} days faster. That gap is
+    small relative to the spread, and the sample is small.</p>
+  <p class="so-what-line"><strong>So what:</strong> rarity alone does not shorten negotiations in Italy. The longest
+    Italian wait in the atlas belongs to an orphan cell therapy, Carvykti ({{carvykti_it}} days), while the orphan
+    gene therapy Zolgensma was among the fastest ({{zolgensma_it}} days).</p>
+</section>
+
+<section aria-labelledby="f3">
+  <h2 id="f3"><span class="finding-num">3</span> Germany's verdict depends heavily on the assessment route</h2>
+  <p>Overall, {{gba_n_nab}} of {{gba_n_assessed}} drugs showed no added benefit for any patient group in their first
+    G-BA decision. The split by route is stark. Among the {{comp_n}} drugs compared against an existing therapy,
+    <strong>{{comp_nab_n}} ({{comp_nab_pct}}%) showed no added benefit</strong>. All {{orphan_route_n}} drugs assessed
+    under the orphan rules received a benefit rating, because the law deems their added benefit proven. In most
+    cases G-BA rated it “non-quantifiable”.</p>
+  <p class="so-what-line"><strong>So what:</strong> without orphan protection, a positive German rating requires head-to-head
+    evidence against the local standard of care. Trial design for Europe has to anticipate the G-BA comparator,
+    not only the FDA's endpoints.</p>
+</section>
+
+<section aria-labelledby="f4">
+  <h2 id="f4"><span class="finding-num">4</span> Drugs Germany valued most also reached Italian patients faster</h2>
+  <p>Drugs rated as offering major or considerable added benefit in Germany were reimbursed in Italy a median
+    <strong>{{high_it}} days</strong> after EU approval ({{high_n}} drugs). Drugs with no added benefit took
+    <strong>{{nab_it}} days</strong> ({{nab_n}} drugs), about {{high_gap}} days longer. The two countries decide
+    independently, so this is an association, not cause and effect. It suggests that the strength of the evidence package
+    shows up in both systems.</p>
+  <p class="so-what-line"><strong>So what:</strong> a weak German result is an early warning sign for negotiations
+    elsewhere in Europe, including Italy.</p>
+</section>
+
+<section aria-labelledby="f5">
+  <h2 id="f5"><span class="finding-num">5</span> Oncology and cardiometabolic drugs face the longest Italian waits; conditional approvals wait longest of all</h2>
+  <p>By therapy area, rare-disease drugs were reimbursed fastest in Italy (median <strong>{{rare_it}} days</strong>,
+    {{rare_n}} drugs). Oncology ({{onc_it}} days, {{onc_n}} drugs) and cardiometabolic ({{cardio_it}} days,
+    {{cardio_n}} drugs) were slowest. The {{cond_n}} drugs with an EU <em>conditional</em> approval waited a median
+    <strong>{{cond_it}} days</strong>, against {{std_it}} for standard approvals ({{std_n}} drugs).</p>
+  <p class="so-what-line"><strong>So what:</strong> Italian launch plans for oncology and cardiometabolic drugs, and for
+    any conditionally approved drug, should assume a wait well beyond the overall median of {{it_lag_median}} days.</p>
+</section>
+
+<section aria-labelledby="f6">
+  <h2 id="f6"><span class="finding-num">6</span> One molecule, three deals: semaglutide</h2>
+  <p>CMS negotiated a single Medicare price for all semaglutide products (Ozempic, Rybelsus and Wegovy):
+    <strong>${{cms_mfp}} per 30-day supply from {{cms_ipay}}</strong>, {{cms_discount}}% below the ${{cms_list}}
+    list price that CMS reports for {{cms_list_year}}. In Italy, oral Rybelsus for diabetes was reimbursed (class A)
+    {{ryb_it}} days after EU approval. Wegovy for weight management remains in class C, unreimbursed
+    {{weg_waiting}} days after EU approval. Germany's G-BA found no added benefit for Rybelsus. It has no benefit
+    assessment for Wegovy, which statutory insurance excludes as a “lifestyle” medicine.</p>
+  <p class="so-what-line"><strong>So what:</strong> the same active ingredient can be negotiated, reimbursed or
+    excluded depending on the indication and the country. For obesity, payer policy, more than clinical
+    evidence, is the gatekeeper in Europe.</p>
+</section>
+
 </div>
+
+<p class="muted small">All figures are medians of days between dated events. See the <a href="methodology.html">methodology</a>
+  for definitions and limitations, and the <a href="explorer.html">explorer</a> for every drug's values.</p>
