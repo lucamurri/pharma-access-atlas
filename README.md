@@ -78,7 +78,7 @@ reimbursement in **Italy** (AIFA), plus Medicare price negotiation in the **US**
 
 ```
 pipeline/           universe.py (drug selection); fetch_*.py → build.py → validate.py → coverage.py;
-                    analysis.py, so_what.py, check_text.py, build_site.py
+                    watch_has.py (flags new HAS opinions); analysis.py, so_what.py, check_text.py, build_site.py
 data/raw/           trimmed extracts of the downloaded sources
 data/manual/        hand-maintained CSVs (one sourced fact per row; see its README)
 data/processed/     drugs.json: every field with value, status, source and date

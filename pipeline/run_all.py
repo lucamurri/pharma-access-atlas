@@ -16,6 +16,7 @@ import fetch_ema
 import fetch_fda
 import fetch_france
 import validate
+import watch_has
 
 
 def main() -> int:
@@ -33,6 +34,12 @@ def main() -> int:
         return 1
     print("4/4 Coverage")
     coverage.main()
+    if "--offline" not in sys.argv:
+        # A watch, not a data source: if HAS is unreachable the refresh still goes ahead.
+        try:
+            watch_has.main()
+        except Exception as exc:
+            print(f"  warn HAS watch skipped: {exc}")
     return 0
 
 

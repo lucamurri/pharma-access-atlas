@@ -34,4 +34,10 @@ drug_id,field,value,status,source_url,retrieved_date,notes
 - Dates are `YYYY-MM-DD`. An Italian or German date can't be earlier than the EC approval.
 - G-BA ratings must be one of: `major`, `considerable`, `minor`, `non-quantifiable`, `no added benefit`, `lesser`.
 
+## France: new opinions are flagged for you
+Each monthly refresh checks HAS's open data for a new opinion on any drug with no French value
+(`pipeline/watch_has.py`). Matches are listed in `data/processed/has_watch.json`, and the workflow opens a
+GitHub issue titled "New HAS opinions to review". Read the opinion, then update `france_has.csv` (first
+inclusion opinion only; ignore early-access decisions). Nothing is changed automatically.
+
 After editing, run `python3 pipeline/run_all.py --offline` to rebuild and check everything.
