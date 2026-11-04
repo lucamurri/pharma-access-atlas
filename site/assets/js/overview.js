@@ -53,23 +53,72 @@
     plugins: [valueLabels(valueText)],
   });
 
-  // ---- 1. Days after EU approval, by country ---------------------------------
-  const steps = [
-    { name: "France: HAS opinion", key: "fr_lag" },
-    { name: "Germany: G-BA decision", key: "gba_lag" },
-    { name: "England: NICE guidance", key: "en_lag" },
-    { name: "Italy: reimbursement", key: "it_lag" },
-  ].map(st => {
-    const vals = rows.map(r => r[st.key]).filter(x => x !== null);
-    return { ...st, median: median(vals), n: vals.length };
-  }).filter(st => st.n > 0).sort((a, b) => a.median - b.median);
-  hbar("chart-countries", steps.map(st => st.name), steps.map(st => st.median),
-       steps.map(st => `${round(st.median)} days`),
-       item => [`Median ${round(item.raw)} days after EU approval`, `${steps[item.dataIndex].n} drugs`]);
-  document.getElementById("table-countries").innerHTML = Atlas.table(steps, [
-    { label: "Milestone", value: st => st.name },
-    { label: "Median days after EC approval", value: st => round(st.median), num: true },
-    { label: "Drugs with a date", value: st => st.n, num: true },
+  // ---- 1. Time to each country's milestone (Kaplan-Meier, computed in the pipeline) ----
+  // Each curve is the share of drugs that had reached the milestone by a given day.
+  // Drugs still waiting stay in the denominator until the day they were checked.
+  const HORIZON = 4 * 365;
+  const countries = [
+    { key: "fr", name: "France", milestone: "HAS opinion", color: Atlas.cssVar("--country-fr") },
+    { key: "de", name: "Germany", milestone: "G-BA decision", color: Atlas.cssVar("--country-de") },
+    { key: "en", name: "England", milestone: "NICE guidance", color: Atlas.cssVar("--country-en") },
+    { key: "it", name: "Italy", milestone: "reimbursement", color: Atlas.cssVar("--country-it") },
+  ].map(ct => ({ ...ct, ...s.access[ct.key] }));
+  // Read the step curve on every day so the tooltip can compare countries on the same day.
+  const reachedBy = (steps, day) => { let v = 0; for (const [t, p] of steps) { if (t > day) break; v = p; } return v; };
+  const grid = Array.from({ length: HORIZON + 1 }, (_, d) => d);
+  const curveLabels = {
+    id: "curveLabels",
+    afterDatasetsDraw(chart) {
+      const { ctx, chartArea } = chart;
+      const ends = chart.data.datasets.map((ds, i) => {
+        const pts = chart.getDatasetMeta(i).data; return { i, y: pts[pts.length - 1].y };
+      }).sort((p, q) => p.y - q.y);
+      for (let k = 1; k < ends.length; k++) ends[k].y = Math.max(ends[k].y, ends[k - 1].y + 15); // avoid overlaps
+      ctx.save();
+      ctx.font = `600 12px ${Chart.defaults.font.family}`; ctx.textBaseline = "middle";
+      ends.forEach(({ i, y }) => {
+        const ct = countries[i];
+        ctx.fillStyle = ct.color; ctx.beginPath(); ctx.arc(chartArea.right + 8, y, 4, 0, 2 * Math.PI); ctx.fill();
+        ctx.fillStyle = c.text; ctx.fillText(`${ct.name} ${Math.round(chart.data.datasets[i].data[HORIZON])}%`, chartArea.right + 16, y);
+      });
+      // Dashed reference line at 50%: where each curve crosses it is that country's median.
+      const y50 = chart.scales.y.getPixelForValue(50);
+      ctx.strokeStyle = c.text2; ctx.setLineDash([4, 4]); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(chartArea.left, y50); ctx.lineTo(chartArea.right, y50); ctx.stroke();
+      ctx.restore();
+    },
+  };
+  new Chart(document.getElementById("chart-countries"), {
+    type: "line",
+    data: { labels: grid, datasets: countries.map(ct => ({
+      label: `${ct.name}: ${ct.milestone}`, data: grid.map(d => reachedBy(ct.steps, d)),
+      borderColor: ct.color, backgroundColor: ct.color, borderWidth: 2, pointRadius: 0, pointHoverRadius: 4,
+      pointHoverBorderColor: c.surface, pointHoverBorderWidth: 2,
+    })) },
+    options: {
+      maintainAspectRatio: false, layout: { padding: { right: 110 } },
+      interaction: { mode: "index", intersect: false },
+      scales: {
+        x: { type: "linear", min: 0, max: HORIZON, grid: { color: c.grid }, border: { display: false },
+             title: { display: true, text: "Days after European Commission approval" },
+             ticks: { stepSize: 365, callback: v => (v === 0 ? "0" : `${v} (${v / 365} yr)`) } },
+        y: { min: 0, max: 100, grid: { color: c.grid }, border: { display: false },
+             title: { display: true, text: "Drugs that reached the milestone" }, ticks: { stepSize: 25, callback: v => `${v}%` } },
+      },
+      plugins: { tooltip: { ...tooltip, displayColors: true, boxPadding: 4, callbacks: {
+        title: items => `Day ${items[0].parsed.x} after EU approval`,
+        label: item => ` ${countries[item.datasetIndex].name}: ${Math.round(item.parsed.y)}% reached`,
+      } } },
+    },
+    plugins: [curveLabels],
+  });
+  document.getElementById("table-countries").innerHTML = Atlas.table(countries, [
+    { label: "Milestone", value: ct => `${ct.name}: ${ct.milestone}` },
+    { label: "Median days (incl. waiting)", value: ct => ct.median ?? "not reached", num: true },
+    { label: "Reached within 1 year", value: ct => `${Math.round(ct.pct_1y)}%`, num: true },
+    { label: "Reached within 2 years", value: ct => `${Math.round(ct.pct_2y)}%`, num: true },
+    { label: "Drugs counted", value: ct => ct.n, num: true },
+    { label: "Still waiting when checked", value: ct => ct.waiting, num: true },
   ]);
 
   // ---- 2. US-to-EU lag distribution -------------------------------------------
@@ -127,7 +176,7 @@
   // ---- 4. Verdicts: Germany, France, England -----------------------------------
   const cap = t => t.charAt(0).toUpperCase() + t.slice(1);
   const gOrder = ["major", "considerable", "minor", "non-quantifiable", "no added benefit", "lesser"];
-  const fOrder = ["I", "II", "III", "IV", "V"];
+  const fOrder = ["I", "II", "III", "IV", "V", "SMR insufficient"];
   const eOrder = ["recommended", "optimised", "managed access", "not recommended", "terminated"];
   const g = gOrder.map(k => s.gba_ratings[k]);
   const f = fOrder.map(k => s.fr_asmr[k]);
@@ -138,11 +187,12 @@
     return [`${item.raw} drugs`, ...list.slice(0, 8), ...(list.length > 8 ? [`and ${list.length - 8} more`] : [])];
   };
   hbar("chart-gba", gOrder.map(cap), g, g.map(String), tipFor("gba_rating", gOrder));
-  hbar("chart-fr", fOrder.map(k => `ASMR ${k}`), f, f.map(String), tipFor("fr_asmr", fOrder));
+  const frLabel = k => (k.startsWith("SMR") ? k : `ASMR ${k}`);
+  hbar("chart-fr", fOrder.map(frLabel), f, f.map(String), tipFor("fr_verdict", fOrder));
   hbar("chart-en", eOrder.map(cap), e, e.map(String), tipFor("en_decision", eOrder));
   const htaRows = [
     ...gOrder.map((k, i) => ({ country: "Germany", verdict: k, n: g[i] })),
-    ...fOrder.map((k, i) => ({ country: "France", verdict: `ASMR ${k}`, n: f[i] })),
+    ...fOrder.map((k, i) => ({ country: "France", verdict: frLabel(k), n: f[i] })),
     ...eOrder.map((k, i) => ({ country: "England", verdict: k, n: e[i] })),
   ];
   document.getElementById("table-hta").innerHTML = Atlas.table(htaRows, [

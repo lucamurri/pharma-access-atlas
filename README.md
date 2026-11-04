@@ -26,9 +26,10 @@ reimbursement in **Italy** (AIFA), plus Medicare price negotiation in the **US**
 *(Data as of 4 November 2026; full analysis on the [Insights](https://lucamurri.github.io/pharma-access-atlas/insights.html) page.)*
 
 1. **Approval is the short part of the wait, and Italy is the slowest step.** EU approval came a median
-   **212 days** after the FDA's. Counted from EU approval, France's HAS gave its opinion after a median **180 days**,
-   Germany's G-BA after **230** and England's NICE after **335**, while Italy took **474 days** to reimburse. That puts
-   reimbursed Italian access a median **696 days** (almost two years) after US approval.
+   **212 days** after the FDA's. Counting the drugs still waiting (Kaplan–Meier), half of drugs had a French HAS
+   opinion within **215 days** of EU approval, a German G-BA decision within **234** and English NICE guidance within
+   **399**, while Italian reimbursement took **522 days**. From US approval, it took **823 days** (over two years)
+   until half of drugs were reimbursed in Italy.
 2. **Without orphan protection, most drugs show no added benefit in Germany.** Of the 112 drugs assessed against an
    existing therapy, **71% showed no added benefit** for any patient group. All 69 drugs assessed under the orphan rules
    received a benefit rating.
@@ -42,6 +43,8 @@ reimbursement in **Italy** (AIFA), plus Medicare price negotiation in the **US**
   BLAs, plus FDA-verified cell and gene therapies) and first EU centralised authorisation both fall in 2019–2025.
   Generics, biosimilars and diagnostics are excluded. The selection was cross-checked against FDA's official
   novel-approval lists. Two semaglutide brands are kept as labelled reference drugs for the Medicare comparison.
+- **Time to access:** medians of national milestones count drugs still waiting, using Kaplan–Meier curves (a drug
+  confirmed as "not yet" stays in the count until the day it was checked), so slow cases are not left out.
 - **Measures:** US-to-EU approval lag; Italian access delay (EC approval to reimbursement published in the
   *Gazzetta Ufficiale*); German AMNOG rating (first G-BA decision); French HAS SMR and ASMR; NICE first decision;
   orphan status; and Medicare negotiated price where CMS publishes one. Therapy areas come from ATC codes.
@@ -56,7 +59,7 @@ reimbursement in **Italy** (AIFA), plus Medicare price negotiation in the **US**
 | openFDA (Drugs@FDA) | FDA approval date, applicant | API, refreshed monthly |
 | EMA medicine data | CHMP opinion, EC approval, EU orphan, conditional approval | Download, refreshed monthly |
 | CMS Drug Price Negotiation | Selection, Maximum Fair Price | Data file, refreshed monthly |
-| French public medicines database (BDPM) | HAS SMR, ASMR and opinion date | Download, refreshed monthly |
+| French public medicines database (BDPM) | HAS SMR, ASMR and opinion date | Download, refreshed monthly; gaps from HAS open data and opinions |
 | NICE | England appraisal outcome, date, TA number | Manual, sourced CSV |
 | Gazzetta Ufficiale / AIFA | Italian reimbursement date and class | Manual, sourced CSV |
 | G-BA | AMNOG decision date and rating | Manual, sourced CSV |

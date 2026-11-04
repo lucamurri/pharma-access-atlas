@@ -17,6 +17,8 @@
   --series-1: #2a78d6;         /* US first / main series */
   --series-2: #eb6834;         /* EU first */
   --series-neutral: #a3a29c;   /* still waiting / not applicable */
+  /* One fixed hue per country (validated as a set of four, light and dark). */
+  --country-fr: #2a78d6; --country-de: #eda100; --country-en: #e87ba4; --country-it: #008300;
   --grid: #ebe9e4;
   --focus: #eda100;
 
@@ -40,6 +42,7 @@
     --series-1: #3987e5;
     --series-2: #d95926;
     --series-neutral: #77766f;
+    --country-fr: #3987e5; --country-de: #c98500; --country-en: #d55181; --country-it: #008300;
     --grid: #2c2c29;
   }
 }

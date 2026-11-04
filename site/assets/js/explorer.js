@@ -9,7 +9,7 @@
   rows.forEach(r => {
     r.it_sort = r.it_lag ?? (r.it_waiting !== null ? 100000 + r.it_waiting : null); // waiting sorts last
     r.gba_sort = r.gba_rating ? RATING_ORDER.indexOf(r.gba_rating) : null;
-    r.fr_sort = r.fr_asmr ? ["I", "II", "III", "IV", "V"].indexOf(r.fr_asmr) : null;
+    r.fr_sort = r.fr_verdict ? ["I", "II", "III", "IV", "V", "SMR insufficient"].indexOf(r.fr_verdict) : null;
   });
 
   const el = id => document.getElementById(id);
@@ -29,7 +29,7 @@
   let sortDir = params.get("dir") || "asc";
 
   const ratingPill = r => {
-    if (!r.gba_rating) return '<span class="muted">n/a</span>';
+    if (!r.gba_rating) return r.gba_pending ? '<span class="pill">in progress</span>' : '<span class="muted">n/a</span>';
     const cls = ["major", "considerable"].includes(r.gba_rating) ? "pill pill-accent" : "pill";
     return `<span class="${cls}">${Atlas.esc(r.gba_rating)}</span>`;
   };
@@ -73,8 +73,9 @@
         <td class="num">${r.lag ?? "n/a"}</td>
         <td class="num">${italyCell(r)}</td>
         <td>${ratingPill(r)}</td>
-        <td>${r.fr_asmr ? `ASMR ${r.fr_asmr}` : '<span class="muted">n/a</span>'}</td>
-        <td>${r.en_decision ? Atlas.esc(r.en_decision) : '<span class="muted">n/a</span>'}</td>
+        <td>${r.fr_asmr ? `ASMR ${r.fr_asmr}` : r.fr_smr === "insufficient" ? "SMR insufficient"
+              : r.fr_pending ? '<span class="pill">no opinion yet</span>' : '<span class="muted">n/a</span>'}</td>
+        <td>${r.en_decision ? Atlas.esc(r.en_decision) : r.en_pending ? '<span class="pill">in progress</span>' : '<span class="muted">n/a</span>'}</td>
         <td>${orphanCell(r)}</td>
       </tr>`).join("") || '<tr><td colspan="11">No drugs match these filters.</td></tr>';
 

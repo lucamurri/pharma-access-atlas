@@ -16,7 +16,7 @@
   <div class="kpi">
     <p class="kpi-label">Median Italy access delay</p>
     <p class="kpi-value">{{it_lag_median}} <span class="kpi-unit">days</span></p>
-    <p class="kpi-note">EU approval to reimbursement, {{it_n_reimbursed}} drugs; {{it_n_waiting}} still not reimbursed</p>
+    <p class="kpi-note">EU approval to reimbursement, counting the {{it_n_waiting}} drugs still not reimbursed</p>
   </div>
   <div class="kpi">
     <p class="kpi-label">Germany: “no added benefit”</p>
@@ -24,9 +24,9 @@
     <p class="kpi-note">{{gba_n_nab}} of {{gba_n_assessed}} drugs, for every patient group (first G-BA decision)</p>
   </div>
   <div class="kpi">
-    <p class="kpi-label">France: no improvement (ASMR V)</p>
-    <p class="kpi-value">{{fr_pct_asmr_v}}<span class="kpi-unit">%</span></p>
-    <p class="kpi-note">Of {{fr_n}} drugs with a HAS inclusion opinion</p>
+    <p class="kpi-label">France: no improvement, or not worth reimbursing</p>
+    <p class="kpi-value">{{fr_pct_negative}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">ASMR V or SMR insufficient, of {{fr_n}} drugs with a HAS inclusion opinion</p>
   </div>
 </section>
 
@@ -35,9 +35,17 @@
 
 <section class="chart-card" aria-labelledby="c-cty-h">
   <h2 id="c-cty-h">{{title_countries}}</h2>
-  <p class="chart-sub">Median days from European Commission approval to each country's milestone. These are different
-    milestones: Germany, France and England publish benefit assessments, and Italy publishes reimbursement.</p>
-  <div class="chart-box" style="height: 240px"><canvas id="chart-countries" role="img" aria-label="{{title_countries}}. Data in the table below."></canvas></div>
+  <p class="chart-sub">Share of drugs that had reached each country's milestone, by days since European Commission
+    approval. Drugs still waiting count until the day they were checked, so the curves do not overstate speed.
+    The milestones differ: Germany, France and England publish benefit assessments, and Italy publishes
+    reimbursement. Where a curve crosses 50% is its median.</p>
+  <ul class="legend" aria-hidden="true">
+    <li style="--swatch: var(--country-fr)">France: HAS opinion</li>
+    <li style="--swatch: var(--country-de)">Germany: G-BA decision</li>
+    <li style="--swatch: var(--country-en)">England: NICE guidance</li>
+    <li style="--swatch: var(--country-it)">Italy: reimbursement</li>
+  </ul>
+  <div class="chart-box" style="height: 360px"><canvas id="chart-countries" role="img" aria-label="{{title_countries}}. Data in the table below."></canvas></div>
   <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-countries"></div></details>
 </section>
 
@@ -69,7 +77,7 @@
   <div class="chart-grid-3">
     <div><h3>Germany: G-BA added benefit (best patient group)</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-gba" role="img" aria-label="Germany G-BA ratings. Data in the table below."></canvas></div></div>
-    <div><h3>France: HAS ASMR (I = major, V = none)</h3>
+    <div><h3>France: HAS ASMR (I = major, V = none), or SMR insufficient</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-fr" role="img" aria-label="France ASMR ratings. Data in the table below."></canvas></div></div>
     <div><h3>England: NICE first decision</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-en" role="img" aria-label="NICE decisions. Data in the table below."></canvas></div></div>

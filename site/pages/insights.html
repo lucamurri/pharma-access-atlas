@@ -9,12 +9,15 @@
 <section aria-labelledby="f1">
   <h2 id="f1"><span class="finding-num">1</span> Approval is the short part of the wait, and Italy is the slowest step</h2>
   <p>EU approval came a median {{lag_median}} days after the FDA's. Then national processes take over, and
-    in Italy that step alone takes more than twice as long as the regulatory gap. Counted from EU approval, France's HAS gave its first opinion after a
-    median <strong>{{fr_med}} days</strong> ({{fr_n2}} drugs), Germany's G-BA decided after <strong>{{de_med}}</strong>
-    ({{de_n2}}) and England's NICE published guidance after <strong>{{en_med}}</strong> ({{en_n2}}). Italy published
-    reimbursement after <strong>{{it_med}} days</strong> ({{it_n2}}). End to end, reimbursed access in Italy came a
-    median <strong>{{fda_to_it_median}} days</strong>, almost two years, after US approval. {{it_n_waiting}} drugs were
-    still not reimbursed in Italy when checked.</p>
+    in Italy that step alone takes more than twice as long as the regulatory gap. These medians count the drugs
+    still waiting (a time-to-access curve, see the <a href="methodology.html#curves">methodology</a>), so slow
+    cases are not left out. Counted from EU approval, half of drugs had a French HAS opinion within
+    <strong>{{fr_med}} days</strong> ({{fr_n2}} drugs, {{fr_wait}} still waiting), a German G-BA decision within
+    <strong>{{de_med}}</strong> ({{de_n2}}, {{de_wait}} waiting) and English NICE guidance within
+    <strong>{{en_med}}</strong> ({{en_n2}}, {{en_wait}} waiting). Italian reimbursement, by contrast, took
+    <strong>{{it_med}} days</strong> to reach half of drugs ({{it_n2}} drugs, {{it_wait}} still waiting), and two years after EU approval
+    only {{it_2y}}% of drugs were reimbursed. End to end, it took <strong>{{fda_to_it_median}} days</strong>,
+    over two years, from US approval until half of drugs were reimbursed in Italy.</p>
   <p class="so-what-line"><strong>So what:</strong> the pricing and reimbursement process, not the regulator, is the
     critical path for European launch. Plan it, and fund it, as early as the regulatory filing.</p>
 </section>
@@ -52,9 +55,9 @@
 
 <section aria-labelledby="f5">
   <h2 id="f5"><span class="finding-num">5</span> Germany and France disagree on more than a third of drugs</h2>
-  <p>For the {{both_n}} drugs with both a German rating and a French ASMR, the two agencies reached opposite verdicts
-    on <strong>{{disagree_n}} ({{disagree_pct}}%)</strong>: one found added benefit where the other found none (ASMR V or
-    "no added benefit"). They agreed on {{agree_pos_n}} drugs having added benefit and on {{agree_neg_n}} drugs having none.</p>
+  <p>For the {{both_n}} drugs with both a German rating and a French verdict, the two agencies reached opposite verdicts
+    on <strong>{{disagree_n}} ({{disagree_pct}}%)</strong>: one found added benefit where the other found none ("no added benefit" in
+    Germany; ASMR V, or a benefit too small to reimburse at all, in France). They agreed on {{agree_pos_n}} drugs having added benefit and on {{agree_neg_n}} drugs having none.</p>
   <p class="so-what-line"><strong>So what:</strong> "European HTA" is not one judgement. The EU's joint clinical
     assessment, which began in 2025, will test how far these views can converge.</p>
 </section>

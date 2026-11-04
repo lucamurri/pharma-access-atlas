@@ -41,8 +41,8 @@
   <dd>Days from EC approval to publication in the <em>Gazzetta Ufficiale</em> of the first AIFA determination
     granting reimbursement by the national health service (class A or H). Classes C and C(nn) mean the drug
     may be sold but is not reimbursed. Drugs still not reimbursed are shown as “waiting” with the days elapsed
-    up to the date we checked, and are <em>excluded</em> from the median. The median therefore
-    <em>understates</em> the true delay.</dd>
+    up to the date we checked. Headline medians count them (see <a href="#curves">time to access</a>); the
+    therapy-area chart uses reimbursed drugs only and says so.</dd>
   <dt><strong>Germany G-BA rating</strong></dt>
   <dd>The result of the drug's first concluded early benefit assessment (AMNOG, § 35a SGB V). A decision can
     split patients into groups with different ratings; we show the <em>best</em> rating across groups and flag
@@ -52,8 +52,10 @@
   <dt><strong>France HAS rating</strong></dt>
   <dd>The HAS Transparency Committee's first opinion on inclusion for reimbursement. <em>SMR</em> says whether the
     drug merits reimbursement at all; <em>ASMR</em> rates added benefit from I (major) to V (no improvement). We show
-    the best level across indications. Drugs absent from the French public medicines database (often because they
-    were never marketed in France) show as unknown.</dd>
+    the best level across indications. When the SMR is insufficient for every indication, HAS gives no ASMR; we
+    show that as "SMR insufficient" and count it, with ASMR V, as a negative verdict. Values come from the French public medicines database. For drugs missing
+    there (often because they were never marketed in France), the opinion was researched on has-sante.fr; where
+    HAS has no inclusion opinion, the drug counts as "not yet" on the date checked.</dd>
   <dt><strong>England NICE decision</strong></dt>
   <dd>The outcome of NICE's first published technology appraisal (TA) or highly specialised technology (HST)
     guidance for the drug's first indication. Categories: <em>recommended</em> within the licence;
@@ -70,6 +72,24 @@
     and the list price that CMS reports for a 30-day supply.</dd>
 </dl>
 
+<h2 id="curves">Time to access: counting drugs still waiting</h2>
+<p>A median taken only over drugs that already reached a milestone leaves out the drugs still waiting, and
+  those are the slowest. It understates the delay, and the more recent the drugs, the worse the bias. The
+  headline medians and the country chart therefore use the <strong>Kaplan–Meier method</strong>, the standard
+  way to measure time until an event when some cases have not had it yet:</p>
+<ul>
+  <li>A drug with a dated milestone (reimbursement, G-BA decision, HAS opinion or NICE guidance) is counted on
+    that day.</li>
+  <li>A drug confirmed as <em>not there yet</em> (for example "not reimbursed as of", NICE appraisal "in
+    development", G-BA procedure ongoing, or no procedure or opinion at all) stays in the count until the day
+    it was checked, then leaves it without an event.</li>
+  <li>A drug never checked (status unknown) is left out.</li>
+</ul>
+<p>The curve shows the share of drugs that had reached the milestone by each day after EC approval, and the
+  median is the first day it reaches 50%. Drugs NICE will never appraise keep the English curve below 100%,
+  which is accurate: they never get NICE guidance. The English curve starts above 0% because NICE, working from
+  the UK licence, published guidance for a few drugs before the EC approval.</p>
+
 <h2>Data sources</h2>
 </div>
 <div class="table-scroll">
@@ -82,7 +102,7 @@
     <tr><th scope="row"><a href="https://www.ema.europa.eu/en/medicines/download-medicine-data">EMA medicine data</a></th><td>CHMP opinion and EC approval dates, EU orphan, conditional approval, holder</td><td>Download, refreshed monthly</td><td>Reuse with acknowledgement</td></tr>
     <tr><th scope="row"><a href="https://www.gazzettaufficiale.it/">Gazzetta Ufficiale</a> · <a href="https://www.aifa.gov.it/">AIFA</a></th><td>Italian reimbursement date and class</td><td>Manual</td><td>Official acts (not copyrighted); AIFA data CC BY 4.0</td></tr>
     <tr><th scope="row"><a href="https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/">G-BA benefit assessments</a></th><td>AMNOG decision date and rating</td><td>Manual</td><td>Free reuse; no distortion of decisions</td></tr>
-    <tr><th scope="row"><a href="https://base-donnees-publique.medicaments.gouv.fr/">French public medicines database (BDPM)</a></th><td>HAS SMR, ASMR and opinion date</td><td>Download, refreshed monthly</td><td>Licence ouverte (attribution, no alteration)</td></tr>
+    <tr><th scope="row"><a href="https://base-donnees-publique.medicaments.gouv.fr/">French public medicines database (BDPM)</a></th><td>HAS SMR, ASMR and opinion date</td><td>Download, refreshed monthly; gaps researched on has-sante.fr and in HAS open data</td><td>Licence ouverte (attribution, no alteration)</td></tr>
     <tr><th scope="row"><a href="https://www.nice.org.uk/guidance/published">NICE guidance</a></th><td>England appraisal outcome, date and TA number</td><td>Manual</td><td>NICE content, cited with links</td></tr>
     <tr><th scope="row"><a href="https://www.cms.gov/initiatives/medicare-prescription-drug-affordability/overview/medicare-drug-price-negotiation-program/selected-drugs-negotiated-prices">CMS Medicare Drug Price Negotiation</a></th><td>Selection, Maximum Fair Price; list price from fact sheets</td><td>Data file refreshed monthly; list price manual</td><td>Public domain</td></tr>
   </tbody>
@@ -113,8 +133,8 @@
   <li><strong>Reserve antibiotics in Germany</strong> have their added benefit "deemed proven" without a stated extent,
     so their rating is left blank.</li>
   <li><strong>Recent drugs are incomplete.</strong> Many drugs approved in 2024–2025 are still in assessment;
-    they show as unknown, not as "no".</li>
-  <li><strong>Researched values</strong> for Italy, Germany, England and US orphan status were researched from
+    they show as waiting or unknown, never as "no".</li>
+  <li><strong>Researched values</strong> for Italy, Germany, France (where missing from the BDPM), England and US orphan status were researched from
     official sources under strict rules (an official source for every value, no estimates) and spot-checked.
     Errors are possible: every value links to its source so it can be checked.</li>
   <li><strong>US access depends on insurers.</strong> FDA approval does not guarantee coverage. US payer

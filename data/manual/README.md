@@ -8,6 +8,7 @@ These CSVs hold the facts no free API provides. Open them in Excel, Numbers or a
 | `italy_aifa.csv` | First SSN reimbursement: GU publication date and class (A/H/C/Cnn) | gazzettaufficiale.it, AIFA TrovaNormeFarmaco |
 | `germany_gba.csv` | First G-BA AMNOG decision: date, best rating, any "no added benefit", orphan route | g-ba.de/bewertungsverfahren/nutzenbewertung/ |
 | `england_nice.csv` | NICE first decision for the first indication: outcome, publication date, TA/HST number | nice.org.uk/guidance |
+| `france_has.csv` | HAS first inclusion opinion (date, best SMR and ASMR), only for drugs the automated BDPM files miss | has-sante.fr, HAS open data on data.gouv.fr |
 | `us_fda.csv` | US orphan designation; FDA dates for cell and gene therapies (not in openFDA) | FDA OOPD database, FDA approval letters |
 | `cms_list_prices.csv` | List prices that CMS publishes only in PDF fact sheets | cms.gov negotiation fact sheets |
 
@@ -19,8 +20,10 @@ drug_id,field,value,status,source_url,retrieved_date,notes
 
 - **status**:
   - `verified`: you saw the value on the source page.
-  - `not_reimbursed_as_of`: you checked, and access hasn't happened yet. Leave the date blank.
-  - `not_assessed`: you checked, and no assessment exists.
+  - `not_reimbursed_as_of`: you checked, and the milestone hasn't happened yet (not reimbursed, assessment
+    or appraisal still in progress). Leave the value blank. The time-to-access curves count it as waiting
+    until `retrieved_date`.
+  - `not_assessed`: you checked, and no assessment exists (also counted as waiting until `retrieved_date`).
   - `unknown`: not checked yet. Leave the value blank.
 - **source_url**: the official page where you saw it. This is required unless the status is `unknown`.
 - **retrieved_date**: the day you checked, as `YYYY-MM-DD`.
