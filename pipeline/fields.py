@@ -1,0 +1,69 @@
+"""The data dictionary: every field the Atlas publishes, in one place.
+
+group  - which source the field comes from (used for the coverage table)
+kind   - date | text | number | yes_no | enum
+mode   - auto (refreshed by the pipeline) | manual (data/manual/*.csv) | calculated
+"""
+
+G_BA_RATINGS = ["major", "considerable", "minor", "non-quantifiable", "no added benefit", "lesser"]
+IT_CLASSES = ["A", "H", "C", "Cnn"]
+
+FIELDS = {
+    # --- Identity (curated in data/manual/drugs.csv) -----------------------
+    "brand_us":          {"group": "Identity", "kind": "text", "mode": "manual", "label": "US brand"},
+    "brand_eu":          {"group": "Identity", "kind": "text", "mode": "manual", "label": "EU brand"},
+    "inn":               {"group": "Identity", "kind": "text", "mode": "manual", "label": "Active ingredient"},
+    "company":           {"group": "Identity", "kind": "text", "mode": "manual", "label": "Company"},
+    "therapy_area":      {"group": "Identity", "kind": "text", "mode": "manual", "label": "Therapy area"},
+
+    # --- United States: FDA -----------------------------------------------
+    "fda_approval_date":   {"group": "FDA", "kind": "date", "mode": "auto", "label": "FDA approval date"},
+    "fda_application":     {"group": "FDA", "kind": "text", "mode": "auto", "label": "FDA application number"},
+    "fda_sponsor":         {"group": "FDA", "kind": "text", "mode": "auto", "label": "FDA applicant (as recorded)"},
+    "fda_review_priority": {"group": "FDA", "kind": "text", "mode": "auto", "label": "FDA review priority"},
+    "us_orphan_designated": {"group": "FDA", "kind": "yes_no", "mode": "manual", "label": "US orphan designation"},
+
+    # --- European Union: EMA / European Commission -------------------------
+    "ema_opinion_date":    {"group": "EMA", "kind": "date", "mode": "auto", "label": "CHMP positive opinion date"},
+    "ec_approval_date":    {"group": "EMA", "kind": "date", "mode": "auto", "label": "EC marketing authorisation date"},
+    "ema_holder":          {"group": "EMA", "kind": "text", "mode": "auto", "label": "EU marketing authorisation holder"},
+    "ema_therapeutic_area": {"group": "EMA", "kind": "text", "mode": "auto", "label": "EMA therapeutic area (MeSH)"},
+    "eu_orphan":           {"group": "EMA", "kind": "yes_no", "mode": "auto", "label": "EU orphan medicine (current status)"},
+    "eu_conditional":      {"group": "EMA", "kind": "yes_no", "mode": "auto", "label": "EU conditional approval"},
+    "eu_accelerated":      {"group": "EMA", "kind": "yes_no", "mode": "auto", "label": "EU accelerated assessment"},
+    "eu_prime":            {"group": "EMA", "kind": "yes_no", "mode": "auto", "label": "EU PRIME scheme"},
+    "eu_atmp":             {"group": "EMA", "kind": "yes_no", "mode": "auto", "label": "Advanced therapy (ATMP)"},
+
+    # --- Italy: AIFA / Gazzetta Ufficiale ----------------------------------
+    "it_gu_date":             {"group": "Italy", "kind": "date", "mode": "manual", "label": "Italy reimbursement (GU publication) date"},
+    "it_reimbursement_class": {"group": "Italy", "kind": "enum", "mode": "manual", "label": "Italy reimbursement class", "allowed": IT_CLASSES},
+
+    # --- Germany: G-BA (AMNOG) ---------------------------------------------
+    "de_gba_decision_date":        {"group": "Germany", "kind": "date", "mode": "manual", "label": "G-BA decision date (first)"},
+    "de_gba_rating_best":          {"group": "Germany", "kind": "enum", "mode": "manual", "label": "G-BA added benefit (best patient group)", "allowed": G_BA_RATINGS},
+    "de_gba_any_no_added_benefit": {"group": "Germany", "kind": "yes_no", "mode": "manual", "label": "Any patient group with no added benefit"},
+    "de_gba_orphan_route":         {"group": "Germany", "kind": "yes_no", "mode": "manual", "label": "Assessed under orphan rules"},
+
+    # --- US Medicare negotiation: CMS --------------------------------------
+    "cms_selected":         {"group": "CMS", "kind": "yes_no", "mode": "auto", "label": "Selected for Medicare negotiation"},
+    "cms_ipay":             {"group": "CMS", "kind": "number", "mode": "auto", "label": "Price applicability year"},
+    "cms_mfp_30day":        {"group": "CMS", "kind": "number", "mode": "auto", "label": "Maximum Fair Price, 30-day supply (USD)"},
+    "cms_list_price_30day": {"group": "CMS", "kind": "number", "mode": "manual", "label": "List price, 30-day supply (USD), per CMS"},
+    "cms_list_price_year":  {"group": "CMS", "kind": "number", "mode": "manual", "label": "Year of CMS list price"},
+
+    # --- Calculated by the pipeline ----------------------------------------
+    "us_eu_lag_days":        {"group": "Calculated", "kind": "number", "mode": "calculated", "label": "US-to-EU approval lag (days; negative = EU first)"},
+    "first_region":          {"group": "Calculated", "kind": "text", "mode": "calculated", "label": "Approved first in"},
+    "it_access_lag_days":    {"group": "Calculated", "kind": "number", "mode": "calculated", "label": "EC approval to Italian reimbursement (days)"},
+    "it_days_waiting":       {"group": "Calculated", "kind": "number", "mode": "calculated", "label": "Days since EC approval without Italian reimbursement (as of check)"},
+    "de_gba_lag_days":       {"group": "Calculated", "kind": "number", "mode": "calculated", "label": "EC approval to G-BA decision (days)"},
+    "cms_discount_pct":      {"group": "Calculated", "kind": "number", "mode": "calculated", "label": "MFP discount vs CMS list price (%)"},
+}
+
+# Which manual CSV holds which fields (validation checks fields land in the right file).
+MANUAL_FILES = {
+    "italy_aifa.csv": ["it_gu_date", "it_reimbursement_class"],
+    "germany_gba.csv": ["de_gba_decision_date", "de_gba_rating_best", "de_gba_any_no_added_benefit", "de_gba_orphan_route"],
+    "us_fda.csv": ["us_orphan_designated", "fda_approval_date", "fda_application"],
+    "cms_list_prices.csv": ["cms_list_price_30day", "cms_list_price_year"],
+}

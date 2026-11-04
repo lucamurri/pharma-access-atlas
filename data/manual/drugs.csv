@@ -1,0 +1,31 @@
+drug_id,brand_us,brand_eu,inn,company,therapy_area,fda_application,ema_product_number,fda_center
+enhertu,Enhertu,Enhertu,trastuzumab deruxtecan,Daiichi Sankyo,Oncology,BLA761139,EMEA/H/C/005124,CDER
+lumakras,Lumakras,Lumykras,sotorasib,Amgen,Oncology,NDA214665,EMEA/H/C/005522,CDER
+trodelvy,Trodelvy,Trodelvy,sacituzumab govitecan,Gilead,Oncology,BLA761115,EMEA/H/C/005182,CDER
+pluvicto,Pluvicto,Pluvicto,lutetium (177Lu) vipivotide tetraxetan,Novartis,Oncology,NDA215833,EMEA/H/C/005483,CDER
+retevmo,Retevmo,Retsevmo,selpercatinib,Eli Lilly,Oncology,NDA213246,EMEA/H/C/005375,CDER
+carvykti,Carvykti,Carvykti,ciltacabtagene autoleucel,Johnson & Johnson (Janssen),Oncology,,EMEA/H/C/005095,CBER
+trikafta,Trikafta,Kaftrio,elexacaftor/tezacaftor/ivacaftor,Vertex,Rare disease,NDA212273,EMEA/H/C/005269,CDER
+evrysdi,Evrysdi,Evrysdi,risdiplam,Roche,Rare disease,NDA213535,EMEA/H/C/005145,CDER
+zolgensma,Zolgensma,Zolgensma,onasemnogene abeparvovec,Novartis,Rare disease,,EMEA/H/C/004750,CBER
+hemgenix,Hemgenix,Hemgenix,etranacogene dezaparvovec,CSL Behring,Rare disease,,EMEA/H/C/004827,CBER
+oxlumo,Oxlumo,Oxlumo,lumasiran,Alnylam,Rare disease,NDA214103,EMEA/H/C/005040,CDER
+skyclarys,Skyclarys,Skyclarys,omaveloxolone,Biogen,Rare disease,NDA216718,EMEA/H/C/006084,CDER
+voxzogo,Voxzogo,Voxzogo,vosoritide,BioMarin,Rare disease,NDA214938,EMEA/H/C/005475,CDER
+rinvoq,Rinvoq,Rinvoq,upadacitinib,AbbVie,Immunology,NDA211675,EMEA/H/C/004760,CDER
+skyrizi,Skyrizi,Skyrizi,risankizumab,AbbVie,Immunology,BLA761105,EMEA/H/C/004759,CDER
+tezspire,Tezspire,Tezspire,tezepelumab,AstraZeneca,Immunology,BLA761224,EMEA/H/C/005588,CDER
+adbry,Adbry,Adtralza,tralokinumab,LEO Pharma,Immunology,BLA761180,EMEA/H/C/005255,CDER
+sotyktu,Sotyktu,Sotyktu,deucravacitinib,Bristol Myers Squibb,Immunology,NDA214958,EMEA/H/C/005755,CDER
+bimzelx,Bimzelx,Bimzelx,bimekizumab,UCB,Immunology,BLA761151,EMEA/H/C/005316,CDER
+rybelsus,Rybelsus,Rybelsus,semaglutide (oral),Novo Nordisk,Cardiometabolic,NDA213051,EMEA/H/C/004953,CDER
+wegovy,Wegovy,Wegovy,semaglutide (2.4 mg injection),Novo Nordisk,Cardiometabolic,NDA215256,EMEA/H/C/005422,CDER
+mounjaro,Mounjaro,Mounjaro,tirzepatide,Eli Lilly,Cardiometabolic,NDA215866,EMEA/H/C/005620,CDER
+leqvio,Leqvio,Leqvio,inclisiran,Novartis,Cardiometabolic,NDA214012,EMEA/H/C/005333,CDER
+camzyos,Camzyos,Camzyos,mavacamten,Bristol Myers Squibb,Cardiometabolic,NDA214998,EMEA/H/C/005457,CDER
+kerendia,Kerendia,Kerendia,finerenone,Bayer,Cardiometabolic,NDA215341,EMEA/H/C/005200,CDER
+leqembi,Leqembi,Leqembi,lecanemab,Eisai,Neurology,BLA761269,EMEA/H/C/005966,CDER
+kisunla,Kisunla,Kisunla,donanemab,Eli Lilly,Neurology,BLA761248,EMEA/H/C/006024,CDER
+vyepti,Vyepti,Vyepti,eptinezumab,Lundbeck,Neurology,BLA761119,EMEA/H/C/005287,CDER
+nurtec,Nurtec ODT,Vydura,rimegepant,Pfizer,Neurology,NDA212728,EMEA/H/C/005725,CDER
+vyvgart,Vyvgart,Vyvgart,efgartigimod alfa,argenx,Neurology,BLA761195,EMEA/H/C/005849,CDER
