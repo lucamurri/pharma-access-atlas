@@ -293,12 +293,19 @@ def main() -> None:
             "brand_eu": sourced(drug["brand_eu"], epar, ema_retrieved),
             "inn": sourced(drug["inn"], epar, ema_retrieved),
             "company": sourced(company(record["marketing_authorisation_developer_applicant_holder"]), epar,
-                               ema_retrieved, "EU marketing authorisation holder, legal form removed"),
+                               ema_retrieved, "EU marketing authorisation holder, legal form removed")
+                       if record["marketing_authorisation_developer_applicant_holder"].strip() else None,
             "therapy_area": sourced(therapy_area(record.get("atc_code_human"), record["therapeutic_area_mesh"]),
                                     epar, ema_retrieved, "Assigned from the ATC code (rules in pipeline/taxonomy.py)"),
             "cohort": sourced(drug["cohort"], epar, ema_retrieved, cohort_note),
         }
         f.update(fda_fields(drug, manual))
+        if f["company"] is None:
+            # The EMA file leaves the holder blank for a few products: use the FDA sponsor instead.
+            sponsor = f["fda_sponsor"]
+            f["company"] = (sourced(company(sponsor["value"]), sponsor["source_url"], sponsor["retrieved_date"],
+                                    "EMA file gives no holder; FDA sponsor used instead")
+                            if sponsor.get("value") else missing(notes="No holder in the EMA file and no FDA sponsor"))
         f["us_orphan_designated"] = manual_field(manual, did, "us_orphan_designated")
         f.update(ema_fields(record, ema_retrieved))
         for field in ["it_gu_date", "it_reimbursement_class", "de_gba_decision_date",

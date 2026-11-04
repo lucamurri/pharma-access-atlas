@@ -64,6 +64,7 @@ ALIASES = {
     "Ascendis Bone Diseases": "Ascendis", "Ascendis Endocrinology Division": "Ascendis", "LEO": "LEO Pharma",
     "Pierre Fabre Medicament": "Pierre Fabre", "Les Laboratoires Servier": "Servier",
     "Viatris Healthcare": "Viatris", "Recordati Rare Diseases": "Recordati", "Argenx": "argenx",
+    "JANSSEN BIOTECH": "Janssen (J&J)",  # FDA sponsor name, used when the EMA file leaves the holder blank
 }
 
 

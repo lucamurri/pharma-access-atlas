@@ -4967,11 +4967,11 @@
           "notes": ""
         },
         "company": {
-          "value": "",
+          "value": "Janssen (J&J)",
           "status": "verified",
-          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/balversa",
-          "retrieved_date": "2026-11-04",
-          "notes": "EU marketing authorisation holder, legal form removed"
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212018",
+          "retrieved_date": "2026-11-03",
+          "notes": "EMA file gives no holder; FDA sponsor used instead"
         },
         "therapy_area": {
           "value": "Oncology",
@@ -42478,11 +42478,11 @@
           "notes": ""
         },
         "company": {
-          "value": "",
+          "value": "Janssen (J&J)",
           "status": "verified",
-          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rybrevant",
-          "retrieved_date": "2026-11-04",
-          "notes": "EU marketing authorisation holder, legal form removed"
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=761210",
+          "retrieved_date": "2026-11-03",
+          "notes": "EMA file gives no holder; FDA sponsor used instead"
         },
         "therapy_area": {
           "value": "Oncology",
@@ -48874,11 +48874,11 @@
           "notes": ""
         },
         "company": {
-          "value": "",
+          "value": "Janssen (J&J)",
           "status": "verified",
-          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/tecvayli",
-          "retrieved_date": "2026-11-04",
-          "notes": "EU marketing authorisation holder, legal form removed"
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=761291",
+          "retrieved_date": "2026-11-03",
+          "notes": "EMA file gives no holder; FDA sponsor used instead"
         },
         "therapy_area": {
           "value": "Oncology",
