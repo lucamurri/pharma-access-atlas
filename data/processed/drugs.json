@@ -20444,18 +20444,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-10-22",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-10-22&atto.codiceRedazionale=24A05599",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 601/2024, GU SG n.248 22-10-2024; \"classe di rimborsabilita': H\". Prior: C(nn) det. 154/2023 (GU n.8 11-01-2024)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-10-22&atto.codiceRedazionale=24A05599",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 601/2024, GU SG n.248 22-10-2024; \"classe di rimborsabilita': H\". Prior: C(nn) det. 154/2023 (GU n.8 11-01-2024)."
         },
         "de_gba_decision_date": {
           "value": "2025-08-07",
@@ -20556,6 +20556,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 358,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -20737,18 +20746,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-09-15",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-09-15&atto.codiceRedazionale=22A05151",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 597/2022, GU SG n.216 15-09-2022; \"classe di rimborsabilita': «H»\". Prior: C(nn) det. 139/2021 (GU n.242 9-10-2021). Rectal 648/96 access ignored."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-09-15&atto.codiceRedazionale=22A05151",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 597/2022, GU SG n.216 15-09-2022; \"classe di rimborsabilita': «H»\". Prior: C(nn) det. 139/2021 (GU n.242 9-10-2021). Rectal 648/96 access ignored."
         },
         "de_gba_decision_date": {
           "value": "2021-12-02",
@@ -20849,6 +20858,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 512,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -21350,18 +21368,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-07-22",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-07-22&atto.codiceRedazionale=25A03986",
+          "retrieved_date": "2026-11-04",
+          "notes": "DET PRES 940/2025 (8-7-2025) on TrovaNormeFarmaco; GU SG n.168 22-07-2025 avviso. AIFA PDF: \"Classe di rimborsabilità H\". Prior C(nn) det. 109/2022."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-07-22&atto.codiceRedazionale=25A03986",
+          "retrieved_date": "2026-11-04",
+          "notes": "DET PRES 940/2025 (8-7-2025) on TrovaNormeFarmaco; GU SG n.168 22-07-2025 avviso. AIFA PDF: \"Classe di rimborsabilità H\". Prior C(nn) det. 109/2022. Class from AIFA PDF https://www.aifa.gov.it/documents/20142/961234/Determina_Pres-940-2025_KAPRUVIA.pdf"
         },
         "de_gba_decision_date": {
           "value": "2023-04-06",
@@ -21462,6 +21480,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 1184,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -21954,18 +21981,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-03-08",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-03-08&atto.codiceRedazionale=23A01203",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 121/2023, GU SG n.57 08-03-2023; \"classe di rimborsabilita': H\". Prior: C(nn) det. 156/2022 (GU n.234 6-10-2022)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-03-08&atto.codiceRedazionale=23A01203",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 121/2023, GU SG n.57 08-03-2023; \"classe di rimborsabilita': H\". Prior: C(nn) det. 156/2022 (GU n.234 6-10-2022)."
         },
         "de_gba_decision_date": {
           "value": "2022-10-20",
@@ -22066,6 +22093,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 341,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -22549,18 +22585,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-09-24",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-09-24&atto.codiceRedazionale=22A05354",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 625/2022, GU SG n.224 24-09-2022; \"classe di rimborsabilita': A\" (Nota 95). Prior: C(nn) det. 120/2021 (GU n.240 7-10-2021)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-09-24&atto.codiceRedazionale=22A05354",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 625/2022, GU SG n.224 24-09-2022; \"classe di rimborsabilita': A\" (Nota 95). Prior: C(nn) det. 120/2021 (GU n.240 7-10-2021)."
         },
         "de_gba_decision_date": {
           "value": "2022-02-17",
@@ -22661,6 +22697,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 435,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -22833,18 +22878,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-01-23",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-01-23&atto.codiceRedazionale=24A00275",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 5/2024, GU SG n.18 23-01-2024; \"classe di rimborsabilita': H\". Prior: C(nn) det. 121/2021 (GU n.240 7-10-2021)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-01-23&atto.codiceRedazionale=24A00275",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 5/2024, GU SG n.18 23-01-2024; \"classe di rimborsabilita': H\". Prior: C(nn) det. 121/2021 (GU n.240 7-10-2021)."
         },
         "de_gba_decision_date": {
           "value": "2022-02-03",
@@ -22945,6 +22990,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 950,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -23135,18 +23189,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-10-21",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-10-21&atto.codiceRedazionale=25A05684",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det Pres 1317/2025 (10-10-2025) on TrovaNormeFarmaco; GU SG n.245 21-10-2025 avviso item 11. AIFA PDF: \"Classe di rimborsabilità H\". Prior C(nn) det. 59/2024."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-10-21&atto.codiceRedazionale=25A05684",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det Pres 1317/2025 (10-10-2025) on TrovaNormeFarmaco; GU SG n.245 21-10-2025 avviso item 11. AIFA PDF: \"Classe di rimborsabilità H\". Prior C(nn) det. 59/2024. Class from AIFA PDF https://www.aifa.gov.it/documents/20142/961234/Determina_Pres-1317-2025_KRAZATI.pdf"
         },
         "de_gba_decision_date": {
           "value": null,
@@ -23247,6 +23301,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 655,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -23419,18 +23482,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-04-03",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-04-03&atto.codiceRedazionale=26A01675",
+          "retrieved_date": "2026-11-04",
+          "notes": "DET PRES 386/2026 (26-3-2026) on TrovaNorme; GU SG n.78 03-04-2026 avviso item 4. Determina PDF not found; class from AIFA CdA 25-02-2026 summary table: \"H/RNRL\". Prior C(nn) det. 484/2025."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-04-03&atto.codiceRedazionale=26A01675",
+          "retrieved_date": "2026-11-04",
+          "notes": "DET PRES 386/2026 (26-3-2026) on TrovaNorme; GU SG n.78 03-04-2026 avviso item 4. Determina PDF not found; class from AIFA CdA 25-02-2026 summary table: \"H/RNRL\". Prior C(nn) det. 484/2025. Class from AIFA PDF https://www.aifa.gov.it/documents/20142/3346516/Tabella_sintesi_nuovi_farmaci_CDA-25_02_2026.pdf"
         },
         "de_gba_decision_date": {
           "value": "2025-07-17",
@@ -23531,6 +23594,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 438,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -24316,18 +24388,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-04-07",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-04-07&atto.codiceRedazionale=22A02124",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 246/2022, GU SG n.82 07-04-2022; \"Classe di rimborsabilita': H\". Prior C(nn) det. 48/2021 (GU n.96 22-04-2021)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-04-07&atto.codiceRedazionale=22A02124",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 246/2022, GU SG n.82 07-04-2022; \"Classe di rimborsabilita': H\". Prior C(nn) det. 48/2021 (GU n.96 22-04-2021)."
         },
         "de_gba_decision_date": {
           "value": "2021-11-04",
@@ -24428,6 +24500,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 476,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -24618,18 +24699,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-09-17",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-09-17&atto.codiceRedazionale=24A04767",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 463/2024, GU SG n.218 17-09-2024; \"classe di rimborsabilita': H\". Prior C(nn) det. 104/2023 (GU n.292 15-12-2023)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-09-17&atto.codiceRedazionale=24A04767",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 463/2024, GU SG n.218 17-09-2024; \"classe di rimborsabilita': H\". Prior C(nn) det. 104/2023 (GU n.292 15-12-2023)."
         },
         "de_gba_decision_date": {
           "value": null,
@@ -24730,6 +24811,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 368,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -24911,18 +25001,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-12-04",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-12-04&atto.codiceRedazionale=23A06506",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 686/2023, GU SG n.283 04-12-2023; \"classe di rimborsabilita': H\" (Alagille). Prior C(nn) det. 37/2023 (GU n.60 11-03-2023)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-12-04&atto.codiceRedazionale=23A06506",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 686/2023, GU SG n.283 04-12-2023; \"classe di rimborsabilita': H\" (Alagille). Prior C(nn) det. 37/2023 (GU n.60 11-03-2023)."
         },
         "de_gba_decision_date": {
           "value": "2023-07-06",
@@ -25023,6 +25113,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 360,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -25213,18 +25312,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-06-22",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-06-22&atto.codiceRedazionale=23A03561",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 424/2023, GU SG n.144 22-06-2023; \"classe di rimborsabilita': A\". Prior C(nn) det. 21/2023 (GU n.36 13-02-2023)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-06-22&atto.codiceRedazionale=23A03561",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 424/2023, GU SG n.144 22-06-2023; \"classe di rimborsabilita': A\". Prior C(nn) det. 21/2023 (GU n.36 13-02-2023)."
         },
         "de_gba_decision_date": {
           "value": "2023-06-01",
@@ -25325,6 +25424,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 225,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -25515,18 +25623,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-08-10",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-10&atto.codiceRedazionale=26A04072",
+          "retrieved_date": "2026-11-04",
+          "notes": "DET PRES 1111/2026 (4-8-2026) on TrovaNorme; GU SG n.184 10-08-2026 avviso item 23. Determina PDF not found; class from AIFA CdA 08-07-2026 summary table: \"H/OSP\". Prior C(nn) det. 1125/2025."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-10&atto.codiceRedazionale=26A04072",
+          "retrieved_date": "2026-11-04",
+          "notes": "DET PRES 1111/2026 (4-8-2026) on TrovaNorme; GU SG n.184 10-08-2026 avviso item 23. Determina PDF not found; class from AIFA CdA 08-07-2026 summary table: \"H/OSP\". Prior C(nn) det. 1125/2025. Class from AIFA PDF https://www.aifa.gov.it/documents/20142/3346516/Tabella_sintesi_nuovi_farmaci_CDA_08_07_2026.pdf"
         },
         "de_gba_decision_date": {
           "value": "2026-07-02",
@@ -25627,6 +25735,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 690,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -26128,18 +26245,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-09-15",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-09-15&atto.codiceRedazionale=23A05053",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 576/2023 \"Regime di rimborsabilita' e prezzo\", GU SG n.216 15-09-2023; Art.2 \"Classe di rimborsabilita': H\". No prior C(nn) cited."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-09-15&atto.codiceRedazionale=23A05053",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 576/2023 \"Regime di rimborsabilita' e prezzo\", GU SG n.216 15-09-2023; Art.2 \"Classe di rimborsabilita': H\". No prior C(nn) cited."
         },
         "de_gba_decision_date": {
           "value": "2022-12-15",
@@ -26240,6 +26357,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 469,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -26421,18 +26547,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-07-01",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-07-01&atto.codiceRedazionale=23A03694",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 446/2023, GU SG n.152 01-07-2023; \"classe di rimborsabilita': A\". Prior C(nn) det. 199/2022 (GU n.282 2-12-2022)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-07-01&atto.codiceRedazionale=23A03694",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 446/2023, GU SG n.152 01-07-2023; \"classe di rimborsabilita': A\". Prior C(nn) det. 199/2022 (GU n.282 2-12-2022)."
         },
         "de_gba_decision_date": {
           "value": "2023-08-17",
@@ -26533,6 +26659,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 289,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -26717,15 +26852,15 @@
           "value": null,
           "status": "unknown",
           "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "retrieved_date": "2026-11-04",
+          "notes": "No GU act for \"Lydisilka\" found (GU SG indexes Apr 2021-Jun 2022 and May 2025-Nov 2026 scanned); same INN marketed in Italy as Drovelis (C(nn) det. 113/2021)."
         },
         "it_reimbursement_class": {
           "value": null,
           "status": "unknown",
           "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "retrieved_date": "2026-11-04",
+          "notes": "No GU act for \"Lydisilka\" found (GU SG indexes Apr 2021-Jun 2022 and May 2025-Nov 2026 scanned); same INN marketed in Italy as Drovelis (C(nn) det. 113/2021)."
         },
         "de_gba_decision_date": {
           "value": null,
@@ -26990,17 +27125,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-02-24&atto.codiceRedazionale=26A00854",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 129/2026, GU SG n.45 24-02-2026: \"classe C (nn)\". No later act in GU index/TrovaNorme avvisi to 2026-11-03."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-02-24&atto.codiceRedazionale=26A00854",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 129/2026, GU SG n.45 24-02-2026: \"classe C (nn)\". No later act in GU index/TrovaNorme avvisi to 2026-11-03."
         },
         "de_gba_decision_date": {
           "value": "2026-10-01",
@@ -27103,6 +27238,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 352,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 318,
@@ -27274,17 +27418,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-03-25&atto.codiceRedazionale=26A01472",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 269/2026, GU SG n.70 25-03-2026: classe C(nn). No later act in GU index/TrovaNorme avvisi to 2026-11-03."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-03-25&atto.codiceRedazionale=26A01472",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 269/2026, GU SG n.70 25-03-2026: classe C(nn). No later act in GU index/TrovaNorme avvisi to 2026-11-03."
         },
         "de_gba_decision_date": {
           "value": "2026-03-19",
@@ -27387,6 +27531,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 560,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 330,
@@ -27557,18 +27710,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-08-01",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-08-01&atto.codiceRedazionale=24A03937",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 206/2024, GU SG n.179 01-08-2024; \"classe di rimborsabilita': H\". Prior C(nn) det. 117/2023 (GU n.242 16-10-2023)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-08-01&atto.codiceRedazionale=24A03937",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 206/2024, GU SG n.179 01-08-2024; \"classe di rimborsabilita': H\". Prior C(nn) det. 117/2023 (GU n.242 16-10-2023)."
         },
         "de_gba_decision_date": {
           "value": "2024-11-22",
@@ -27669,6 +27822,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 394,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -27859,18 +28021,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-11-07",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-11-07&atto.codiceRedazionale=22A06376",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 788/2022 \"Regime di rimborsabilita' e prezzo\", GU SG n.260 07-11-2022; Art.2 \"Classe di rimborsabilita': H\". No prior C(nn) cited."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-11-07&atto.codiceRedazionale=22A06376",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 788/2022 \"Regime di rimborsabilita' e prezzo\", GU SG n.260 07-11-2022; Art.2 \"Classe di rimborsabilita': H\". No prior C(nn) cited."
         },
         "de_gba_decision_date": {
           "value": "2022-03-03",
@@ -27971,6 +28133,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 438,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -28472,18 +28643,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-05-28",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-05-28&atto.codiceRedazionale=26A02649",
+          "retrieved_date": "2026-11-04",
+          "notes": "DET PRES 664/2026 (21-5-2026) on TrovaNormeFarmaco; GU SG n.122 28-05-2026 avviso item 11. AIFA PDF: \"Classe di rimborsabilità A\" (3-pen pack C). Prior C(nn) det. 603/2025."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-05-28&atto.codiceRedazionale=26A02649",
+          "retrieved_date": "2026-11-04",
+          "notes": "DET PRES 664/2026 (21-5-2026) on TrovaNormeFarmaco; GU SG n.122 28-05-2026 avviso item 11. AIFA PDF: \"Classe di rimborsabilità A\" (3-pen pack C). Prior C(nn) det. 603/2025. Class from AIFA PDF https://www.aifa.gov.it/documents/20142/961234/Determina_Pres-664-2026_NEMLUVIO-nemolizumab.pdf"
         },
         "de_gba_decision_date": {
           "value": "2025-08-07",
@@ -28584,6 +28755,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 470,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -28774,18 +28954,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-08-03",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-08-03&atto.codiceRedazionale=24A03950",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 218/2024, GU SG n.181 03-08-2024; \"classe di rimborsabilita': «H»\". Prior C(nn) dets. 85/2021 and 165/2022."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-08-03&atto.codiceRedazionale=24A03950",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 218/2024, GU SG n.181 03-08-2024; \"classe di rimborsabilita': «H»\". Prior C(nn) dets. 85/2021 and 165/2022."
         },
         "de_gba_decision_date": {
           "value": "2023-03-16",
@@ -28886,6 +29066,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 1226,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -29076,18 +29265,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-01-24",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-01-24&atto.codiceRedazionale=24A00283",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 15/2024, GU SG n.19 24-01-2024; \"classe di rimborsabilita': H\". Prior C(nn) det. 78/2023 (GU n.137 14-06-2023)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-01-24&atto.codiceRedazionale=24A00283",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 15/2024, GU SG n.19 24-01-2024; \"classe di rimborsabilita': H\". Prior C(nn) det. 78/2023 (GU n.137 14-06-2023)."
         },
         "de_gba_decision_date": {
           "value": null,
@@ -29188,6 +29377,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 579,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -29369,18 +29567,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-03-28",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-03-28&atto.codiceRedazionale=23A01963",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 183/2023, GU SG n.74 28-03-2023; \"Classe di rimborsabilita': A\" (Nota 39). Prior C(nn) det. 59/2022 (GU n.111 13-05-2022)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-03-28&atto.codiceRedazionale=23A01963",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 183/2023, GU SG n.74 28-03-2023; \"Classe di rimborsabilita': A\" (Nota 39). Prior C(nn) det. 59/2022 (GU n.111 13-05-2022)."
         },
         "de_gba_decision_date": {
           "value": "2022-09-15",
@@ -29481,6 +29679,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 407,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -29671,18 +29878,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-01-27",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-01-27&atto.codiceRedazionale=23A00339",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 20/2023, GU SG n.22 27-01-2023; \"classe di rimborsabilita': A\". Prior C(nn) det. 65/2020 (GU n.184 23-07-2020)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-01-27&atto.codiceRedazionale=23A00339",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 20/2023, GU SG n.22 27-01-2023; \"classe di rimborsabilita': A\". Prior C(nn) det. 65/2020 (GU n.184 23-07-2020)."
         },
         "de_gba_decision_date": {
           "value": "2021-04-15",
@@ -29783,6 +29990,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 1031,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -29973,18 +30189,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2021-02-22",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-02-22&atto.codiceRedazionale=21A00985",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina DG/191/2021, GU SG n.44 22-02-2021; \"classe di rimborsabilita': H\". Prior det. 54/2020 (GU n.159 25-06-2020)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-02-22&atto.codiceRedazionale=21A00985",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina DG/191/2021, GU SG n.44 22-02-2021; \"classe di rimborsabilita': H\". Prior det. 54/2020 (GU n.159 25-06-2020)."
         },
         "de_gba_decision_date": {
           "value": "2020-10-15",
@@ -30085,6 +30301,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 332,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -30278,15 +30503,15 @@
           "value": null,
           "status": "unknown",
           "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "retrieved_date": "2026-11-04",
+          "notes": "No GU act for Nulibry/fosdenopterina found (GU SG indexes Sep 2022-Dec 2023 and May 2025-Nov 2026 scanned; web search negative)."
         },
         "it_reimbursement_class": {
           "value": null,
           "status": "unknown",
           "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "retrieved_date": "2026-11-04",
+          "notes": "No GU act for Nulibry/fosdenopterina found (GU SG indexes Sep 2022-Dec 2023 and May 2025-Nov 2026 scanned; web search negative)."
         },
         "de_gba_decision_date": {
           "value": "2025-09-04",
@@ -30568,18 +30793,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-01-27",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-01-27&atto.codiceRedazionale=23A00340",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 21/2023, GU SG n.22 27-01-2023; \"classe di rimborsabilita': A\". Prior C(nn) det. 55/2020 (GU n.159 25-06-2020)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-01-27&atto.codiceRedazionale=23A00340",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 21/2023, GU SG n.22 27-01-2023; \"classe di rimborsabilita': A\". Prior C(nn) det. 55/2020 (GU n.159 25-06-2020)."
         },
         "de_gba_decision_date": {
           "value": "2021-04-15",
@@ -30680,6 +30905,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 1036,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -30862,17 +31096,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-18&atto.codiceRedazionale=26A04283",
+          "retrieved_date": "2026-11-04",
+          "notes": "DET PRES 1168/2026 (12-8-2026) \"Classificazione in fascia C\", GU SG n.190 18-08-2026 avviso item 20. Earlier C(nn) det. 596/2024 (GU n.252 26-10-2024)."
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "C",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-18&atto.codiceRedazionale=26A04283",
+          "retrieved_date": "2026-11-04",
+          "notes": "DET PRES 1168/2026 (12-8-2026) \"Classificazione in fascia C\", GU SG n.190 18-08-2026 avviso item 20. Earlier C(nn) det. 596/2024 (GU n.252 26-10-2024)."
         },
         "de_gba_decision_date": {
           "value": "2025-08-21",
@@ -30975,6 +31209,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 860,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 420,
@@ -31166,15 +31409,15 @@
           "value": null,
           "status": "unknown",
           "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "retrieved_date": "2026-11-04",
+          "notes": "No GU act or TrovaNorme avviso for Ogsiveo found to GU 2026-11-03; AIFA CSE agendas (Feb/Apr 2026) list it under evaluation."
         },
         "it_reimbursement_class": {
           "value": null,
           "status": "unknown",
           "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "retrieved_date": "2026-11-04",
+          "notes": "No GU act or TrovaNorme avviso for Ogsiveo found to GU 2026-11-03; AIFA CSE agendas (Feb/Apr 2026) list it under evaluation."
         },
         "de_gba_decision_date": {
           "value": "2026-04-02",
@@ -31465,18 +31708,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-01-24",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-01-24&atto.codiceRedazionale=25A00333",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 15/2025, GU SG n.19; Riclassificazione from C(nn) (det. 70/2024). Quote: \"classe di rimborsabilita': H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-01-24&atto.codiceRedazionale=25A00333",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 15/2025, GU SG n.19; Riclassificazione from C(nn) (det. 70/2024). Quote: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2024-08-15",
@@ -31577,6 +31820,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 365,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -31767,18 +32019,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-08-12",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-08-12&atto.codiceRedazionale=24A04165",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 388/2024, GU SG n.188; Riclassificazione from C(nn) (det. 100/2023); some SC packs class C. Quote: \"classe di rimborsabilita': «H»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-08-12&atto.codiceRedazionale=24A04165",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 388/2024, GU SG n.188; Riclassificazione from C(nn) (det. 100/2023); some SC packs class C. Quote: \"classe di rimborsabilita': «H»\""
         },
         "de_gba_decision_date": {
           "value": "2024-01-18",
@@ -31879,6 +32131,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 444,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -32060,18 +32321,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-05-24",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-24&atto.codiceRedazionale=22A03014",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 337/2022, GU SG n.120; \"Regime di rimborsabilita' e prezzo\", first act found. Quote: \"classe di rimborsabilita': A\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-24&atto.codiceRedazionale=22A03014",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 337/2022, GU SG n.120; \"Regime di rimborsabilita' e prezzo\", first act found. Quote: \"classe di rimborsabilita': A\""
         },
         "de_gba_decision_date": {
           "value": "2021-11-19",
@@ -32172,6 +32433,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 424,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -32362,18 +32632,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-09-19",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-09-19&atto.codiceRedazionale=24A04825",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 466/2024, GU SG n.220; Riclassificazione from C(nn) (det. 15/2023). Quote: \"classe di rimborsabilita': H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-09-19&atto.codiceRedazionale=24A04825",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 466/2024, GU SG n.220; Riclassificazione from C(nn) (det. 15/2023). Quote: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": null,
@@ -32474,6 +32744,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 735,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -32655,18 +32934,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-02-23",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-02-23&atto.codiceRedazionale=24A00967",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 88/2024, GU SG n.45; Riclassificazione from C(nn) (det. 110/2022). Quote: \"classe di rimborsabilita': A\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-02-23&atto.codiceRedazionale=24A00967",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 88/2024, GU SG n.45; Riclassificazione from C(nn) (det. 110/2022). Quote: \"classe di rimborsabilita': A\""
         },
         "de_gba_decision_date": {
           "value": "2023-04-06",
@@ -32767,6 +33046,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 665,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -32957,18 +33245,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-01-24",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-01-24&atto.codiceRedazionale=24A00284",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 16/2024, GU SG n.19; Riclassificazione from C(nn) (det. 100/2021); 98-capsule pack class C. Quote: \"classe di rimborsabilita': A\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-01-24&atto.codiceRedazionale=24A00284",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 16/2024, GU SG n.19; Riclassificazione from C(nn) (det. 100/2021); 98-capsule pack class C. Quote: \"classe di rimborsabilita': A\""
         },
         "de_gba_decision_date": {
           "value": "2021-12-02",
@@ -33069,6 +33357,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 999,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -33259,18 +33556,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-05-19",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-05-19&atto.codiceRedazionale=25A02912",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU avviso date. DET PRES/HTA 657/2025 (7 May 2025) on TrovaNormeFarmaco, item 13 of GU SG n.114 avviso; prior C(nn) det. 143/2023. Quote (AIFA PDF): \"classe di rimborsabilita: H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/297",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco determina PDF; GU avviso 25A02912. DET PRES/HTA 657/2025 (7 May 2025) on TrovaNormeFarmaco, item 13 of GU SG n.114 avviso; prior C(nn) det. 143/2023. Quote (AIFA PDF): \"classe di rimborsabilita: H\""
         },
         "de_gba_decision_date": {
           "value": "2024-05-02",
@@ -33371,6 +33668,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 612,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -33562,17 +33868,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-13&atto.codiceRedazionale=22A02840",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn): det. 62/2022, GU SG n.111 (corrigendum GU 2022-07-14, 22A04049); sale ban GU 2024-10-15. Quote: \"denominata classe «C(nn)», dedicata ai farmaci non ancora valutati\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-13&atto.codiceRedazionale=22A02840",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn): det. 62/2022, GU SG n.111 (corrigendum GU 2022-07-14, 22A04049); sale ban GU 2024-10-15. Quote: \"denominata classe «C(nn)», dedicata ai farmaci non ancora valutati\""
         },
         "de_gba_decision_date": {
           "value": "2022-11-03",
@@ -33675,6 +33981,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 1724,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 262,
@@ -34174,18 +34489,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-07-12",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-07-12&atto.codiceRedazionale=23A03899",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 458/2023, GU SG n.161; Riclassificazione from C(nn) (det. 111/2022). Quote: \"classe di rimborsabilita': H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-07-12&atto.codiceRedazionale=23A03899",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 458/2023, GU SG n.161; Riclassificazione from C(nn) (det. 111/2022). Quote: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2022-12-01",
@@ -34286,6 +34601,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 455,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -34476,18 +34800,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-12-20",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-12-20&atto.codiceRedazionale=23A06936",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 761/2023, GU SG n.296. Earlier DG/160/2022 (GU 2022-04-20) kept class C/nn with state-supplied distribution, not SSN class. Quote: \"classe di rimborsabilita': A\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-12-20&atto.codiceRedazionale=23A06936",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 761/2023, GU SG n.296. Earlier DG/160/2022 (GU 2022-04-20) kept class C/nn with state-supplied distribution, not SSN class. Quote: \"classe di rimborsabilita': A\""
         },
         "de_gba_decision_date": {
           "value": "2022-12-15",
@@ -34588,6 +34912,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 691,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -34778,18 +35111,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-05-30",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-30&atto.codiceRedazionale=22A03163",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 377/2022, GU SG n.125; \"Regime di rimborsabilita' e prezzo\", first act found. Quote: \"Classe di rimborsabilita' H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-30&atto.codiceRedazionale=22A03163",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 377/2022, GU SG n.125; \"Regime di rimborsabilita' e prezzo\", first act found. Quote: \"Classe di rimborsabilita' H\""
         },
         "de_gba_decision_date": {
           "value": "2021-10-07",
@@ -34890,6 +35223,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 430,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -35080,18 +35422,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-01-10",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-01-10&atto.codiceRedazionale=26A00010",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU avviso date. DET PRES/HTA 1815/2025 (23 Dec 2025) on TrovaNormeFarmaco, item 9 of GU SG n.7/2026 avviso; prior C(nn) det. 662/2024. Quote (AIFA PDF): \"classe di rimborsabilita: H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/1302",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco determina PDF; GU avviso 26A00010. DET PRES/HTA 1815/2025 (23 Dec 2025) on TrovaNormeFarmaco, item 9 of GU SG n.7/2026 avviso; prior C(nn) det. 662/2024. Quote (AIFA PDF): \"classe di rimborsabilita: H\""
         },
         "de_gba_decision_date": {
           "value": "2025-03-06",
@@ -35192,6 +35534,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 506,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -35373,18 +35724,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2021-10-22",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-10-22&atto.codiceRedazionale=21A06134",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 1195/2021, GU SG n.253; Riclassificazione from C(nn) (det. 126/2020). Quote: \"classe di rimborsabilita': H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-10-22&atto.codiceRedazionale=21A06134",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 1195/2021, GU SG n.253; Riclassificazione from C(nn) (det. 126/2020). Quote: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2021-02-18",
@@ -35485,6 +35836,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 452,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -35977,18 +36337,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-01-05",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-01-05&atto.codiceRedazionale=21A07619",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina DG/1523/2021, GU SG n.3/2022. Earlier det. 1070/2020 (GU 2020-11-04) assigned class C only; det. 152/2020 C(nn). Quote: \"classe di rimborsabilita': H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-01-05&atto.codiceRedazionale=21A07619",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina DG/1523/2021, GU SG n.3/2022. Earlier det. 1070/2020 (GU 2020-11-04) assigned class C only; det. 152/2020 C(nn). Quote: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2020-08-20",
@@ -36089,6 +36449,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 720,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -36270,18 +36639,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-12-20",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-12-20&atto.codiceRedazionale=24A06849",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 776/2024, GU SG n.298; Riclassificazione from C(nn) (det. 68/2024). Quote: \"classe di rimborsabilita': H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-12-20&atto.codiceRedazionale=24A06849",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 776/2024, GU SG n.298; Riclassificazione from C(nn) (det. 68/2024). Quote: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2024-02-01",
@@ -36382,6 +36751,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 641,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -36572,18 +36950,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-05-21",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-21&atto.codiceRedazionale=22A02956",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 342/2022, GU SG n.118; Riclassificazione from C(nn) (det. 112/2021). Quote: \"classe di rimborsabilita': A\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-21&atto.codiceRedazionale=22A02956",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 342/2022, GU SG n.118; Riclassificazione from C(nn) (det. 112/2021). Quote: \"classe di rimborsabilita': A\""
         },
         "de_gba_decision_date": {
           "value": "2021-12-02",
@@ -36684,6 +37062,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 367,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -36875,17 +37262,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-20&atto.codiceRedazionale=26A04237",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn): det. 23/2023 (GU 2023-02-13) and det. 1120/2026, GU SG n.192. Quote: \"denominata classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita'\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-20&atto.codiceRedazionale=26A04237",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn): det. 23/2023 (GU 2023-02-13) and det. 1120/2026, GU SG n.192. Quote: \"denominata classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita'\""
         },
         "de_gba_decision_date": {
           "value": null,
@@ -36988,6 +37375,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 1456,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "en_nice_lag_days": {
           "value": 99,
@@ -37158,18 +37554,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-09-21",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-09-21&atto.codiceRedazionale=26A04958",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU avviso date. DET PRES/UPR 1253/2026 (16 Sep 2026) on TrovaNormeFarmaco, item 9 of GU SG n.219 avviso; prior C(nn) det. 412/2024. Quote (AIFA PDF): \"classe di rimborsabilita: H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/2569",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco determina PDF; GU avviso 26A04958. DET PRES/UPR 1253/2026 (16 Sep 2026) on TrovaNormeFarmaco, item 9 of GU SG n.219 avviso; prior C(nn) det. 412/2024. Quote (AIFA PDF): \"classe di rimborsabilita: H\""
         },
         "de_gba_decision_date": {
           "value": "2024-12-19",
@@ -37270,6 +37666,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 845,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -37442,18 +37847,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-09-15",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-09-15&atto.codiceRedazionale=23A05054",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 577/2023, GU SG n.216; Riclassificazione from C(nn) (det. 11/2022); 30-tab pack class C. Quote: \"classe di rimborsabilita': H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-09-15&atto.codiceRedazionale=23A05054",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 577/2023, GU SG n.216; Riclassificazione from C(nn) (det. 11/2022); 30-tab pack class C. Quote: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2022-06-16",
@@ -37554,6 +37959,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 666,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -37745,17 +38159,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-03-24&atto.codiceRedazionale=25A01766",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 255/2025, GU SG n.69: reclassified from C(nn) to class C (non-reimbursed). Quote: \"classe di rimborsabilita': C\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "C",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-03-24&atto.codiceRedazionale=25A01766",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 255/2025, GU SG n.69: reclassified from C(nn) to class C (non-reimbursed). Quote: \"classe di rimborsabilita': C\""
         },
         "de_gba_decision_date": {
           "value": "2023-05-12",
@@ -37858,6 +38272,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 1650,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 378,
@@ -38047,17 +38470,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-02-07&atto.codiceRedazionale=23A00567",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 75/2023, GU SG n.31: reclassified from C(nn) to class C (non-reimbursed). Quote: \"classe di rimborsabilita': C\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "C",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-02-07&atto.codiceRedazionale=23A00567",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 75/2023, GU SG n.31: reclassified from C(nn) to class C (non-reimbursed). Quote: \"classe di rimborsabilita': C\""
         },
         "de_gba_decision_date": {
           "value": "2023-10-05",
@@ -38160,6 +38583,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 1540,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 414,
@@ -38330,18 +38762,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2021-12-09",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-12-09&atto.codiceRedazionale=21A07129",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina DG/1401/2021, GU SG n.292; Riclassificazione from C(nn) (det. 30/2021); rectified by det. of 27-12-2021 (GU 2022-01-17). Quote: \"classe di rimborsabilita': A\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-12-09&atto.codiceRedazionale=21A07129",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina DG/1401/2021, GU SG n.292; Riclassificazione from C(nn) (det. 30/2021); rectified by det. of 27-12-2021 (GU 2022-01-17). Quote: \"classe di rimborsabilita': A\""
         },
         "de_gba_decision_date": {
           "value": "2021-01-21",
@@ -38442,6 +38874,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 532,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -38632,18 +39073,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-06-04",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-06-04&atto.codiceRedazionale=22A03273",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 412/2022, GU SG n.129; \"Regime di rimborsabilita' ... e riclassificazione\" from C(nn) (GU 2020-04-30). Quote: \"classe di rimborsabilita': H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-06-04&atto.codiceRedazionale=22A03273",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 412/2022, GU SG n.129; \"Regime di rimborsabilita' ... e riclassificazione\" from C(nn) (GU 2020-04-30). Quote: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2022-11-03",
@@ -38744,6 +39185,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 842,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -39237,17 +39687,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-12-22&atto.codiceRedazionale=25A06759",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn): det. 1590/2025, GU SG n.296. Quote: \"denominata classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita'\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-12-22&atto.codiceRedazionale=25A06759",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn): det. 1590/2025, GU SG n.296. Quote: \"denominata classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita'\""
         },
         "de_gba_decision_date": {
           "value": "2026-03-05",
@@ -39350,6 +39800,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 443,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 199,
@@ -39529,18 +39988,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-09-02",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-09-02&atto.codiceRedazionale=25A04808",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU avviso date. DET PRES/HTA 1091/2025 (26 Aug 2025) on TrovaNormeFarmaco, item 7 of GU SG n.203 avviso; prior C(nn) det. 71/2024. Quote (AIFA PDF): \"classe di rimborsabilita: H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/726",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco determina PDF; GU avviso 25A04808. DET PRES/HTA 1091/2025 (26 Aug 2025) on TrovaNormeFarmaco, item 7 of GU SG n.203 avviso; prior C(nn) det. 71/2024. Quote (AIFA PDF): \"classe di rimborsabilita: H\""
         },
         "de_gba_decision_date": {
           "value": "2024-08-01",
@@ -39641,6 +40100,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 620,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -40133,18 +40601,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-01-22",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-01-22&atto.codiceRedazionale=24A00268",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 9/2024, GU SG n.17; \"Regime di rimborsabilita' e prezzo\", first act found. Quote: \"Classe di rimborsabilita': H.\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-01-22&atto.codiceRedazionale=24A00268",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 9/2024, GU SG n.17; \"Regime di rimborsabilita' e prezzo\", first act found. Quote: \"Classe di rimborsabilita': H.\""
         },
         "de_gba_decision_date": {
           "value": "2023-03-16",
@@ -40245,6 +40713,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 516,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -40418,17 +40895,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-04-04&atto.codiceRedazionale=26A01656",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn): det. 418/2026, GU SG n.79. Quote: \"denominata classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita'\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-04-04&atto.codiceRedazionale=26A01656",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn): det. 418/2026, GU SG n.79. Quote: \"denominata classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita'\""
         },
         "de_gba_decision_date": {
           "value": "2026-04-16",
@@ -40531,6 +41008,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 413,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 211,
@@ -40710,18 +41196,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2021-09-07",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-09-07&atto.codiceRedazionale=21A05234",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina DG/1007/2021, GU SG n.214; Riclassificazione from C(nn) (det. 127/2020). Quote: \"classe di rimborsabilita': H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-09-07&atto.codiceRedazionale=21A05234",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina DG/1007/2021, GU SG n.214; Riclassificazione from C(nn) (det. 127/2020). Quote: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2021-02-18",
@@ -40822,6 +41308,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 403,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -41333,18 +41828,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-02-27",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-02-27&atto.codiceRedazionale=23A01097",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 100/2023, GU SG n.49; Riclassificazione from C(nn) (det. 47/2022). Quote: \"classe di rimborsabilita': H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-02-27&atto.codiceRedazionale=23A01097",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina 100/2023, GU SG n.49; Riclassificazione from C(nn) (det. 47/2022). Quote: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2022-07-07",
@@ -41445,6 +41940,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 445,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -41635,18 +42139,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-05-19",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-05-19&atto.codiceRedazionale=25A02912",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU avviso date. DET PRES/HTA 652/2025 (7 May 2025) on TrovaNormeFarmaco, item 8 of GU SG n.114 avviso; prior C(nn) det. 73/2024. Later C(nn) det. 719/2025 (GU 2025-06-06) not relevant. Quote (AIFA PDF): \"classe di rimborsabilita: H\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/295",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco determina PDF; GU avviso 25A02912. DET PRES/HTA 652/2025 (7 May 2025) on TrovaNormeFarmaco, item 8 of GU SG n.114 avviso; prior C(nn) det. 73/2024. Later C(nn) det. 719/2025 (GU 2025-06-06) not relevant. Quote (AIFA PDF): \"classe di rimborsabilita: H\""
         },
         "de_gba_decision_date": {
           "value": "2024-08-15",
@@ -41747,6 +42251,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 500,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -52345,18 +52858,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-10-24",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-10-24&atto.codiceRedazionale=25A05698",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU SG n.248 del 2025-10-24 avviso 25A05698 lists Det. PRES/HTA 1356/2025 (13/10/2025) (TrovaNormeFarmaco); prior C(nn) Det. 25/2024 GU n.71 25/03/2024"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/917",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco PDF of Det. PRES/HTA 1356/2025 (13/10/2025) (GU avviso n.248 del 2025-10-24): 'Classe di rimborsabilità H'; prior C(nn) Det. 25/2024 GU n.71 25/03/2024"
         },
         "de_gba_decision_date": {
           "value": "2024-08-01",
@@ -52457,6 +52970,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 718,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -52647,18 +53169,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-07-27",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-07-27&atto.codiceRedazionale=23A04196",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 510/2023, GU SG n.174 del 2023-07-27; Riclassificazione ... 'classe di rimborsabilita': H'; prior C(nn) Det. 92/2020 GU n.250 09/10/2020"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-07-27&atto.codiceRedazionale=23A04196",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 510/2023, GU SG n.174 del 2023-07-27; Riclassificazione ... 'classe di rimborsabilita': H'; prior C(nn) Det. 92/2020 GU n.250 09/10/2020"
         },
         "de_gba_decision_date": {
           "value": "2021-09-16",
@@ -52759,6 +53281,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 1119,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -52949,18 +53480,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-08-08",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-08-08&atto.codiceRedazionale=25A04443",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU SG n.183 del 2025-08-08 avviso 25A04443 lists Det. PRES/HTA 1053/2025 (31/07/2025) (TrovaNormeFarmaco); prior C(nn) Det. 58/2024 GU n.128 03/06/2024"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/687",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco PDF of Det. PRES/HTA 1053/2025 (31/07/2025) (GU avviso n.183 del 2025-08-08): 'Classe di rimborsabilità H'; prior C(nn) Det. 58/2024 GU n.128 03/06/2024"
         },
         "de_gba_decision_date": {
           "value": "2024-10-02",
@@ -53061,6 +53592,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 539,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -53252,17 +53792,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-05-19&atto.codiceRedazionale=25A02912",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. PRES/HTA 645/2025 (avviso GU n.114 19/05/2025) classifies Veoza in class C (company requested C); 10x1 pack C(nn) by Det. 608/2025 GU n.113 17/05/2025"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "C",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/292",
+          "retrieved_date": "2026-11-04",
+          "notes": "AIFA PDF Det. PRES/HTA 645/2025: 'Classe di rimborsabilità C'; avviso GU n.114 del 19/05/2025; prior C(nn) Det. 78/2024 GU n.131 06/06/2024"
         },
         "de_gba_decision_date": {
           "value": "2024-08-01",
@@ -53365,6 +53905,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 1063,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 238,
@@ -53544,18 +54093,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-06-24",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-06-24&atto.codiceRedazionale=23A03597",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 435/2023, GU SG n.146 del 2023-06-24; Riclassificazione ... 'Classe di rimborsabilita': A' (some packs C); prior C(nn) Det. 135/2021 GU n.242 09/10/2021"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-06-24&atto.codiceRedazionale=23A03597",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 435/2023, GU SG n.146 del 2023-06-24; Riclassificazione ... 'Classe di rimborsabilita': A' (some packs C); prior C(nn) Det. 135/2021 GU n.242 09/10/2021"
         },
         "de_gba_decision_date": {
           "value": "2022-03-03",
@@ -53656,6 +54205,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 708,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -53838,17 +54396,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-12-04&atto.codiceRedazionale=25A06472",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn) act found: Det. 1660/2025, GU SG n.282 del 2025-12-04; 'classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita''"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-12-04&atto.codiceRedazionale=25A06472",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn) act found: Det. 1660/2025, GU SG n.282 del 2025-12-04; 'classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita''"
         },
         "de_gba_decision_date": {
           "value": "2026-05-07",
@@ -53951,6 +54509,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 413,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 232,
@@ -54441,18 +55008,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-10-07",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-10-07&atto.codiceRedazionale=25A05449",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU SG n.233 del 2025-10-07 avviso 25A05449 lists Det. PRES/HTA 1278/2025 (30/09/2025) (TrovaNormeFarmaco); prior C(nn) Det. 267/2024 GU n.168 19/07/2024"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/876",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco PDF of Det. PRES/HTA 1278/2025 (30/09/2025) (GU avviso n.233 del 2025-10-07): 'Classe di rimborsabilità H'; prior C(nn) Det. 267/2024 GU n.168 19/07/2024"
         },
         "de_gba_decision_date": {
           "value": "2024-11-22",
@@ -54553,6 +55120,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 536,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -55359,15 +55935,15 @@
           "value": null,
           "status": "unknown",
           "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "retrieved_date": "2026-11-04",
+          "notes": "No Italian GU/TrovaNorme act found for Vyjuvek/beremagene; AIFA news 29/10/2026: CdA approved reimbursement 28/10/2026, determina not yet found in GU; earlier 2024-2025 AIFA determine for named patients appear to be non-reimbursement access (not verified)"
         },
         "it_reimbursement_class": {
           "value": null,
           "status": "unknown",
           "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "retrieved_date": "2026-11-04",
+          "notes": "No Italian GU/TrovaNorme act found for Vyjuvek/beremagene; AIFA news 29/10/2026: CdA approved reimbursement 28/10/2026, determina not yet found in GU; earlier 2024-2025 AIFA determine for named patients appear to be non-reimbursement access (not verified)"
         },
         "de_gba_decision_date": {
           "value": "2026-02-19",
@@ -55650,17 +56226,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-03-27&atto.codiceRedazionale=26A01494",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. PRES/UPR 158/2026 (TNF 15/02/2026) class C after negative CSE opinion; 300 mg pack C(nn) by Det. 276/2026 GU n.72 27/03/2026; GU avviso for 158/2026 not located"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "C",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/1526",
+          "retrieved_date": "2026-11-04",
+          "notes": "AIFA PDF Det. PRES/UPR 158/2026: 'parere negativo alla rimborsabilità'; 'Classe di rimborsabilità C'; first C(nn) Det. 782/2024 GU n.14 18/01/2025"
         },
         "de_gba_decision_date": {
           "value": "2025-04-17",
@@ -55763,6 +56339,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 776,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 210,
@@ -56262,18 +56847,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-07-10",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-10&atto.codiceRedazionale=26A03460",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU SG n.158 del 2026-07-10 avviso 26A03460 lists Det. PRES 898/2026 (30/06/2026) (TrovaNormeFarmaco); prior C(nn) Det. 726/2025 GU n.132 10/06/2025"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/2258",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco PDF of Det. PRES 898/2026 (30/06/2026) (GU avviso n.158 del 2026-07-10): 'Classe di rimborsabilità H'; prior C(nn) Det. 726/2025 GU n.132 10/06/2025"
         },
         "de_gba_decision_date": {
           "value": "2025-10-16",
@@ -56374,6 +56959,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 491,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -56565,17 +57159,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-06-24&atto.codiceRedazionale=26A03137",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn) act found: Det. 764/2026, GU SG n.144 del 2026-06-24; 'classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita''"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-06-24&atto.codiceRedazionale=26A03137",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn) act found: Det. 764/2026, GU SG n.144 del 2026-06-24; 'classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita''"
         },
         "de_gba_decision_date": {
           "value": null,
@@ -56678,6 +57272,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 317,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "en_nice_lag_days": {
           "value": 241,
@@ -57187,18 +57790,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-05-28",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-05-28&atto.codiceRedazionale=26A02649",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU SG n.122 del 2026-05-28 avviso 26A02649 lists Det. PRES/UPR 675/2026 (21/05/2026) (TrovaNormeFarmaco); prior C(nn) Det. 622/2025 GU n.126 03/06/2025"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/2024",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco PDF of Det. PRES/UPR 675/2026 (21/05/2026) (GU avviso n.122 del 2026-05-28): 'Classe di rimborsabilità H'; prior C(nn) Det. 622/2025 GU n.126 03/06/2025"
         },
         "de_gba_decision_date": {
           "value": "2025-09-18",
@@ -57299,6 +57902,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 470,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -57490,17 +58102,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-06-08&atto.codiceRedazionale=26A02769",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn) act found: Det. 684/2026, GU SG n.130 del 2026-06-08; 'classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita''"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-06-08&atto.codiceRedazionale=26A02769",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn) act found: Det. 684/2026, GU SG n.130 del 2026-06-08; 'classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita''"
         },
         "de_gba_decision_date": {
           "value": null,
@@ -57603,6 +58215,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 383,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "en_nice_lag_days": {
           "value": 5,
@@ -57773,18 +58394,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-02-16",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-02-16&atto.codiceRedazionale=26A00780",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU SG n.38 del 2026-02-16 avviso 26A00780 lists Det. PRES/UPR 163/2026 (09/02/2026) (TrovaNormeFarmaco); prior C(nn) Det. 667/2024 GU n.266 13/11/2024 (rettificata GU n.295)"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/1510",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco PDF of Det. PRES/UPR 163/2026 (09/02/2026) (GU avviso n.38 del 2026-02-16): 'Classe di rimborsabilità A'; prior C(nn) Det. 667/2024 GU n.266 13/11/2024 (rettificata GU n.295)"
         },
         "de_gba_decision_date": {
           "value": "2025-03-06",
@@ -57885,6 +58506,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 543,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -58076,17 +58706,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2020-10-19&atto.codiceRedazionale=20A05557",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn) act found: Det. 103/2020, GU SG n.259 del 2020-10-19; 'classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita''"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2020-10-19&atto.codiceRedazionale=20A05557",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn) act found: Det. 103/2020, GU SG n.259 del 2020-10-19; 'classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita''"
         },
         "de_gba_decision_date": {
           "value": null,
@@ -58189,6 +58819,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 2291,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         }
       }
     },
@@ -58350,18 +58989,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-11-24",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-11-24&atto.codiceRedazionale=23A06409",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 683/2023, GU SG n.275 del 2023-11-24; Riclassificazione ... 'Classe di rimborsabilita': H'; prior C(nn) Det. 14/2023 GU n.33 09/02/2023 (as \"Xempozyme\"); new packs H via Det. 40/2024"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-11-24&atto.codiceRedazionale=23A06409",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 683/2023, GU SG n.275 del 2023-11-24; Riclassificazione ... 'Classe di rimborsabilita': H'; prior C(nn) Det. 14/2023 GU n.33 09/02/2023 (as \"Xempozyme\"); new packs H via Det. 40/2024"
         },
         "de_gba_decision_date": {
           "value": "2023-03-16",
@@ -58462,6 +59101,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 518,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -58652,18 +59300,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-04-01",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-04-01&atto.codiceRedazionale=26A01674",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU SG n.76 del 2026-04-01 avviso 26A01674 lists Det. PRES/UPR 382/2026 (25/03/2026) (TrovaNormeFarmaco); prior C(nn) Det. 11/2024 GU n.27 02/02/2024"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/1755",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco PDF of Det. PRES/UPR 382/2026 (25/03/2026) (GU avviso n.76 del 2026-04-01): 'Classe di rimborsabilità A'; prior C(nn) Det. 11/2024 GU n.27 02/02/2024"
         },
         "de_gba_decision_date": {
           "value": "2024-06-20",
@@ -58764,6 +59412,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 866,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -58948,15 +59605,15 @@
           "value": null,
           "status": "unknown",
           "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "retrieved_date": "2026-11-04",
+          "notes": "No Italian GU or TrovaNormeFarmaco act found for Zegalogue/dasiglucagon (searched brand and INN)"
         },
         "it_reimbursement_class": {
           "value": null,
           "status": "unknown",
           "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "retrieved_date": "2026-11-04",
+          "notes": "No Italian GU or TrovaNormeFarmaco act found for Zegalogue/dasiglucagon (searched brand and INN)"
         },
         "de_gba_decision_date": {
           "value": null,
@@ -59220,18 +59877,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2021-09-06",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-09-06&atto.codiceRedazionale=21A05224",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. DG/1015/2021, GU SG n.213 del 2021-09-06; Riclassificazione ... 'classe di rimborsabilita': «A»'; prior C(nn) Det. 127/2020 GU n.294 26/11/2020"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-09-06&atto.codiceRedazionale=21A05224",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. DG/1015/2021, GU SG n.213 del 2021-09-06; Riclassificazione ... 'classe di rimborsabilita': «A»'; prior C(nn) Det. 127/2020 GU n.294 26/11/2020"
         },
         "de_gba_decision_date": {
           "value": "2021-01-07",
@@ -59332,6 +59989,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 474,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -59514,17 +60180,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-10-29&atto.codiceRedazionale=25A05599",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn) act found: Det. 1291/2025, GU SG n.252 del 2025-10-29; 'classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita''"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-10-29&atto.codiceRedazionale=25A05599",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn) act found: Det. 1291/2025, GU SG n.252 del 2025-10-29; 'classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita''"
         },
         "de_gba_decision_date": {
           "value": "2026-08-06",
@@ -59627,6 +60293,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 495,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 405,
@@ -59815,18 +60490,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-12-19",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-12-19&atto.codiceRedazionale=24A06711",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 768/2024, GU SG n.297 del 2024-12-19; Riclassificazione ... 'classe di rimborsabilita': H'; prior C(nn) Det. 489/2024 GU n.226 26/09/2024"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-12-19&atto.codiceRedazionale=24A06711",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 768/2024, GU SG n.297 del 2024-12-19; Riclassificazione ... 'classe di rimborsabilita': H'; prior C(nn) Det. 489/2024 GU n.226 26/09/2024"
         },
         "de_gba_decision_date": {
           "value": "2024-08-15",
@@ -59927,6 +60602,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 384,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -60108,18 +60792,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-04-18",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-04-18&atto.codiceRedazionale=25A02373",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU SG n.91 del 2025-04-18 avviso 25A02373 lists Det. PRES/HTA 531/2025 (11/04/2025) (TrovaNormeFarmaco); prior C(nn) Det. 174/2022 GU n.248 22/10/2022"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/176",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco PDF of Det. PRES/HTA 531/2025 (11/04/2025) (GU avviso n.91 del 2025-04-18): 'Classe di rimborsabilità A'; prior C(nn) Det. 174/2022 GU n.248 22/10/2022"
         },
         "de_gba_decision_date": {
           "value": "2023-04-06",
@@ -60220,6 +60904,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 1005,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -60713,17 +61406,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-12-15&atto.codiceRedazionale=25A06661",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. PRES/HTA 1693/2025 (avviso GU n.290 15/12/2025) class C: company did not accept negotiation terms; prior C(nn) Det. 119/2023 GU n.243 17/10/2023"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "C",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/1185",
+          "retrieved_date": "2026-11-04",
+          "notes": "AIFA PDF Det. 1693/2025: 'la Società non ha convenuto con le condizioni negoziali'; 'Classe di rimborsabilità C'"
         },
         "de_gba_decision_date": {
           "value": null,
@@ -60826,6 +61519,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 1197,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "en_nice_lag_days": {
           "value": 567,
@@ -60996,18 +61698,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-03-16",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-03-16&atto.codiceRedazionale=24A01360",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 45/2024, GU SG n.64 del 2024-03-16; Regime di rimborsabilita' e prezzo ... 'classe di rimborsabilita': H'; prior C(nn) Det. 65/2023 GU n.120 24/05/2023"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-03-16&atto.codiceRedazionale=24A01360",
+          "retrieved_date": "2026-11-04",
+          "notes": "Det. 45/2024, GU SG n.64 del 2024-03-16; Regime di rimborsabilita' e prezzo ... 'classe di rimborsabilita': H'; prior C(nn) Det. 65/2023 GU n.120 24/05/2023"
         },
         "de_gba_decision_date": {
           "value": "2023-11-02",
@@ -61108,6 +61810,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 452,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -61292,15 +62003,15 @@
           "value": null,
           "status": "unknown",
           "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "retrieved_date": "2026-11-04",
+          "notes": "No Italian GU or TrovaNormeFarmaco act found for Zynquista/sotagliflozin (TrovaNorme GU coverage of 2019 acts uncertain)"
         },
         "it_reimbursement_class": {
           "value": null,
           "status": "unknown",
           "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "retrieved_date": "2026-11-04",
+          "notes": "No Italian GU or TrovaNormeFarmaco act found for Zynquista/sotagliflozin (TrovaNorme GU coverage of 2019 acts uncertain)"
         },
         "de_gba_decision_date": {
           "value": null,
@@ -61574,17 +62285,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2020-10-14&atto.codiceRedazionale=20A05459",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn) act found: Det. 90/2020, GU SG n.254 del 2020-10-14; 'classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita''; no later act found"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2020-10-14&atto.codiceRedazionale=20A05459",
+          "retrieved_date": "2026-11-04",
+          "notes": "Only C(nn) act found: Det. 90/2020, GU SG n.254 del 2020-10-14; 'classe C(nn), dedicata ai farmaci non ancora valutati ai fini della rimborsabilita''; no later act found"
         },
         "de_gba_decision_date": {
           "value": "2020-05-14",
@@ -61687,6 +62398,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 2716,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 351,
@@ -61857,18 +62577,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-10-07",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-10-07&atto.codiceRedazionale=25A05449",
+          "retrieved_date": "2026-11-04",
+          "notes": "GU SG n.233 del 2025-10-07 avviso 25A05449 lists Det. PRES/HTA 1280/2025 (30/09/2025) (TrovaNormeFarmaco); prior C(nn) Det. 237/2025 GU n.70 25/03/2025"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/877",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA TrovaNormeFarmaco PDF of Det. PRES/HTA 1280/2025 (30/09/2025) (GU avviso n.233 del 2025-10-07): 'Classe di rimborsabilità H'; prior C(nn) Det. 237/2025 GU n.70 25/03/2025"
         },
         "de_gba_decision_date": {
           "value": "2026-10-01",
@@ -61969,6 +62689,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 536,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },

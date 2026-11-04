@@ -49,11 +49,11 @@
       ],
       "fields": 2,
       "cells": 414,
-      "filled": 57,
-      "checked_none": 3,
-      "unknown": 354,
-      "pct_filled": 13.8,
-      "pct_resolved": 14.5
+      "filled": 201,
+      "checked_none": 21,
+      "unknown": 192,
+      "pct_filled": 48.6,
+      "pct_resolved": 53.6
     },
     {
       "group": "Germany",
@@ -128,13 +128,13 @@
       "unknown": 2
     },
     "it_gu_date": {
-      "unknown": 177,
-      "filled": 27,
-      "not_reimbursed_as_of": 3
+      "unknown": 96,
+      "filled": 90,
+      "not_reimbursed_as_of": 21
     },
     "it_reimbursement_class": {
-      "unknown": 177,
-      "filled": 30
+      "unknown": 96,
+      "filled": 111
     },
     "de_gba_decision_date": {
       "filled": 185,
