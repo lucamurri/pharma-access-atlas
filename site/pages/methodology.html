@@ -6,11 +6,26 @@
 
 <div class="prose">
 <h2>Which drugs are included</h2>
-<p>{{n}} innovative medicines whose <strong>first FDA approval</strong> and <strong>first European Commission
-  marketing authorisation</strong> both fall between 1 January 2019 and 31 December 2025. They were chosen to
-  mix therapy areas (oncology, rare disease, immunology, cardiometabolic including GLP-1s, neurology), company
-  origins, and cases where Europe approved first. The list is curated, not a random sample, so the findings
-  describe these drugs and do not necessarily hold for all new medicines.</p>
+<p>Every medicine that meets a fixed rule, with no hand-picking: the FDA approved it as a <strong>new active
+  substance</strong> between 1 January 2019 and 31 December 2025 (an original NDA classed as a new molecular entity,
+  or an original BLA, in openFDA), <strong>and</strong> the European Commission's <strong>first</strong> centralised
+  authorisation of the same active substance also falls in that window. That gives <strong>{{n}} drugs</strong>.</p>
+<ul>
+  <li>Generics, biosimilars and new formulations of older molecules drop out automatically, because their substance
+    was first authorised in the EU before 2019.</li>
+  <li>Diagnostic agents (ATC V04, V09) are excluded: they are not treatments and are reimbursed through other routes.</li>
+  <li>Cell and gene therapies (approved by FDA's CBER, not in openFDA) come from the EMA list of advanced therapies.
+    Each is included only if its FDA approval date in the window was verified by hand.</li>
+  <li>The selection was cross-checked against FDA's official yearly "novel drug approvals" lists for 2021–2025.</li>
+  <li>{{n_reference}} <strong>reference drugs</strong> (Rybelsus and Wegovy, newer brands of semaglutide, which was
+    first approved as Ozempic in 2017) are shown for the Medicare comparison but excluded from every headline statistic.</li>
+  <li>The EU side uses centrally authorised products. A substance previously sold only under national licences can
+    appear "new" to the EU here. The selection code is <code>pipeline/universe.py</code>.</li>
+</ul>
+<p><strong>Therapy areas</strong> come from each drug's ATC code (WHO classification, as published by the EMA)
+  through fixed rules in <code>pipeline/taxonomy.py</code>. Where no ATC code is assigned yet, keywords in the EMA
+  therapeutic area are used. Orphan status is a separate filter, not a therapy area. <strong>Company</strong> is
+  the EU marketing authorisation holder with legal-form words removed.</p>
 
 <h2>Definitions</h2>
 <dl>
@@ -34,6 +49,19 @@
     whether any group got “no added benefit”. In Germany a drug is reimbursed from launch. The assessment,
     usually about six months later, shapes the negotiated price, so it measures
     <em>value recognised</em>, not an access delay.</dd>
+  <dt><strong>France HAS rating</strong></dt>
+  <dd>The HAS Transparency Committee's first opinion on inclusion for reimbursement. <em>SMR</em> says whether the
+    drug merits reimbursement at all; <em>ASMR</em> rates added benefit from I (major) to V (no improvement). We show
+    the best level across indications. Drugs absent from the French public medicines database (often because they
+    were never marketed in France) show as unknown.</dd>
+  <dt><strong>England NICE decision</strong></dt>
+  <dd>The outcome of NICE's first published technology appraisal (TA) or highly specialised technology (HST)
+    guidance for the drug's first indication. Categories: <em>recommended</em> within the licence;
+    <em>optimised</em> (recommended for a narrower group); <em>managed access</em> (Cancer Drugs Fund or similar);
+    <em>not recommended</em>; <em>terminated</em> (no company submission or the company withdrew); and
+    <em>not appraised</em> (no guidance, including appraisals discontinued before guidance was published).
+    The date is the publication date. England uses its own UK licence after Brexit, but lags are measured from
+    the EC approval for comparability.</dd>
   <dt><strong>Orphan status</strong></dt>
   <dd>US: an FDA orphan designation for the indication of first approval (FDA OOPD database). EU: the EMA's
     current orphan flag. A drug whose orphan status was later withdrawn shows “no”.</dd>
@@ -49,11 +77,13 @@
   <thead><tr><th scope="col">Source</th><th scope="col">Used for</th><th scope="col">How it's collected</th><th scope="col">Terms</th></tr></thead>
   <tbody>
     <tr><th scope="row"><a href="https://open.fda.gov/apis/drug/drugsfda/">openFDA Drugs@FDA</a></th><td>FDA approval dates, applicant, review priority</td><td>API, refreshed monthly</td><td>Public domain</td></tr>
-    <tr><th scope="row"><a href="https://www.fda.gov/vaccines-blood-biologics">FDA CBER approval letters</a></th><td>Approval dates for Carvykti, Zolgensma, Hemgenix</td><td>Manual</td><td>Public domain</td></tr>
+    <tr><th scope="row"><a href="https://www.fda.gov/vaccines-blood-biologics">FDA CBER approval letters</a></th><td>Approval dates for cell and gene therapies</td><td>Manual</td><td>Public domain</td></tr>
     <tr><th scope="row"><a href="https://www.accessdata.fda.gov/scripts/opdlisting/oopd/">FDA Orphan Drug Designations (OOPD)</a></th><td>US orphan designation</td><td>Manual</td><td>Public domain</td></tr>
     <tr><th scope="row"><a href="https://www.ema.europa.eu/en/medicines/download-medicine-data">EMA medicine data</a></th><td>CHMP opinion and EC approval dates, EU orphan, conditional approval, holder</td><td>Download, refreshed monthly</td><td>Reuse with acknowledgement</td></tr>
     <tr><th scope="row"><a href="https://www.gazzettaufficiale.it/">Gazzetta Ufficiale</a> · <a href="https://www.aifa.gov.it/">AIFA</a></th><td>Italian reimbursement date and class</td><td>Manual</td><td>Official acts (not copyrighted); AIFA data CC BY 4.0</td></tr>
     <tr><th scope="row"><a href="https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/">G-BA benefit assessments</a></th><td>AMNOG decision date and rating</td><td>Manual</td><td>Free reuse; no distortion of decisions</td></tr>
+    <tr><th scope="row"><a href="https://base-donnees-publique.medicaments.gouv.fr/">French public medicines database (BDPM)</a></th><td>HAS SMR, ASMR and opinion date</td><td>Download, refreshed monthly</td><td>Licence ouverte (attribution, no alteration)</td></tr>
+    <tr><th scope="row"><a href="https://www.nice.org.uk/guidance/published">NICE guidance</a></th><td>England appraisal outcome, date and TA number</td><td>Manual</td><td>NICE content, cited with links</td></tr>
     <tr><th scope="row"><a href="https://www.cms.gov/initiatives/medicare-prescription-drug-affordability/overview/medicare-drug-price-negotiation-program/selected-drugs-negotiated-prices">CMS Medicare Drug Price Negotiation</a></th><td>Selection, Maximum Fair Price; list price from fact sheets</td><td>Data file refreshed monthly; list price manual</td><td>Public domain</td></tr>
   </tbody>
 </table>
@@ -78,7 +108,15 @@
     precede full reimbursement (for example Zolgensma and Skyclarys). We count only the reimbursement determination.</li>
   <li><strong>Regional access in Italy</strong> (inclusion in regional formularies) can add months after national
     reimbursement and is not measured.</li>
-  <li><strong>Germany measures value, not delay.</strong> See the definition above.</li>
+  <li><strong>Germany, France and England measure value, not delay.</strong> In Germany a drug is reimbursed from
+    launch; in France and England the assessment precedes funding. Only Italy's milestone is reimbursement itself.</li>
+  <li><strong>Reserve antibiotics in Germany</strong> have their added benefit "deemed proven" without a stated extent,
+    so their rating is left blank.</li>
+  <li><strong>Recent drugs are incomplete.</strong> Many drugs approved in 2024–2025 are still in assessment;
+    they show as unknown, not as "no".</li>
+  <li><strong>Researched values</strong> for Italy, Germany, England and US orphan status were researched from
+    official sources under strict rules (an official source for every value, no estimates) and spot-checked.
+    Errors are possible: every value links to its source so it can be checked.</li>
   <li><strong>US access depends on insurers.</strong> FDA approval does not guarantee coverage. US payer
     coverage decisions are not public in a comparable form and are not measured.</li>
   <li><strong>Judgement calls</strong> (for example a suspended first G-BA procedure, or a drug first classed
