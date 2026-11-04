@@ -1,0 +1,52 @@
+<p class="eyebrow">Drug explorer</p>
+<h1>All {{n}} drugs</h1>
+<p class="lede">Filter and sort the full dataset. Select a drug for its one-page market-access brief.</p>
+
+<form class="filters" id="filters" aria-label="Filter drugs" onsubmit="return false">
+  <label>Search
+    <input type="search" id="f-search" placeholder="Brand or ingredient" autocomplete="off">
+  </label>
+  <label>Therapy area
+    <select id="f-area"><option value="">All</option></select>
+  </label>
+  <label>Company
+    <select id="f-company"><option value="">All</option></select>
+  </label>
+  <label>Orphan status
+    <select id="f-orphan">
+      <option value="">All</option>
+      <option value="yes">Orphan (US or EU)</option>
+      <option value="no">Not orphan</option>
+    </select>
+  </label>
+  <label>First approved (year)
+    <select id="f-year"><option value="">All</option></select>
+  </label>
+  <button type="reset" id="f-reset">Clear filters</button>
+</form>
+
+<p class="result-count" id="result-count" aria-live="polite"></p>
+<div class="table-scroll">
+  <table class="data-table" id="explorer">
+    <caption class="visually-hidden">Drugs, sortable by each column</caption>
+    <thead>
+      <tr>
+        <th scope="col" data-key="brand_us"><button class="sort-btn" type="button">Drug</button></th>
+        <th scope="col" data-key="area"><button class="sort-btn" type="button">Area</button></th>
+        <th scope="col" data-key="company"><button class="sort-btn" type="button">Company</button></th>
+        <th scope="col" data-key="fda_date"><button class="sort-btn" type="button">FDA</button></th>
+        <th scope="col" data-key="ec_date"><button class="sort-btn" type="button">EC</button></th>
+        <th scope="col" class="num" data-key="lag"><button class="sort-btn" type="button">US→EU lag (days)</button></th>
+        <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Italy delay (days)</button></th>
+        <th scope="col" data-key="gba_sort"><button class="sort-btn" type="button">G-BA rating</button></th>
+        <th scope="col" data-key="orphan_any"><button class="sort-btn" type="button">Orphan</button></th>
+      </tr>
+    </thead>
+    <tbody id="explorer-body">
+      <tr><td colspan="9">Loading… (this table needs JavaScript; the raw data is in <a href="data/drugs.json">drugs.json</a>)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="muted small">Lag = EC approval date minus FDA approval date; negative means the EU approved first.
+  Italy delay = EC approval to reimbursement in the Gazzetta Ufficiale; “waiting” = not reimbursed when checked.
+  <a href="methodology.html">Definitions</a>.</p>
