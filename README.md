@@ -93,12 +93,6 @@ Use `python3 pipeline/run_all.py --offline` to rebuild from the committed data w
 `python3 -m unittest discover pipeline` to run the validator tests. To update a hand-maintained value, edit
 the CSVs in `data/manual/` as described in [`data/manual/README.md`](data/manual/README.md).
 
-## Built with AI
-
-The project was built with [Claude Code](https://claude.com/claude-code) as an AI-augmented workflow. I defined the
-question, the scope, the data rules and the analysis. The AI helped write the code and gather sources under those
-rules, and I reviewed the results. Researched values carry a source link and notes so that anyone can re-check them.
-
 ## Licence
 
 - **Code:** [MIT](LICENSE).
