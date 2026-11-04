@@ -43,7 +43,7 @@ MESH_KEYWORDS = [
     (r"infection|virus|viral|bacteria|hiv|covid", "Infectious disease"),
 ]
 
-LEGAL_WORDS = r"""\b(b\.?v\.?|n\.?v\.?|gmbh|ag|a/s|s\.?a\.?s?|s\.?p\.?a\.?|s\.?r\.?l\.?|ltd\.?|limited|plc|inc\.?|llc|uc|
+LEGAL_WORDS = r"""\b(b\.?\s?v\.?|n\.?\s?v\.?|gmbh|ag|a/s|s\.?a\.?s?|s\.?p\.?a\.?|s\.?r\.?l\.?|ltd\.?|limited|plc|inc\.?|llc|uc|
     eeig|kg|co\.?|& co\.? kg|ab|oy|se|ireland|nederland|netherlands|europe|european|europharm|deutschland|
     international|registration|pharma(ceuticals)?|pharmaceutical|danmark|belgium|france|italia|espa[nñ]a|
     holdings?|group|the)\b"""
