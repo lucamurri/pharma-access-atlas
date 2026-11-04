@@ -6,6 +6,7 @@ words on the page always match the data. If the data changes, the titles change.
 from __future__ import annotations
 
 import json
+import math
 import statistics
 from collections import defaultdict
 from datetime import date
@@ -138,6 +139,29 @@ def kaplan_meier(pairs: list) -> dict:
     }
 
 
+def log_rank_p(a: list, b: list) -> float | None:
+    """Two-sided p-value of the log-rank test: do two groups reach the milestone at different speeds?
+
+    Standard test for Kaplan-Meier curves (one degree of freedom). A small p means the
+    difference is unlikely to be chance alone; it says nothing about cause.
+    """
+    a, b = [p for p in a if p], [p for p in b if p]
+    observed = expected = variance = 0.0
+    for t in sorted({t for t, e in a + b if e}):
+        na, nb = sum(1 for x, _ in a if x >= t), sum(1 for x, _ in b if x >= t)
+        da = sum(1 for x, e in a if x == t and e)
+        d = da + sum(1 for x, e in b if x == t and e)
+        n = na + nb
+        if n < 2:
+            continue
+        observed += da
+        expected += d * na / n
+        variance += d * (na / n) * (nb / n) * (n - d) / (n - 1)
+    if not variance:
+        return None
+    return math.erfc(math.sqrt((observed - expected) ** 2 / variance / 2))
+
+
 def access_curves(all_rows: list[dict]) -> dict:
     rows = core(all_rows)
     return {k: kaplan_meier([r["km"][k] for r in rows]) for k in MILESTONES}
@@ -209,6 +233,7 @@ def summary(all_rows: list[dict]) -> dict:
         "cms_n_selected": sum(1 for r in all_rows if r["cms_selected"] == "yes"),
         "access": access_curves(all_rows),
         "companies": company_scorecard(all_rows),
+        "drivers": italy_drivers(all_rows),
     }
 
 
@@ -240,6 +265,48 @@ def company_scorecard(all_rows: list[dict]) -> list[dict]:
             "en_pos": en_pos, "en_n": len(en), "en_pct": pct(en_pos, len(en)),
         })
     return sorted(out, key=lambda c: (-c["n"], c["company"]))
+
+
+# ---------------------------------------------------------------------------
+# What goes with a faster Italian launch? Each factor splits the drugs in two
+# and compares their time-to-reimbursement curves (same method as the overview).
+def _added_benefit(r):
+    if r["gba_rating"] in ("major", "considerable", "minor", "non-quantifiable"):
+        return "yes"
+    return "no" if r["gba_rating"] in ("no added benefit", "lesser") else None
+
+
+DRIVERS = [
+    ("orphan", "Orphan drug (US or EU)", "Not orphan", lambda r, big: r["orphan_any"]),
+    ("de_benefit", "Added benefit in Germany", "No added benefit in Germany", lambda r, big: _added_benefit(r)),
+    ("fr_benefit", "Improvement in France (ASMR I–IV)", "No improvement in France",
+     lambda r, big: "yes" if r["fr_verdict"] in ("I", "II", "III", "IV") else "no" if r["fr_verdict"] else None),
+    ("conditional", "Conditional EU approval", "Standard EU approval", lambda r, big: r["eu_conditional"]),
+    ("atmp", "Cell or gene therapy", "Other medicines", lambda r, big: r["atmp"]),
+    ("oncology", "Oncology", "Other therapy areas", lambda r, big: "yes" if r["area"] == "Oncology" else "no"),
+    ("large_company", f"Company with {SCORECARD_MIN}+ drugs here", "Smaller company",
+     lambda r, big: "yes" if r["company"] in big else "no"),
+]
+
+
+def italy_drivers(all_rows: list[dict]) -> list[dict]:
+    rows = core(all_rows)
+    big = {c["company"] for c in company_scorecard(all_rows) if c["n"] >= SCORECARD_MIN}
+    out = []
+    for key, yes_label, no_label, fn in DRIVERS:
+        groups = {"yes": [], "no": []}
+        for r in rows:
+            v = fn(r, big)
+            if v in groups:
+                groups[v].append(r["km"]["it"])
+        stats = {}
+        for g, pairs in groups.items():
+            km = kaplan_meier(pairs)
+            stats[g] = {k: km[k] for k in ("n", "events", "waiting", "median", "pct_1y", "pct_2y")}
+        p = log_rank_p(groups["yes"], groups["no"])
+        out.append({"key": key, "yes_label": yes_label, "no_label": no_label, **stats,
+                    "p": round(p, 3) if p is not None else None})
+    return out
 
 
 def scorecard_title(s: dict) -> str:
@@ -327,7 +394,18 @@ def findings(all_rows: list[dict], s: dict) -> dict:
     by_id = {r["id"]: r for r in all_rows}
     ryb, weg = by_id["rybelsus"], by_id["wegovy"]
 
+    # 7. What goes with a faster Italian launch (see italy_drivers)
+    drv = {d["key"]: d for d in s["drivers"]}
+    medians = [d[g]["median"] for d in s["drivers"] for g in ("yes", "no") if d[g]["n"] >= 20 and d[g]["median"]]
+
     f = {
+        "drv_n": len(s["drivers"]), "drv_med_lo": min(medians), "drv_med_hi": max(medians),
+        "drv_de_y_med": drv["de_benefit"]["yes"]["median"], "drv_de_n_med": drv["de_benefit"]["no"]["median"],
+        "drv_de_y_n": drv["de_benefit"]["yes"]["n"], "drv_de_n_n": drv["de_benefit"]["no"]["n"],
+        "drv_or_y_med": drv["orphan"]["yes"]["median"], "drv_or_n_med": drv["orphan"]["no"]["median"],
+        "drv_lc_y_2y": days(drv["large_company"]["yes"]["pct_2y"]), "drv_lc_n_2y": days(drv["large_company"]["no"]["pct_2y"]),
+        "drv_lc_y_n": drv["large_company"]["yes"]["n"], "drv_lc_n_n": drv["large_company"]["no"]["n"],
+        "drv_lc_p": f'{drv["large_company"]["p"]:.2f}',
         "fda_to_it_median": fda_to_it,
         "fr_med": fr, "fr_n2": a["fr"]["n"], "fr_wait": a["fr"]["waiting"],
         "de_med": de, "de_n2": a["de"]["n"], "de_wait": a["de"]["waiting"],
@@ -360,6 +438,10 @@ def findings(all_rows: list[dict], s: dict) -> dict:
         "6: Rybelsus reimbursed in Italy, Wegovy not": ryb["it_status"] == "reimbursed" and weg["it_status"] == "not reimbursed",
         "6: Wegovy not assessed in Germany, Rybelsus no added benefit":
             weg["gba_rating"] == "not assessed" and ryb["gba_rating"] == "no added benefit",
+        "7: Germany's verdict shows no clear link to Italy's speed (p >= 0.05)": drv["de_benefit"]["p"] >= 0.05,
+        "7: orphan status shows no clear link to Italy's speed (p >= 0.05)": drv["orphan"]["p"] >= 0.05,
+        "7: company size is the only factor with p < 0.05": [d["key"] for d in s["drivers"] if d["p"] < 0.05] == ["large_company"],
+        "7: large companies reach more drugs within two years": drv["large_company"]["yes"]["pct_2y"] > drv["large_company"]["no"]["pct_2y"],
     }
     broken = [name for name, ok in guards.items() if not ok]
     if broken:

@@ -12,7 +12,7 @@
 
 A drug's approval date is the date that makes headlines, but it is not when patients get the drug. In Europe, an
 EU-wide approval is followed by separate national decisions on price, reimbursement and added value. These can take
-years and vary by country. The public data needed to see this is scattered across six agencies, four
+years and vary by country. The public data needed to see this is scattered across seven agencies, four
 languages and formats ranging from APIs to official gazettes.
 
 The atlas puts those pieces side by side for **all 205 new medicines** approved by both the FDA and the European
@@ -22,7 +22,7 @@ reimbursement in **Italy** (AIFA), plus Medicare price negotiation in the **US**
 **Every value links to its public source**, and anything that could not be verified is left blank and flagged.
 
 The site has an overview with time-to-access curves, a filterable drug explorer, a one-page brief per drug, a
-[company scorecard](https://lucamurri.github.io/pharma-access-atlas/companies.html) and six written findings.
+[company scorecard](https://lucamurri.github.io/pharma-access-atlas/companies.html) and seven written findings.
 
 ## Three key findings
 

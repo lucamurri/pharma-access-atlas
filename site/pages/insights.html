@@ -1,5 +1,5 @@
 <p class="eyebrow">Insights</p>
-<h1>Six findings on getting new drugs to patients</h1>
+<h1>Seven findings on getting new drugs to patients</h1>
 <p class="lede">These findings cover all {{n}} new medicines approved by both the FDA and the European Commission in 2019–2025.
   Each one states how many drugs it rests on. Recent approvals are still moving through national processes,
   so some values are not yet known.</p>
@@ -74,8 +74,36 @@
     depending on the indication and the country. For obesity, payer policy, more than the evidence, decides access.</p>
 </section>
 
+<section aria-labelledby="f7">
+  <h2 id="f7"><span class="finding-num">7</span> In Italy, the process sets the pace, not the drug</h2>
+  <p>We split the drugs {{drv_n}} ways (orphan or not, Germany's verdict, France's verdict, conditional approval,
+    cell or gene therapy, oncology, company size) and compared how fast each group was reimbursed in Italy, counting
+    drugs still waiting. Every group's median fell between <strong>{{drv_med_lo}} and {{drv_med_hi}} days</strong>.
+    Drugs Germany found had added benefit took {{drv_de_y_med}} days ({{drv_de_y_n}} drugs), against {{drv_de_n_med}}
+    for those it found had none ({{drv_de_n_n}}). Orphan drugs took {{drv_or_y_med}}, others {{drv_or_n_med}}. None
+    of these gaps passes a standard significance test (p < 0.05).</p>
+  <p>The one factor that stood out was the company. Companies with at least five drugs in the atlas had
+    <strong>{{drv_lc_y_2y}}% of their drugs reimbursed within two years</strong> of EU approval ({{drv_lc_y_n}} drugs),
+    against {{drv_lc_n_2y}}% for smaller companies ({{drv_lc_n_n}}). A log-rank test puts the chance of a gap this
+    large arising by luck at p = {{drv_lc_p}}; with {{drv_n}} comparisons, one such result could still be chance.</p>
+  <figure class="chart-card" aria-labelledby="c-drv-h">
+    <h3 id="c-drv-h">Share of drugs reimbursed in Italy within two years of EU approval</h3>
+    <ul class="legend" aria-hidden="true">
+      <li style="--swatch: var(--series-1)">Drugs with the trait</li>
+      <li style="--swatch: var(--series-2)">Drugs without it</li>
+    </ul>
+    <div class="chart-box" style="height: 420px"><canvas id="chart-drivers" role="img"
+      aria-label="Share of drugs reimbursed in Italy within two years, with and without each trait. Data in the table below."></canvas></div>
+    <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-drivers"></div></details>
+  </figure>
+  <p class="so-what-line"><strong>So what:</strong> a strong benefit verdict elsewhere does not buy a faster Italian
+    launch. What seems to matter is how well a company works the Italian process: a local market-access team,
+    early dossier preparation and price negotiation capacity.</p>
+</section>
+
 </div>
 
-<p class="muted small">All figures are medians of days between dated events, or counts of drugs. See the
+<p class="muted small">All figures are medians of days between dated events, shares, or counts of drugs. The
+  comparisons in finding 7 show association, not cause. See the
   <a href="methodology.html">methodology</a> for definitions and limitations, and the <a href="explorer.html">explorer</a>
   for every drug's values.</p>

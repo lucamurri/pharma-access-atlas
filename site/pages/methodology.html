@@ -90,6 +90,14 @@
   which is accurate: they never get NICE guidance. The English curve starts above 0% because NICE, working from
   the UK licence, published guidance for a few drugs before the EC approval.</p>
 
+<h3>Comparing groups of drugs</h3>
+<p>Finding 7 splits the drugs by one trait at a time (for example, orphan or not) and compares the two groups'
+  curves with a <strong>log-rank test</strong>, the standard test for this kind of curve. A p-value below 0.05 means
+  a gap that large would arise by chance less than one time in twenty. With several comparisons, one result
+  below 0.05 can still be chance, and none of them shows cause: a trait can travel with others (large companies
+  run more oncology drugs, for example). The calculation was checked against the <em>lifelines</em> statistics
+  library.</p>
+
 <h2>Data sources</h2>
 </div>
 <div class="table-scroll">
