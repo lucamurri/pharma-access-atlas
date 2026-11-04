@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- Source for site/assets/img/social.png (the link-preview image). Rendered at 1200x630 with headless Chrome:
+     chrome --headless=new --window-size=1200,630 --screenshot=site/assets/img/social.png docs/social-card.html
+     No figures on purpose: the numbers change with each monthly refresh. -->
+<html><head><meta charset="utf-8"><style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #fcfcfb; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #16161a; }
+  .wrap { position: absolute; inset: 0; padding: 72px 80px; box-sizing: border-box; }
+  .brand { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 34px; font-weight: 600; display: flex; align-items: center; gap: 16px; }
+  .brand::before { content: ""; width: 26px; height: 26px; background: #1c5cab; display: inline-block; }
+  h1 { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 66px; line-height: 1.08; margin: 44px 0 0; max-width: 1000px; font-weight: 600; }
+  p { font-size: 28px; color: #4a4a52; margin: 28px 0 0; max-width: 980px; line-height: 1.4; }
+  .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 14px; display: flex; }
+  .bar span { flex: 1; }
+  svg { position: absolute; right: 80px; bottom: 70px; }
+</style></head><body><div class="wrap">
+  <div class="brand">Pharma Access Atlas</div>
+  <h1>How fast do new drugs reach patients in the US and Europe?</h1>
+  <p>Every new medicine approved by both the FDA and the EU in 2019–2025, tracked to benefit assessment and
+    reimbursement in Italy, Germany, France and England. Every number sourced.</p>
+  <!-- Four illustrative step curves in the site's country colours (shape only, not data). -->
+  <svg width="300" height="150" viewBox="0 0 300 150" aria-hidden="true" fill="none" stroke-width="5" stroke-linejoin="round">
+    <path d="M0 150 H30 V120 H45 V70 H70 V40 H120 V28 H300" stroke="#2a78d6"/>
+    <path d="M0 150 H50 V100 H60 V45 H110 V32 H300" stroke="#eda100"/>
+    <path d="M0 150 H10 V135 H60 V110 H100 V70 H170 V55 H300" stroke="#e87ba4"/>
+    <path d="M0 150 H70 V135 H110 V90 H150 V60 H210 V40 H300" stroke="#008300"/>
+  </svg>
+</div>
+<div class="bar"><span style="background:#2a78d6"></span><span style="background:#eda100"></span><span style="background:#e87ba4"></span><span style="background:#008300"></span></div>
+</body></html>
