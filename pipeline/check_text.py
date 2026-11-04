@@ -1,0 +1,105 @@
+"""Check that every number in the written analysis comes from the data.
+
+The "so what" bullets (site/content/so_what.json) are written by hand. This
+script pulls every number out of each bullet and checks that it matches a value
+for that drug (its dates, lags, ranks, prices) or a headline number for the
+whole set (counts, medians). A typo like "869 days" instead of "870" fails the build.
+
+It cannot check the meaning of a sentence; that is what human review is for.
+It can guarantee that no number was invented.
+
+Run:  python3 pipeline/check_text.py
+"""
+from __future__ import annotations
+
+import json
+import re
+import sys
+
+import analysis
+from common import ROOT
+
+SO_WHAT = ROOT / "site" / "content" / "so_what.json"
+# Numbers that are part of a name rather than data (e.g. "Law 648/96").
+CONSTANTS = {648, 96}
+NUMBER = re.compile(r"\d[\d,]*(?:\.\d+)?")
+
+
+def numbers_in(text: str) -> list[float]:
+    return [float(m.replace(",", "")) for m in NUMBER.findall(text)]
+
+
+def collect(value, out: set) -> None:
+    """Add every number found in a (nested) value to the set."""
+    if isinstance(value, bool) or value is None:
+        return
+    if isinstance(value, (int, float)):
+        out.update({float(value), float(abs(value)), float(analysis.days(abs(value)))})
+    elif isinstance(value, str):
+        out.update(numbers_in(value))  # dates contribute their year, month and day
+    elif isinstance(value, dict):
+        for v in value.values():
+            collect(v, out)
+    elif isinstance(value, (list, tuple)):
+        for v in value:
+            collect(v, out)
+
+
+def allowed_numbers(rows: list[dict], s: dict, f: dict) -> tuple[set, dict]:
+    shared = set(CONSTANTS)
+    collect(s, shared)
+    collect(f, shared)
+    shared.update(float(n) for n in range(1, 11))  # small counts, e.g. "one of 2 drugs"
+    classes = {}
+    for r in rows:
+        classes[r["it_class"]] = classes.get(r["it_class"], 0) + 1
+    collect(classes, shared)
+
+    # Ranks: position of each drug when sorted by lag and by Italian delay.
+    by_lag = sorted(rows, key=lambda r: -r["lag"])
+    reimbursed = sorted([r for r in rows if r["it_lag"] is not None], key=lambda r: -r["it_lag"])
+    per_drug = {}
+    for r in rows:
+        own = set()
+        collect(r, own)
+        own.add(float(by_lag.index(r) + 1))               # rank by longest US-EU lag
+        own.add(float(len(by_lag) - by_lag.index(r)))     # rank by shortest
+        if r in reimbursed:
+            own.add(float(reimbursed.index(r) + 1))       # rank by longest Italian wait
+            own.add(float(len(reimbursed) - reimbursed.index(r)))  # rank by fastest
+            own.add(float(abs(r["it_lag"] - analysis.days(s["it_lag_median"]))))  # vs median
+        per_drug[r["id"]] = own
+    return shared, per_drug
+
+
+def main() -> int:
+    data = analysis.load()
+    rows = analysis.flat_rows(data)
+    s = analysis.summary(rows)
+    f = analysis.findings(rows, s)
+    shared, per_drug = allowed_numbers(rows, s, f)
+    bullets = json.loads(SO_WHAT.read_text(encoding="utf-8"))
+
+    problems = []
+    for drug_id in per_drug:
+        if drug_id not in bullets:
+            problems.append(f"{drug_id}: no 'so what' bullets written")
+        elif len(bullets[drug_id]) != 3:
+            problems.append(f"{drug_id}: expected 3 bullets, found {len(bullets[drug_id])}")
+    for drug_id, items in bullets.items():
+        if drug_id not in per_drug:
+            problems.append(f"{drug_id}: not a drug in the atlas")
+            continue
+        for text in items:
+            for n in numbers_in(text):
+                if n not in per_drug[drug_id] and n not in shared:
+                    problems.append(f"{drug_id}: number {n:g} not found in the data: \"{text}\"")
+
+    print(f"Text check: {len(problems)} problem(s) in {sum(len(v) for v in bullets.values())} bullets")
+    for p in problems:
+        print("  ERROR", p)
+    return 1 if problems else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

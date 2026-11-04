@@ -17,6 +17,7 @@ import shutil
 from datetime import date
 
 import analysis
+import check_text
 from common import PROCESSED, ROOT, write_json
 
 SITE = ROOT / "site"
@@ -187,12 +188,12 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
 
     # --- key numbers ------------------------------------------------------
     lag = row["lag"]
-    lag_text = (f"{lag} days" if lag is not None else "n/a")
+    lag_text = (f"{lag:,} days" if lag is not None else "n/a")
     lag_note = ("US approved first" if lag and lag > 0 else "EU approved first" if lag and lag < 0 else "Same day")
     if row["it_lag"] is not None:
-        it_text, it_note = f'{row["it_lag"]} days', "EC approval to Italian reimbursement"
+        it_text, it_note = f'{row["it_lag"]:,} days', "EC approval to Italian reimbursement"
     elif row["it_status"] == "not reimbursed":
-        it_text, it_note = "Not reimbursed", f'{row["it_waiting"]} days since EC approval, as of {fmt_date(row["it_checked"])}'
+        it_text, it_note = "Not reimbursed", f'{row["it_waiting"]:,} days since EC approval, as of {fmt_date(row["it_checked"])}'
     else:
         it_text, it_note = "Unknown", "Not yet verified"
     rating = row["gba_rating"]
@@ -317,6 +318,9 @@ def main() -> None:
     rows = analysis.flat_rows(data)
     s = analysis.summary(rows)
     titles = analysis.chart_titles(s)
+    findings = analysis.findings(rows, s)  # stops the build if a written claim no longer holds
+    if check_text.main() != 0:
+        raise SystemExit("Fix the numbers in site/content/so_what.json before building.")
     as_of = data["data_as_of"]
 
     if OUT.exists():
@@ -348,6 +352,10 @@ def main() -> None:
         "title_gba": esc(titles["gba"]),
         "repo_url": REPO_URL,
     }
+    # Numbers for the Insights page (years stay unformatted; other numbers get thousands separators).
+    for key, value in findings.items():
+        is_year = key in ("cms_ipay", "cms_list_year")
+        values[key] = value if is_year or not isinstance(value, int) else f"{value:,}"
     scripts = {"index.html": ["vendor/chart.umd.min.js", "js/common.js", "js/overview.js"],
                "explorer.html": ["js/common.js", "js/explorer.js"]}
     for page, (title, description) in PAGES.items():
