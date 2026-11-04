@@ -1,0 +1,387 @@
+"""Build the static website into _site/ (the folder GitHub Pages publishes).
+
+    python3 pipeline/build_site.py
+    python3 -m http.server 8000 --directory _site     # then open http://localhost:8000
+
+What it does
+  1. Wraps each page in site/pages/ with the shared layout (header, nav, footer).
+  2. Fills {{placeholders}} in pages with numbers from pipeline/analysis.py.
+  3. Generates one brief page per drug in _site/drugs/.
+  4. Copies assets and writes the data files the JavaScript reads.
+"""
+from __future__ import annotations
+
+import html
+import json
+import shutil
+from datetime import date
+
+import analysis
+from common import PROCESSED, ROOT, write_json
+
+SITE = ROOT / "site"
+OUT = ROOT / "_site"
+REPO_URL = "https://github.com/defking1/pharma-access-atlas"
+
+NAV = [
+    ("index.html", "Overview"),
+    ("explorer.html", "Drug explorer"),
+    ("insights.html", "Insights"),
+    ("methodology.html", "Methodology & sources"),
+    ("about.html", "About"),
+]
+
+PAGES = {
+    "index.html": ("Pharma Access Atlas: how fast new drugs reach patients in the US, Italy and Germany",
+                   "Comparing approval and access timelines for 30 innovative drugs across the US, Italy and Germany."),
+    "explorer.html": ("Drug explorer | Pharma Access Atlas", "Sortable, filterable table of all 30 drugs."),
+    "insights.html": ("Insights | Pharma Access Atlas", "Findings on drug access in the US and Europe."),
+    "methodology.html": ("Methodology & sources | Pharma Access Atlas", "Definitions, data sources, limitations."),
+    "about.html": ("About | Pharma Access Atlas", "About the author of the Pharma Access Atlas."),
+}
+
+esc = html.escape
+
+
+# ---------------------------------------------------------------------------
+# Layout
+# ---------------------------------------------------------------------------
+def layout(title: str, description: str, body: str, active: str, root: str, data_as_of: str, scripts=()) -> str:
+    current = ' aria-current="page"'
+    nav = "\n".join(
+        f'<li><a href="{root}{href}"{current if href == active else ""}>{label}</a></li>'
+        for href, label in NAV
+    )
+    script_tags = "\n".join(f'<script src="{root}assets/{s}" defer></script>' for s in scripts)
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{esc(title)}</title>
+<meta name="description" content="{esc(description)}">
+<link rel="stylesheet" href="{root}assets/css/style.css">
+{script_tags}
+</head>
+<body data-root="{root}">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{root}index.html">Pharma Access Atlas</a>
+    <nav aria-label="Main">
+      <ul class="nav">{nav}</ul>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+{body}
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>Data as of {esc(fmt_date(data_as_of))}. Every value links to its public source.
+       Not medical, legal or investment advice.</p>
+    <p><a href="{root}methodology.html">Methodology &amp; sources</a> ·
+       <a href="{root}data/drugs.json">Download the data (JSON)</a> ·
+       <a href="{REPO_URL}">Code on GitHub</a></p>
+  </div>
+</footer>
+</body>
+</html>
+"""
+
+
+def fmt_date(iso: str | None) -> str:
+    if not iso:
+        return "n/a"
+    d = date.fromisoformat(iso)
+    return f"{d.day} {d.strftime('%b %Y')}"
+
+
+def fill(text: str, values: dict) -> str:
+    for key, value in values.items():
+        text = text.replace("{{" + key + "}}", str(value))
+    if "{{" in text:
+        start = text.index("{{")
+        raise SystemExit(f"Unfilled placeholder: {text[start:start + 40]}")
+    return text
+
+
+# ---------------------------------------------------------------------------
+# Drug brief pages
+# ---------------------------------------------------------------------------
+RATING_LABEL = {
+    "major": "Major added benefit", "considerable": "Considerable added benefit",
+    "minor": "Minor added benefit", "non-quantifiable": "Non-quantifiable added benefit",
+    "no added benefit": "No added benefit proven", "lesser": "Lesser benefit",
+}
+
+
+def timeline_svg(events: list[dict], as_of: str | None) -> str:
+    """A simple horizontal timeline drawn as inline SVG (no JavaScript needed).
+
+    events: [{"label", "date", "kind"}], kind = us | eu | it | de | pending
+    """
+    dated = [e for e in events if e["date"]]
+    if not dated:
+        return ""
+    start = date.fromisoformat(min(e["date"] for e in dated))
+    end = date.fromisoformat(max([e["date"] for e in dated] + ([as_of] if as_of else [])))
+    span = max((end - start).days, 1)
+    width, left, right = 760, 40, 40
+    usable = width - left - right
+
+    def x(iso):
+        return left + usable * (date.fromisoformat(iso) - start).days / span
+
+    # Alternate labels above/below the axis so close dates don't collide.
+    parts = [f'<line x1="{left}" y1="80" x2="{width - right}" y2="80" class="tl-axis"/>']
+    for i, e in enumerate(sorted(dated, key=lambda e: e["date"])):
+        cx = x(e["date"])
+        above = i % 2 == 0
+        ty = 26 if above else 126  # label baseline; the date sits 17px below it
+        anchor = "start" if cx < width * 0.2 else "end" if cx > width * 0.8 else "middle"
+        parts.append(f'<line x1="{cx:.1f}" y1="80" x2="{cx:.1f}" y2="{50 if above else 110}" class="tl-tick"/>')
+        cls = "tl-dot tl-pending" if e["kind"] == "pending" else f"tl-dot tl-{e['kind']}"
+        parts.append(f'<circle cx="{cx:.1f}" cy="80" r="7" class="{cls}"/>')
+        parts.append(f'<text x="{cx:.1f}" y="{ty}" text-anchor="{anchor}" class="tl-label">{esc(e["label"])}</text>')
+        parts.append(f'<text x="{cx:.1f}" y="{ty + 17}" text-anchor="{anchor}" class="tl-date">{esc(fmt_date(e["date"]))}</text>')
+    summary = "; ".join(f'{e["label"]} {fmt_date(e["date"])}' for e in sorted(dated, key=lambda e: e["date"]))
+    return (f'<svg class="timeline" viewBox="0 0 {width} 160" role="img" '
+            f'aria-label="Timeline: {esc(summary)}">{"".join(parts)}</svg>')
+
+
+def source_link(obj: dict, text="source") -> str:
+    url = obj.get("source_url")
+    return f'<a href="{esc(url)}" rel="noopener">{text}</a>' if url else ""
+
+
+def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
+    f = drug["fields"]
+    name = row["brand_us"] if row["brand_us"] == row["brand_eu"] else f'{row["brand_us"]} / {row["brand_eu"]}'
+
+    badges = []
+    if row["us_orphan"] == "yes":
+        badges.append("US orphan")
+    if row["eu_orphan"] == "yes":
+        badges.append("EU orphan")
+    if row["eu_conditional"] == "yes":
+        badges.append("EU conditional approval")
+    if row["atmp"] == "yes":
+        badges.append("Cell / gene therapy")
+    if row["cms_selected"] == "yes":
+        badges.append(f"Medicare negotiation ({row['cms_ipay']})")
+    badge_html = "".join(f'<li class="badge">{esc(b)}</li>' for b in badges)
+
+    # --- timeline ---------------------------------------------------------
+    events = [
+        {"label": "FDA approval", "date": row["fda_date"], "kind": "us"},
+        {"label": "EC approval", "date": row["ec_date"], "kind": "eu"},
+        {"label": "Italy reimbursed", "date": row["it_date"], "kind": "it"},
+        {"label": "G-BA decision", "date": row["gba_date"], "kind": "de"},
+    ]
+    as_of = None
+    if row["it_status"] == "not reimbursed":
+        events.append({"label": "Italy: still waiting", "date": row["it_checked"], "kind": "pending"})
+        as_of = row["it_checked"]
+    svg = timeline_svg(events, as_of)
+
+    # --- key numbers ------------------------------------------------------
+    lag = row["lag"]
+    lag_text = (f"{lag} days" if lag is not None else "n/a")
+    lag_note = ("US approved first" if lag and lag > 0 else "EU approved first" if lag and lag < 0 else "Same day")
+    if row["it_lag"] is not None:
+        it_text, it_note = f'{row["it_lag"]} days', "EC approval to Italian reimbursement"
+    elif row["it_status"] == "not reimbursed":
+        it_text, it_note = "Not reimbursed", f'{row["it_waiting"]} days since EC approval, as of {fmt_date(row["it_checked"])}'
+    else:
+        it_text, it_note = "Unknown", "Not yet verified"
+    rating = row["gba_rating"]
+    de_text = RATING_LABEL.get(rating, "Not assessed" if rating == "not assessed" else "Unknown")
+    de_note = (f'Best result across patient groups, {fmt_date(row["gba_date"])}' if row["gba_date"]
+               else "No § 35a benefit assessment found")
+
+    # --- access outcomes table ---------------------------------------------
+    def cell(name, text=None):
+        obj = f.get(name) or {}
+        shown = text if text is not None else (obj.get("value") if obj.get("value") is not None else "n/a")
+        return f'{esc(str(shown))} <span class="src">{source_link(obj)}</span>'
+
+    if row["it_status"] == "reimbursed":
+        it_outcome = f'Reimbursed, class {row["it_class"]}'
+    elif row["it_status"] == "not reimbursed":
+        it_outcome = f'Not reimbursed as of {fmt_date(row["it_checked"])} (class {row["it_class"]})'
+    else:
+        it_outcome = "Unknown"
+    gba_extra = []
+    if row["gba_any_nab"] == "yes" and rating != "no added benefit":
+        gba_extra.append("at least one patient group: no added benefit")
+    if row["gba_orphan"] == "yes":
+        gba_extra.append("orphan route (benefit deemed proven by law)")
+    de_outcome = de_text + (f' ({"; ".join(gba_extra)})' if gba_extra else "")
+    if row["cms_selected"] == "yes":
+        us_outcome = (f'Selected for Medicare negotiation; Maximum Fair Price ${row["cms_mfp"]:,} per 30 days '
+                      f'from {row["cms_ipay"]}, vs CMS list price ${row["cms_list"]:,} '
+                      f'({row["cms_discount"]}% lower)')
+    else:
+        us_outcome = "Not selected for Medicare negotiation"
+
+    table = f"""
+<table class="data-table">
+  <caption class="visually-hidden">Access milestones and outcomes by country</caption>
+  <thead><tr><th scope="col">Market</th><th scope="col">Milestone</th><th scope="col">Date</th><th scope="col">Outcome</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">United States</th><td>FDA approval</td><td>{cell("fda_approval_date", fmt_date(row["fda_date"]))}</td>
+        <td>{cell("cms_selected", us_outcome)}</td></tr>
+    <tr><th scope="row">European Union</th><td>EC marketing authorisation</td><td>{cell("ec_approval_date", fmt_date(row["ec_date"]))}</td>
+        <td>{"Conditional approval" if row["eu_conditional"] == "yes" else "Standard approval"} <span class="src">{source_link(f["eu_conditional"])}</span></td></tr>
+    <tr><th scope="row">Italy</th><td>Reimbursement published in Gazzetta Ufficiale</td>
+        <td>{cell("it_gu_date", fmt_date(row["it_date"]) if row["it_date"] else ("None yet" if row["it_status"] == "not reimbursed" else "n/a"))}</td>
+        <td>{cell("it_reimbursement_class", it_outcome)}</td></tr>
+    <tr><th scope="row">Germany</th><td>G-BA AMNOG decision</td>
+        <td>{cell("de_gba_decision_date", fmt_date(row["gba_date"]) if row["gba_date"] else ("None" if rating == "not assessed" else "n/a"))}</td>
+        <td>{cell("de_gba_rating_best", de_outcome)}</td></tr>
+  </tbody>
+</table>"""
+
+    # --- every field with its source -------------------------------------
+    defs = json.loads((PROCESSED / "drugs.json").read_text())["field_definitions"]
+    source_rows = []
+    for key, obj in f.items():
+        if obj.get("status") == "calculated":
+            src = "Calculated from " + ", ".join(defs[k]["label"] for k in obj["derived_from"])
+        elif obj.get("source_url"):
+            src = f'{source_link(obj, "link")} · retrieved {esc(obj.get("retrieved_date") or "")}'
+        else:
+            src = "No source: value not available"
+        value = obj.get("value")
+        shown = "n/a" if value is None else value
+        status = obj.get("status", "")
+        note = f'<br><span class="muted small">{esc(obj["notes"])}</span>' if obj.get("notes") else ""
+        source_rows.append(f'<tr><th scope="row">{esc(defs[key]["label"])}</th><td>{esc(str(shown))}'
+                           f'{"" if status in ("verified", "calculated") else f" <span class=status>({esc(status)})</span>"}'
+                           f'{note}</td><td>{src}</td></tr>')
+
+    prev_row, next_row = prev_next
+    pager = '<nav class="pager" aria-label="Other drugs">'
+    if prev_row:
+        pager += f'<a href="{prev_row["id"]}.html">← {esc(prev_row["brand_us"])}</a>'
+    pager += '<a href="../explorer.html">All drugs</a>'
+    if next_row:
+        pager += f'<a href="{next_row["id"]}.html">{esc(next_row["brand_us"])} →</a>'
+    pager += "</nav>"
+
+    return f"""
+<article class="brief">
+  <p class="eyebrow">{esc(row["area"])} · Market-access brief</p>
+  <h1>{esc(name)}</h1>
+  <p class="lede">{esc(row["inn"])} · {esc(row["company"])}</p>
+  <ul class="badges" aria-label="Characteristics">{badge_html}</ul>
+
+  <section aria-labelledby="tl-h">
+    <h2 id="tl-h">Timeline</h2>
+    <div class="timeline-wrap">{svg}</div>
+  </section>
+
+  <section class="kpis kpis-3" aria-label="Key numbers">
+    <div class="kpi"><p class="kpi-label">US-to-EU approval lag</p><p class="kpi-value">{esc(lag_text)}</p><p class="kpi-note">{esc(lag_note)}</p></div>
+    <div class="kpi"><p class="kpi-label">Italy access delay</p><p class="kpi-value">{esc(it_text)}</p><p class="kpi-note">{esc(it_note)}</p></div>
+    <div class="kpi"><p class="kpi-label">Germany G-BA rating</p><p class="kpi-value kpi-value-sm">{esc(de_text)}</p><p class="kpi-note">{esc(de_note)}</p></div>
+  </section>
+
+  <section aria-labelledby="out-h">
+    <h2 id="out-h">Access outcomes by market</h2>
+    <div class="table-scroll">{table}</div>
+  </section>
+
+  <section aria-labelledby="sw-h" class="so-what">
+    <h2 id="sw-h">So what</h2>
+    {{{{so_what}}}}
+  </section>
+
+  <details class="sources">
+    <summary>All data points and sources for {esc(row["brand_us"])}</summary>
+    <div class="table-scroll">
+    <table class="data-table small">
+      <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Source</th></tr></thead>
+      <tbody>{"".join(source_rows)}</tbody>
+    </table>
+    </div>
+  </details>
+  {pager}
+</article>"""
+
+
+# ---------------------------------------------------------------------------
+def main() -> None:
+    data = analysis.load()
+    rows = analysis.flat_rows(data)
+    s = analysis.summary(rows)
+    titles = analysis.chart_titles(s)
+    as_of = data["data_as_of"]
+
+    if OUT.exists():
+        shutil.rmtree(OUT)
+    shutil.copytree(SITE / "assets", OUT / "assets")
+    (OUT / ".nojekyll").write_text("")  # tell GitHub Pages to serve files as-is
+
+    # Data for the JavaScript, plus the full sourced dataset for download.
+    write_json(OUT / "data" / "atlas.json", {"data_as_of": as_of, "summary": s, "titles": titles, "rows": rows})
+    shutil.copy(PROCESSED / "drugs.json", OUT / "data" / "drugs.json")
+
+    waiting_names = ", ".join(w["brand"] for w in s["it_waiting"]) or "none"
+    values = {
+        "data_as_of": fmt_date(as_of),
+        "n": s["n"],
+        "lag_median": f'{s["lag_median"]:.0f}',
+        "lag_us_first": s["lag_us_first"],
+        "lag_eu_first": s["lag_eu_first"],
+        "it_lag_median": f'{s["it_lag_median"]:.0f}',
+        "it_n_reimbursed": s["it_n_reimbursed"],
+        "it_n_waiting": s["it_n_waiting"],
+        "it_waiting_names": waiting_names,
+        "gba_pct_nab": s["gba_pct_no_added_benefit"],
+        "gba_n_nab": s["gba_n_no_added_benefit"],
+        "gba_n_assessed": s["gba_n_assessed"],
+        "cms_n_selected": s["cms_n_selected"],
+        "title_lag": esc(titles["lag"]),
+        "title_italy": esc(titles["italy"]),
+        "title_gba": esc(titles["gba"]),
+        "repo_url": REPO_URL,
+    }
+    scripts = {"index.html": ["vendor/chart.umd.min.js", "js/common.js", "js/overview.js"],
+               "explorer.html": ["js/common.js", "js/explorer.js"]}
+    for page, (title, description) in PAGES.items():
+        body = fill((SITE / "pages" / page).read_text(encoding="utf-8"), values)
+        (OUT / page).write_text(layout(title, description, body, page, "", as_of, scripts.get(page, ())), encoding="utf-8")
+
+    # One brief per drug, ordered as in the drug list.
+    so_what = load_so_what()
+    (OUT / "drugs").mkdir()
+    by_id = {d["drug_id"]: d for d in data["drugs"]}
+    for i, row in enumerate(rows):
+        prev_next = (rows[i - 1] if i > 0 else None, rows[i + 1] if i < len(rows) - 1 else None)
+        body = brief_page(by_id[row["id"]], row, prev_next, as_of)
+        body = body.replace("{{so_what}}", so_what.get(row["id"], NO_SO_WHAT))
+        title = f'{row["brand_us"]} market-access brief | Pharma Access Atlas'
+        desc = f'Approval and access timeline for {row["brand_us"]} ({row["inn"]}) in the US, Italy and Germany.'
+        (OUT / "drugs" / f'{row["id"]}.html').write_text(
+            layout(title, desc, body, "explorer.html", "../", as_of), encoding="utf-8")
+
+    print(f"  ok   built {len(PAGES)} pages + {len(rows)} drug briefs into _site/")
+
+
+NO_SO_WHAT = '<p class="muted">Analysis for this drug is written in Phase 4.</p>'
+
+
+def load_so_what() -> dict:
+    """Hand-written 'so what' bullets per drug (site/content/so_what.json), as HTML lists."""
+    path = SITE / "content" / "so_what.json"
+    if not path.exists():
+        return {}
+    bullets = json.loads(path.read_text(encoding="utf-8"))
+    return {k: "<ul>" + "".join(f"<li>{esc(b)}</li>" for b in v) + "</ul>" for k, v in bullets.items()}
+
+
+if __name__ == "__main__":
+    print("Building site ...")
+    main()
