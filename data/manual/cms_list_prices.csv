@@ -1,0 +1,5 @@
+drug_id,field,value,status,source_url,retrieved_date,notes
+rybelsus,cms_list_price_30day,959,verified,https://www.cms.gov/files/document/fact-sheet-negotiated-prices-ipay-2027.pdf,2026-11-03,"CMS reports one list price for the whole semaglutide group (Ozempic; Rybelsus; Wegovy): 'List Price for 30-day Supply, CY 2024' = $959; MFP $274; discount 71%"
+rybelsus,cms_list_price_year,2024,verified,https://www.cms.gov/files/document/fact-sheet-negotiated-prices-ipay-2027.pdf,2026-11-03,Column heading: List Price for 30-day Supply CY 2024
+wegovy,cms_list_price_30day,959,verified,https://www.cms.gov/files/document/fact-sheet-negotiated-prices-ipay-2027.pdf,2026-11-03,"CMS reports one list price for the whole semaglutide group (Ozempic; Rybelsus; Wegovy): 'List Price for 30-day Supply, CY 2024' = $959; MFP $274; discount 71%"
+wegovy,cms_list_price_year,2024,verified,https://www.cms.gov/files/document/fact-sheet-negotiated-prices-ipay-2027.pdf,2026-11-03,Column heading: List Price for 30-day Supply CY 2024
