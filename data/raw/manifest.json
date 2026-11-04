@@ -5,8 +5,8 @@
     "source_url": "https://www.cms.gov/files/zip/cms-negotiation-program-selected-drug-list-maximum-fair-price-data-file-20261102.zip"
   },
   "ema/medicines_subset.json": {
-    "sha256": "81b5dd6c8ad646dfa00bb425829717fb73a9f640315e905d9043d25d34652415",
-    "retrieved_date": "2026-11-03",
+    "sha256": "c468fbd0e2b25d08e9a61cd9a5ec64c6aa8448113ecfcebb7855a49950bcd11d",
+    "retrieved_date": "2026-11-04",
     "source_url": "https://www.ema.europa.eu/en/documents/report/medicines-output-medicines_json-report_en.json"
   },
   "fda/BLA761062.json": {

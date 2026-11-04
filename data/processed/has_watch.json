@@ -1,11 +1,36 @@
 {
   "about": "Drugs with no French value for which an HAS record now exists. Review and update data/manual/france_has.csv; this file never changes values itself.",
-  "sources": {
-    "smr": "https://static.data.gouv.fr/resources/evaluation-des-medicaments/20261028-081404/smr-20261028.csv",
-    "smr_updated": "2026-10-28",
-    "publications": "https://static.data.gouv.fr/resources/metadonnees-des-publications-de-la-has-1/20260618-073457/has-publications-single.zip",
-    "publications_updated": "2026-06-18"
-  },
-  "watched": 26,
+  "sources": [
+    "https://www.data.gouv.fr/fr/datasets/evaluation-des-medicaments/",
+    "https://www.data.gouv.fr/fr/datasets/metadonnees-des-publications-de-la-has-1/"
+  ],
+  "watched": [
+    "aucatzyl",
+    "beqvez",
+    "datroway",
+    "inaqovi",
+    "klisyri",
+    "lydisilka",
+    "lynkuet",
+    "lynozyfic",
+    "nurtec",
+    "nustendi",
+    "pyrukynd",
+    "rayvow",
+    "rytelo",
+    "ryzneuta",
+    "skysona",
+    "skytrofa",
+    "tepmetko",
+    "tryngolza",
+    "vafseo",
+    "veoza",
+    "wayrilz",
+    "winlevi",
+    "xenleta",
+    "zegalogue",
+    "zynlonta",
+    "zynquista"
+  ],
   "found": []
 }
