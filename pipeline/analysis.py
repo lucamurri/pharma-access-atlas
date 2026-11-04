@@ -155,88 +155,84 @@ def days(x) -> int:
     return int(x + 0.5)
 
 
-def findings(rows: list[dict], s: dict) -> dict:
-    """Numbers behind the Insights page.
+def findings(all_rows: list[dict], s: dict) -> dict:
+    """Numbers behind the Insights page (core cohort only, except the semaglutide case).
 
-    The written findings make claims such as "faster" or "more than twice as long".
-    Each claim has a guard below. If a data refresh makes a claim untrue, the
-    build stops and asks for the text to be rewritten, instead of publishing
-    a sentence the data no longer supports.
+    The written findings make claims such as "shrinking" or "most". Each claim has a
+    guard below. If a data refresh makes a claim untrue, the build stops and asks
+    for the text to be rewritten, instead of publishing a sentence the data no
+    longer supports.
     """
     from datetime import date
 
+    rows = core(all_rows)
     reimbursed = [r for r in rows if r["it_lag"] is not None]
 
-    def it_median(pred):
-        values = [r["it_lag"] for r in reimbursed if pred(r)]
+    def m(values):
+        values = [v for v in values if v is not None]
         return (median(values), len(values))
 
-    # 1. Approval is not access
-    fda_to_it = median([(date.fromisoformat(r["it_date"]) - date.fromisoformat(r["fda_date"])).days
-                        for r in reimbursed])
+    # 1. Approval is the short part of the wait
+    fda_to_it, fda_to_it_n = m([(date.fromisoformat(r["it_date"]) - date.fromisoformat(r["fda_date"])).days
+                                for r in reimbursed])
+    fr, fr_n = m([r["fr_lag"] for r in rows])
+    de, de_n = m([r["gba_lag"] for r in rows])
+    en, en_n = m([r["en_lag"] for r in rows])
+    it, it_n = m([r["it_lag"] for r in rows])
 
-    # 2. Orphan status
-    orph, orph_n = it_median(lambda r: r["orphan_any"] == "yes")
-    non, non_n = it_median(lambda r: r["orphan_any"] == "no")
-    eu_orph, eu_orph_n = it_median(lambda r: r["eu_orphan"] == "yes")
-    eu_non, eu_non_n = it_median(lambda r: r["eu_orphan"] == "no")
+    # 2. The regulatory gap is shrinking (2019 vs 2022 FDA approvals; later years are cut short by the window)
+    lag19, lag19_n = m([r["lag"] for r in rows if r["fda_date"][:4] == "2019"])
+    lag22, lag22_n = m([r["lag"] for r in rows if r["fda_date"][:4] == "2022"])
 
     # 3. Germany: comparator route vs orphan route
-    comparator = [r for r in rows if r["gba_orphan"] == "no"]
-    comparator_nab = [r for r in comparator if r["gba_rating"] == "no added benefit"]
-    orphan_route = [r for r in rows if r["gba_orphan"] == "yes"]
-    orphan_route_benefit = [r for r in orphan_route if r["gba_rating"] in ("major", "considerable", "minor", "non-quantifiable")]
+    rated = [r for r in rows if r["gba_rating"] in G_BA_ORDER]
+    comp = [r for r in rated if r["gba_orphan"] == "no"]
+    comp_nab = [r for r in comp if r["gba_rating"] == "no added benefit"]
+    orph = [r for r in rated if r["gba_orphan"] == "yes"]
+    orph_pos = [r for r in orph if r["gba_rating"] != "no added benefit"]
 
-    # 4. Germany's verdict vs Italian speed
-    high, high_n = it_median(lambda r: r["gba_rating"] in ("major", "considerable"))
-    nab, nab_n = it_median(lambda r: r["gba_rating"] == "no added benefit")
+    # 4. England often funds what Germany rated as no added benefit
+    de_nab_en = [r for r in rows if r["gba_rating"] == "no added benefit" and r["en_decision"] in NICE_APPRAISED]
+    de_nab_en_pos = [r for r in de_nab_en if r["en_decision"] in NICE_POSITIVE]
 
-    # 5. Therapy area and conditional approval
-    area = s["it_lag_by_area"]
-    slowest = sorted(area, key=lambda a: -area[a]["median"])
-    cond, cond_n = it_median(lambda r: r["eu_conditional"] == "yes")
-    std, std_n = it_median(lambda r: r["eu_conditional"] == "no")
+    # 5. Germany and France disagree on a large share
+    both = [r for r in rows if r["gba_rating"] in G_BA_ORDER and r["fr_asmr"]]
+    agree_neg = [r for r in both if r["gba_rating"] == "no added benefit" and r["fr_asmr"] == "V"]
+    agree_pos = [r for r in both if r["gba_rating"] != "no added benefit" and r["fr_asmr"] != "V"]
+    disagree = len(both) - len(agree_neg) - len(agree_pos)
 
-    # 6. Semaglutide
-    by_id = {r["id"]: r for r in rows}
+    # 6. Semaglutide (reference drugs)
+    by_id = {r["id"]: r for r in all_rows}
     ryb, weg = by_id["rybelsus"], by_id["wegovy"]
 
     f = {
-        "fda_to_it_median": days(fda_to_it), "it_n": len(reimbursed),
-        "orph_it": days(orph), "orph_n": orph_n, "non_it": days(non), "non_n": non_n,
-        "eu_orph_it": days(eu_orph), "eu_orph_n": eu_orph_n, "eu_non_it": days(eu_non), "eu_non_n": eu_non_n,
-        "eu_orph_gap": days(eu_non) - days(eu_orph),
-        "comp_n": len(comparator), "comp_nab_n": len(comparator_nab),
-        "comp_nab_pct": round(100 * len(comparator_nab) / len(comparator)),
-        "orphan_route_n": len(orphan_route), "orphan_route_benefit_n": len(orphan_route_benefit),
-        "high_it": days(high), "high_n": high_n, "nab_it": days(nab), "nab_n": nab_n,
-        "high_gap": days(nab) - days(high),
-        "rare_it": days(area["Rare disease"]["median"]), "rare_n": area["Rare disease"]["n"],
-        "onc_it": days(area["Oncology"]["median"]), "onc_n": area["Oncology"]["n"],
-        "cardio_it": days(area["Cardiometabolic"]["median"]), "cardio_n": area["Cardiometabolic"]["n"],
-        "cond_it": days(cond), "cond_n": cond_n, "std_it": days(std), "std_n": std_n,
+        "fda_to_it_median": days(fda_to_it), "it_n": fda_to_it_n,
+        "fr_med": days(fr), "fr_n2": fr_n, "de_med": days(de), "de_n2": de_n,
+        "en_med": days(en), "en_n2": en_n, "it_med": days(it), "it_n2": it_n,
+        "lag19": days(lag19), "lag19_n": lag19_n, "lag22": days(lag22), "lag22_n": lag22_n,
+        "comp_n": len(comp), "comp_nab_n": len(comp_nab), "comp_nab_pct": pct(len(comp_nab), len(comp)),
+        "orph_route_n": len(orph), "orph_route_pos_n": len(orph_pos),
+        "de_nab_en_n": len(de_nab_en), "de_nab_en_pos_n": len(de_nab_en_pos),
+        "de_nab_en_pos_pct": pct(len(de_nab_en_pos), len(de_nab_en)),
+        "both_n": len(both), "disagree_n": disagree, "disagree_pct": pct(disagree, len(both)),
+        "agree_neg_n": len(agree_neg), "agree_pos_n": len(agree_pos),
         "cms_mfp": ryb["cms_mfp"], "cms_list": ryb["cms_list"], "cms_discount": days(ryb["cms_discount"]),
         "cms_list_year": ryb["cms_list_year"], "cms_ipay": ryb["cms_ipay"],
-        "carvykti_it": by_id["carvykti"]["it_lag"], "zolgensma_it": by_id["zolgensma"]["it_lag"],
-        "ryb_it": ryb["it_lag"], "weg_waiting": weg["it_waiting"], "weg_checked": weg["it_checked"],
+        "ryb_it": ryb["it_lag"], "weg_waiting": weg["it_waiting"], "weg_en": weg["en_decision"],
     }
 
     guards = {
-        "1: national step > 2x regulatory gap": s["it_lag_median"] > 2 * s["lag_median"],
+        "1: Italy is the slowest of the four milestones": it == max(fr, de, en, it),
+        "1: France is the fastest of the four milestones": fr == min(fr, de, en, it),
         "1: end-to-end median over two years": fda_to_it > 730,
-        "2: Carvykti is the longest Italian wait": max(reimbursed, key=lambda r: r["it_lag"])["id"] == "carvykti",
-        "2: Zolgensma among the 3 fastest": by_id["zolgensma"] in sorted(reimbursed, key=lambda r: r["it_lag"])[:3],
-        "3: most orphan-route ratings non-quantifiable": sum(r["gba_rating"] == "non-quantifiable" for r in orphan_route) * 2 > len(orphan_route),
-        "2: orphan vs non-orphan within 30 days": abs(f["orph_it"] - f["non_it"]) <= 30,
-        "2: EU orphan faster than non-EU-orphan": f["eu_orph_it"] < f["eu_non_it"],
-        "3: every orphan-route drug got a benefit rating": f["orphan_route_benefit_n"] == f["orphan_route_n"],
-        "3: most comparator-route drugs got no added benefit": f["comp_nab_n"] * 2 > f["comp_n"],
-        "4: high G-BA rating reimbursed faster in Italy": f["high_it"] < f["nab_it"],
-        "5: rare disease fastest area in Italy": slowest[-1] == "Rare disease",
-        "5: oncology and cardiometabolic slowest areas": set(slowest[:2]) == {"Oncology", "Cardiometabolic"},
-        "5: conditional approvals slower in Italy": f["cond_it"] > f["std_it"],
-        "6: Rybelsus reimbursed, Wegovy not": ryb["it_status"] == "reimbursed" and weg["it_status"] == "not reimbursed",
-        "6: Wegovy not assessed, Rybelsus no added benefit": weg["gba_rating"] == "not assessed" and ryb["gba_rating"] == "no added benefit",
+        "2: 2022 gap shorter than 2019 gap": lag22 < lag19,
+        "3: most comparator-route drugs got no added benefit": len(comp_nab) * 2 > len(comp),
+        "3: every orphan-route drug got a benefit rating": len(orph_pos) == len(orph),
+        "4: most German 'no added benefit' drugs got a positive NICE decision": len(de_nab_en_pos) * 2 > len(de_nab_en),
+        "5: at least a third of Germany-France pairs disagree": disagree * 3 >= len(both),
+        "6: Rybelsus reimbursed in Italy, Wegovy not": ryb["it_status"] == "reimbursed" and weg["it_status"] == "not reimbursed",
+        "6: Wegovy not assessed in Germany, Rybelsus no added benefit":
+            weg["gba_rating"] == "not assessed" and ryb["gba_rating"] == "no added benefit",
     }
     broken = [name for name, ok in guards.items() if not ok]
     if broken:
