@@ -45,7 +45,7 @@ def bullets(r: dict, all_rows: list[dict], s: dict) -> list[str]:
         out.append("The FDA and the European Commission approved it on the same day.")
 
     # 2. Italian access ---------------------------------------------------------
-    it_med = analysis.days(s["it_lag_median"])
+    it_med = s["access"]["it"]["median"]  # counts drugs still waiting
     reimbursed = sorted([x for x in core if x["it_lag"] is not None], key=lambda x: -x["it_lag"])
     if r["it_lag"] is not None:
         rank = next((i + 1 for i, x in enumerate(reimbursed) if x["id"] == r["id"]), None)
@@ -72,12 +72,14 @@ def bullets(r: dict, all_rows: list[dict], s: dict) -> list[str]:
         parts.append("Germany's G-BA has no benefit assessment for it")
     if r["fr_asmr"]:
         parts.append(f"France's HAS rated it {ASMR_TEXT[r['fr_asmr']]}")
+    elif r["fr_verdict"] == "SMR insufficient":
+        parts.append("France's HAS found its benefit insufficient to justify reimbursement")
     if r["en_decision"]:
         parts.append(f"England's NICE {NICE_TEXT[r['en_decision']]}")
     if parts:
         sentence = "; ".join(parts) + "."
         g_neg = r["gba_rating"] == "no added benefit"
-        f_neg = r["fr_asmr"] == "V"
+        f_neg = r["fr_verdict"] in analysis.FR_NEGATIVE
         g_pos = r["gba_rating"] in ("major", "considerable")
         f_pos = r["fr_asmr"] in ("I", "II", "III")
         if g_neg and f_neg:

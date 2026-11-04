@@ -68,7 +68,7 @@ def allowed_numbers(rows: list[dict], s: dict, f: dict) -> tuple[set, dict]:
         if r in reimbursed:
             own.add(float(reimbursed.index(r) + 1))       # rank by longest Italian wait
             own.add(float(len(reimbursed) - reimbursed.index(r)))  # rank by fastest
-            own.add(float(abs(r["it_lag"] - analysis.days(s["it_lag_median"]))))  # vs median
+            own.add(float(abs(r["it_lag"] - s["access"]["it"]["median"])))  # vs median
         per_drug[r["id"]] = own
     return shared, per_drug
 

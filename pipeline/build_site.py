@@ -205,19 +205,21 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
     else:
         it_text, it_note = "Unknown", "Not yet verified"
     rating = row["gba_rating"]
-    de_text = RATING_LABEL.get(rating, "Not assessed" if rating == "not assessed" else "Unknown")
+    de_text = RATING_LABEL.get(rating, "Not assessed" if rating == "not assessed"
+                               else "Assessment in progress" if row["gba_pending"] else "Unknown")
     de_note = (f'Best result across patient groups, {fmt_date(row["gba_date"])}' if row["gba_date"]
                else "No § 35a benefit assessment found")
 
     ASMR_LABEL = {"I": "ASMR I (major)", "II": "ASMR II (important)", "III": "ASMR III (moderate)",
                   "IV": "ASMR IV (minor)", "V": "ASMR V (no improvement)"}
-    fr_text = ASMR_LABEL.get(row["fr_asmr"], "Unknown")
+    fr_text = ASMR_LABEL.get(row["fr_asmr"], "SMR insufficient (no ASMR)" if row["fr_smr"] == "insufficient"
+                             else "No HAS opinion yet" if row["fr_pending"] else "Unknown")
     fr_note = (f'HAS opinion, {fmt_date(row["fr_date"])}' if row["fr_date"] else
                (f.get("fr_has_asmr_best") or {}).get("notes") or "Not available")
     en_labels = {"recommended": "Recommended", "optimised": "Recommended (restricted)",
                  "managed access": "Managed access (CDF / IMF)", "not recommended": "Not recommended",
                  "terminated": "Terminated appraisal", "not appraised": "Not appraised"}
-    en_text = en_labels.get(row["en_decision"], "Unknown")
+    en_text = en_labels.get(row["en_decision"], "Appraisal in progress" if row["en_pending"] else "Unknown")
 
     # --- access outcomes table ---------------------------------------------
     def cell(name, text=None):
@@ -371,7 +373,7 @@ def main() -> None:
         "lag_median": analysis.days(s["lag_median"]),
         "lag_us_first": s["lag_us_first"],
         "lag_eu_first": s["lag_eu_first"],
-        "it_lag_median": analysis.days(s["it_lag_median"]),
+        "it_lag_median": s["access"]["it"]["median"],
         "it_n_reimbursed": s["it_n_reimbursed"],
         "it_n_waiting": s["it_n_waiting"],
         "it_waiting_names": waiting_names,
@@ -384,7 +386,7 @@ def main() -> None:
         "title_countries": esc(titles["countries"]),
         "title_hta": esc(titles["hta"]),
         "n_reference": s["n_reference"],
-        "fr_pct_asmr_v": s["fr_pct_asmr_v"],
+        "fr_pct_negative": s["fr_pct_negative"],
         "fr_n": s["fr_n"],
         "en_pct_positive": s["en_pct_positive"] if s["en_pct_positive"] is not None else "n/a",
         "en_n": s["en_n"],
