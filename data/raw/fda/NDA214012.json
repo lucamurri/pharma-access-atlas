@@ -1,0 +1,15 @@
+{
+  "application_number": "NDA214012",
+  "sponsor_name": "NOVARTIS",
+  "brand_names": [
+    "LEQVIO"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20211222",
+      "review_priority": "STANDARD"
+    }
+  ]
+}

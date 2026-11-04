@@ -1,0 +1,15 @@
+{
+  "application_number": "NDA212728",
+  "sponsor_name": "PFIZER",
+  "brand_names": [
+    "NURTEC ODT"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20200227",
+      "review_priority": "PRIORITY"
+    }
+  ]
+}

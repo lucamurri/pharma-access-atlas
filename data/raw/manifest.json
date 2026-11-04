@@ -1,0 +1,147 @@
+{
+  "cms/selected_drugs_mfp.csv": {
+    "sha256": "452f486768381aea72904d124ff05cc674fb57d1db5ad440b9d98967dd3c13ff",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://www.cms.gov/files/zip/cms-negotiation-program-selected-drug-list-maximum-fair-price-data-file-20261102.zip"
+  },
+  "ema/medicines_subset.json": {
+    "sha256": "56d9f5328f93710ca94e49ee6f9a8622c0f1969cd657c7892349756d3eacc582",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://www.ema.europa.eu/en/documents/report/medicines-output-medicines_json-report_en.json"
+  },
+  "fda/BLA761105.json": {
+    "sha256": "637a729068c52d8fbe45a5782422f2aef405abea0b158f1b8047cde0278d99a7",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22BLA761105%22&limit=1"
+  },
+  "fda/BLA761115.json": {
+    "sha256": "f24ef6df3a1618327f4b90d4ecf1f987558bee36f456aaed8494de8b2dd8b558",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22BLA761115%22&limit=1"
+  },
+  "fda/BLA761119.json": {
+    "sha256": "5a7d8f779552de73d115123583fad011b398cff7cc217558d19709ee0c3cebd7",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22BLA761119%22&limit=1"
+  },
+  "fda/BLA761139.json": {
+    "sha256": "deb1126a6370d44d9b6992e89606f45d955fd4f65b315ef29a5c7cc59249d32d",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22BLA761139%22&limit=1"
+  },
+  "fda/BLA761151.json": {
+    "sha256": "b893552e0e182706966114a23305feb37ecba8786c1c17572f6f24c2dd10cd2e",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22BLA761151%22&limit=1"
+  },
+  "fda/BLA761180.json": {
+    "sha256": "4cfe56ca5072b6bced05280b99dec70543498c155c5452c6f72b0ed4d92564c2",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22BLA761180%22&limit=1"
+  },
+  "fda/BLA761195.json": {
+    "sha256": "288654da2f4fd0e86646a506ab3982e8b8519e395e734b30d2b0f4038dccebc3",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22BLA761195%22&limit=1"
+  },
+  "fda/BLA761224.json": {
+    "sha256": "6c7f537e01aee22d5c784fb8400de626e3d4dbf7e4b787a30392582484075512",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22BLA761224%22&limit=1"
+  },
+  "fda/BLA761248.json": {
+    "sha256": "586526c3520540919f5fe42eef9c77ef87df33c40cb0f277710ddfa30c76e3b0",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22BLA761248%22&limit=1"
+  },
+  "fda/BLA761269.json": {
+    "sha256": "1fc16abc4b2d5df8495c567dee748e4482ca1c2aa73452f76f6a13c243233e70",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22BLA761269%22&limit=1"
+  },
+  "fda/NDA211675.json": {
+    "sha256": "e2c09e26e32b8947af4544269b0b6e33d3d6fbdc4c1f55ae34d46c81dddce44f",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA211675%22&limit=1"
+  },
+  "fda/NDA212273.json": {
+    "sha256": "584542f00c130b2c447cdac83b9f6b025f8283691e2d24c4bc2d21350bd57af7",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA212273%22&limit=1"
+  },
+  "fda/NDA212728.json": {
+    "sha256": "1e0e116efd1f8cb6611d7a859505884c738e5d1f2c6330110e8edbc79f644663",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA212728%22&limit=1"
+  },
+  "fda/NDA213051.json": {
+    "sha256": "633e76258e076cfeb3a6d368ee3ba1cacd379a3cc39393252389f279b32a0af3",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA213051%22&limit=1"
+  },
+  "fda/NDA213246.json": {
+    "sha256": "6c06cfe7f645cf3a2c43dca4e6d45d5b7fc1a409b534025f7d9bbb5bf4ac3871",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA213246%22&limit=1"
+  },
+  "fda/NDA213535.json": {
+    "sha256": "17aea3a6d28b023ccc43f33218ae36aa28d610f67be35fab95bae6ab53a28772",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA213535%22&limit=1"
+  },
+  "fda/NDA214012.json": {
+    "sha256": "2724967d6f970fc8d2594911e29cfcdce966c7c572175ab5b0a97ded370cd399",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA214012%22&limit=1"
+  },
+  "fda/NDA214103.json": {
+    "sha256": "00d247b1e9f5d4176fce549bdaf4ef5232ee90927fbe44e9e15f3aa6b26f1deb",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA214103%22&limit=1"
+  },
+  "fda/NDA214665.json": {
+    "sha256": "c06e812ef14df910b701f84458e07d096afbfc323e1f42b74cdd1f669b5eb02c",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA214665%22&limit=1"
+  },
+  "fda/NDA214938.json": {
+    "sha256": "ce6b74626fc75d54a3ee316e70d31a71e884b48fb8ddbd72e4e5a4868a397a72",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA214938%22&limit=1"
+  },
+  "fda/NDA214958.json": {
+    "sha256": "94e64ff83da1ef6a2c8f2fb4da70c33bca9d194041cd9e3f2bdbf4c7528eba9f",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA214958%22&limit=1"
+  },
+  "fda/NDA214998.json": {
+    "sha256": "45c2fd6eeefc5b9e2efa27746589950d116094dfddfdad9f7c621b76956efd87",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA214998%22&limit=1"
+  },
+  "fda/NDA215256.json": {
+    "sha256": "5e9e85ef2787bb5e6027aa1e44291bbe10f6c2f245bd49a0d28eb7a29c921bdd",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA215256%22&limit=1"
+  },
+  "fda/NDA215341.json": {
+    "sha256": "5b9f2de2862b8306e22b21061bc26d55ebaa4d17c54311caae748a7f22446537",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA215341%22&limit=1"
+  },
+  "fda/NDA215833.json": {
+    "sha256": "24660c9b7199761ff8abe2e17bbc5b3452b7716c9bd8dd222ec42c480b20054e",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA215833%22&limit=1"
+  },
+  "fda/NDA215866.json": {
+    "sha256": "4888a9e30e61ac939897ec6a6be16de0b669496353575003e66e27167072b379",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA215866%22&limit=1"
+  },
+  "fda/NDA216718.json": {
+    "sha256": "9fb7edffc5cbd33e7bb14c87f9daadc69c5e866dd2c8ca247695c79866a12fef",
+    "retrieved_date": "2026-11-03",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA216718%22&limit=1"
+  }
+}

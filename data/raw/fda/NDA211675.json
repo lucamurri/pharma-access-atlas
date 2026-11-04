@@ -1,0 +1,15 @@
+{
+  "application_number": "NDA211675",
+  "sponsor_name": "ABBVIE",
+  "brand_names": [
+    "RINVOQ"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20190816",
+      "review_priority": "PRIORITY"
+    }
+  ]
+}

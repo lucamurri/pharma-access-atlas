@@ -1,0 +1,16 @@
+{
+  "application_number": "NDA213051",
+  "sponsor_name": "NOVO",
+  "brand_names": [
+    "OZEMPIC",
+    "RYBELSUS"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20190920",
+      "review_priority": "PRIORITY"
+    }
+  ]
+}

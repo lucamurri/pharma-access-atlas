@@ -1,0 +1,17 @@
+{
+  "application_number": "NDA215256",
+  "sponsor_name": "NOVO",
+  "brand_names": [
+    "WEGOVY",
+    "WEGOVY FLEXTOUCH",
+    "WEGOVY HD"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20210604",
+      "review_priority": "PRIORITY"
+    }
+  ]
+}

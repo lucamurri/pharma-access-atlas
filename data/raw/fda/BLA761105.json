@@ -1,0 +1,15 @@
+{
+  "application_number": "BLA761105",
+  "sponsor_name": "ABBVIE INC",
+  "brand_names": [
+    "SKYRIZI"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20190423",
+      "review_priority": "STANDARD"
+    }
+  ]
+}

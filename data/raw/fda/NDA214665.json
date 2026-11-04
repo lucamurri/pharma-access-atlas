@@ -1,0 +1,15 @@
+{
+  "application_number": "NDA214665",
+  "sponsor_name": "AMGEN INC",
+  "brand_names": [
+    "LUMAKRAS"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20210528",
+      "review_priority": "PRIORITY"
+    }
+  ]
+}
