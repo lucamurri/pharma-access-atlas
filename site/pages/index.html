@@ -1,67 +1,83 @@
 <section class="intro">
-  <p class="eyebrow">US vs Europe · {{n}} innovative drugs approved 2019–2025</p>
-  <h1>How fast do new drugs reach patients in the US, Italy and Germany?</h1>
-  <p class="lede">An approval date is not the same as patient access. This atlas follows {{n}} drugs approved
-    by both the FDA and the European Commission, from first approval to reimbursement in Italy and
-    benefit assessment in Germany. Every number links to its public source.</p>
+  <p class="eyebrow">US vs Europe · every new drug approved by both, 2019–2025</p>
+  <h1>How fast do new drugs reach patients in the US and Europe?</h1>
+  <p class="lede">An approval date is not the same as patient access. This atlas follows all {{n}} new medicines
+    approved by both the FDA and the European Commission in 2019–2025. It tracks each one from first approval
+    to benefit assessment in Germany, France and England and to reimbursement in Italy.
+    Every number links to its public source.</p>
 </section>
 
 <section class="kpis" aria-label="Headline numbers">
   <div class="kpi">
     <p class="kpi-label">Median US-to-EU approval lag</p>
     <p class="kpi-value">{{lag_median}} <span class="kpi-unit">days</span></p>
-    <p class="kpi-note">US approved first for {{lag_us_first}} of {{n}} drugs</p>
+    <p class="kpi-note">The US approved first for {{lag_us_first}} of {{n}} drugs</p>
   </div>
   <div class="kpi">
     <p class="kpi-label">Median Italy access delay</p>
     <p class="kpi-value">{{it_lag_median}} <span class="kpi-unit">days</span></p>
-    <p class="kpi-note">EU approval to reimbursement, {{it_n_reimbursed}} drugs; {{it_n_waiting}} still waiting</p>
+    <p class="kpi-note">EU approval to reimbursement, {{it_n_reimbursed}} drugs; {{it_n_waiting}} still not reimbursed</p>
   </div>
   <div class="kpi">
-    <p class="kpi-label">G-BA “no added benefit”</p>
+    <p class="kpi-label">Germany: “no added benefit”</p>
     <p class="kpi-value">{{gba_pct_nab}}<span class="kpi-unit">%</span></p>
-    <p class="kpi-note">{{gba_n_nab}} of {{gba_n_assessed}} drugs, for every patient group (first assessment)</p>
+    <p class="kpi-note">{{gba_n_nab}} of {{gba_n_assessed}} drugs, for every patient group (first G-BA decision)</p>
   </div>
   <div class="kpi">
-    <p class="kpi-label">Approved in the EU first</p>
-    <p class="kpi-value">{{lag_eu_first}} <span class="kpi-unit">of {{n}}</span></p>
-    <p class="kpi-note">Drugs where the European Commission approved before the FDA</p>
+    <p class="kpi-label">France: no improvement (ASMR V)</p>
+    <p class="kpi-value">{{fr_pct_asmr_v}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">Of {{fr_n}} drugs with a HAS inclusion opinion</p>
   </div>
 </section>
 
 <noscript><p class="callout">The charts need JavaScript. The same data is in the
   <a href="explorer.html">drug explorer</a> and the <a href="data/drugs.json">downloadable data file</a>.</p></noscript>
 
+<section class="chart-card" aria-labelledby="c-cty-h">
+  <h2 id="c-cty-h">{{title_countries}}</h2>
+  <p class="chart-sub">Median days from European Commission approval to each country's milestone. These are different
+    milestones: Germany, France and England publish benefit assessments, and Italy publishes reimbursement.</p>
+  <div class="chart-box" style="height: 240px"><canvas id="chart-countries" role="img" aria-label="{{title_countries}}. Data in the table below."></canvas></div>
+  <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-countries"></div></details>
+</section>
+
 <section class="chart-card" aria-labelledby="c-lag-h">
   <h2 id="c-lag-h">{{title_lag}}</h2>
-  <p class="chart-sub">Days from FDA approval to European Commission approval, per drug. Bars to the left mean the EU approved first.</p>
+  <p class="chart-sub">Number of drugs by the gap between FDA and European Commission approval, in 90-day bands.
+    Bands to the left of zero are drugs Europe approved first.</p>
   <ul class="legend" aria-hidden="true">
     <li style="--swatch: var(--series-1)">US approved first</li>
     <li style="--swatch: var(--series-2)">EU approved first</li>
   </ul>
-  <div class="chart-box" style="height: 720px"><canvas id="chart-lag" role="img" aria-label="{{title_lag}}. Full data in the table below."></canvas></div>
+  <div class="chart-box" style="height: 320px"><canvas id="chart-lag" role="img" aria-label="{{title_lag}}. Data in the table below."></canvas></div>
   <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-lag"></div></details>
 </section>
 
 <section class="chart-card" aria-labelledby="c-it-h">
   <h2 id="c-it-h">{{title_italy}}</h2>
-  <p class="chart-sub">Days from European Commission approval to publication of reimbursement in the Gazzetta Ufficiale.
-    Grey bars are drugs still not reimbursed when checked ({{it_waiting_names}}), measured up to the check date.</p>
-  <ul class="legend" aria-hidden="true">
-    <li style="--swatch: var(--series-1)">Reimbursed</li>
-    <li style="--swatch: var(--series-neutral)">Not yet reimbursed (days so far)</li>
-  </ul>
-  <div class="chart-box" style="height: 720px"><canvas id="chart-italy" role="img" aria-label="{{title_italy}}. Full data in the table below."></canvas></div>
+  <p class="chart-sub">Median days from European Commission approval to reimbursement published in the Gazzetta Ufficiale,
+    by therapy area (areas with at least 3 reimbursed drugs). Drugs not yet reimbursed are excluded, so the
+    medians understate the wait.</p>
+  <div class="chart-box" style="height: 360px"><canvas id="chart-italy" role="img" aria-label="{{title_italy}}. Data in the table below."></canvas></div>
   <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-italy"></div></details>
 </section>
 
-<section class="chart-card" aria-labelledby="c-gba-h">
-  <h2 id="c-gba-h">{{title_gba}}</h2>
-  <p class="chart-sub">Best G-BA added-benefit rating across patient groups in each drug's first AMNOG decision.
-    Orphan drugs under the revenue threshold get added benefit “deemed proven” by law, usually rated non-quantifiable.</p>
-  <div class="chart-box" style="height: 280px"><canvas id="chart-gba" role="img" aria-label="{{title_gba}}. Full data in the table below."></canvas></div>
-  <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-gba"></div></details>
+<section class="chart-card" aria-labelledby="c-hta-h">
+  <h2 id="c-hta-h">{{title_hta}}</h2>
+  <p class="chart-sub">Each country's first verdict on each drug. Germany and France rate added benefit; England's NICE
+    decides whether the NHS should fund it. Number of drugs.</p>
+  <div class="chart-grid-3">
+    <div><h3>Germany: G-BA added benefit (best patient group)</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-gba" role="img" aria-label="Germany G-BA ratings. Data in the table below."></canvas></div></div>
+    <div><h3>France: HAS ASMR (I = major, V = none)</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-fr" role="img" aria-label="France ASMR ratings. Data in the table below."></canvas></div></div>
+    <div><h3>England: NICE first decision</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-en" role="img" aria-label="NICE decisions. Data in the table below."></canvas></div></div>
+  </div>
+  <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-hta"></div></details>
 </section>
 
-<p class="muted small">US list prices are generally not public. Price data on this site is limited to what CMS publishes
-  for the {{cms_n_selected}} drugs selected for Medicare negotiation. <a href="methodology.html">What is and isn't covered</a>.</p>
+<p class="muted small">Headline figures cover the {{n}} drugs selected by rule. {{n_reference}} reference drugs (newer brands of
+  older molecules, kept for the Medicare comparison) appear in the explorer but not in these statistics. US list prices are
+  generally not public; prices shown are limited to what CMS publishes for the {{cms_n_selected}} Medicare-negotiated drugs.
+  <a href="methodology.html">What is and isn't covered</a>.</p>

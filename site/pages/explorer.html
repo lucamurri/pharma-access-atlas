@@ -39,14 +39,17 @@
         <th scope="col" class="num" data-key="lag"><button class="sort-btn" type="button">US→EU lag (days)</button></th>
         <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Italy delay (days)</button></th>
         <th scope="col" data-key="gba_sort"><button class="sort-btn" type="button">G-BA rating</button></th>
+        <th scope="col" data-key="fr_sort"><button class="sort-btn" type="button">France ASMR</button></th>
+        <th scope="col" data-key="en_decision"><button class="sort-btn" type="button">NICE</button></th>
         <th scope="col" data-key="orphan_any"><button class="sort-btn" type="button">Orphan</button></th>
       </tr>
     </thead>
     <tbody id="explorer-body">
-      <tr><td colspan="9">Loading… (this table needs JavaScript; the raw data is in <a href="data/drugs.json">drugs.json</a>)</td></tr>
+      <tr><td colspan="11">Loading… (this table needs JavaScript; the raw data is in <a href="data/drugs.json">drugs.json</a>)</td></tr>
     </tbody>
   </table>
 </div>
 <p class="muted small">Lag = EC approval date minus FDA approval date; negative means the EU approved first.
   Italy delay = EC approval to reimbursement in the Gazzetta Ufficiale; “waiting” = not reimbursed when checked.
+  France ASMR: I = major improvement, V = none. “Ref.” marks reference drugs excluded from headline statistics.
   <a href="methodology.html">Definitions</a>.</p>

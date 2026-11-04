@@ -1,0 +1,15 @@
+{
+  "application_number": "NDA212526",
+  "sponsor_name": "NOVARTIS",
+  "brand_names": [
+    "PIQRAY"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20190524",
+      "review_priority": "PRIORITY"
+    }
+  ]
+}

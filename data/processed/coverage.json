@@ -1,5 +1,5 @@
 {
-  "data_as_of": "2026-11-03",
+  "data_as_of": "2026-11-04",
   "groups": [
     {
       "group": "Identity",
@@ -23,11 +23,11 @@
       ],
       "fields": 5,
       "cells": 1035,
-      "filled": 828,
+      "filled": 1003,
       "checked_none": 0,
-      "unknown": 207,
-      "pct_filled": 80.0,
-      "pct_resolved": 80.0
+      "unknown": 32,
+      "pct_filled": 96.9,
+      "pct_resolved": 96.9
     },
     {
       "group": "EMA",
@@ -62,11 +62,11 @@
       ],
       "fields": 4,
       "cells": 828,
-      "filled": 116,
-      "checked_none": 4,
-      "unknown": 708,
-      "pct_filled": 14.0,
-      "pct_resolved": 14.5
+      "filled": 737,
+      "checked_none": 64,
+      "unknown": 27,
+      "pct_filled": 89.0,
+      "pct_resolved": 96.7
     },
     {
       "group": "France",
@@ -124,8 +124,8 @@
   ],
   "manual_fields": {
     "us_orphan_designated": {
-      "unknown": 177,
-      "filled": 30
+      "filled": 205,
+      "unknown": 2
     },
     "it_gu_date": {
       "unknown": 177,
@@ -137,24 +137,24 @@
       "filled": 30
     },
     "de_gba_decision_date": {
-      "unknown": 177,
-      "filled": 29,
-      "not_assessed": 1
+      "filled": 185,
+      "unknown": 6,
+      "not_assessed": 16
     },
     "de_gba_rating_best": {
-      "unknown": 177,
-      "filled": 29,
-      "not_assessed": 1
+      "filled": 182,
+      "unknown": 9,
+      "not_assessed": 16
     },
     "de_gba_any_no_added_benefit": {
-      "unknown": 177,
-      "filled": 29,
-      "not_assessed": 1
+      "filled": 185,
+      "unknown": 6,
+      "not_assessed": 16
     },
     "de_gba_orphan_route": {
-      "unknown": 177,
-      "filled": 29,
-      "not_assessed": 1
+      "filled": 185,
+      "unknown": 6,
+      "not_assessed": 16
     },
     "en_nice_decision": {
       "unknown": 207

@@ -18,6 +18,8 @@ from datetime import date
 
 import analysis
 import check_text
+import so_what as so_what_rules
+import sys
 from common import PROCESSED, ROOT, write_json
 
 SITE = ROOT / "site"
@@ -171,6 +173,10 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
         badges.append("Cell / gene therapy")
     if row["cms_selected"] == "yes":
         badges.append(f"Medicare negotiation ({row['cms_ipay']})")
+    if row["cohort"] == "reference":
+        badges.append("Reference drug (not in headline statistics)")
+    if row["eu_status"] and row["eu_status"] != "Authorised":
+        badges.append(f"EU status: {row['eu_status']}")
     badge_html = "".join(f'<li class="badge">{esc(b)}</li>' for b in badges)
 
     # --- timeline ---------------------------------------------------------
@@ -179,6 +185,8 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
         {"label": "EC approval", "date": row["ec_date"], "kind": "eu"},
         {"label": "Italy reimbursed", "date": row["it_date"], "kind": "it"},
         {"label": "G-BA decision", "date": row["gba_date"], "kind": "de"},
+        {"label": "HAS opinion", "date": row["fr_date"], "kind": "fr"},
+        {"label": "NICE guidance", "date": row["en_date"], "kind": "en"},
     ]
     as_of = None
     if row["it_status"] == "not reimbursed":
@@ -200,6 +208,16 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
     de_text = RATING_LABEL.get(rating, "Not assessed" if rating == "not assessed" else "Unknown")
     de_note = (f'Best result across patient groups, {fmt_date(row["gba_date"])}' if row["gba_date"]
                else "No § 35a benefit assessment found")
+
+    ASMR_LABEL = {"I": "ASMR I (major)", "II": "ASMR II (important)", "III": "ASMR III (moderate)",
+                  "IV": "ASMR IV (minor)", "V": "ASMR V (no improvement)"}
+    fr_text = ASMR_LABEL.get(row["fr_asmr"], "Unknown")
+    fr_note = (f'HAS opinion, {fmt_date(row["fr_date"])}' if row["fr_date"] else
+               (f.get("fr_has_asmr_best") or {}).get("notes") or "Not available")
+    en_labels = {"recommended": "Recommended", "optimised": "Recommended (restricted)",
+                 "cancer drugs fund": "Cancer Drugs Fund", "not recommended": "Not recommended",
+                 "terminated": "Terminated appraisal", "not appraised": "Not appraised"}
+    en_text = en_labels.get(row["en_decision"], "Unknown")
 
     # --- access outcomes table ---------------------------------------------
     def cell(name, text=None):
@@ -241,6 +259,12 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
     <tr><th scope="row">Germany</th><td>G-BA AMNOG decision</td>
         <td>{cell("de_gba_decision_date", fmt_date(row["gba_date"]) if row["gba_date"] else ("None" if rating == "not assessed" else "n/a"))}</td>
         <td>{cell("de_gba_rating_best", de_outcome)}</td></tr>
+    <tr><th scope="row">France</th><td>HAS Transparency Committee opinion</td>
+        <td>{cell("fr_has_date", fmt_date(row["fr_date"]) if row["fr_date"] else "n/a")}</td>
+        <td>{cell("fr_has_asmr_best", fr_text + (f' · SMR {row["fr_smr"]}' if row["fr_smr"] else ""))}</td></tr>
+    <tr><th scope="row">England</th><td>NICE guidance{f' ({esc(row["en_ta"])})' if row["en_ta"] else ""}</td>
+        <td>{cell("en_nice_date", fmt_date(row["en_date"]) if row["en_date"] else "n/a")}</td>
+        <td>{cell("en_nice_decision", en_text)}</td></tr>
   </tbody>
 </table>"""
 
@@ -283,10 +307,11 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
     <div class="timeline-wrap">{svg}</div>
   </section>
 
-  <section class="kpis kpis-3" aria-label="Key numbers">
+  <section class="kpis" aria-label="Key numbers">
     <div class="kpi"><p class="kpi-label">US-to-EU approval lag</p><p class="kpi-value">{esc(lag_text)}</p><p class="kpi-note">{esc(lag_note)}</p></div>
     <div class="kpi"><p class="kpi-label">Italy access delay</p><p class="kpi-value">{esc(it_text)}</p><p class="kpi-note">{esc(it_note)}</p></div>
     <div class="kpi"><p class="kpi-label">Germany G-BA rating</p><p class="kpi-value kpi-value-sm">{esc(de_text)}</p><p class="kpi-note">{esc(de_note)}</p></div>
+    <div class="kpi"><p class="kpi-label">France HAS rating</p><p class="kpi-value kpi-value-sm">{esc(fr_text)}</p><p class="kpi-note">{esc(fr_note)} · NICE: {esc(en_text)}</p></div>
   </section>
 
   <section aria-labelledby="out-h">
@@ -318,9 +343,16 @@ def main() -> None:
     rows = analysis.flat_rows(data)
     s = analysis.summary(rows)
     titles = analysis.chart_titles(s)
-    findings = analysis.findings(rows, s)  # stops the build if a written claim no longer holds
-    if check_text.main() != 0:
-        raise SystemExit("Fix the numbers in site/content/so_what.json before building.")
+    draft = "--draft" in sys.argv
+    try:
+        findings = analysis.findings(rows, s)  # stops the build if a written claim no longer holds
+    except (SystemExit, KeyError, TypeError):
+        if not draft:
+            raise
+        findings = None  # draft preview: the Insights page shows a placeholder
+    bullets = so_what_rules.generate_all(rows, s)
+    if check_text.main(bullets, findings) != 0:
+        raise SystemExit("A generated 'so what' bullet contains a number not found in the data.")
     as_of = data["data_as_of"]
 
     if OUT.exists():
@@ -336,10 +368,10 @@ def main() -> None:
     values = {
         "data_as_of": fmt_date(as_of),
         "n": s["n"],
-        "lag_median": f'{s["lag_median"]:.0f}',
+        "lag_median": analysis.days(s["lag_median"]),
         "lag_us_first": s["lag_us_first"],
         "lag_eu_first": s["lag_eu_first"],
-        "it_lag_median": f'{s["it_lag_median"]:.0f}',
+        "it_lag_median": analysis.days(s["it_lag_median"]),
         "it_n_reimbursed": s["it_n_reimbursed"],
         "it_n_waiting": s["it_n_waiting"],
         "it_waiting_names": waiting_names,
@@ -349,45 +381,42 @@ def main() -> None:
         "cms_n_selected": s["cms_n_selected"],
         "title_lag": esc(titles["lag"]),
         "title_italy": esc(titles["italy"]),
-        "title_gba": esc(titles["gba"]),
+        "title_countries": esc(titles["countries"]),
+        "title_hta": esc(titles["hta"]),
+        "n_reference": s["n_reference"],
+        "fr_pct_asmr_v": s["fr_pct_asmr_v"],
+        "fr_n": s["fr_n"],
+        "en_pct_positive": s["en_pct_positive"] if s["en_pct_positive"] is not None else "n/a",
+        "en_n": s["en_n"],
         "repo_url": REPO_URL,
     }
     # Numbers for the Insights page (years stay unformatted; other numbers get thousands separators).
-    for key, value in findings.items():
+    for key, value in (findings or {}).items():
         is_year = key in ("cms_ipay", "cms_list_year")
         values[key] = value if is_year or not isinstance(value, int) else f"{value:,}"
     scripts = {"index.html": ["vendor/chart.umd.min.js", "js/common.js", "js/overview.js"],
                "explorer.html": ["js/common.js", "js/explorer.js"]}
     for page, (title, description) in PAGES.items():
-        body = fill((SITE / "pages" / page).read_text(encoding="utf-8"), values)
+        template = (SITE / "pages" / page).read_text(encoding="utf-8")
+        if page == "insights.html" and findings is None:
+            template = '<h1>Insights</h1><p class="callout">Draft build: findings are being rewritten.</p>'
+        body = fill(template, values)
         (OUT / page).write_text(layout(title, description, body, page, "", as_of, scripts.get(page, ())), encoding="utf-8")
 
     # One brief per drug, ordered as in the drug list.
-    so_what = load_so_what()
+    so_what = {k: "<ul>" + "".join(f"<li>{esc(b)}</li>" for b in v) + "</ul>" for k, v in bullets.items()}
     (OUT / "drugs").mkdir()
     by_id = {d["drug_id"]: d for d in data["drugs"]}
     for i, row in enumerate(rows):
         prev_next = (rows[i - 1] if i > 0 else None, rows[i + 1] if i < len(rows) - 1 else None)
         body = brief_page(by_id[row["id"]], row, prev_next, as_of)
-        body = body.replace("{{so_what}}", so_what.get(row["id"], NO_SO_WHAT))
+        body = body.replace("{{so_what}}", so_what[row["id"]])
         title = f'{row["brand_us"]} market-access brief | Pharma Access Atlas'
-        desc = f'Approval and access timeline for {row["brand_us"]} ({row["inn"]}) in the US, Italy and Germany.'
+        desc = f'Approval and access timeline for {row["brand_us"]} ({row["inn"]}) in the US, EU, Italy, Germany, France and England.'
         (OUT / "drugs" / f'{row["id"]}.html').write_text(
             layout(title, desc, body, "explorer.html", "../", as_of), encoding="utf-8")
 
     print(f"  ok   built {len(PAGES)} pages + {len(rows)} drug briefs into _site/")
-
-
-NO_SO_WHAT = '<p class="muted">Analysis for this drug is written in Phase 4.</p>'
-
-
-def load_so_what() -> dict:
-    """Hand-written 'so what' bullets per drug (site/content/so_what.json), as HTML lists."""
-    path = SITE / "content" / "so_what.json"
-    if not path.exists():
-        return {}
-    bullets = json.loads(path.read_text(encoding="utf-8"))
-    return {k: "<ul>" + "".join(f"<li>{esc(b)}</li>" for b in v) + "</ul>" for k, v in bullets.items()}
 
 
 if __name__ == "__main__":

@@ -9,6 +9,7 @@
   rows.forEach(r => {
     r.it_sort = r.it_lag ?? (r.it_waiting !== null ? 100000 + r.it_waiting : null); // waiting sorts last
     r.gba_sort = r.gba_rating ? RATING_ORDER.indexOf(r.gba_rating) : null;
+    r.fr_sort = r.fr_asmr ? ["I", "II", "III", "IV", "V"].indexOf(r.fr_asmr) : null;
   });
 
   const el = id => document.getElementById(id);
@@ -63,6 +64,7 @@
     el("explorer-body").innerHTML = visible.map(r => `
       <tr>
         <th scope="row"><a href="${Atlas.briefUrl(r.id)}">${Atlas.esc(Atlas.drugName(r))}</a>
+          ${r.cohort === "reference" ? ' <span class="pill">Ref.</span>' : ""}
           <br><span class="muted small">${Atlas.esc(r.inn)}</span></th>
         <td>${Atlas.esc(r.area)}</td>
         <td>${Atlas.esc(r.company)}</td>
@@ -71,8 +73,10 @@
         <td class="num">${r.lag ?? "n/a"}</td>
         <td class="num">${italyCell(r)}</td>
         <td>${ratingPill(r)}</td>
+        <td>${r.fr_asmr ? `ASMR ${r.fr_asmr}` : '<span class="muted">n/a</span>'}</td>
+        <td>${r.en_decision ? Atlas.esc(r.en_decision) : '<span class="muted">n/a</span>'}</td>
         <td>${orphanCell(r)}</td>
-      </tr>`).join("") || '<tr><td colspan="9">No drugs match these filters.</td></tr>';
+      </tr>`).join("") || '<tr><td colspan="11">No drugs match these filters.</td></tr>';
 
     el("result-count").textContent = `Showing ${visible.length} of ${rows.length} drugs`;
 
