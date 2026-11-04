@@ -1,0 +1,33 @@
+# Manual data: how to edit
+
+These CSVs hold the facts no free API provides. Open them in Excel, Numbers or any text editor.
+
+| File | What it holds | Where to check |
+|---|---|---|
+| `drugs.csv` | The curated drug list and its IDs (FDA application, EMA product number) | Drugs@FDA, EMA EPAR pages |
+| `italy_aifa.csv` | First SSN reimbursement: GU publication date and class (A/H/C/Cnn) | gazzettaufficiale.it, AIFA TrovaNormeFarmaco |
+| `germany_gba.csv` | First G-BA AMNOG decision: date, best rating, any "no added benefit", orphan route | g-ba.de/bewertungsverfahren/nutzenbewertung/ |
+| `us_fda.csv` | US orphan designation; FDA dates for cell and gene therapies (not in openFDA) | FDA OOPD database, FDA approval letters |
+| `cms_list_prices.csv` | List prices that CMS publishes only in PDF fact sheets | cms.gov negotiation fact sheets |
+
+## One row = one fact
+
+```
+drug_id,field,value,status,source_url,retrieved_date,notes
+```
+
+- **status**:
+  - `verified`: you saw the value on the source page.
+  - `not_reimbursed_as_of`: you checked, and access hasn't happened yet. Leave the date blank.
+  - `not_assessed`: you checked, and no assessment exists.
+  - `unknown`: not checked yet. Leave the value blank.
+- **source_url**: the official page where you saw it. This is required unless the status is `unknown`.
+- **retrieved_date**: the day you checked, as `YYYY-MM-DD`.
+- **notes**: a short quote or the act number, so anyone can re-check it.
+
+## Rules (enforced by `pipeline/validate.py`)
+- Never estimate. If you can't find it, use `unknown`.
+- Dates are `YYYY-MM-DD`. An Italian or German date can't be earlier than the EC approval.
+- G-BA ratings must be one of: `major`, `considerable`, `minor`, `non-quantifiable`, `no added benefit`, `lesser`.
+
+After editing, run `python3 pipeline/run_all.py --offline` to rebuild and check everything.
