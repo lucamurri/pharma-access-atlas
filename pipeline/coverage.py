@@ -18,10 +18,11 @@ from collections import defaultdict
 from common import PROCESSED, write_json
 from fields import FIELDS
 
-ORDER = ["Identity", "FDA", "EMA", "Italy", "Germany", "CMS", "Calculated"]
+ORDER = ["Identity", "FDA", "EMA", "Italy", "Germany", "France", "England", "CMS", "Calculated"]
 CMS_PRICE_FIELDS = {"cms_ipay", "cms_mfp_30day", "cms_list_price_30day", "cms_list_price_year"}
 # Calculated fields that only apply in some situations (e.g. a lag needs two dates).
-CONDITIONAL = {"it_days_waiting", "cms_discount_pct", "it_access_lag_days", "de_gba_lag_days"}
+CONDITIONAL = {"it_days_waiting", "cms_discount_pct", "it_access_lag_days", "de_gba_lag_days",
+               "fr_has_lag_days", "en_nice_lag_days"}
 
 
 def main() -> None:

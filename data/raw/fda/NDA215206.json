@@ -1,0 +1,15 @@
+{
+  "application_number": "NDA215206",
+  "sponsor_name": "ABBVIE",
+  "brand_names": [
+    "QULIPTA"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20210928",
+      "review_priority": "PRIORITY"
+    }
+  ]
+}

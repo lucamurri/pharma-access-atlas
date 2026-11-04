@@ -1,0 +1,15 @@
+{
+  "application_number": "BLA761123",
+  "sponsor_name": "ASTRAZENECA AB",
+  "brand_names": [
+    "SAPHNELO"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20210730",
+      "review_priority": "STANDARD"
+    }
+  ]
+}

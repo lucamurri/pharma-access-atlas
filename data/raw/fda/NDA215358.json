@@ -1,0 +1,21 @@
+{
+  "application_number": "NDA215358",
+  "sponsor_name": "NOVARTIS",
+  "brand_names": [
+    "SCEMBLIX"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20211029",
+      "review_priority": "PRIORITY"
+    },
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20211029",
+      "review_priority": "PRIORITY"
+    }
+  ]
+}

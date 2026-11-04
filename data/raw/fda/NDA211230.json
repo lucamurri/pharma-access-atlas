@@ -1,0 +1,21 @@
+{
+  "application_number": "NDA211230",
+  "sponsor_name": "AXSOME MALTA",
+  "brand_names": [
+    "SUNOSI"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20190320",
+      "review_priority": "STANDARD"
+    },
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20190320",
+      "review_priority": "STANDARD"
+    }
+  ]
+}

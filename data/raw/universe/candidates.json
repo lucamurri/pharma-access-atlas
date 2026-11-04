@@ -1,0 +1,2779 @@
+{
+  "rule": "Select the drugs in the atlas by rule, not by hand.\n\nRule: a medicine is included if\n  1. the FDA approved it as a NEW active substance between 2019 and 2025\n     (an original NDA classed \"Type 1 - new molecular entity\", or an original\n     BLA, from openFDA Drugs@FDA), AND\n  2. the European Commission's FIRST authorisation of the same active\n     substance(s) also falls between 2019 and 2025 (EMA medicines data;\n     generics and biosimilars excluded).\n\nCell and gene therapies are approved by FDA's CBER and are not in openFDA.\nFor those we start from the EMA list of advanced therapies authorised in the\nwindow, and include each one whose FDA approval date (researched by hand, in\ndata/manual/us_fda.csv) also falls in the window.\n\nDiagnostic agents (ATC V04, V09) are excluded: they are not treatments and are\nreimbursed through different routes.\n\nBiosimilars and new formulations of old molecules drop out automatically,\nbecause their active substance was first authorised in the EU before 2019.",
+  "cder_matches": [
+    {
+      "ema_product_number": "EMEA/H/C/004893",
+      "eu_name": "Sunosi",
+      "ec_first_authorisation": "2020-01-16",
+      "application": "NDA211230",
+      "approval": "20190320",
+      "class": "TYPE 1",
+      "brands": [
+        "SUNOSI"
+      ],
+      "ingredients": [
+        "SOLRIAMFETOL HYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004465",
+      "eu_name": "Evenity",
+      "ec_first_authorisation": "2019-12-09",
+      "application": "BLA761062",
+      "approval": "20190409",
+      "class": "TYPE 1",
+      "brands": [
+        "EVENITY"
+      ],
+      "ingredients": [
+        "ROMOSOZUMAB-AQQG"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006050",
+      "eu_name": "Balversa",
+      "ec_first_authorisation": "2024-08-22",
+      "application": "NDA212018",
+      "approval": "20190412",
+      "class": "TYPE 1",
+      "brands": [
+        "BALVERSA"
+      ],
+      "ingredients": [
+        "ERDAFITINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004759",
+      "eu_name": "Skyrizi",
+      "ec_first_authorisation": "2019-04-26",
+      "application": "BLA761105",
+      "approval": "20190423",
+      "class": "TYPE 1",
+      "brands": [
+        "SKYRIZI"
+      ],
+      "ingredients": [
+        "RISANKIZUMAB-RZAA"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004804",
+      "eu_name": "Piqray",
+      "ec_first_authorisation": "2020-07-27",
+      "application": "NDA212526",
+      "approval": "20190524",
+      "class": "TYPE 1",
+      "brands": [
+        "PIQRAY"
+      ],
+      "ingredients": [
+        "ALPELISIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004870",
+      "eu_name": "Polivy",
+      "ec_first_authorisation": "2020-01-16",
+      "application": "BLA761121",
+      "approval": "20190610",
+      "class": "TYPE 1",
+      "brands": [
+        "POLIVY"
+      ],
+      "ingredients": [
+        "POLATUZUMAB VEDOTIN-PIIQ"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005127",
+      "eu_name": "Nexpovio",
+      "ec_first_authorisation": "2021-03-26",
+      "application": "NDA212306",
+      "approval": "20190703",
+      "class": "TYPE 1",
+      "brands": [
+        "XPOVIO"
+      ],
+      "ingredients": [
+        "SELINEXOR"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004808",
+      "eu_name": "Recarbrio",
+      "ec_first_authorisation": "2020-02-13",
+      "application": "NDA212819",
+      "approval": "20190716",
+      "class": "TYPE 1/4",
+      "brands": [
+        "RECARBRIO"
+      ],
+      "ingredients": [
+        "CILASTATIN SODIUM",
+        "IMIPENEM",
+        "RELEBACTAM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004790",
+      "eu_name": "Nubeqa",
+      "ec_first_authorisation": "2020-03-27",
+      "application": "NDA212099",
+      "approval": "20190730",
+      "class": "TYPE 1",
+      "brands": [
+        "NUBEQA"
+      ],
+      "ingredients": [
+        "DAROLUTAMIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005167",
+      "eu_name": "Dovprela (previously Pretomanid FGK)",
+      "ec_first_authorisation": "2020-07-31",
+      "application": "NDA212862",
+      "approval": "20190814",
+      "class": "TYPE 1",
+      "brands": [
+        "PRETOMANID"
+      ],
+      "ingredients": [
+        "PRETOMANID"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004936",
+      "eu_name": "Rozlytrek",
+      "ec_first_authorisation": "2020-07-31",
+      "application": "NDA212725",
+      "approval": "20190815",
+      "class": "TYPE 1",
+      "brands": [
+        "ROZLYTREK"
+      ],
+      "ingredients": [
+        "ENTRECTINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004760",
+      "eu_name": "Rinvoq",
+      "ec_first_authorisation": "2019-12-16",
+      "application": "NDA211675",
+      "approval": "20190816",
+      "class": "TYPE 1",
+      "brands": [
+        "RINVOQ"
+      ],
+      "ingredients": [
+        "UPADACITINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005026",
+      "eu_name": "Inrebic",
+      "ec_first_authorisation": "2021-02-08",
+      "application": "NDA212327",
+      "approval": "20190816",
+      "class": "TYPE 1",
+      "brands": [
+        "INREBIC"
+      ],
+      "ingredients": [
+        "FEDRATINIB HYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005048",
+      "eu_name": "Xenleta",
+      "ec_first_authorisation": "2020-07-27",
+      "application": "NDA211672",
+      "approval": "20190819",
+      "class": "TYPE 1",
+      "brands": [
+        "XENLETA"
+      ],
+      "ingredients": [
+        "LEFAMULIN ACETATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004913",
+      "eu_name": "Beovu",
+      "ec_first_authorisation": "2020-02-13",
+      "application": "BLA761125",
+      "approval": "20191007",
+      "class": "TYPE 1",
+      "brands": [
+        "BEOVU"
+      ],
+      "ingredients": [
+        "brolucizumab-dbll"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005332",
+      "eu_name": "Rayvow",
+      "ec_first_authorisation": "2022-08-17",
+      "application": "NDA211280",
+      "approval": "20191011",
+      "class": "TYPE 1",
+      "brands": [
+        "REYVOW"
+      ],
+      "ingredients": [
+        "LASMIDITAN SUCCINATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005269",
+      "eu_name": "Kaftrio",
+      "ec_first_authorisation": "2020-08-21",
+      "application": "NDA212273",
+      "approval": "20191021",
+      "class": "TYPE 1/4",
+      "brands": [
+        "TRIKAFTA (COPACKAGED)"
+      ],
+      "ingredients": [
+        "ELEXACAFTOR, IVACAFTOR, TEZACAFTOR",
+        "IVACAFTOR"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004978",
+      "eu_name": "Brukinsa",
+      "ec_first_authorisation": "2021-11-22",
+      "application": "NDA213217",
+      "approval": "20191114",
+      "class": "TYPE 1",
+      "brands": [
+        "BRUKINSA"
+      ],
+      "ingredients": [
+        "ZANUBRUTINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004829",
+      "eu_name": "Fetcroja",
+      "ec_first_authorisation": "2020-04-23",
+      "application": "NDA209445",
+      "approval": "20191114",
+      "class": "TYPE 1",
+      "brands": [
+        "FETROJA"
+      ],
+      "ingredients": [
+        "CEFIDEROCOL SULFATE TOSYLATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004874",
+      "eu_name": "Adakveo",
+      "ec_first_authorisation": "2020-10-28",
+      "application": "BLA761128",
+      "approval": "20191115",
+      "class": "TYPE 1",
+      "brands": [
+        "ADAKVEO"
+      ],
+      "ingredients": [
+        "CRIZANLIZUMAB-TMCA"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004775",
+      "eu_name": "Givlaari",
+      "ec_first_authorisation": "2020-03-02",
+      "application": "NDA212194",
+      "approval": "20191120",
+      "class": "TYPE 1",
+      "brands": [
+        "GIVLAARI"
+      ],
+      "ingredients": [
+        "GIVOSIRAN SODIUM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005377",
+      "eu_name": "Ontozry",
+      "ec_first_authorisation": "2021-03-26",
+      "application": "NDA212839",
+      "approval": "20191121",
+      "class": "TYPE 1",
+      "brands": [
+        "XCOPRI"
+      ],
+      "ingredients": [
+        "CENOBAMATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004869",
+      "eu_name": "Oxbryta",
+      "ec_first_authorisation": "2022-02-14",
+      "application": "NDA213137",
+      "approval": "20191125",
+      "class": "TYPE 1",
+      "brands": [
+        "OXBRYTA"
+      ],
+      "ingredients": [
+        "VOXELOTOR"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005392",
+      "eu_name": "Padcev",
+      "ec_first_authorisation": "2022-04-13",
+      "application": "BLA761137",
+      "approval": "20191218",
+      "class": "TYPE 1",
+      "brands": [
+        "PADCEV"
+      ],
+      "ingredients": [
+        "ENFORTUMAB VEDOTIN-EJFV"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005124",
+      "eu_name": "Enhertu",
+      "ec_first_authorisation": "2021-01-18",
+      "application": "BLA761139",
+      "approval": "20191220",
+      "class": "TYPE 1",
+      "brands": [
+        "ENHERTU"
+      ],
+      "ingredients": [
+        "FAM-TRASTUZUMAB DERUXTECAN-NXKI"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005208",
+      "eu_name": "Ayvakyt",
+      "ec_first_authorisation": "2020-09-24",
+      "application": "NDA212608",
+      "approval": "20200109",
+      "class": "TYPE 1",
+      "brands": [
+        "AYVAKIT"
+      ],
+      "ingredients": [
+        "AVAPRITINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006396",
+      "eu_name": "Tepezza",
+      "ec_first_authorisation": "2025-06-19",
+      "application": "BLA761143",
+      "approval": "20200121",
+      "class": "TYPE 1",
+      "brands": [
+        "TEPEZZA"
+      ],
+      "ingredients": [
+        "TEPROTUMUMAB-TRBW"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005287",
+      "eu_name": "Vyepti",
+      "ec_first_authorisation": "2022-01-24",
+      "application": "BLA761119",
+      "approval": "20200221",
+      "class": "TYPE 1",
+      "brands": [
+        "VYEPTI"
+      ],
+      "ingredients": [
+        "EPTINEZUMAB-JJMR"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004958",
+      "eu_name": "Nilemdo",
+      "ec_first_authorisation": "2020-04-01",
+      "application": "NDA211616",
+      "approval": "20200221",
+      "class": "TYPE 1",
+      "brands": [
+        "NEXLETOL"
+      ],
+      "ingredients": [
+        "BEMPEDOIC ACID"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004959",
+      "eu_name": "Nustendi",
+      "ec_first_authorisation": "2020-03-27",
+      "application": "NDA211617",
+      "approval": "20200226",
+      "class": "TYPE 1/4",
+      "brands": [
+        "NEXLIZET"
+      ],
+      "ingredients": [
+        "BEMPEDOIC ACID",
+        "EZETIMIBE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005725",
+      "eu_name": "Vydura",
+      "ec_first_authorisation": "2022-04-25",
+      "application": "NDA212728",
+      "approval": "20200227",
+      "class": "TYPE 1",
+      "brands": [
+        "NURTEC ODT"
+      ],
+      "ingredients": [
+        "RIMEGEPANT SULFATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004977",
+      "eu_name": "Sarclisa",
+      "ec_first_authorisation": "2020-05-30",
+      "application": "BLA761113",
+      "approval": "20200302",
+      "class": "TYPE 1",
+      "brands": [
+        "SARCLISA"
+      ],
+      "ingredients": [
+        "ISATUXIMAB-IRFC"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004821",
+      "eu_name": "Isturisa",
+      "ec_first_authorisation": "2020-01-09",
+      "application": "NDA212801",
+      "approval": "20200306",
+      "class": "TYPE 1",
+      "brands": [
+        "ISTURISA"
+      ],
+      "ingredients": [
+        "OSILODROSTAT PHOSPHATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004835",
+      "eu_name": "Zeposia",
+      "ec_first_authorisation": "2020-05-20",
+      "application": "NDA209899",
+      "approval": "20200325",
+      "class": "TYPE 1",
+      "brands": [
+        "ZEPOSIA"
+      ],
+      "ingredients": [
+        "OZANIMOD HYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004444",
+      "eu_name": "Reblozyl",
+      "ec_first_authorisation": "2020-06-25",
+      "application": "BLA761136",
+      "approval": "20200403",
+      "class": "EFFICACY",
+      "brands": [
+        "REBLOZYL"
+      ],
+      "ingredients": [
+        "LUSPATERCEPT-AAMT"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005244",
+      "eu_name": "Koselugo",
+      "ec_first_authorisation": "2021-06-17",
+      "application": "NDA213756",
+      "approval": "20200410",
+      "class": "TYPE 1",
+      "brands": [
+        "KOSELUGO"
+      ],
+      "ingredients": [
+        "SELUMETINIB SULFATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005266",
+      "eu_name": "Pemazyre",
+      "ec_first_authorisation": "2021-03-26",
+      "application": "NDA213736",
+      "approval": "20200417",
+      "class": "TYPE 1",
+      "brands": [
+        "PEMAZYRE"
+      ],
+      "ingredients": [
+        "PEMIGATINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005263",
+      "eu_name": "Tukysa",
+      "ec_first_authorisation": "2021-02-11",
+      "application": "NDA213411",
+      "approval": "20200417",
+      "class": "TYPE 1",
+      "brands": [
+        "TUKYSA"
+      ],
+      "ingredients": [
+        "TUCATINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005182",
+      "eu_name": "Trodelvy",
+      "ec_first_authorisation": "2021-11-22",
+      "application": "BLA761115",
+      "approval": "20200422",
+      "class": "TYPE 1",
+      "brands": [
+        "TRODELVY"
+      ],
+      "ingredients": [
+        "SACITUZUMAB GOVITECAN-HZIY"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004845",
+      "eu_name": "Tabrecta",
+      "ec_first_authorisation": "2022-06-20",
+      "application": "NDA213591",
+      "approval": "20200506",
+      "class": "TYPE 1",
+      "brands": [
+        "TABRECTA"
+      ],
+      "ingredients": [
+        "CAPMATINIB HYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005375",
+      "eu_name": "Retsevmo",
+      "ec_first_authorisation": "2021-02-11",
+      "application": "NDA213246",
+      "approval": "20200508",
+      "class": "TYPE 1",
+      "brands": [
+        "RETEVMO"
+      ],
+      "ingredients": [
+        "SELPERCATINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005614",
+      "eu_name": "Qinlock",
+      "ec_first_authorisation": "2021-11-18",
+      "application": "NDA213973",
+      "approval": "20200515",
+      "class": "TYPE 1",
+      "brands": [
+        "QINLOCK"
+      ],
+      "ingredients": [
+        "RIPRETINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005550",
+      "eu_name": "Artesunate Amivas",
+      "ec_first_authorisation": "2021-11-22",
+      "application": "NDA213036",
+      "approval": "20200526",
+      "class": "TYPE 1",
+      "brands": [
+        "ARTESUNATE"
+      ],
+      "ingredients": [
+        "ARTESUNATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005818",
+      "eu_name": "Uplizna",
+      "ec_first_authorisation": "2022-04-25",
+      "application": "BLA761142",
+      "approval": "20200611",
+      "class": "TYPE 1",
+      "brands": [
+        "UPLIZNA"
+      ],
+      "ingredients": [
+        "INEBILIZUMAB-CDON"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005246",
+      "eu_name": "Byfavo",
+      "ec_first_authorisation": "2021-03-26",
+      "application": "NDA212295",
+      "approval": "20200702",
+      "class": "TYPE 1",
+      "brands": [
+        "BYFAVO"
+      ],
+      "ingredients": [
+        "REMIMAZOLAM BESYLATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005823",
+      "eu_name": "Inaqovi",
+      "ec_first_authorisation": "2023-09-15",
+      "application": "NDA212576",
+      "approval": "20200707",
+      "class": "TYPE 1/4",
+      "brands": [
+        "INQOVI"
+      ],
+      "ingredients": [
+        "CEDAZURIDINE",
+        "DECITABINE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005436",
+      "eu_name": "Minjuvi",
+      "ec_first_authorisation": "2021-08-26",
+      "application": "BLA761163",
+      "approval": "20200731",
+      "class": "TYPE 1",
+      "brands": [
+        "MONJUVI"
+      ],
+      "ingredients": [
+        "TAFASITAMAB-CXIX"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005145",
+      "eu_name": "Evrysdi",
+      "ec_first_authorisation": "2021-03-26",
+      "application": "NDA213535",
+      "approval": "20200807",
+      "class": "TYPE 1",
+      "brands": [
+        "EVRYSDI"
+      ],
+      "ingredients": [
+        "RISDIPLAM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004788",
+      "eu_name": "Enspryng",
+      "ec_first_authorisation": "2021-06-24",
+      "application": "BLA761149",
+      "approval": "20200814",
+      "class": "TYPE 1",
+      "brands": [
+        "ENSPRYNG"
+      ],
+      "ingredients": [
+        "SATRALIZUMAB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006138",
+      "eu_name": "Winlevi",
+      "ec_first_authorisation": "2025-10-17",
+      "application": "NDA213433",
+      "approval": "20200826",
+      "class": "TYPE 1",
+      "brands": [
+        "WINLEVI"
+      ],
+      "ingredients": [
+        "CLASCOTERONE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005030",
+      "eu_name": "Sogroya",
+      "ec_first_authorisation": "2021-03-31",
+      "application": "BLA761156",
+      "approval": "20200828",
+      "class": "TYPE 1",
+      "brands": [
+        "SOGROYA"
+      ],
+      "ingredients": [
+        "SOMAPACITAN-BECO"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005413",
+      "eu_name": "Gavreto",
+      "ec_first_authorisation": "2021-11-18",
+      "application": "NDA213721",
+      "approval": "20200904",
+      "class": "TYPE 1",
+      "brands": [
+        "GAVRETO"
+      ],
+      "ingredients": [
+        "PRALSETINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005622",
+      "eu_name": "Veklury",
+      "ec_first_authorisation": "2020-07-03",
+      "application": "NDA214787",
+      "approval": "20201022",
+      "class": "TYPE 1",
+      "brands": [
+        "VEKLURY"
+      ],
+      "ingredients": [
+        "REMDESIVIR"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005271",
+      "eu_name": "Zokinvy",
+      "ec_first_authorisation": "2022-07-18",
+      "application": "NDA213969",
+      "approval": "20201120",
+      "class": "TYPE 1",
+      "brands": [
+        "ZOKINVY"
+      ],
+      "ingredients": [
+        "LONAFARNIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005040",
+      "eu_name": "Oxlumo",
+      "ec_first_authorisation": "2020-11-19",
+      "application": "NDA214103",
+      "approval": "20201123",
+      "class": "TYPE 1",
+      "brands": [
+        "OXLUMO"
+      ],
+      "ingredients": [
+        "LUMASIRAN SODIUM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005089",
+      "eu_name": "Imcivree",
+      "ec_first_authorisation": "2021-07-16",
+      "application": "NDA213793",
+      "approval": "20201125",
+      "class": "TYPE 1",
+      "brands": [
+        "IMCIVREE"
+      ],
+      "ingredients": [
+        "SETMELANOTIDE ACETATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005138",
+      "eu_name": "Orladeyo",
+      "ec_first_authorisation": "2021-04-30",
+      "application": "NDA214094",
+      "approval": "20201203",
+      "class": "TYPE 1",
+      "brands": [
+        "ORLADEYO"
+      ],
+      "ingredients": [
+        "BEROTRALSTAT DIHYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005183",
+      "eu_name": "Klisyri",
+      "ec_first_authorisation": "2021-07-16",
+      "application": "NDA213189",
+      "approval": "20201214",
+      "class": "TYPE 1",
+      "brands": [
+        "KLISYRI"
+      ],
+      "ingredients": [
+        "TIRBANIBULIN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005353",
+      "eu_name": "Orgovyx",
+      "ec_first_authorisation": "2022-04-29",
+      "application": "NDA214621",
+      "approval": "20201218",
+      "class": "TYPE 1",
+      "brands": [
+        "ORGOVYX"
+      ],
+      "ingredients": [
+        "RELUGOLIX"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005957",
+      "eu_name": "Obgemsa",
+      "ec_first_authorisation": "2024-06-27",
+      "application": "NDA213006",
+      "approval": "20201223",
+      "class": "TYPE 1",
+      "brands": [
+        "GEMTESA"
+      ],
+      "ingredients": [
+        "VIBEGRON"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005319",
+      "eu_name": "Verquvo",
+      "ec_first_authorisation": "2021-07-16",
+      "application": "NDA214377",
+      "approval": "20210119",
+      "class": "TYPE 1",
+      "brands": [
+        "VERQUVO"
+      ],
+      "ingredients": [
+        "VERICIGUAT"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005256",
+      "eu_name": "Lupkynis",
+      "ec_first_authorisation": "2022-09-15",
+      "application": "NDA213716",
+      "approval": "20210122",
+      "class": "TYPE 1",
+      "brands": [
+        "LUPKYNIS"
+      ],
+      "ingredients": [
+        "VOCLOSPORIN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005524",
+      "eu_name": "Tepmetko",
+      "ec_first_authorisation": "2022-02-16",
+      "application": "NDA214096",
+      "approval": "20210203",
+      "class": "TYPE 1",
+      "brands": [
+        "TEPMETKO"
+      ],
+      "ingredients": [
+        "TEPOTINIB HYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005449",
+      "eu_name": "Evkeeza",
+      "ec_first_authorisation": "2021-06-17",
+      "application": "BLA761181",
+      "approval": "20210211",
+      "class": "TYPE 1",
+      "brands": [
+        "EVKEEZA"
+      ],
+      "ingredients": [
+        "EVINACUMAB-DGNB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005378",
+      "eu_name": "Nulibry",
+      "ec_first_authorisation": "2022-09-15",
+      "application": "NDA214018",
+      "approval": "20210226",
+      "class": "TYPE 1",
+      "brands": [
+        "NULIBRY"
+      ],
+      "ingredients": [
+        "FOSDENOPTERIN HYDROBROMIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005163",
+      "eu_name": "Ponvory",
+      "ec_first_authorisation": "2021-05-19",
+      "application": "NDA213498",
+      "approval": "20210318",
+      "class": "TYPE 1",
+      "brands": [
+        "PONVORY"
+      ],
+      "ingredients": [
+        "PONESIMOD"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006214",
+      "eu_name": "Zegalogue",
+      "ec_first_authorisation": "2024-07-24",
+      "application": "NDA214231",
+      "approval": "20210322",
+      "class": "TYPE 1",
+      "brands": [
+        "ZEGALOGUE",
+        "ZEGALOGUE (AUTOINJECTOR)"
+      ],
+      "ingredients": [
+        "DASIGLUCAGON HYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005382",
+      "eu_name": "Lydisilka",
+      "ec_first_authorisation": "2021-05-19",
+      "application": "NDA214154",
+      "approval": "20210415",
+      "class": "TYPE 1/4",
+      "brands": [
+        "NEXTSTELLIS"
+      ],
+      "ingredients": [
+        "DROSPIRENONE",
+        "ESTETROL"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005204",
+      "eu_name": "Jemperli",
+      "ec_first_authorisation": "2021-04-21",
+      "application": "BLA761174",
+      "approval": "20210422",
+      "class": "TYPE 1",
+      "brands": [
+        "JEMPERLI"
+      ],
+      "ingredients": [
+        "DOSTARLIMAB-GXLY"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005685",
+      "eu_name": "Zynlonta",
+      "ec_first_authorisation": "2022-12-20",
+      "application": "BLA761196",
+      "approval": "20210423",
+      "class": "TYPE 1",
+      "brands": [
+        "ZYNLONTA"
+      ],
+      "ingredients": [
+        "LONCASTUXIMAB TESIRINE-LPYL"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005553",
+      "eu_name": "Aspaveli",
+      "ec_first_authorisation": "2021-12-13",
+      "application": "NDA215014",
+      "approval": "20210514",
+      "class": "TYPE 1",
+      "brands": [
+        "EMPAVELI"
+      ],
+      "ingredients": [
+        "PEGCETACOPLAN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005454",
+      "eu_name": "Rybrevant",
+      "ec_first_authorisation": "2021-12-09",
+      "application": "BLA761210",
+      "approval": "20210521",
+      "class": "TYPE 1",
+      "brands": [
+        "RYBREVANT"
+      ],
+      "ingredients": [
+        "AMIVANTAMAB-VMJW"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005522",
+      "eu_name": "Lumykras",
+      "ec_first_authorisation": "2022-01-06",
+      "application": "NDA214665",
+      "approval": "20210528",
+      "class": "TYPE 1",
+      "brands": [
+        "LUMAKRAS"
+      ],
+      "ingredients": [
+        "SOTORASIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005200",
+      "eu_name": "Kerendia",
+      "ec_first_authorisation": "2022-02-16",
+      "application": "NDA215341",
+      "approval": "20210709",
+      "class": "TYPE 1",
+      "brands": [
+        "KERENDIA"
+      ],
+      "ingredients": [
+        "FINERENONE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004691",
+      "eu_name": "Bylvay",
+      "ec_first_authorisation": "2021-07-16",
+      "application": "NDA215498",
+      "approval": "20210720",
+      "class": "TYPE 1",
+      "brands": [
+        "BYLVAY"
+      ],
+      "ingredients": [
+        "ODEVIXIBAT"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004975",
+      "eu_name": "Saphnelo",
+      "ec_first_authorisation": "2022-02-14",
+      "application": "BLA761123",
+      "approval": "20210730",
+      "class": "TYPE 1",
+      "brands": [
+        "SAPHNELO"
+      ],
+      "ingredients": [
+        "ANIFROLUMAB-FNIA"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005501",
+      "eu_name": "Nexviadyme",
+      "ec_first_authorisation": "2022-06-24",
+      "application": "BLA761194",
+      "approval": "20210806",
+      "class": "TYPE 1",
+      "brands": [
+        "NEXVIAZYME"
+      ],
+      "ingredients": [
+        "AVALGLUCOSIDASE ALFA-NGPT"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005636",
+      "eu_name": "Welireg",
+      "ec_first_authorisation": "2025-02-12",
+      "application": "NDA215383",
+      "approval": "20210813",
+      "class": "TYPE 1",
+      "brands": [
+        "WELIREG"
+      ],
+      "ingredients": [
+        "BELZUTIFAN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005612",
+      "eu_name": "Kapruvia",
+      "ec_first_authorisation": "2022-04-25",
+      "application": "NDA214916",
+      "approval": "20210823",
+      "class": "TYPE 1",
+      "brands": [
+        "KORSUVA"
+      ],
+      "ingredients": [
+        "DIFELIKEFALIN ACETATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005367",
+      "eu_name": "Skytrofa (previously Lonapegsomatropin Ascendis Pharma)",
+      "ec_first_authorisation": "2022-01-11",
+      "application": "BLA761177",
+      "approval": "20210825",
+      "class": "TYPE 1",
+      "brands": [
+        "SKYTROFA"
+      ],
+      "ingredients": [
+        "LONAPEGSOMATROPIN-TCGD"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005363",
+      "eu_name": "Tivdak",
+      "ec_first_authorisation": "2025-03-28",
+      "application": "BLA761208",
+      "approval": "20210920",
+      "class": "TYPE 1",
+      "brands": [
+        "TIVDAK"
+      ],
+      "ingredients": [
+        "TISOTUMAB VEDOTIN-TFTV"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005871",
+      "eu_name": "Aquipta",
+      "ec_first_authorisation": "2023-08-11",
+      "application": "NDA215206",
+      "approval": "20210928",
+      "class": "TYPE 1",
+      "brands": [
+        "QULIPTA"
+      ],
+      "ingredients": [
+        "ATOGEPANT"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005857",
+      "eu_name": "Livmarli",
+      "ec_first_authorisation": "2022-12-09",
+      "application": "NDA214662",
+      "approval": "20210929",
+      "class": "TYPE 1",
+      "brands": [
+        "LIVMARLI"
+      ],
+      "ingredients": [
+        "MARALIXIBAT CHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005523",
+      "eu_name": "Tavneos",
+      "ec_first_authorisation": "2022-01-11",
+      "application": "NDA214487",
+      "approval": "20211007",
+      "class": "TYPE 1",
+      "brands": [
+        "TAVNEOS"
+      ],
+      "ingredients": [
+        "AVACOPAN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005605",
+      "eu_name": "Scemblix",
+      "ec_first_authorisation": "2022-08-25",
+      "application": "NDA215358",
+      "approval": "20211029",
+      "class": "TYPE 1",
+      "brands": [
+        "SCEMBLIX"
+      ],
+      "ingredients": [
+        "ASCIMINIB HYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004128",
+      "eu_name": "Besremi",
+      "ec_first_authorisation": "2019-02-15",
+      "application": "BLA761166",
+      "approval": "20211112",
+      "class": "TYPE 1",
+      "brands": [
+        "BESREMI"
+      ],
+      "ingredients": [
+        "ROPEGINTERFERON ALFA-2B-NJFT"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005475",
+      "eu_name": "Voxzogo",
+      "ec_first_authorisation": "2021-08-26",
+      "application": "NDA214938",
+      "approval": "20211119",
+      "class": "TYPE 1",
+      "brands": [
+        "VOXZOGO"
+      ],
+      "ingredients": [
+        "VOSORITIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005787",
+      "eu_name": "Livtencity",
+      "ec_first_authorisation": "2022-11-09",
+      "application": "NDA215596",
+      "approval": "20211123",
+      "class": "TYPE 1",
+      "brands": [
+        "LIVTENCITY"
+      ],
+      "ingredients": [
+        "MARIBAVIR"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005849",
+      "eu_name": "Vyvgart",
+      "ec_first_authorisation": "2022-08-10",
+      "application": "BLA761195",
+      "approval": "20211217",
+      "class": "TYPE 1",
+      "brands": [
+        "VYVGART"
+      ],
+      "ingredients": [
+        "EFGARTIGIMOD ALFA"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005588",
+      "eu_name": "Tezspire",
+      "ec_first_authorisation": "2022-09-19",
+      "application": "BLA761224",
+      "approval": "20211217",
+      "class": "TYPE 1",
+      "brands": [
+        "TEZSPIRE"
+      ],
+      "ingredients": [
+        "TEZEPELUMAB-EKKO"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005333",
+      "eu_name": "Leqvio",
+      "ec_first_authorisation": "2020-12-09",
+      "application": "NDA214012",
+      "approval": "20211222",
+      "class": "TYPE 1",
+      "brands": [
+        "LEQVIO"
+      ],
+      "ingredients": [
+        "INCLISIRAN SODIUM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005255",
+      "eu_name": "Adtralza",
+      "ec_first_authorisation": "2021-06-17",
+      "application": "BLA761180",
+      "approval": "20211227",
+      "class": "TYPE 1",
+      "brands": [
+        "ADBRY"
+      ],
+      "ingredients": [
+        "TRALOKINUMAB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005634",
+      "eu_name": "Quviviq",
+      "ec_first_authorisation": "2022-04-29",
+      "application": "NDA214985",
+      "approval": "20220107",
+      "class": "TYPE 1",
+      "brands": [
+        "QUVIVIQ"
+      ],
+      "ingredients": [
+        "DARIDOREXANT HYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005452",
+      "eu_name": "Cibinqo",
+      "ec_first_authorisation": "2021-12-09",
+      "application": "NDA213871",
+      "approval": "20220114",
+      "class": "TYPE 1",
+      "brands": [
+        "CIBINQO"
+      ],
+      "ingredients": [
+        "ABROCITINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004929",
+      "eu_name": "Kimmtrak",
+      "ec_first_authorisation": "2022-04-01",
+      "application": "BLA761228",
+      "approval": "20220125",
+      "class": "TYPE 1",
+      "brands": [
+        "KIMMTRAK"
+      ],
+      "ingredients": [
+        "TEBENTAFUSP-TEBN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005642",
+      "eu_name": "Vabysmo",
+      "ec_first_authorisation": "2022-09-15",
+      "application": "BLA761235",
+      "approval": "20220128",
+      "class": "TYPE 1",
+      "brands": [
+        "VABYSMO"
+      ],
+      "ingredients": [
+        "FARICIMAB-SVOA"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005776",
+      "eu_name": "Enjaymo",
+      "ec_first_authorisation": "2022-11-15",
+      "application": "BLA761164",
+      "approval": "20220204",
+      "class": "TYPE 1",
+      "brands": [
+        "ENJAYMO"
+      ],
+      "ingredients": [
+        "SUTIMLIMAB-JOME"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005540",
+      "eu_name": "Pyrukynd",
+      "ec_first_authorisation": "2022-11-09",
+      "application": "NDA216196",
+      "approval": "20220217",
+      "class": "TYPE 1",
+      "brands": [
+        "AQVESME",
+        "PYRUKYND"
+      ],
+      "ingredients": [
+        "MITAPIVAT SULFATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005825",
+      "eu_name": "Ztalmy",
+      "ec_first_authorisation": "2023-07-26",
+      "application": "NDA215904",
+      "approval": "20220318",
+      "class": "TYPE 1",
+      "brands": [
+        "ZTALMY"
+      ],
+      "ingredients": [
+        "GANAXOLONE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005481",
+      "eu_name": "Opdualag",
+      "ec_first_authorisation": "2022-09-15",
+      "application": "BLA761234",
+      "approval": "20220318",
+      "class": "TYPE 1",
+      "brands": [
+        "OPDUALAG"
+      ],
+      "ingredients": [
+        "NIVOLUMAB",
+        "RELATLIMAB-RMBW"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005483",
+      "eu_name": "Pluvicto",
+      "ec_first_authorisation": "2022-12-09",
+      "application": "NDA215833",
+      "approval": "20220323",
+      "class": "TYPE 1",
+      "brands": [
+        "PLUVICTO"
+      ],
+      "ingredients": [
+        "LUTETIUM LU-177 VIPIVOTIDE TETRAXETAN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005457",
+      "eu_name": "Camzyos",
+      "ec_first_authorisation": "2023-06-26",
+      "application": "NDA214998",
+      "approval": "20220428",
+      "class": "TYPE 1",
+      "brands": [
+        "CAMZYOS"
+      ],
+      "ingredients": [
+        "MAVACAMTEN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005620",
+      "eu_name": "Mounjaro",
+      "ec_first_authorisation": "2022-09-15",
+      "application": "NDA215866",
+      "approval": "20220513",
+      "class": "TYPE 1",
+      "brands": [
+        "MOUNJARO",
+        "MOUNJARO (AUTOINJECTOR)",
+        "MOUNJARO KWIKPEN"
+      ],
+      "ingredients": [
+        "TIRZEPATIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005852",
+      "eu_name": "Amvuttra",
+      "ec_first_authorisation": "2022-09-15",
+      "application": "NDA215515",
+      "approval": "20220613",
+      "class": "TYPE 1",
+      "brands": [
+        "AMVUTTRA"
+      ],
+      "ingredients": [
+        "VUTRISIRAN SODIUM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004850",
+      "eu_name": "Xenpozyme",
+      "ec_first_authorisation": "2022-06-24",
+      "application": "BLA761261",
+      "approval": "20220831",
+      "class": "TYPE 1",
+      "brands": [
+        "XENPOZYME"
+      ],
+      "ingredients": [
+        "OLIPUDASE ALFA-RPCP"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005874",
+      "eu_name": "Spevigo",
+      "ec_first_authorisation": "2022-12-09",
+      "application": "BLA761244",
+      "approval": "20220901",
+      "class": "TYPE 1",
+      "brands": [
+        "SPEVIGO"
+      ],
+      "ingredients": [
+        "SPESOLIMAB-SBZO"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005755",
+      "eu_name": "Sotyktu",
+      "ec_first_authorisation": "2023-03-24",
+      "application": "NDA214958",
+      "approval": "20220909",
+      "class": "TYPE 1",
+      "brands": [
+        "SOTYKTU"
+      ],
+      "ingredients": [
+        "DEUCRAVACITINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005626",
+      "eu_name": "Elucirem",
+      "ec_first_authorisation": "2023-12-07",
+      "application": "NDA216986",
+      "approval": "20220921",
+      "class": "TYPE 1/4",
+      "brands": [
+        "ELUCIREM"
+      ],
+      "ingredients": [
+        "GADOPICLENOL"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005627",
+      "eu_name": "Lytgobi",
+      "ec_first_authorisation": "2023-07-04",
+      "application": "NDA214801",
+      "approval": "20220930",
+      "class": "TYPE 1",
+      "brands": [
+        "LYTGOBI"
+      ],
+      "ingredients": [
+        "FUTIBATINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006016",
+      "eu_name": "Imjudo",
+      "ec_first_authorisation": "2023-02-20",
+      "application": "BLA761289",
+      "approval": "20221021",
+      "class": "TYPE 1",
+      "brands": [
+        "IMJUDO"
+      ],
+      "ingredients": [
+        "TREMELIMUMAB-ACTL"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005865",
+      "eu_name": "Tecvayli",
+      "ec_first_authorisation": "2022-08-23",
+      "application": "BLA761291",
+      "approval": "20221025",
+      "class": "TYPE 1",
+      "brands": [
+        "TECVAYLI"
+      ],
+      "ingredients": [
+        "TECLISTAMAB-CQYV"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005036",
+      "eu_name": "Elahere",
+      "ec_first_authorisation": "2024-11-14",
+      "application": "BLA761310",
+      "approval": "20221114",
+      "class": "TYPE 1",
+      "brands": [
+        "ELAHERE"
+      ],
+      "ingredients": [
+        "MIRVETUXIMAB SORAVTANSINE-GYNX"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006013",
+      "eu_name": "Krazati",
+      "ec_first_authorisation": "2024-01-05",
+      "application": "NDA216340",
+      "approval": "20221212",
+      "class": "TYPE 1",
+      "brands": [
+        "KRAZATI"
+      ],
+      "ingredients": [
+        "ADAGRASIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005638",
+      "eu_name": "Sunlenca",
+      "ec_first_authorisation": "2022-08-17",
+      "application": "NDA215973",
+      "approval": "20221222",
+      "class": "TYPE 1",
+      "brands": [
+        "SUNLENCA"
+      ],
+      "ingredients": [
+        "LENACAPAVIR SODIUM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005680",
+      "eu_name": "Lunsumio",
+      "ec_first_authorisation": "2022-06-03",
+      "application": "BLA761263",
+      "approval": "20221222",
+      "class": "TYPE 1",
+      "brands": [
+        "LUNSUMIO",
+        "LUNSUMIO VELO"
+      ],
+      "ingredients": [
+        "MOSUNETUZUMAB-AXGB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005914",
+      "eu_name": "Briumvi",
+      "ec_first_authorisation": "2023-05-31",
+      "application": "BLA761238",
+      "approval": "20221228",
+      "class": "TYPE 1",
+      "brands": [
+        "BRIUMVI"
+      ],
+      "ingredients": [
+        "UBLITUXIMAB-XIIY"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005966",
+      "eu_name": "Leqembi",
+      "ec_first_authorisation": "2025-04-15",
+      "application": "BLA761269",
+      "approval": "20230106",
+      "class": "TYPE 1",
+      "brands": [
+        "LEQEMBI"
+      ],
+      "ingredients": [
+        "LECANEMAB-IRMB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005863",
+      "eu_name": "Jaypirca",
+      "ec_first_authorisation": "2023-10-30",
+      "application": "NDA216059",
+      "approval": "20230127",
+      "class": "TYPE 1",
+      "brands": [
+        "JAYPIRCA"
+      ],
+      "ingredients": [
+        "PIRTOBRUTINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005898",
+      "eu_name": "Orserdu",
+      "ec_first_authorisation": "2023-09-15",
+      "application": "NDA217639",
+      "approval": "20230127",
+      "class": "TYPE 1",
+      "brands": [
+        "ORSERDU"
+      ],
+      "ingredients": [
+        "ELACESTRANT HYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005783",
+      "eu_name": "Filspari",
+      "ec_first_authorisation": "2024-04-19",
+      "application": "NDA216403",
+      "approval": "20230217",
+      "class": "TYPE 1",
+      "brands": [
+        "FILSPARI"
+      ],
+      "ingredients": [
+        "SPARSENTAN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006084",
+      "eu_name": "Skyclarys",
+      "ec_first_authorisation": "2024-02-09",
+      "application": "NDA216718",
+      "approval": "20230228",
+      "class": "TYPE 1",
+      "brands": [
+        "SKYCLARYS"
+      ],
+      "ingredients": [
+        "OMAVELOXOLONE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005900",
+      "eu_name": "Rezzayo",
+      "ec_first_authorisation": "2023-12-22",
+      "application": "NDA217417",
+      "approval": "20230322",
+      "class": "TYPE 1",
+      "brands": [
+        "REZZAYO"
+      ],
+      "ingredients": [
+        "REZAFUNGIN ACETATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006194",
+      "eu_name": "Zynyz",
+      "ec_first_authorisation": "2024-04-19",
+      "application": "BLA761334",
+      "approval": "20230322",
+      "class": "TYPE 1",
+      "brands": [
+        "ZYNYZ"
+      ],
+      "ingredients": [
+        "RETIFANLIMAB-DLWR"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005493",
+      "eu_name": "Qalsody",
+      "ec_first_authorisation": "2024-05-29",
+      "application": "NDA215887",
+      "approval": "20230425",
+      "class": "TYPE 1",
+      "brands": [
+        "QALSODY"
+      ],
+      "ingredients": [
+        "TOFERSEN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005618",
+      "eu_name": "Elfabrio",
+      "ec_first_authorisation": "2023-05-04",
+      "application": "BLA761161",
+      "approval": "20230509",
+      "class": "TYPE 1",
+      "brands": [
+        "ELFABRIO"
+      ],
+      "ingredients": [
+        "PEGUNIGALSIDASE ALFA-IWXJ"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005851",
+      "eu_name": "Veoza",
+      "ec_first_authorisation": "2023-12-07",
+      "application": "NDA216578",
+      "approval": "20230512",
+      "class": "TYPE 1",
+      "brands": [
+        "VEOZAH"
+      ],
+      "ingredients": [
+        "FEZOLINETANT"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005985",
+      "eu_name": "Tepkinly",
+      "ec_first_authorisation": "2023-09-22",
+      "application": "BLA761324",
+      "approval": "20230519",
+      "class": "TYPE 1",
+      "brands": [
+        "EPKINLY"
+      ],
+      "ingredients": [
+        "EPCORITAMAB-BYSP"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005973",
+      "eu_name": "Paxlovid",
+      "ec_first_authorisation": "2022-01-28",
+      "application": "NDA217188",
+      "approval": "20230525",
+      "class": "TYPE 1",
+      "brands": [
+        "PAXLOVID (COPACKAGED)"
+      ],
+      "ingredients": [
+        "NIRMATRELVIR",
+        "RITONAVIR"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004889",
+      "eu_name": "Zynquista",
+      "ec_first_authorisation": "2019-04-26",
+      "application": "NDA216203",
+      "approval": "20230526",
+      "class": "TYPE 1",
+      "brands": [
+        "INPEFA"
+      ],
+      "ingredients": [
+        "SOTAGLIFLOZIN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005751",
+      "eu_name": "Columvi",
+      "ec_first_authorisation": "2023-07-07",
+      "application": "BLA761309",
+      "approval": "20230615",
+      "class": "TYPE 1",
+      "brands": [
+        "COLUMVI"
+      ],
+      "ingredients": [
+        "GLOFITAMAB-GXBM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006025",
+      "eu_name": "Litfulo",
+      "ec_first_authorisation": "2023-09-15",
+      "application": "NDA215830",
+      "approval": "20230623",
+      "class": "TYPE 1",
+      "brands": [
+        "LITFULO"
+      ],
+      "ingredients": [
+        "RITLECITINIB TOSYLATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005824",
+      "eu_name": "Rystiggo",
+      "ec_first_authorisation": "2024-01-05",
+      "application": "BLA761286",
+      "approval": "20230626",
+      "class": "TYPE 1",
+      "brands": [
+        "RYSTIGGO"
+      ],
+      "ingredients": [
+        "ROZANOLIXIZUMAB-NOLI"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005633",
+      "eu_name": "Ngenla",
+      "ec_first_authorisation": "2022-02-14",
+      "application": "BLA761184",
+      "approval": "20230627",
+      "class": "TYPE 1",
+      "brands": [
+        "NGENLA"
+      ],
+      "ingredients": [
+        "SOMATROGON-GHLA"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005304",
+      "eu_name": "Beyfortus",
+      "ec_first_authorisation": "2022-10-31",
+      "application": "BLA761328",
+      "approval": "20230717",
+      "class": "TYPE 1",
+      "brands": [
+        "BEYFORTUS"
+      ],
+      "ingredients": [
+        "NIRSEVIMAB-ALIP"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005910",
+      "eu_name": "Vanflyta",
+      "ec_first_authorisation": "2023-11-06",
+      "application": "NDA216993",
+      "approval": "20230720",
+      "class": "TYPE 1",
+      "brands": [
+        "VANFLYTA"
+      ],
+      "ingredients": [
+        "QUIZARTINIB DIHYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005864",
+      "eu_name": "Talvey",
+      "ec_first_authorisation": "2023-08-21",
+      "application": "BLA761342",
+      "approval": "20230809",
+      "class": "TYPE 1",
+      "brands": [
+        "TALVEY"
+      ],
+      "ingredients": [
+        "TALQUETAMAB-TGVS"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005908",
+      "eu_name": "Elrexfio",
+      "ec_first_authorisation": "2023-12-07",
+      "application": "BLA761345",
+      "approval": "20230814",
+      "class": "TYPE 1",
+      "brands": [
+        "ELREXFIO"
+      ],
+      "ingredients": [
+        "ELRANATAMAB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005768",
+      "eu_name": "Omjjara",
+      "ec_first_authorisation": "2024-01-25",
+      "application": "NDA216873",
+      "approval": "20230915",
+      "class": "TYPE 1",
+      "brands": [
+        "OJJAARA"
+      ],
+      "ingredients": [
+        "MOMELOTINIB DIHYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005703",
+      "eu_name": "Pombiliti",
+      "ec_first_authorisation": "2023-03-20",
+      "application": "BLA761204",
+      "approval": "20230928",
+      "class": "TYPE 1",
+      "brands": [
+        "POMBILITI"
+      ],
+      "ingredients": [
+        "CIPAGLUCOSIDASE ALFA-ATGA"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006007",
+      "eu_name": "Velsipity",
+      "ec_first_authorisation": "2024-02-16",
+      "application": "NDA216956",
+      "approval": "20231012",
+      "class": "TYPE 1",
+      "brands": [
+        "VELSIPITY"
+      ],
+      "ingredients": [
+        "ETRASIMOD ARGININE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005450",
+      "eu_name": "Zilbrysq",
+      "ec_first_authorisation": "2023-12-01",
+      "application": "NDA216834",
+      "approval": "20231017",
+      "class": "TYPE 1",
+      "brands": [
+        "ZILBRYSQ"
+      ],
+      "ingredients": [
+        "ZILUCOPLAN SODIUM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005316",
+      "eu_name": "Bimzelx",
+      "ec_first_authorisation": "2021-08-20",
+      "application": "BLA761151",
+      "approval": "20231017",
+      "class": "TYPE 1/4",
+      "brands": [
+        "BIMZELX"
+      ],
+      "ingredients": [
+        "BIMEKIZUMAB-BKZX"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005679",
+      "eu_name": "Agamree",
+      "ec_first_authorisation": "2023-12-14",
+      "application": "NDA215239",
+      "approval": "20231026",
+      "class": "TYPE 1",
+      "brands": [
+        "AGAMREE"
+      ],
+      "ingredients": [
+        "VAMOROLONE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005122",
+      "eu_name": "Omvoh",
+      "ec_first_authorisation": "2023-05-26",
+      "application": "BLA761279",
+      "approval": "20231026",
+      "class": "TYPE 1",
+      "brands": [
+        "OMVOH"
+      ],
+      "ingredients": [
+        "MIRIKIZUMAB-MRKZ"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006120",
+      "eu_name": "Loqtorzi",
+      "ec_first_authorisation": "2024-09-19",
+      "application": "BLA761240",
+      "approval": "20231027",
+      "class": "TYPE 1",
+      "brands": [
+        "LOQTORZI"
+      ],
+      "ingredients": [
+        "TORIPALIMAB-TPZI"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005979",
+      "eu_name": "Fruzaqla",
+      "ec_first_authorisation": "2024-06-20",
+      "application": "NDA217564",
+      "approval": "20231108",
+      "class": "TYPE 1",
+      "brands": [
+        "FRUZAQLA"
+      ],
+      "ingredients": [
+        "FRUQUINTINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006005",
+      "eu_name": "Augtyro",
+      "ec_first_authorisation": "2025-01-13",
+      "application": "NDA218213",
+      "approval": "20231115",
+      "class": "TYPE 1",
+      "brands": [
+        "AUGTYRO"
+      ],
+      "ingredients": [
+        "REPOTRECTINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005828",
+      "eu_name": "Ryzneuta",
+      "ec_first_authorisation": "2024-03-21",
+      "application": "BLA761134",
+      "approval": "20231116",
+      "class": "TYPE 1",
+      "brands": [
+        "RYZNEUTA"
+      ],
+      "ingredients": [
+        "EFBEMALENOGRASTIM ALFA-VUXW"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006017",
+      "eu_name": "Truqap",
+      "ec_first_authorisation": "2024-06-17",
+      "application": "NDA218197",
+      "approval": "20231116",
+      "class": "TYPE 1",
+      "brands": [
+        "TRUQAP"
+      ],
+      "ingredients": [
+        "CAPIVASERTIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006071",
+      "eu_name": "Ogsiveo",
+      "ec_first_authorisation": "2025-08-14",
+      "application": "NDA217677",
+      "approval": "20231127",
+      "class": "TYPE 1",
+      "brands": [
+        "OGSIVEO"
+      ],
+      "ingredients": [
+        "NIROGACESTAT HYDROBROMIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005764",
+      "eu_name": "Fabhalta",
+      "ec_first_authorisation": "2024-05-17",
+      "application": "NDA218276",
+      "approval": "20231205",
+      "class": "TYPE 1",
+      "brands": [
+        "FABHALTA"
+      ],
+      "ingredients": [
+        "IPTACOPAN HYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006295",
+      "eu_name": "Wainzua",
+      "ec_first_authorisation": "2025-03-06",
+      "application": "NDA217388",
+      "approval": "20231221",
+      "class": "TYPE 1",
+      "brands": [
+        "WAINUA",
+        "WAINUA (AUTOINJECTOR)"
+      ],
+      "ingredients": [
+        "EPLONTERSEN SODIUM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005431",
+      "eu_name": "Exblifep",
+      "ec_first_authorisation": "2024-03-21",
+      "application": "NDA216165",
+      "approval": "20240222",
+      "class": "TYPE 1/4",
+      "brands": [
+        "EXBLIFEP"
+      ],
+      "ingredients": [
+        "CEFEPIME HYDROCHLORIDE",
+        "ENMETAZOBACTAM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005919",
+      "eu_name": "Tevimbra",
+      "ec_first_authorisation": "2023-09-15",
+      "application": "BLA761232",
+      "approval": "20240313",
+      "class": "TYPE 1",
+      "brands": [
+        "TEVIMBRA"
+      ],
+      "ingredients": [
+        "TISLELIZUMAB-JSGR"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006220",
+      "eu_name": "Rezdiffra",
+      "ec_first_authorisation": "2025-08-18",
+      "application": "NDA217785",
+      "approval": "20240314",
+      "class": "TYPE 1",
+      "brands": [
+        "REZDIFFRA"
+      ],
+      "ingredients": [
+        "RESMETIROM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006079",
+      "eu_name": "Duvyzat",
+      "ec_first_authorisation": "2025-06-06",
+      "application": "NDA217865",
+      "approval": "20240321",
+      "class": "TYPE 1",
+      "brands": [
+        "DUVYZAT"
+      ],
+      "ingredients": [
+        "GIVINOSTAT HYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005647",
+      "eu_name": "Winrevair",
+      "ec_first_authorisation": "2024-08-22",
+      "application": "BLA761363",
+      "approval": "20240326",
+      "class": "TYPE 1",
+      "brands": [
+        "WINREVAIR"
+      ],
+      "ingredients": [
+        "SOTATERCEPT-CSRK"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005131",
+      "eu_name": "Vafseo",
+      "ec_first_authorisation": "2023-04-24",
+      "application": "NDA215192",
+      "approval": "20240327",
+      "class": "TYPE 1",
+      "brands": [
+        "VAFSEO"
+      ],
+      "ingredients": [
+        "VADADUSTAT"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005517",
+      "eu_name": "Voydeya",
+      "ec_first_authorisation": "2024-04-19",
+      "application": "NDA218037",
+      "approval": "20240329",
+      "class": "TYPE 1",
+      "brands": [
+        "VOYDEYA"
+      ],
+      "ingredients": [
+        "DANICOPAN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006105",
+      "eu_name": "Rytelo",
+      "ec_first_authorisation": "2025-03-07",
+      "application": "NDA217779",
+      "approval": "20240606",
+      "class": "TYPE 1",
+      "brands": [
+        "RYTELO"
+      ],
+      "ingredients": [
+        "IMETELSTAT SODIUM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006231",
+      "eu_name": "Iqirvo",
+      "ec_first_authorisation": "2024-09-19",
+      "application": "NDA218860",
+      "approval": "20240610",
+      "class": "TYPE 1",
+      "brands": [
+        "IQIRVO"
+      ],
+      "ingredients": [
+        "ELAFIBRANOR"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006061",
+      "eu_name": "Piasky",
+      "ec_first_authorisation": "2024-08-22",
+      "application": "BLA761388",
+      "approval": "20240620",
+      "class": "TYPE 1",
+      "brands": [
+        "PIASKY"
+      ],
+      "ingredients": [
+        "CROVALIMAB-AKKZ"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006024",
+      "eu_name": "Kisunla",
+      "ec_first_authorisation": "2025-09-24",
+      "application": "BLA761248",
+      "approval": "20240702",
+      "class": "TYPE 1/4",
+      "brands": [
+        "KISUNLA"
+      ],
+      "ingredients": [
+        "DONANEMAB-AZBT"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006284",
+      "eu_name": "Voranigo",
+      "ec_first_authorisation": "2025-09-17",
+      "application": "NDA218784",
+      "approval": "20240806",
+      "class": "TYPE 1",
+      "brands": [
+        "VORANIGO"
+      ],
+      "ingredients": [
+        "VORASIDENIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005934",
+      "eu_name": "Yorvipath",
+      "ec_first_authorisation": "2023-11-17",
+      "application": "NDA216490",
+      "approval": "20240809",
+      "class": "TYPE 1",
+      "brands": [
+        "YORVIPATH"
+      ],
+      "ingredients": [
+        "PALOPEGTERIPARATIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006149",
+      "eu_name": "Nemluvio",
+      "ec_first_authorisation": "2025-02-12",
+      "application": "BLA761390",
+      "approval": "20240812",
+      "class": "TYPE 1",
+      "brands": [
+        "NEMLUVIO"
+      ],
+      "ingredients": [
+        "NEMOLIZUMAB-ILTO"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006074",
+      "eu_name": "Lazcluze",
+      "ec_first_authorisation": "2025-01-20",
+      "application": "NDA219008",
+      "approval": "20240819",
+      "class": "TYPE 1",
+      "brands": [
+        "LAZCLUZE"
+      ],
+      "ingredients": [
+        "LAZERTINIB MESYLATE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005894",
+      "eu_name": "Ebglyss",
+      "ec_first_authorisation": "2023-11-16",
+      "application": "BLA761306",
+      "approval": "20240913",
+      "class": "TYPE 1",
+      "brands": [
+        "EBGLYSS"
+      ],
+      "ingredients": [
+        "LEBRIKIZUMAB-LBKZ"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006353",
+      "eu_name": "Itovebi",
+      "ec_first_authorisation": "2025-07-18",
+      "application": "NDA219249",
+      "approval": "20241010",
+      "class": "TYPE 1",
+      "brands": [
+        "ITOVEBI"
+      ],
+      "ingredients": [
+        "INAVOLISIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006240",
+      "eu_name": "Hympavzi",
+      "ec_first_authorisation": "2024-11-18",
+      "application": "BLA761369",
+      "approval": "20241011",
+      "class": "TYPE 1",
+      "brands": [
+        "HYMPAVZI"
+      ],
+      "ingredients": [
+        "MARSTACIMAB-HNCQ"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005868",
+      "eu_name": "Vyloy",
+      "ec_first_authorisation": "2024-09-19",
+      "application": "BLA761365",
+      "approval": "20241018",
+      "class": "TYPE 1",
+      "brands": [
+        "VYLOY"
+      ],
+      "ingredients": [
+        "ZOLBETUXIMAB-CLZB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006380",
+      "eu_name": "Ziihera",
+      "ec_first_authorisation": "2025-06-27",
+      "application": "BLA761416",
+      "approval": "20241120",
+      "class": "TYPE 1",
+      "brands": [
+        "ZIIHERA"
+      ],
+      "ingredients": [
+        "ZANIDATAMAB-HRII"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006333",
+      "eu_name": "Beyonttra",
+      "ec_first_authorisation": "2025-02-10",
+      "application": "NDA216540",
+      "approval": "20241122",
+      "class": "TYPE 1",
+      "brands": [
+        "ATTRUBY"
+      ],
+      "ingredients": [
+        "ACORAMIDIS HYDROCHLORIDE"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006477",
+      "eu_name": "Tryngolza",
+      "ec_first_authorisation": "2025-09-17",
+      "application": "NDA218614",
+      "approval": "20241219",
+      "class": "TYPE 1",
+      "brands": [
+        "TRYNGOLZA (AUTOINJECTOR)"
+      ],
+      "ingredients": [
+        "OLEZARSEN SODIUM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006382",
+      "eu_name": "Alyftrek",
+      "ec_first_authorisation": "2025-06-30",
+      "application": "NDA218730",
+      "approval": "20241220",
+      "class": "TYPE 1",
+      "brands": [
+        "ALYFTREK"
+      ],
+      "ingredients": [
+        "DEUTIVACAFTOR",
+        "TEZACAFTOR",
+        "VANZACAFTOR CALCIUM"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005938",
+      "eu_name": "Alhemo",
+      "ec_first_authorisation": "2024-12-13",
+      "application": "BLA761315",
+      "approval": "20241220",
+      "class": "TYPE 1",
+      "brands": [
+        "ALHEMO"
+      ],
+      "ingredients": [
+        "CONCIZUMAB-MTCI"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006547",
+      "eu_name": "Datroway",
+      "ec_first_authorisation": "2025-04-04",
+      "application": "BLA761394",
+      "approval": "20250117",
+      "class": "TYPE 1",
+      "brands": [
+        "DATROWAY"
+      ],
+      "ingredients": [
+        "DATOPOTAMAB DERUXTECAN-DLNK"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004751",
+      "eu_name": "Trecondi",
+      "ec_first_authorisation": "2019-06-20",
+      "application": "NDA214759",
+      "approval": "20250121",
+      "class": "TYPE 1",
+      "brands": [
+        "GRAFAPEX"
+      ],
+      "ingredients": [
+        "TREOSULFAN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006460",
+      "eu_name": "Ezmekly",
+      "ec_first_authorisation": "2025-07-17",
+      "application": "NDA219379",
+      "approval": "20250211",
+      "class": "TYPE 1",
+      "brands": [
+        "GOMEKLI"
+      ],
+      "ingredients": [
+        "MIRDAMETINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006363",
+      "eu_name": "Romvimza",
+      "ec_first_authorisation": "2025-09-17",
+      "application": "NDA219304",
+      "approval": "20250214",
+      "class": "TYPE 1",
+      "brands": [
+        "ROMVIMZA"
+      ],
+      "ingredients": [
+        "VIMSELTINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006379",
+      "eu_name": "Imaavy",
+      "ec_first_authorisation": "2025-11-28",
+      "application": "BLA761430",
+      "approval": "20250429",
+      "class": "TYPE 1",
+      "brands": [
+        "IMAAVY"
+      ],
+      "ingredients": [
+        "NIPOCALIMAB-AAHU"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006116",
+      "eu_name": "Andembry",
+      "ec_first_authorisation": "2025-02-10",
+      "application": "BLA761367",
+      "approval": "20250616",
+      "class": "TYPE 1",
+      "brands": [
+        "ANDEMBRY"
+      ],
+      "ingredients": [
+        "GARADACIMAB-GXII"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006370",
+      "eu_name": "Lynozyfic",
+      "ec_first_authorisation": "2025-04-23",
+      "application": "BLA761400",
+      "approval": "20250702",
+      "class": "TYPE 1",
+      "brands": [
+        "LYNOZYFIC"
+      ],
+      "ingredients": [
+        "LINVOSELTAMAB-GCPT"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006211",
+      "eu_name": "Ekterly",
+      "ec_first_authorisation": "2025-09-17",
+      "application": "NDA219301",
+      "approval": "20250703",
+      "class": "TYPE 1",
+      "brands": [
+        "EKTERLY"
+      ],
+      "ingredients": [
+        "SEBETRALSTAT"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006109",
+      "eu_name": "Anzupgo",
+      "ec_first_authorisation": "2024-09-19",
+      "application": "NDA219155",
+      "approval": "20250723",
+      "class": "TYPE 1",
+      "brands": [
+        "ANZUPGO"
+      ],
+      "ingredients": [
+        "DELGOCITINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006331",
+      "eu_name": "Sephience",
+      "ec_first_authorisation": "2025-06-19",
+      "application": "NDA219666",
+      "approval": "20250728",
+      "class": "TYPE 1",
+      "brands": [
+        "SEPHIENCE"
+      ],
+      "ingredients": [
+        "SEPIAPTERIN"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005820",
+      "eu_name": "Brinsupri",
+      "ec_first_authorisation": "2025-11-18",
+      "application": "NDA217673",
+      "approval": "20250812",
+      "class": "TYPE 1",
+      "brands": [
+        "BRINSUPRI"
+      ],
+      "ingredients": [
+        "BRENSOCATIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006425",
+      "eu_name": "Wayrilz",
+      "ec_first_authorisation": "2025-12-22",
+      "application": "NDA219685",
+      "approval": "20250829",
+      "class": "TYPE 1",
+      "brands": [
+        "WAYRILZ"
+      ],
+      "ingredients": [
+        "RILZABRUTINIB"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004935",
+      "eu_name": "Blenrep",
+      "ec_first_authorisation": "2020-08-25",
+      "application": "BLA761440",
+      "approval": "20251023",
+      "class": "TYPE 2",
+      "brands": [
+        "BLENREP"
+      ],
+      "ingredients": [
+        "BELANTAMAB MAFODOTIN-BLMF"
+      ]
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006298",
+      "eu_name": "Lynkuet",
+      "ec_first_authorisation": "2025-11-17",
+      "application": "NDA219469",
+      "approval": "20251024",
+      "class": "TYPE 1",
+      "brands": [
+        "LYNKUET"
+      ],
+      "ingredients": [
+        "ELINZANETANT"
+      ]
+    }
+  ],
+  "cber_candidates": [
+    {
+      "ema_product_number": "EMEA/H/C/005095",
+      "eu_name": "Carvykti",
+      "ec_first_authorisation": "2022-05-25"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005763",
+      "eu_name": "Casgevy",
+      "ec_first_authorisation": "2024-02-09"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005321",
+      "eu_name": "Libmeldy",
+      "ec_first_authorisation": "2020-12-17"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004577",
+      "eu_name": "Ebvallo",
+      "ec_first_authorisation": "2022-12-16"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004827",
+      "eu_name": "Hemgenix",
+      "ec_first_authorisation": "2023-02-20"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004750",
+      "eu_name": "Zolgensma",
+      "ec_first_authorisation": "2020-05-18"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004731",
+      "eu_name": "Breyanzi",
+      "ec_first_authorisation": "2022-04-04"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005772",
+      "eu_name": "Zemcelpro",
+      "ec_first_authorisation": "2025-08-25"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005352",
+      "eu_name": "Upstaza",
+      "ec_first_authorisation": "2022-07-18"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/006330",
+      "eu_name": "Vyjuvek",
+      "ec_first_authorisation": "2025-04-23"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005102",
+      "eu_name": "Tecartus",
+      "ec_first_authorisation": "2020-12-14"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005830",
+      "eu_name": "Roctavian",
+      "ec_first_authorisation": "2022-08-24"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004662",
+      "eu_name": "Abecma",
+      "ec_first_authorisation": "2021-08-18"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/005907",
+      "eu_name": "Aucatzyl",
+      "ec_first_authorisation": "2025-07-17"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/004774",
+      "eu_name": "Beqvez (previously Durveqtix)",
+      "ec_first_authorisation": "2024-07-24"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/003691",
+      "eu_name": "Zynteglo",
+      "ec_first_authorisation": "2019-05-29"
+    },
+    {
+      "ema_product_number": "EMEA/H/C/003690",
+      "eu_name": "Skysona",
+      "ec_first_authorisation": "2021-07-16"
+    }
+  ],
+  "excluded": [
+    {
+      "eu_name": "Ebvallo",
+      "reason": "no verified FDA approval in the window"
+    },
+    {
+      "eu_name": "Zemcelpro",
+      "reason": "no verified FDA approval in the window"
+    }
+  ]
+}

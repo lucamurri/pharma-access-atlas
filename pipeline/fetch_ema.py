@@ -22,7 +22,7 @@ KEEP = [
     "marketing_authorisation_developer_applicant_holder", "opinion_adopted_date",
     "marketing_authorisation_date", "orphan_medicine", "conditional_approval",
     "exceptional_circumstances", "accelerated_assessment", "prime_priority_medicine",
-    "advanced_therapy", "medicine_url",
+    "advanced_therapy", "atc_code_human", "medicine_url",
 ]
 
 

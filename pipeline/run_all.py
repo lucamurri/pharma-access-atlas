@@ -14,6 +14,7 @@ import coverage
 import fetch_cms
 import fetch_ema
 import fetch_fda
+import fetch_france
 import validate
 
 
@@ -23,6 +24,7 @@ def main() -> int:
         fetch_fda.main()
         fetch_ema.main()
         fetch_cms.main()
+        fetch_france.main()
     print("2/4 Building data/processed/drugs.json")
     build.main()
     print("3/4 Validating")

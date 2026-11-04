@@ -1,0 +1,21 @@
+{
+  "application_number": "BLA761136",
+  "sponsor_name": "CELGENE CORP",
+  "brand_names": [
+    "REBLOZYL"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20191108",
+      "review_priority": "PRIORITY"
+    },
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20200403",
+      "review_priority": "STANDARD"
+    }
+  ]
+}

@@ -13,10 +13,12 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 from datetime import date, datetime
 
 from common import MANUAL, PROCESSED, RAW, load_drugs, raw_retrieved_date, read_csv, write_json
 from fields import FIELDS, MANUAL_FILES
+from taxonomy import company, therapy_area
 
 DRUGS_FDA_PAGE = "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo={num}"
 
@@ -113,18 +115,26 @@ def fda_fields(drug: dict, manual: dict) -> dict:
         }
     raw = json.loads((RAW / "fda" / f"{app}.json").read_text())
     retrieved = raw_retrieved_date(f"fda/{app}.json")
+    override = manual.get((drug["drug_id"], "fda_approval_date"))
     page = DRUGS_FDA_PAGE.format(num=app[3:])
     approved = [s for s in raw["original_submissions"] if s["submission_status"] == "AP"]
     if not approved:
         return {"fda_approval_date": missing(notes="No approved original submission in openFDA")}
     orig = approved[0]
     note = "Original application approval date (openFDA Drugs@FDA)"
-    return {
+    out = {
         "fda_approval_date": sourced(iso_from_yyyymmdd(orig["submission_status_date"]), page, retrieved, note),
         "fda_application": sourced(app, page, retrieved),
         "fda_sponsor": sourced(raw["sponsor_name"], page, retrieved),
         "fda_review_priority": sourced((orig.get("review_priority") or "").title() or None, page, retrieved),
     }
+    if override:
+        # A hand-verified date wins, e.g. Blenrep: openFDA only holds its 2025
+        # re-approval, but the FDA first approved it in 2020 (later withdrawn).
+        out["fda_approval_date"] = manual_field(manual, drug["drug_id"], "fda_approval_date")
+        if manual.get((drug["drug_id"], "fda_application")):
+            out["fda_application"] = manual_field(manual, drug["drug_id"], "fda_application")
+    return out
 
 
 def ema_fields(record: dict, retrieved: str) -> dict:
@@ -141,6 +151,9 @@ def ema_fields(record: dict, retrieved: str) -> dict:
                                     "Initial EU marketing authorisation date"),
         "ema_holder": sourced(record["marketing_authorisation_developer_applicant_holder"], url, retrieved),
         "ema_therapeutic_area": sourced(record["therapeutic_area_mesh"].replace(";", "; "), url, retrieved),
+        "atc_code": (sourced(record["atc_code_human"], url, retrieved) if record.get("atc_code_human")
+                     else missing(notes="No ATC code assigned in the EMA data file yet")),
+        "eu_status": sourced(record["medicine_status"], url, retrieved),
         "eu_orphan": yes_no("orphan_medicine"),
         "eu_conditional": yes_no("conditional_approval"),
         "eu_accelerated": yes_no("accelerated_assessment"),
@@ -176,6 +189,44 @@ def cms_fields(drug: dict, cms_rows, cms_url, cms_retrieved) -> dict:
     return out
 
 
+SMR_ORDER = ["important", "moderate", "low", "insufficient"]
+ASMR_ORDER = ["I", "II", "III", "IV", "V"]
+
+
+def france_fields(drug_id: str, has: dict, retrieved: str) -> dict:
+    """HAS first opinion: best SMR and ASMR across indications, and the date."""
+    entry = has.get(drug_id) or {}
+    op = entry.get("first_opinion")
+    if not entry.get("matched_cis"):
+        note = "Not listed in the French public medicines database (often: not marketed in France)"
+        return {k: missing(notes=note) for k in ("fr_has_date", "fr_has_smr_best", "fr_has_asmr_best", "fr_has_any_insufficient")}
+    if not op:
+        note = "No HAS inclusion opinion found in the French public medicines database"
+        return {k: missing(notes=note) for k in ("fr_has_date", "fr_has_smr_best", "fr_has_asmr_best", "fr_has_any_insufficient")}
+    url = op["url"] or "https://base-donnees-publique.medicaments.gouv.fr/"
+    note = f"HAS Transparency Committee opinion {op['dossier']} ({op['reason']}). Source: BDPM, Licence ouverte"
+
+    def smr_level(text):
+        t = text.lower()
+        for fr, en in [("important", "important"), ("modéré", "moderate"), ("modere", "moderate"),
+                       ("faible", "low"), ("insuffisant", "insufficient")]:
+            if t.startswith(fr):
+                return en
+        return None
+
+    smrs = [x for x in (smr_level(v) for v in op["smr"]) if x]
+    asmrs = [m.group(1) for v in op["asmr"] for m in [re.match(r"(IV|V|III|II|I)\b", v.strip())] if m]
+    return {
+        "fr_has_date": sourced(op["date"], url, retrieved, note),
+        "fr_has_smr_best": (sourced(min(smrs, key=SMR_ORDER.index), url, retrieved, "Best SMR across indications: " + "; ".join(op["smr"]))
+                            if smrs else missing(notes="SMR not stated in the opinion record")),
+        "fr_has_asmr_best": (sourced(min(asmrs, key=ASMR_ORDER.index), url, retrieved, "Best ASMR across indications: " + "; ".join(op["asmr"]))
+                             if asmrs else missing(notes="ASMR not stated in the opinion record")),
+        "fr_has_any_insufficient": (sourced("yes" if "insufficient" in smrs else "no", url, retrieved)
+                                    if smrs else missing(notes="SMR not stated in the opinion record")),
+    }
+
+
 def calculations(f: dict) -> dict:
     out = {}
     fda, ec = f["fda_approval_date"]["value"], f["ec_approval_date"]["value"]
@@ -194,6 +245,10 @@ def calculations(f: dict) -> dict:
     gba = f["de_gba_decision_date"]["value"]
     if ec and gba:
         out["de_gba_lag_days"] = calculated(days_between(ec, gba), ["ec_approval_date", "de_gba_decision_date"])
+    for field, out_name in [("fr_has_date", "fr_has_lag_days"), ("en_nice_date", "en_nice_lag_days")]:
+        value = (f.get(field) or {}).get("value")
+        if ec and value:
+            out[out_name] = calculated(days_between(ec, value), ["ec_approval_date", field])
     mfp, lst = f.get("cms_mfp_30day", {}).get("value"), f.get("cms_list_price_30day", {}).get("value")
     if mfp and lst:
         out["cms_discount_pct"] = calculated(round((1 - mfp / lst) * 100, 1), ["cms_mfp_30day", "cms_list_price_30day"])
@@ -207,29 +262,38 @@ def main() -> None:
     ema = json.loads((RAW / "ema" / "medicines_subset.json").read_text())
     ema_retrieved = raw_retrieved_date("ema/medicines_subset.json")
     cms_rows, cms_url, cms_retrieved = load_cms()
+    has = json.loads((RAW / "france" / "has_opinions.json").read_text())
+    has_retrieved = raw_retrieved_date("france/has_opinions.json")
 
     output = []
     for drug in drugs:
         did = drug["drug_id"]
         record = ema[did]
         epar = record["medicine_url"]
-        drugs_csv = "data/manual/drugs.csv"
+        cohort_note = ("Selected by rule: new active substance, first FDA and first EC approval both 2019-2025"
+                       if drug["cohort"] == "core" else
+                       "Reference only: newer brand of an older molecule, kept for the Medicare comparison; "
+                       "excluded from headline statistics")
         f = {
-            # Brand and ingredient names are visible on the EPAR page; the
-            # company and therapy-area groupings are our own curation.
-            "brand_us": sourced(drug["brand_us"], epar, ema_retrieved, "Curated in " + drugs_csv),
+            # Names come from the FDA and EMA records; company and therapy area
+            # are assigned by the documented rules in pipeline/taxonomy.py.
+            "brand_us": sourced(drug["brand_us"] or None, epar, ema_retrieved),
             "brand_eu": sourced(drug["brand_eu"], epar, ema_retrieved),
             "inn": sourced(drug["inn"], epar, ema_retrieved),
-            "company": sourced(drug["company"], epar, ema_retrieved,
-                               "Parent company, normalised from the EU marketing authorisation holder"),
-            "therapy_area": sourced(drug["therapy_area"], epar, ema_retrieved,
-                                    "Atlas grouping based on the EMA therapeutic area"),
+            "company": sourced(company(record["marketing_authorisation_developer_applicant_holder"]), epar,
+                               ema_retrieved, "EU marketing authorisation holder, legal form removed"),
+            "therapy_area": sourced(therapy_area(record.get("atc_code_human"), record["therapeutic_area_mesh"]),
+                                    epar, ema_retrieved, "Assigned from the ATC code (rules in pipeline/taxonomy.py)"),
+            "cohort": sourced(drug["cohort"], epar, ema_retrieved, cohort_note),
         }
         f.update(fda_fields(drug, manual))
         f["us_orphan_designated"] = manual_field(manual, did, "us_orphan_designated")
         f.update(ema_fields(record, ema_retrieved))
         for field in ["it_gu_date", "it_reimbursement_class", "de_gba_decision_date",
                       "de_gba_rating_best", "de_gba_any_no_added_benefit", "de_gba_orphan_route"]:
+            f[field] = manual_field(manual, did, field)
+        f.update(france_fields(did, has, has_retrieved))
+        for field in ["en_nice_decision", "en_nice_date", "en_nice_ta"]:
             f[field] = manual_field(manual, did, field)
         f.update(cms_fields(drug, cms_rows, cms_url, cms_retrieved))
         if f["cms_selected"]["value"] == "yes":

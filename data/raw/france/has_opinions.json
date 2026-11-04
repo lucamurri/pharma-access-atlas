@@ -1,0 +1,2800 @@
+{
+ "abecma": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-12-15",
+   "dossier": "CT-19358",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3308681"
+  },
+  "matched_cis": [
+   "65329132"
+  ]
+ },
+ "adakveo": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-05-05",
+   "dossier": "CT-19011",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible conditionnel"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3264981"
+  },
+  "matched_cis": [
+   "62004984"
+  ]
+ },
+ "adbry": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-10-27",
+   "dossier": "CT-19433",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3305309"
+  },
+  "matched_cis": [
+   "62444268",
+   "64854878"
+  ]
+ },
+ "agamree": {
+  "matched_cis": []
+ },
+ "alhemo": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2025-09-02",
+   "dossier": "CT-21238",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important conditionnel",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3658189"
+  },
+  "matched_cis": [
+   "62475406",
+   "62881990"
+  ]
+ },
+ "alyftrek": {
+  "matched_cis": []
+ },
+ "amvuttra": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2022-12-14",
+   "dossier": "CT-20058",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3402366"
+  },
+  "matched_cis": [
+   "66887122"
+  ]
+ },
+ "andembry": {
+  "matched_cis": []
+ },
+ "anzupgo": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2025-03-26",
+   "dossier": "CT-21214",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3603177"
+  },
+  "matched_cis": [
+   "61015604"
+  ]
+ },
+ "aquipta": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2023-12-06",
+   "dossier": "CT-20443",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3483609"
+  },
+  "matched_cis": [
+   "67880725",
+   "69498539"
+  ]
+ },
+ "artesunateamivas": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2024-07-03",
+   "dossier": "CT-20806",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3534151"
+  },
+  "matched_cis": [
+   "66161933"
+  ]
+ },
+ "aspaveli": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2022-02-16",
+   "dossier": "CT-19617",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3322084"
+  },
+  "matched_cis": [
+   "67568483"
+  ]
+ },
+ "aucatzyl": {
+  "matched_cis": []
+ },
+ "augtyro": {
+  "matched_cis": []
+ },
+ "ayvakyt": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-03-10",
+   "dossier": "CT-18953",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important conditionnel"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3242174"
+  },
+  "matched_cis": [
+   "63189920",
+   "63220091",
+   "64069767",
+   "65304816",
+   "68115906"
+  ]
+ },
+ "balversa": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2025-01-15",
+   "dossier": "CT-20976",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3585759"
+  },
+  "matched_cis": [
+   "60039171",
+   "65760218",
+   "66039107"
+  ]
+ },
+ "beovu": {
+  "first_opinion": {
+   "asmr": [],
+   "date": "2020-12-16",
+   "dossier": "CT-18376",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3224952"
+  },
+  "matched_cis": [
+   "65607585"
+  ]
+ },
+ "beqvez": {
+  "matched_cis": []
+ },
+ "besremi": {
+  "matched_cis": []
+ },
+ "beyfortus": {
+  "first_opinion": {
+   "asmr": [
+    "IV",
+    "V"
+   ],
+   "date": "2023-07-19",
+   "dossier": "CT-20356",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible",
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3456503"
+  },
+  "matched_cis": [
+   "62438151",
+   "65150617"
+  ]
+ },
+ "beyonttra": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2025-11-05",
+   "dossier": "CT-21285",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3752622"
+  },
+  "matched_cis": [
+   "62404505"
+  ]
+ },
+ "bimzelx": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2022-02-09",
+   "dossier": "CT-19518",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3323505"
+  },
+  "matched_cis": [
+   "62412256",
+   "66026476",
+   "67845845",
+   "68708415"
+  ]
+ },
+ "blenrep": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2026-08-26",
+   "dossier": "CT-21696",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_4386695"
+  },
+  "matched_cis": [
+   "64975189",
+   "65988079"
+  ]
+ },
+ "breyanzi": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2023-09-20",
+   "dossier": "CT-20349",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3465836"
+  },
+  "matched_cis": [
+   "61038695"
+  ]
+ },
+ "brinsupri": {
+  "matched_cis": []
+ },
+ "briumvi": {
+  "matched_cis": []
+ },
+ "brukinsa": {
+  "first_opinion": {
+   "asmr": [],
+   "date": "2022-03-30",
+   "dossier": "CT-19636",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3330884"
+  },
+  "matched_cis": [
+   "65919841"
+  ]
+ },
+ "byfavo": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-04-24",
+   "dossier": "CT-20571",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3518111"
+  },
+  "matched_cis": [
+   "68722379"
+  ]
+ },
+ "bylvay": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2021-10-27",
+   "dossier": "CT-19310",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3299696"
+  },
+  "matched_cis": [
+   "61197904",
+   "62983550",
+   "64376734",
+   "68818769"
+  ]
+ },
+ "camzyos": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2023-10-18",
+   "dossier": "CT-20438",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3470375"
+  },
+  "matched_cis": [
+   "63820570",
+   "67684776",
+   "68030434",
+   "68577204"
+  ]
+ },
+ "carvykti": {
+  "first_opinion": {
+   "asmr": [
+    "V dans l'attente de données"
+   ],
+   "date": "2022-11-23",
+   "dossier": "CT-19858",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3392179"
+  },
+  "matched_cis": [
+   "64743778"
+  ]
+ },
+ "casgevy": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-08-28",
+   "dossier": "CT-20799",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Insuffisant",
+    "Modéré conditionnel"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3541918"
+  },
+  "matched_cis": [
+   "66578108"
+  ]
+ },
+ "cibinqo": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2022-03-09",
+   "dossier": "CT-19635",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3325534"
+  },
+  "matched_cis": [
+   "64135391",
+   "66545656",
+   "69533805"
+  ]
+ },
+ "columvi": {
+  "first_opinion": {
+   "asmr": [
+    "V dans l'attente de données"
+   ],
+   "date": "2023-12-20",
+   "dossier": "CT-20470",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3487097"
+  },
+  "matched_cis": [
+   "66831305",
+   "68364042"
+  ]
+ },
+ "datroway": {
+  "matched_cis": []
+ },
+ "dovprela": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2025-09-10",
+   "dossier": "CT-21390",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3689059"
+  },
+  "matched_cis": [
+   "63915869"
+  ]
+ },
+ "duvyzat": {
+  "matched_cis": []
+ },
+ "ebglyss": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-05-29",
+   "dossier": "CT-20755",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3522389"
+  },
+  "matched_cis": [
+   "63696560",
+   "65119162"
+  ]
+ },
+ "ekterly": {
+  "matched_cis": []
+ },
+ "elahere": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2025-04-09",
+   "dossier": "CT-21204",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3601719"
+  },
+  "matched_cis": [
+   "65505616"
+  ]
+ },
+ "elfabrio": {
+  "matched_cis": []
+ },
+ "elrexfio": {
+  "first_opinion": {
+   "asmr": [
+    "V dans l'attente de données"
+   ],
+   "date": "2024-04-24",
+   "dossier": "CT-20592",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3517411"
+  },
+  "matched_cis": [
+   "65312065"
+  ]
+ },
+ "elucirem": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-09-25",
+   "dossier": "CT-20646",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3554605"
+  },
+  "matched_cis": [
+   "69770042"
+  ]
+ },
+ "enhertu": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-06-16",
+   "dossier": "CT-19098",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré conditionnel"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3272596"
+  },
+  "matched_cis": [
+   "63648081"
+  ]
+ },
+ "enjaymo": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2023-08-30",
+   "dossier": "CT-20233",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3459825"
+  },
+  "matched_cis": [
+   "69505243"
+  ]
+ },
+ "enspryng": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2022-01-17",
+   "dossier": "CT-19456",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3316324"
+  },
+  "matched_cis": [
+   "69326436"
+  ]
+ },
+ "evenity": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2021-03-10",
+   "dossier": "CT-18929",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3243905"
+  },
+  "matched_cis": [
+   "69545330"
+  ]
+ },
+ "evkeeza": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2022-10-19",
+   "dossier": "CT-19900",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3385348"
+  },
+  "matched_cis": [
+   "64336907"
+  ]
+ },
+ "evrysdi": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2021-09-08",
+   "dossier": "CT-19266",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3289078"
+  },
+  "matched_cis": [
+   "68009899",
+   "69544050"
+  ]
+ },
+ "exblifep": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2025-03-26",
+   "dossier": "CT-21133",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3605176"
+  },
+  "matched_cis": [
+   "63572267"
+  ]
+ },
+ "ezmekly": {
+  "first_opinion": {
+   "asmr": [
+    "IV",
+    "V"
+   ],
+   "date": "2025-12-10",
+   "dossier": "CT-21549",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible",
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3807407"
+  },
+  "matched_cis": [
+   "61458813"
+  ]
+ },
+ "fabhalta": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2024-10-09",
+   "dossier": "CT-20930",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3560827"
+  },
+  "matched_cis": [
+   "62501139"
+  ]
+ },
+ "fetcroja": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2021-01-20",
+   "dossier": "CT-18908",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3234207"
+  },
+  "matched_cis": [
+   "64450362"
+  ]
+ },
+ "filspari": {
+  "matched_cis": []
+ },
+ "fruzaqla": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-11-20",
+   "dossier": "CT-20884",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Insuffisant",
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3561105"
+  },
+  "matched_cis": [
+   "63200612",
+   "64771069"
+  ]
+ },
+ "gavreto": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2022-03-23",
+   "dossier": "CT-19653",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible conditionnel",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3333268"
+  },
+  "matched_cis": [
+   "67194402"
+  ]
+ },
+ "givlaari": {
+  "first_opinion": {
+   "asmr": [
+    "II"
+   ],
+   "date": "2020-06-24",
+   "dossier": "CT-18608",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3191915"
+  },
+  "matched_cis": [
+   "68318874"
+  ]
+ },
+ "hemgenix": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2023-08-30",
+   "dossier": "CT-20242",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3460133"
+  },
+  "matched_cis": [
+   "63300452"
+  ]
+ },
+ "hympavzi": {
+  "matched_cis": []
+ },
+ "imaavy": {
+  "matched_cis": []
+ },
+ "imcivree": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-10-13",
+   "dossier": "CT-19269",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important conditionnel"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3324540"
+  },
+  "matched_cis": [
+   "69966525"
+  ]
+ },
+ "imjudo": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2023-05-24",
+   "dossier": "CT-20226",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3448228"
+  },
+  "matched_cis": [
+   "68577115"
+  ]
+ },
+ "inaqovi": {
+  "matched_cis": []
+ },
+ "inrebic": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-12-15",
+   "dossier": "CT-19443",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3313612"
+  },
+  "matched_cis": [
+   "65716809"
+  ]
+ },
+ "iqirvo": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2025-01-29",
+   "dossier": "CT-21116",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré conditionnel"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3588817"
+  },
+  "matched_cis": [
+   "65387954"
+  ]
+ },
+ "isturisa": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2021-05-05",
+   "dossier": "CT-19116",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3265513"
+  },
+  "matched_cis": [
+   "61640118",
+   "65986587",
+   "67185086"
+  ]
+ },
+ "itovebi": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2026-01-14",
+   "dossier": "CT-21527",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3826119"
+  },
+  "matched_cis": [
+   "61001565",
+   "68964635"
+  ]
+ },
+ "jaypirca": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2025-11-05",
+   "dossier": "CT-21381",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible conditionnel",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3775624"
+  },
+  "matched_cis": [
+   "67881720"
+  ]
+ },
+ "jemperli": {
+  "first_opinion": {
+   "asmr": [],
+   "date": "2021-10-06",
+   "dossier": "CT-19308",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3296883"
+  },
+  "matched_cis": [
+   "64849607"
+  ]
+ },
+ "kapruvia": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2023-01-04",
+   "dossier": "CT-19875",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3403962"
+  },
+  "matched_cis": [
+   "60144119"
+  ]
+ },
+ "kerendia": {
+  "matched_cis": []
+ },
+ "kimmtrak": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2023-01-04",
+   "dossier": "CT-19841",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3412130"
+  },
+  "matched_cis": [
+   "63678345"
+  ]
+ },
+ "kisunla": {
+  "matched_cis": []
+ },
+ "klisyri": {
+  "matched_cis": []
+ },
+ "koselugo": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2022-01-05",
+   "dossier": "CT-19432",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3322781"
+  },
+  "matched_cis": [
+   "62124581",
+   "65957169",
+   "66728045",
+   "67016392"
+  ]
+ },
+ "krazati": {
+  "matched_cis": []
+ },
+ "lazcluze": {
+  "matched_cis": []
+ },
+ "leqembi": {
+  "matched_cis": []
+ },
+ "leqvio": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-08-28",
+   "dossier": "CT-20782",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3538269"
+  },
+  "matched_cis": [
+   "67968207"
+  ]
+ },
+ "libmeldy": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2021-04-21",
+   "dossier": "CT-18847",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3263243"
+  },
+  "matched_cis": [
+   "63621440"
+  ]
+ },
+ "litfulo": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2024-03-27",
+   "dossier": "CT-20588",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3505844"
+  },
+  "matched_cis": [
+   "62624259"
+  ]
+ },
+ "livmarli": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2023-02-22",
+   "dossier": "CT-20135",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3421134"
+  },
+  "matched_cis": [
+   "61952616"
+  ]
+ },
+ "livtencity": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2023-02-15",
+   "dossier": "CT-20116",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3419170"
+  },
+  "matched_cis": [
+   "66919901"
+  ]
+ },
+ "loqtorzi": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2026-04-01",
+   "dossier": "CT-21563",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3995814"
+  },
+  "matched_cis": [
+   "63262400"
+  ]
+ },
+ "lumakras": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2022-06-15",
+   "dossier": "CT-19740",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible conditionnel"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3345842"
+  },
+  "matched_cis": [
+   "63966283"
+  ]
+ },
+ "lunsumio": {
+  "matched_cis": []
+ },
+ "lupkynis": {
+  "matched_cis": []
+ },
+ "lydisilka": {
+  "matched_cis": []
+ },
+ "lynkuet": {
+  "matched_cis": []
+ },
+ "lynozyfic": {
+  "matched_cis": []
+ },
+ "lytgobi": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-01-10",
+   "dossier": "CT-20313",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3490351"
+  },
+  "matched_cis": [
+   "68552628"
+  ]
+ },
+ "minjuvi": {
+  "first_opinion": {
+   "asmr": [
+    "V dans l'attente de données"
+   ],
+   "date": "2022-03-30",
+   "dossier": "CT-19553",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important conditionnel",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3330896"
+  },
+  "matched_cis": [
+   "65488266"
+  ]
+ },
+ "mounjaro": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2025-11-19",
+   "dossier": "CT-21349",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3776029"
+  },
+  "matched_cis": [
+   "60830260",
+   "63052569",
+   "64888866",
+   "65111938",
+   "65553835",
+   "68186732"
+  ]
+ },
+ "nemluvio": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2025-06-25",
+   "dossier": "CT-21245",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3636353"
+  },
+  "matched_cis": [
+   "60661547"
+  ]
+ },
+ "nexpovio": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2023-04-19",
+   "dossier": "CT-20195",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3433395"
+  },
+  "matched_cis": [
+   "64317942"
+  ]
+ },
+ "nexviadyme": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2022-11-23",
+   "dossier": "CT-19919",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible",
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3390671"
+  },
+  "matched_cis": [
+   "64805678"
+  ]
+ },
+ "ngenla": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2022-10-19",
+   "dossier": "CT-19783",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3381116"
+  },
+  "matched_cis": [
+   "61429758",
+   "66173348"
+  ]
+ },
+ "nilemdo": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2025-02-12",
+   "dossier": "CT-20960",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3594378"
+  },
+  "matched_cis": [
+   "61328727"
+  ]
+ },
+ "nubeqa": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2020-09-23",
+   "dossier": "CT-18631",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3212149"
+  },
+  "matched_cis": [
+   "62384935"
+  ]
+ },
+ "nulibry": {
+  "matched_cis": []
+ },
+ "nurtec": {
+  "first_opinion": null,
+  "matched_cis": [
+   "65899221"
+  ]
+ },
+ "nustendi": {
+  "matched_cis": []
+ },
+ "obgemsa": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2025-07-23",
+   "dossier": "CT-21186",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3638482"
+  },
+  "matched_cis": [
+   "69771112"
+  ]
+ },
+ "ogsiveo": {
+  "first_opinion": {
+   "asmr": [
+    "IV",
+    "V"
+   ],
+   "date": "2026-03-04",
+   "dossier": "CT-21581",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3892348"
+  },
+  "matched_cis": [
+   "62795356",
+   "68487454"
+  ]
+ },
+ "omjjara": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-09-04",
+   "dossier": "CT-20820",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Insuffisant",
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3538933"
+  },
+  "matched_cis": [
+   "65429862",
+   "67024001",
+   "68004140"
+  ]
+ },
+ "omvoh": {
+  "matched_cis": []
+ },
+ "ontozry": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-09-08",
+   "dossier": "CT-19275",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3287323"
+  },
+  "matched_cis": [
+   "61025114",
+   "65158464",
+   "65912665",
+   "67860605",
+   "69821184"
+  ]
+ },
+ "opdualag": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2024-01-10",
+   "dossier": "CT-20456",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3490820"
+  },
+  "matched_cis": [
+   "62235699"
+  ]
+ },
+ "orgovyx": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2023-04-26",
+   "dossier": "CT-20090",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3434157"
+  },
+  "matched_cis": [
+   "65083759"
+  ]
+ },
+ "orladeyo": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-11-03",
+   "dossier": "CT-19326",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Insuffisant",
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3298588"
+  },
+  "matched_cis": [
+   "66859849"
+  ]
+ },
+ "orserdu": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-06-26",
+   "dossier": "CT-20573",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3527474"
+  },
+  "matched_cis": [
+   "67179699",
+   "69242739"
+  ]
+ },
+ "oxbryta": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2022-07-20",
+   "dossier": "CT-19784",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3361556"
+  },
+  "matched_cis": [
+   "62137714"
+  ]
+ },
+ "oxlumo": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2021-04-21",
+   "dossier": "CT-19056",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3266578"
+  },
+  "matched_cis": [
+   "66316458"
+  ]
+ },
+ "padcev": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2022-12-07",
+   "dossier": "CT-19842",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3396009"
+  },
+  "matched_cis": [
+   "67032044",
+   "67688034"
+  ]
+ },
+ "paxlovid": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2022-04-06",
+   "dossier": "CT-19768",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": null
+  },
+  "matched_cis": [
+   "65579730"
+  ]
+ },
+ "pemazyre": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-09-08",
+   "dossier": "CT-19165",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3287335"
+  },
+  "matched_cis": [
+   "61156252",
+   "66412702",
+   "67695203"
+  ]
+ },
+ "piasky": {
+  "matched_cis": []
+ },
+ "piqray": {
+  "matched_cis": []
+ },
+ "pluvicto": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2023-04-19",
+   "dossier": "CT-20161",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3443283"
+  },
+  "matched_cis": [
+   "68234294"
+  ]
+ },
+ "polivy": {
+  "matched_cis": []
+ },
+ "pombiliti": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2023-10-18",
+   "dossier": "CT-20407",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3470276"
+  },
+  "matched_cis": [
+   "64427538"
+  ]
+ },
+ "ponvory": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-07-21",
+   "dossier": "CT-19290",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3284793"
+  },
+  "matched_cis": [
+   "61715282",
+   "62056415"
+  ]
+ },
+ "pyrukynd": {
+  "matched_cis": []
+ },
+ "qalsody": {
+  "matched_cis": []
+ },
+ "qinlock": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2022-03-09",
+   "dossier": "CT-19556",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3324543"
+  },
+  "matched_cis": [
+   "67629484"
+  ]
+ },
+ "quviviq": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2023-05-24",
+   "dossier": "CT-20159",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3443615"
+  },
+  "matched_cis": [
+   "67801165",
+   "69661089"
+  ]
+ },
+ "rayvow": {
+  "matched_cis": []
+ },
+ "reblozyl": {
+  "first_opinion": {
+   "asmr": [],
+   "date": "2021-06-16",
+   "dossier": "CT-19062",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3281010"
+  },
+  "matched_cis": [
+   "60175591",
+   "62508169"
+  ]
+ },
+ "recarbrio": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2020-09-23",
+   "dossier": "CT-18726",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3211570"
+  },
+  "matched_cis": [
+   "65172663"
+  ]
+ },
+ "retevmo": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-06-02",
+   "dossier": "CT-19095",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible conditionnel",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3271751"
+  },
+  "matched_cis": [
+   "61648467",
+   "63272184",
+   "65136400",
+   "66580529"
+  ]
+ },
+ "rezdiffra": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2026-04-22",
+   "dossier": "CT-21584",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré conditionnel"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3961577"
+  },
+  "matched_cis": [
+   "61074015",
+   "65877513",
+   "68177605"
+  ]
+ },
+ "rezzayo": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-05-29",
+   "dossier": "CT-20733",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3520341"
+  },
+  "matched_cis": [
+   "67183313"
+  ]
+ },
+ "rinvoq": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2020-04-22",
+   "dossier": "CT-18181",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3181658"
+  },
+  "matched_cis": [
+   "62457931",
+   "65852428",
+   "66709721"
+  ]
+ },
+ "roctavian": {
+  "matched_cis": []
+ },
+ "romvimza": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2026-02-04",
+   "dossier": "CT-21621",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3893223"
+  },
+  "matched_cis": [
+   "68120522",
+   "68364291",
+   "69494964"
+  ]
+ },
+ "rozlytrek": {
+  "matched_cis": []
+ },
+ "rybelsus": {
+  "matched_cis": []
+ },
+ "rybrevant": {
+  "first_opinion": {
+   "asmr": [],
+   "date": "2022-06-15",
+   "dossier": "CT-19701",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3345839"
+  },
+  "matched_cis": [
+   "61371536"
+  ]
+ },
+ "rystiggo": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2024-04-24",
+   "dossier": "CT-20740",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3517163"
+  },
+  "matched_cis": [
+   "68822785"
+  ]
+ },
+ "rytelo": {
+  "matched_cis": []
+ },
+ "ryzneuta": {
+  "matched_cis": []
+ },
+ "saphnelo": {
+  "first_opinion": {
+   "asmr": [
+    "IV",
+    "V"
+   ],
+   "date": "2022-12-07",
+   "dossier": "CT-19785",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant",
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3395767"
+  },
+  "matched_cis": [
+   "61365985"
+  ]
+ },
+ "sarclisa": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2020-11-18",
+   "dossier": "CT-18779",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3223297"
+  },
+  "matched_cis": [
+   "66510210"
+  ]
+ },
+ "scemblix": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2022-11-23",
+   "dossier": "CT-19923",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3396012"
+  },
+  "matched_cis": [
+   "65990614",
+   "67826243"
+  ]
+ },
+ "sephience": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2026-06-10",
+   "dossier": "CT-21738",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_4092763"
+  },
+  "matched_cis": [
+   "62277449",
+   "66347126"
+  ]
+ },
+ "skyclarys": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-09-11",
+   "dossier": "CT-20800",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3542845"
+  },
+  "matched_cis": [
+   "63167621"
+  ]
+ },
+ "skyrizi": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2019-11-06",
+   "dossier": "CT-17924",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3117564"
+  },
+  "matched_cis": [
+   "61512595",
+   "64900681",
+   "66047342",
+   "67060271",
+   "69949390"
+  ]
+ },
+ "skysona": {
+  "matched_cis": []
+ },
+ "skytrofa": {
+  "matched_cis": []
+ },
+ "sogroya": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-01-31",
+   "dossier": "CT-20537",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3498565"
+  },
+  "matched_cis": [
+   "60051647",
+   "62039227"
+  ]
+ },
+ "sotyktu": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2023-11-22",
+   "dossier": "CT-20403",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Insuffisant",
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3479044"
+  },
+  "matched_cis": [
+   "69187374"
+  ]
+ },
+ "spevigo": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2023-04-19",
+   "dossier": "CT-20164",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3430425"
+  },
+  "matched_cis": [
+   "60808470",
+   "68300246",
+   "68586623"
+  ]
+ },
+ "sunlenca": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2022-11-09",
+   "dossier": "CT-19916",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3392767"
+  },
+  "matched_cis": [
+   "62721516",
+   "65950064"
+  ]
+ },
+ "sunosi": {
+  "first_opinion": {
+   "asmr": [
+    "IV",
+    "V"
+   ],
+   "date": "2020-06-24",
+   "dossier": "CT-18490",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant",
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3193178"
+  },
+  "matched_cis": [
+   "64617815",
+   "67314111"
+  ]
+ },
+ "tabrecta": {
+  "matched_cis": []
+ },
+ "talvey": {
+  "matched_cis": []
+ },
+ "tavneos": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2022-09-21",
+   "dossier": "CT-19742",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3375770"
+  },
+  "matched_cis": [
+   "69292539"
+  ]
+ },
+ "tecartus": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2021-04-21",
+   "dossier": "CT-19043",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3265892"
+  },
+  "matched_cis": [
+   "60862404"
+  ]
+ },
+ "tecvayli": {
+  "first_opinion": {
+   "asmr": [
+    "V dans l'attente de données"
+   ],
+   "date": "2023-03-08",
+   "dossier": "CT-19996",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3424344"
+  },
+  "matched_cis": [
+   "61368383",
+   "61935054"
+  ]
+ },
+ "tepezza": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2026-02-04",
+   "dossier": "CT-21515",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3859380"
+  },
+  "matched_cis": [
+   "68452994"
+  ]
+ },
+ "tepkinly": {
+  "first_opinion": {
+   "asmr": [
+    "V dans l'attente de données"
+   ],
+   "date": "2024-02-28",
+   "dossier": "CT-20582",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3501630"
+  },
+  "matched_cis": [
+   "67307049",
+   "69520409"
+  ]
+ },
+ "tepmetko": {
+  "matched_cis": []
+ },
+ "tevimbra": {
+  "first_opinion": {
+   "asmr": [],
+   "date": "2024-11-06",
+   "dossier": "CT-20900",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3557273"
+  },
+  "matched_cis": [
+   "69201938"
+  ]
+ },
+ "tezspire": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2022-11-30",
+   "dossier": "CT-20033",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3402822"
+  },
+  "matched_cis": [
+   "68954908",
+   "69714595"
+  ]
+ },
+ "tivdak": {
+  "matched_cis": []
+ },
+ "trecondi": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2020-07-22",
+   "dossier": "CT-18208",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3196682"
+  },
+  "matched_cis": [
+   "68966390",
+   "69719293"
+  ]
+ },
+ "trikafta": {
+  "first_opinion": {
+   "asmr": [
+    "II"
+   ],
+   "date": "2020-11-18",
+   "dossier": "CT-18812",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3220388"
+  },
+  "matched_cis": [
+   "62104529",
+   "66594621",
+   "67875361",
+   "69275098"
+  ]
+ },
+ "trodelvy": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2022-04-06",
+   "dossier": "CT-19684",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3341351"
+  },
+  "matched_cis": [
+   "67719704"
+  ]
+ },
+ "truqap": {
+  "matched_cis": []
+ },
+ "tryngolza": {
+  "first_opinion": null,
+  "matched_cis": [
+   "68292358"
+  ]
+ },
+ "tukysa": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2021-06-02",
+   "dossier": "CT-19172",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3273459"
+  },
+  "matched_cis": [
+   "61156829",
+   "69401038"
+  ]
+ },
+ "uplizna": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2022-10-19",
+   "dossier": "CT-19869",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3390335"
+  },
+  "matched_cis": [
+   "60878038"
+  ]
+ },
+ "upstaza": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2022-12-07",
+   "dossier": "CT-19946",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3402378"
+  },
+  "matched_cis": [
+   "61876862"
+  ]
+ },
+ "vabysmo": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2023-01-18",
+   "dossier": "CT-20042",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3413299"
+  },
+  "matched_cis": [
+   "61150655"
+  ]
+ },
+ "vafseo": {
+  "matched_cis": []
+ },
+ "vanflyta": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2024-05-29",
+   "dossier": "CT-20758",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3522395"
+  },
+  "matched_cis": [
+   "61354095",
+   "69293541"
+  ]
+ },
+ "veklury": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2020-09-16",
+   "dossier": "CT-18745",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3201793"
+  },
+  "matched_cis": [
+   "69284439"
+  ]
+ },
+ "velsipity": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2024-09-04",
+   "dossier": "CT-20712",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Insuffisant",
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3539509"
+  },
+  "matched_cis": [
+   "62832598"
+  ]
+ },
+ "veoza": {
+  "first_opinion": null,
+  "matched_cis": [
+   "66063738"
+  ]
+ },
+ "verquvo": {
+  "matched_cis": []
+ },
+ "voranigo": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2026-03-04",
+   "dossier": "CT-21598",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3892574"
+  },
+  "matched_cis": [
+   "64511114",
+   "69802522"
+  ]
+ },
+ "voxzogo": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2021-12-15",
+   "dossier": "CT-19521",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3313571"
+  },
+  "matched_cis": [
+   "60787186",
+   "64530919",
+   "68092884"
+  ]
+ },
+ "voydeya": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2024-10-09",
+   "dossier": "CT-20839",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3560836"
+  },
+  "matched_cis": [
+   "62480378",
+   "63631648"
+  ]
+ },
+ "vyepti": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2022-10-05",
+   "dossier": "CT-19851",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3382726"
+  },
+  "matched_cis": [
+   "64842858"
+  ]
+ },
+ "vyjuvek": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2025-10-08",
+   "dossier": "CT-21428",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3704146"
+  },
+  "matched_cis": [
+   "64181296"
+  ]
+ },
+ "vyloy": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2025-01-15",
+   "dossier": "CT-21135",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3594155"
+  },
+  "matched_cis": [
+   "62607473",
+   "68841351"
+  ]
+ },
+ "vyvgart": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2022-12-14",
+   "dossier": "CT-19973",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3402357"
+  },
+  "matched_cis": [
+   "66371262",
+   "66446220",
+   "69419901"
+  ]
+ },
+ "wainzua": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2025-09-02",
+   "dossier": "CT-21318",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3658183"
+  },
+  "matched_cis": [
+   "65079351"
+  ]
+ },
+ "wayrilz": {
+  "matched_cis": []
+ },
+ "wegovy": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2022-12-14",
+   "dossier": "CT-19927",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important conditionnel",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3398698"
+  },
+  "matched_cis": [
+   "61207647",
+   "61829909",
+   "63169946",
+   "64346456",
+   "64853744",
+   "64973957",
+   "65183460",
+   "65254352",
+   "66596953",
+   "69113018"
+  ]
+ },
+ "welireg": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2025-06-25",
+   "dossier": "CT-21310",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré conditionnel"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3635779"
+  },
+  "matched_cis": [
+   "63869763"
+  ]
+ },
+ "winlevi": {
+  "first_opinion": null,
+  "matched_cis": [
+   "67695228"
+  ]
+ },
+ "winrevair": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2025-05-14",
+   "dossier": "CT-21085",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3606289"
+  },
+  "matched_cis": [
+   "61402622",
+   "61615894"
+  ]
+ },
+ "xenleta": {
+  "matched_cis": []
+ },
+ "xenpozyme": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2022-11-23",
+   "dossier": "CT-19922",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3396519"
+  },
+  "matched_cis": [
+   "63908675"
+  ]
+ },
+ "yorvipath": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2024-09-11",
+   "dossier": "CT-20901",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3545560"
+  },
+  "matched_cis": [
+   "60401236",
+   "64364739",
+   "67088616"
+  ]
+ },
+ "zegalogue": {
+  "matched_cis": []
+ },
+ "zeposia": {
+  "matched_cis": []
+ },
+ "ziihera": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2026-06-03",
+   "dossier": "CT-21517",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Faible",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_4070741"
+  },
+  "matched_cis": [
+   "64817495"
+  ]
+ },
+ "zilbrysq": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2024-03-27",
+   "dossier": "CT-20638",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3503160"
+  },
+  "matched_cis": [
+   "67028747",
+   "68906518",
+   "69339825"
+  ]
+ },
+ "zokinvy": {
+  "first_opinion": {
+   "asmr": [
+    "IV"
+   ],
+   "date": "2023-03-22",
+   "dossier": "CT-19943",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Modéré"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3424350"
+  },
+  "matched_cis": [
+   "61837140",
+   "66601425"
+  ]
+ },
+ "zolgensma": {
+  "first_opinion": {
+   "asmr": [
+    "III",
+    "V"
+   ],
+   "date": "2020-12-16",
+   "dossier": "CT-18743",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3224937"
+  },
+  "matched_cis": [
+   "69200149"
+  ]
+ },
+ "ztalmy": {
+  "matched_cis": []
+ },
+ "zynlonta": {
+  "matched_cis": []
+ },
+ "zynquista": {
+  "matched_cis": []
+ },
+ "zynteglo": {
+  "matched_cis": []
+ },
+ "zynyz": {
+  "matched_cis": []
+ }
+}

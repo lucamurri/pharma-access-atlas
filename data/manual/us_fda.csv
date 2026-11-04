@@ -35,3 +35,42 @@ zolgensma,fda_approval_date,2019-05-24,verified,https://www.fda.gov/media/126130
 zolgensma,fda_application,BLA125694,verified,https://www.fda.gov/vaccines-blood-biologics/zolgensma,2026-11-03,FDA product page lists STN 125694
 hemgenix,fda_approval_date,2022-11-22,verified,https://www.fda.gov/media/163466/download?attachment,2026-11-03,"STN 125772/0 BLA approval letter dated November 22, 2022"
 hemgenix,fda_application,BLA125772,verified,https://www.fda.gov/vaccines-blood-biologics/vaccines/hemgenix,2026-11-03,FDA product page lists STN 125772
+casgevy,fda_approval_date,2023-12-08,verified,https://www.fda.gov/vaccines-blood-biologics/casgevy,2026-11-03,"Page lists ""December 8, 2023 Approval Letter - CASGEVY""; original BLA STN 125785 (later STN 125787 added 2026 for age 2+)."
+casgevy,fda_application,BLA125785,verified,https://www.fda.gov/vaccines-blood-biologics/casgevy,2026-11-03,STN shown on FDA product page.
+casgevy,fda_brand,CASGEVY,verified,https://www.fda.gov/vaccines-blood-biologics/casgevy,2026-11-03,Tradename on FDA product page and approved CGT list.
+libmeldy,fda_approval_date,2024-03-18,verified,https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/lenmeldy,2026-11-03,"Earliest letter on page: ""March 18, 2024 Approval Letter - LENMELDY""; STN 125758."
+libmeldy,fda_application,BLA125758,verified,https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/lenmeldy,2026-11-03,STN shown on FDA product page.
+libmeldy,fda_brand,LENMELDY,verified,https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/lenmeldy,2026-11-03,Tradename on FDA product page and approved CGT list.
+breyanzi,fda_approval_date,2021-02-05,verified,https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/breyanzi,2026-11-03,"Earliest letter on page: ""February 5, 2021 Approval Letter - BREYANZI""; STN BLA 125714."
+breyanzi,fda_application,BLA125714,verified,https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/breyanzi,2026-11-03,STN shown on FDA product page.
+breyanzi,fda_brand,BREYANZI,verified,https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/breyanzi,2026-11-03,Tradename on FDA product page and approved CGT list.
+upstaza,fda_approval_date,2024-11-13,verified,https://www.fda.gov/vaccines-blood-biologics/kebilidi,2026-11-03,"Page lists ""November 13, 2024 Approval Letter - KEBILIDI""; STN 125722."
+upstaza,fda_application,BLA125722,verified,https://www.fda.gov/vaccines-blood-biologics/kebilidi,2026-11-03,STN shown on FDA product page.
+upstaza,fda_brand,KEBILIDI,verified,https://www.fda.gov/vaccines-blood-biologics/kebilidi,2026-11-03,Tradename on FDA product page and approved CGT list.
+vyjuvek,fda_approval_date,2023-05-19,verified,https://www.fda.gov/vaccines-blood-biologics/vyjuvek,2026-11-03,"Earliest letter on page: ""May 19, 2023 Approval Letter - VYJUVEK""; STN 125774."
+vyjuvek,fda_application,BLA125774,verified,https://www.fda.gov/vaccines-blood-biologics/vyjuvek,2026-11-03,STN shown on FDA product page.
+vyjuvek,fda_brand,VYJUVEK,verified,https://www.fda.gov/vaccines-blood-biologics/vyjuvek,2026-11-03,Tradename on FDA product page and approved CGT list.
+tecartus,fda_approval_date,2020-07-24,verified,https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/tecartus,2026-11-03,"Earliest letter on page: ""July 24, 2020 Approval Letter - TECARTUS""; STN BL 125703."
+tecartus,fda_application,BLA125703,verified,https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/tecartus,2026-11-03,STN shown on FDA product page.
+tecartus,fda_brand,TECARTUS,verified,https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/tecartus,2026-11-03,Tradename on FDA product page and approved CGT list.
+roctavian,fda_approval_date,2023-06-30,verified,https://www.fda.gov/vaccines-blood-biologics/roctavian,2026-11-03,"Page lists ""June 30, 2023 Approval Letter - ROCTAVIAN""; STN 125720."
+roctavian,fda_application,BLA125720,verified,https://www.fda.gov/vaccines-blood-biologics/roctavian,2026-11-03,STN shown on FDA product page.
+roctavian,fda_brand,ROCTAVIAN,verified,https://www.fda.gov/vaccines-blood-biologics/roctavian,2026-11-03,Tradename on FDA product page and approved CGT list.
+abecma,fda_approval_date,2021-03-26,verified,https://www.fda.gov/vaccines-blood-biologics/abecma,2026-11-03,"Earliest letter on page: ""March 26, 2021 Approval Letter - ABECMA""; STN BLA 125736."
+abecma,fda_application,BLA125736,verified,https://www.fda.gov/vaccines-blood-biologics/abecma,2026-11-03,STN shown on FDA product page.
+abecma,fda_brand,ABECMA,verified,https://www.fda.gov/vaccines-blood-biologics/abecma,2026-11-03,Tradename on FDA product page and approved CGT list.
+aucatzyl,fda_approval_date,2024-11-08,verified,https://www.fda.gov/vaccines-blood-biologics/aucatzyl,2026-11-03,"Earliest letter on page: ""November 8, 2024 Approval Letter - AUCATZYL""; STN 125813."
+aucatzyl,fda_application,BLA125813,verified,https://www.fda.gov/vaccines-blood-biologics/aucatzyl,2026-11-03,STN shown on FDA product page.
+aucatzyl,fda_brand,AUCATZYL,verified,https://www.fda.gov/vaccines-blood-biologics/aucatzyl,2026-11-03,Tradename on FDA product page and approved CGT list.
+beqvez,fda_approval_date,2024-04-25,verified,https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/beqvez,2026-11-03,"Page lists ""April 25, 2024 Approval Letter - BEQVEZ""; STN 125786."
+beqvez,fda_application,BLA125786,verified,https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/beqvez,2026-11-03,STN shown on FDA product page.
+beqvez,fda_brand,BEQVEZ,verified,https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/beqvez,2026-11-03,Tradename on FDA product page and approved CGT list.
+zynteglo,fda_approval_date,2022-08-17,verified,https://www.fda.gov/vaccines-blood-biologics/zynteglo,2026-11-03,"Page lists ""August 17, 2022 Approval Letter - ZYNTEGLO""; STN 125717."
+zynteglo,fda_application,BLA125717,verified,https://www.fda.gov/vaccines-blood-biologics/zynteglo,2026-11-03,STN shown on FDA product page.
+zynteglo,fda_brand,ZYNTEGLO,verified,https://www.fda.gov/vaccines-blood-biologics/zynteglo,2026-11-03,Tradename on FDA product page and approved CGT list.
+skysona,fda_approval_date,2022-09-16,verified,https://www.fda.gov/vaccines-blood-biologics/skysona,2026-11-03,"Earliest letter on page: ""September 16, 2022 Approval Letter - SKYSONA""; STN 125755."
+skysona,fda_application,BLA125755,verified,https://www.fda.gov/vaccines-blood-biologics/skysona,2026-11-03,STN shown on FDA product page.
+skysona,fda_brand,SKYSONA,verified,https://www.fda.gov/vaccines-blood-biologics/skysona,2026-11-03,Tradename on FDA product page and approved CGT list.
+blenrep,fda_approval_date,2020-08-05,verified,https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2020/761158Orig1s000ltr.pdf,2026-11-03,"FDA CDER letter: ""BLA Accelerated Approval Letter issued on August 5, 2020""; later withdrawn, new 2025 BLA not covered."
+blenrep,fda_application,BLA761158,verified,https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2020/761158Orig1s000ltr.pdf,2026-11-03,Letter header BLA 761158 (original 2020 accelerated approval).
+blenrep,fda_brand,Blenrep,verified,https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2020/761158Orig1s000ltr.pdf,2026-11-03,Letter: Blenrep (belantamab mafodotin-blmf) for injection.

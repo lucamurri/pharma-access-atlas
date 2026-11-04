@@ -1,0 +1,15 @@
+{
+  "application_number": "NDA212018",
+  "sponsor_name": "JANSSEN BIOTECH",
+  "brand_names": [
+    "BALVERSA"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20190412",
+      "review_priority": "PRIORITY"
+    }
+  ]
+}

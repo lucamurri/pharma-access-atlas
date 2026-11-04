@@ -1,0 +1,15 @@
+{
+  "application_number": "NDA215830",
+  "sponsor_name": "PFIZER",
+  "brand_names": [
+    "LITFULO"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20230623",
+      "review_priority": "STANDARD"
+    }
+  ]
+}

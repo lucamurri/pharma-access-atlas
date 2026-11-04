@@ -1,0 +1,15 @@
+{
+  "application_number": "NDA213871",
+  "sponsor_name": "PFIZER",
+  "brand_names": [
+    "CIBINQO"
+  ],
+  "original_submissions": [
+    {
+      "submission_type": "ORIG",
+      "submission_status": "AP",
+      "submission_status_date": "20220114",
+      "review_priority": "PRIORITY"
+    }
+  ]
+}

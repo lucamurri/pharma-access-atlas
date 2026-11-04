@@ -1,31 +1,208 @@
-drug_id,brand_us,brand_eu,inn,company,therapy_area,fda_application,ema_product_number,fda_center
-enhertu,Enhertu,Enhertu,trastuzumab deruxtecan,Daiichi Sankyo,Oncology,BLA761139,EMEA/H/C/005124,CDER
-lumakras,Lumakras,Lumykras,sotorasib,Amgen,Oncology,NDA214665,EMEA/H/C/005522,CDER
-trodelvy,Trodelvy,Trodelvy,sacituzumab govitecan,Gilead,Oncology,BLA761115,EMEA/H/C/005182,CDER
-pluvicto,Pluvicto,Pluvicto,lutetium (177Lu) vipivotide tetraxetan,Novartis,Oncology,NDA215833,EMEA/H/C/005483,CDER
-retevmo,Retevmo,Retsevmo,selpercatinib,Eli Lilly,Oncology,NDA213246,EMEA/H/C/005375,CDER
-carvykti,Carvykti,Carvykti,ciltacabtagene autoleucel,Johnson & Johnson (Janssen),Oncology,,EMEA/H/C/005095,CBER
-trikafta,Trikafta,Kaftrio,elexacaftor/tezacaftor/ivacaftor,Vertex,Rare disease,NDA212273,EMEA/H/C/005269,CDER
-evrysdi,Evrysdi,Evrysdi,risdiplam,Roche,Rare disease,NDA213535,EMEA/H/C/005145,CDER
-zolgensma,Zolgensma,Zolgensma,onasemnogene abeparvovec,Novartis,Rare disease,,EMEA/H/C/004750,CBER
-hemgenix,Hemgenix,Hemgenix,etranacogene dezaparvovec,CSL Behring,Rare disease,,EMEA/H/C/004827,CBER
-oxlumo,Oxlumo,Oxlumo,lumasiran,Alnylam,Rare disease,NDA214103,EMEA/H/C/005040,CDER
-skyclarys,Skyclarys,Skyclarys,omaveloxolone,Biogen,Rare disease,NDA216718,EMEA/H/C/006084,CDER
-voxzogo,Voxzogo,Voxzogo,vosoritide,BioMarin,Rare disease,NDA214938,EMEA/H/C/005475,CDER
-rinvoq,Rinvoq,Rinvoq,upadacitinib,AbbVie,Immunology,NDA211675,EMEA/H/C/004760,CDER
-skyrizi,Skyrizi,Skyrizi,risankizumab,AbbVie,Immunology,BLA761105,EMEA/H/C/004759,CDER
-tezspire,Tezspire,Tezspire,tezepelumab,AstraZeneca,Immunology,BLA761224,EMEA/H/C/005588,CDER
-adbry,Adbry,Adtralza,tralokinumab,LEO Pharma,Immunology,BLA761180,EMEA/H/C/005255,CDER
-sotyktu,Sotyktu,Sotyktu,deucravacitinib,Bristol Myers Squibb,Immunology,NDA214958,EMEA/H/C/005755,CDER
-bimzelx,Bimzelx,Bimzelx,bimekizumab,UCB,Immunology,BLA761151,EMEA/H/C/005316,CDER
-rybelsus,Rybelsus,Rybelsus,semaglutide (oral),Novo Nordisk,Cardiometabolic,NDA213051,EMEA/H/C/004953,CDER
-wegovy,Wegovy,Wegovy,semaglutide (2.4 mg injection),Novo Nordisk,Cardiometabolic,NDA215256,EMEA/H/C/005422,CDER
-mounjaro,Mounjaro,Mounjaro,tirzepatide,Eli Lilly,Cardiometabolic,NDA215866,EMEA/H/C/005620,CDER
-leqvio,Leqvio,Leqvio,inclisiran,Novartis,Cardiometabolic,NDA214012,EMEA/H/C/005333,CDER
-camzyos,Camzyos,Camzyos,mavacamten,Bristol Myers Squibb,Cardiometabolic,NDA214998,EMEA/H/C/005457,CDER
-kerendia,Kerendia,Kerendia,finerenone,Bayer,Cardiometabolic,NDA215341,EMEA/H/C/005200,CDER
-leqembi,Leqembi,Leqembi,lecanemab,Eisai,Neurology,BLA761269,EMEA/H/C/005966,CDER
-kisunla,Kisunla,Kisunla,donanemab,Eli Lilly,Neurology,BLA761248,EMEA/H/C/006024,CDER
-vyepti,Vyepti,Vyepti,eptinezumab,Lundbeck,Neurology,BLA761119,EMEA/H/C/005287,CDER
-nurtec,Nurtec ODT,Vydura,rimegepant,Pfizer,Neurology,NDA212728,EMEA/H/C/005725,CDER
-vyvgart,Vyvgart,Vyvgart,efgartigimod alfa,argenx,Neurology,BLA761195,EMEA/H/C/005849,CDER
+drug_id,brand_us,brand_eu,inn,fda_application,ema_product_number,fda_center,cohort
+abecma,Abecma,Abecma,idecabtagene vicleucel,,EMEA/H/C/004662,CBER,core
+adakveo,Adakveo,Adakveo,crizanlizumab,BLA761128,EMEA/H/C/004874,CDER,core
+adbry,Adbry,Adtralza,tralokinumab,BLA761180,EMEA/H/C/005255,CDER,core
+agamree,Agamree,Agamree,vamorolone,NDA215239,EMEA/H/C/005679,CDER,core
+alhemo,Alhemo,Alhemo,concizumab,BLA761315,EMEA/H/C/005938,CDER,core
+alyftrek,Alyftrek,Alyftrek,deutivacaftor / tezacaftor / vanzacaftor,NDA218730,EMEA/H/C/006382,CDER,core
+amvuttra,Amvuttra,Amvuttra,vutrisiran,NDA215515,EMEA/H/C/005852,CDER,core
+andembry,Andembry,Andembry,garadacimab,BLA761367,EMEA/H/C/006116,CDER,core
+anzupgo,Anzupgo,Anzupgo,delgocitinib,NDA219155,EMEA/H/C/006109,CDER,core
+aquipta,Qulipta,Aquipta,atogepant,NDA215206,EMEA/H/C/005871,CDER,core
+artesunateamivas,Artesunate,Artesunate Amivas,artesunate,NDA213036,EMEA/H/C/005550,CDER,core
+aspaveli,Empaveli,Aspaveli,pegcetacoplan,NDA215014,EMEA/H/C/005553,CDER,core
+aucatzyl,Aucatzyl,Aucatzyl,obecabtagene autoleucel,,EMEA/H/C/005907,CBER,core
+augtyro,Augtyro,Augtyro,repotrectinib,NDA218213,EMEA/H/C/006005,CDER,core
+ayvakyt,Ayvakit,Ayvakyt,avapritinib,NDA212608,EMEA/H/C/005208,CDER,core
+balversa,Balversa,Balversa,erdafitinib,NDA212018,EMEA/H/C/006050,CDER,core
+beovu,Beovu,Beovu,brolucizumab,BLA761125,EMEA/H/C/004913,CDER,core
+beqvez,Beqvez,Beqvez,fidanacogene elaparvovec,,EMEA/H/C/004774,CBER,core
+besremi,Besremi,Besremi,ropeginterferon alfa-2b,BLA761166,EMEA/H/C/004128,CDER,core
+beyfortus,Beyfortus,Beyfortus,nirsevimab,BLA761328,EMEA/H/C/005304,CDER,core
+beyonttra,Attruby,Beyonttra,acoramidis,NDA216540,EMEA/H/C/006333,CDER,core
+bimzelx,Bimzelx,Bimzelx,bimekizumab,BLA761151,EMEA/H/C/005316,CDER,core
+blenrep,Blenrep,Blenrep,belantamab mafodotin,BLA761440,EMEA/H/C/004935,CDER,core
+breyanzi,Breyanzi,Breyanzi,lisocabtagene maraleucel,,EMEA/H/C/004731,CBER,core
+brinsupri,Brinsupri,Brinsupri,brensocatib,NDA217673,EMEA/H/C/005820,CDER,core
+briumvi,Briumvi,Briumvi,ublituximab,BLA761238,EMEA/H/C/005914,CDER,core
+brukinsa,Brukinsa,Brukinsa,zanubrutinib,NDA213217,EMEA/H/C/004978,CDER,core
+byfavo,Byfavo,Byfavo,remimazolam,NDA212295,EMEA/H/C/005246,CDER,core
+bylvay,Bylvay,Bylvay,odevixibat,NDA215498,EMEA/H/C/004691,CDER,core
+camzyos,Camzyos,Camzyos,mavacamten,NDA214998,EMEA/H/C/005457,CDER,core
+carvykti,Carvykti,Carvykti,ciltacabtagene autoleucel,,EMEA/H/C/005095,CBER,core
+casgevy,Casgevy,Casgevy,exagamglogene autotemcel,,EMEA/H/C/005763,CBER,core
+cibinqo,Cibinqo,Cibinqo,abrocitinib,NDA213871,EMEA/H/C/005452,CDER,core
+columvi,Columvi,Columvi,glofitamab,BLA761309,EMEA/H/C/005751,CDER,core
+datroway,Datroway,Datroway,datopotamab deruxtecan,BLA761394,EMEA/H/C/006547,CDER,core
+dovprela,Pretomanid,Dovprela,pretomanid,NDA212862,EMEA/H/C/005167,CDER,core
+duvyzat,Duvyzat,Duvyzat,givinostat,NDA217865,EMEA/H/C/006079,CDER,core
+ebglyss,Ebglyss,Ebglyss,lebrikizumab,BLA761306,EMEA/H/C/005894,CDER,core
+ekterly,Ekterly,Ekterly,sebetralstat,NDA219301,EMEA/H/C/006211,CDER,core
+elahere,Elahere,Elahere,mirvetuximab soravtansine,BLA761310,EMEA/H/C/005036,CDER,core
+elfabrio,Elfabrio,Elfabrio,pegunigalsidase alfa,BLA761161,EMEA/H/C/005618,CDER,core
+elrexfio,Elrexfio,Elrexfio,elranatamab,BLA761345,EMEA/H/C/005908,CDER,core
+elucirem,Elucirem,Elucirem,gadopiclenol,NDA216986,EMEA/H/C/005626,CDER,core
+enhertu,Enhertu,Enhertu,trastuzumab deruxtecan,BLA761139,EMEA/H/C/005124,CDER,core
+enjaymo,Enjaymo,Enjaymo,sutimlimab,BLA761164,EMEA/H/C/005776,CDER,core
+enspryng,Enspryng,Enspryng,satralizumab,BLA761149,EMEA/H/C/004788,CDER,core
+evenity,Evenity,Evenity,romosozumab,BLA761062,EMEA/H/C/004465,CDER,core
+evkeeza,Evkeeza,Evkeeza,evinacumab,BLA761181,EMEA/H/C/005449,CDER,core
+evrysdi,Evrysdi,Evrysdi,risdiplam,NDA213535,EMEA/H/C/005145,CDER,core
+exblifep,Exblifep,Exblifep,cefepime;enmetazobactam,NDA216165,EMEA/H/C/005431,CDER,core
+ezmekly,Gomekli,Ezmekly,mirdametinib,NDA219379,EMEA/H/C/006460,CDER,core
+fabhalta,Fabhalta,Fabhalta,iptacopan,NDA218276,EMEA/H/C/005764,CDER,core
+fetcroja,Fetroja,Fetcroja,cefiderocol,NDA209445,EMEA/H/C/004829,CDER,core
+filspari,Filspari,Filspari,sparsentan,NDA216403,EMEA/H/C/005783,CDER,core
+fruzaqla,Fruzaqla,Fruzaqla,fruquintinib,NDA217564,EMEA/H/C/005979,CDER,core
+gavreto,Gavreto,Gavreto,pralsetinib,NDA213721,EMEA/H/C/005413,CDER,core
+givlaari,Givlaari,Givlaari,givosiran,NDA212194,EMEA/H/C/004775,CDER,core
+hemgenix,Hemgenix,Hemgenix,etranacogene dezaparvovec,,EMEA/H/C/004827,CBER,core
+hympavzi,Hympavzi,Hympavzi,marstacimab,BLA761369,EMEA/H/C/006240,CDER,core
+imaavy,Imaavy,Imaavy,nipocalimab,BLA761430,EMEA/H/C/006379,CDER,core
+imcivree,Imcivree,Imcivree,setmelanotide,NDA213793,EMEA/H/C/005089,CDER,core
+imjudo,Imjudo,Imjudo,tremelimumab,BLA761289,EMEA/H/C/006016,CDER,core
+inaqovi,Inqovi,Inaqovi,cedazuridine;decitabine,NDA212576,EMEA/H/C/005823,CDER,core
+inrebic,Inrebic,Inrebic,fedratinib,NDA212327,EMEA/H/C/005026,CDER,core
+iqirvo,Iqirvo,Iqirvo,elafibranor,NDA218860,EMEA/H/C/006231,CDER,core
+isturisa,Isturisa,Isturisa,osilodrostat,NDA212801,EMEA/H/C/004821,CDER,core
+itovebi,Itovebi,Itovebi,inavolisib,NDA219249,EMEA/H/C/006353,CDER,core
+jaypirca,Jaypirca,Jaypirca,pirtobrutinib,NDA216059,EMEA/H/C/005863,CDER,core
+jemperli,Jemperli,Jemperli,dostarlimab,BLA761174,EMEA/H/C/005204,CDER,core
+trikafta,Trikafta,Kaftrio,ivacaftor;tezacaftor;elexacaftor,NDA212273,EMEA/H/C/005269,CDER,core
+kapruvia,Korsuva,Kapruvia,difelikefalin,NDA214916,EMEA/H/C/005612,CDER,core
+kerendia,Kerendia,Kerendia,finerenone,NDA215341,EMEA/H/C/005200,CDER,core
+kimmtrak,Kimmtrak,Kimmtrak,tebentafusp,BLA761228,EMEA/H/C/004929,CDER,core
+kisunla,Kisunla,Kisunla,donanemab,BLA761248,EMEA/H/C/006024,CDER,core
+klisyri,Klisyri,Klisyri,tirbanibulin,NDA213189,EMEA/H/C/005183,CDER,core
+koselugo,Koselugo,Koselugo,selumetinib,NDA213756,EMEA/H/C/005244,CDER,core
+krazati,Krazati,Krazati,adagrasib,NDA216340,EMEA/H/C/006013,CDER,core
+lazcluze,Lazcluze,Lazcluze,lazertinib,NDA219008,EMEA/H/C/006074,CDER,core
+leqembi,Leqembi,Leqembi,lecanemab,BLA761269,EMEA/H/C/005966,CDER,core
+leqvio,Leqvio,Leqvio,inclisiran,NDA214012,EMEA/H/C/005333,CDER,core
+libmeldy,Lenmeldy,Libmeldy,autologous cd34+ cells encoding arsa gene,,EMEA/H/C/005321,CBER,core
+litfulo,Litfulo,Litfulo,ritlecitinib,NDA215830,EMEA/H/C/006025,CDER,core
+livmarli,Livmarli,Livmarli,maralixibat chloride,NDA214662,EMEA/H/C/005857,CDER,core
+livtencity,Livtencity,Livtencity,maribavir,NDA215596,EMEA/H/C/005787,CDER,core
+loqtorzi,Loqtorzi,Loqtorzi,toripalimab,BLA761240,EMEA/H/C/006120,CDER,core
+lumakras,Lumakras,Lumykras,sotorasib,NDA214665,EMEA/H/C/005522,CDER,core
+lunsumio,Lunsumio,Lunsumio,mosunetuzumab,BLA761263,EMEA/H/C/005680,CDER,core
+lupkynis,Lupkynis,Lupkynis,voclosporin,NDA213716,EMEA/H/C/005256,CDER,core
+lydisilka,Nextstellis,Lydisilka,estetrol;drospirenone,NDA214154,EMEA/H/C/005382,CDER,core
+lynkuet,Lynkuet,Lynkuet,elinzanetant,NDA219469,EMEA/H/C/006298,CDER,core
+lynozyfic,Lynozyfic,Lynozyfic,linvoseltamab,BLA761400,EMEA/H/C/006370,CDER,core
+lytgobi,Lytgobi,Lytgobi,futibatinib,NDA214801,EMEA/H/C/005627,CDER,core
+minjuvi,Monjuvi,Minjuvi,tafasitamab,BLA761163,EMEA/H/C/005436,CDER,core
+mounjaro,Mounjaro,Mounjaro,tirzepatide,NDA215866,EMEA/H/C/005620,CDER,core
+nemluvio,Nemluvio,Nemluvio,nemolizumab,BLA761390,EMEA/H/C/006149,CDER,core
+nexpovio,Xpovio,Nexpovio,selinexor,NDA212306,EMEA/H/C/005127,CDER,core
+nexviadyme,Nexviazyme,Nexviadyme,avalglucosidase alfa,BLA761194,EMEA/H/C/005501,CDER,core
+ngenla,Ngenla,Ngenla,somatrogon,BLA761184,EMEA/H/C/005633,CDER,core
+nilemdo,Nexletol,Nilemdo,bempedoic acid,NDA211616,EMEA/H/C/004958,CDER,core
+nubeqa,Nubeqa,Nubeqa,darolutamide,NDA212099,EMEA/H/C/004790,CDER,core
+nulibry,Nulibry,Nulibry,fosdenopterin,NDA214018,EMEA/H/C/005378,CDER,core
+nustendi,Nexlizet,Nustendi,bempedoic acid;ezetimibe,NDA211617,EMEA/H/C/004959,CDER,core
+obgemsa,Gemtesa,Obgemsa,vibegron,NDA213006,EMEA/H/C/005957,CDER,core
+ogsiveo,Ogsiveo,Ogsiveo,nirogacestat,NDA217677,EMEA/H/C/006071,CDER,core
+omjjara,Ojjaara,Omjjara,momelotinib,NDA216873,EMEA/H/C/005768,CDER,core
+omvoh,Omvoh,Omvoh,mirikizumab,BLA761279,EMEA/H/C/005122,CDER,core
+ontozry,Xcopri,Ontozry,cenobamate,NDA212839,EMEA/H/C/005377,CDER,core
+opdualag,Opdualag,Opdualag,relatlimab;nivolumab,BLA761234,EMEA/H/C/005481,CDER,core
+orgovyx,Orgovyx,Orgovyx,relugolix,NDA214621,EMEA/H/C/005353,CDER,core
+orladeyo,Orladeyo,Orladeyo,berotralstat,NDA214094,EMEA/H/C/005138,CDER,core
+orserdu,Orserdu,Orserdu,elacestrant,NDA217639,EMEA/H/C/005898,CDER,core
+oxbryta,Oxbryta,Oxbryta,voxelotor,NDA213137,EMEA/H/C/004869,CDER,core
+oxlumo,Oxlumo,Oxlumo,lumasiran,NDA214103,EMEA/H/C/005040,CDER,core
+padcev,Padcev,Padcev,enfortumab vedotin,BLA761137,EMEA/H/C/005392,CDER,core
+paxlovid,Paxlovid,Paxlovid,nirmatrelvir;ritonavir,NDA217188,EMEA/H/C/005973,CDER,core
+pemazyre,Pemazyre,Pemazyre,pemigatinib,NDA213736,EMEA/H/C/005266,CDER,core
+piasky,Piasky,Piasky,crovalimab,BLA761388,EMEA/H/C/006061,CDER,core
+piqray,Piqray,Piqray,alpelisib,NDA212526,EMEA/H/C/004804,CDER,core
+pluvicto,Pluvicto,Pluvicto,lutetium (177lu) vipivotide tetraxetan,NDA215833,EMEA/H/C/005483,CDER,core
+polivy,Polivy,Polivy,polatuzumab vedotin,BLA761121,EMEA/H/C/004870,CDER,core
+pombiliti,Pombiliti,Pombiliti,cipaglucosidase alfa,BLA761204,EMEA/H/C/005703,CDER,core
+ponvory,Ponvory,Ponvory,ponesimod,NDA213498,EMEA/H/C/005163,CDER,core
+pyrukynd,Aqvesme,Pyrukynd,mitapivat,NDA216196,EMEA/H/C/005540,CDER,core
+qalsody,Qalsody,Qalsody,tofersen,NDA215887,EMEA/H/C/005493,CDER,core
+qinlock,Qinlock,Qinlock,ripretinib,NDA213973,EMEA/H/C/005614,CDER,core
+quviviq,Quviviq,Quviviq,daridorexant,NDA214985,EMEA/H/C/005634,CDER,core
+rayvow,Reyvow,Rayvow,lasmiditan,NDA211280,EMEA/H/C/005332,CDER,core
+reblozyl,Reblozyl,Reblozyl,luspatercept,BLA761136,EMEA/H/C/004444,CDER,core
+recarbrio,Recarbrio,Recarbrio,imipenem;cilastatin;relebactam,NDA212819,EMEA/H/C/004808,CDER,core
+retevmo,Retevmo,Retsevmo,selpercatinib,NDA213246,EMEA/H/C/005375,CDER,core
+rezdiffra,Rezdiffra,Rezdiffra,resmetirom,NDA217785,EMEA/H/C/006220,CDER,core
+rezzayo,Rezzayo,Rezzayo,rezafungin,NDA217417,EMEA/H/C/005900,CDER,core
+rinvoq,Rinvoq,Rinvoq,upadacitinib,NDA211675,EMEA/H/C/004760,CDER,core
+roctavian,Roctavian,Roctavian,valoctocogene roxaparvovec,,EMEA/H/C/005830,CBER,core
+romvimza,Romvimza,Romvimza,vimseltinib,NDA219304,EMEA/H/C/006363,CDER,core
+rozlytrek,Rozlytrek,Rozlytrek,entrectinib,NDA212725,EMEA/H/C/004936,CDER,core
+rybelsus,Rybelsus,Rybelsus,semaglutide,NDA213051,EMEA/H/C/004953,CDER,reference
+rybrevant,Rybrevant,Rybrevant,amivantamab,BLA761210,EMEA/H/C/005454,CDER,core
+rystiggo,Rystiggo,Rystiggo,rozanolixizumab,BLA761286,EMEA/H/C/005824,CDER,core
+rytelo,Rytelo,Rytelo,imetelstat,NDA217779,EMEA/H/C/006105,CDER,core
+ryzneuta,Ryzneuta,Ryzneuta,efbemalenograstim alfa,BLA761134,EMEA/H/C/005828,CDER,core
+saphnelo,Saphnelo,Saphnelo,anifrolumab,BLA761123,EMEA/H/C/004975,CDER,core
+sarclisa,Sarclisa,Sarclisa,isatuximab,BLA761113,EMEA/H/C/004977,CDER,core
+scemblix,Scemblix,Scemblix,asciminib,NDA215358,EMEA/H/C/005605,CDER,core
+sephience,Sephience,Sephience,sepiapterin,NDA219666,EMEA/H/C/006331,CDER,core
+skyclarys,Skyclarys,Skyclarys,omaveloxolone,NDA216718,EMEA/H/C/006084,CDER,core
+skyrizi,Skyrizi,Skyrizi,risankizumab,BLA761105,EMEA/H/C/004759,CDER,core
+skysona,Skysona,Skysona,elivaldogene autotemcel,,EMEA/H/C/003690,CBER,core
+skytrofa,Skytrofa,Skytrofa,lonapegsomatropin,BLA761177,EMEA/H/C/005367,CDER,core
+sogroya,Sogroya,Sogroya,somapacitan,BLA761156,EMEA/H/C/005030,CDER,core
+sotyktu,Sotyktu,Sotyktu,deucravacitinib,NDA214958,EMEA/H/C/005755,CDER,core
+spevigo,Spevigo,Spevigo,spesolimab,BLA761244,EMEA/H/C/005874,CDER,core
+sunlenca,Sunlenca,Sunlenca,lenacapavir,NDA215973,EMEA/H/C/005638,CDER,core
+sunosi,Sunosi,Sunosi,solriamfetol,NDA211230,EMEA/H/C/004893,CDER,core
+tabrecta,Tabrecta,Tabrecta,capmatinib,NDA213591,EMEA/H/C/004845,CDER,core
+talvey,Talvey,Talvey,talquetamab,BLA761342,EMEA/H/C/005864,CDER,core
+tavneos,Tavneos,Tavneos,avacopan,NDA214487,EMEA/H/C/005523,CDER,core
+tecartus,Tecartus,Tecartus,brexucabtagene autoleucel,,EMEA/H/C/005102,CBER,core
+tecvayli,Tecvayli,Tecvayli,teclistamab,BLA761291,EMEA/H/C/005865,CDER,core
+tepezza,Tepezza,Tepezza,teprotumumab,BLA761143,EMEA/H/C/006396,CDER,core
+tepkinly,Epkinly,Tepkinly,epcoritamab,BLA761324,EMEA/H/C/005985,CDER,core
+tepmetko,Tepmetko,Tepmetko,tepotinib,NDA214096,EMEA/H/C/005524,CDER,core
+tevimbra,Tevimbra,Tevimbra,tislelizumab,BLA761232,EMEA/H/C/005919,CDER,core
+tezspire,Tezspire,Tezspire,tezepelumab,BLA761224,EMEA/H/C/005588,CDER,core
+tivdak,Tivdak,Tivdak,tisotumab vedotin,BLA761208,EMEA/H/C/005363,CDER,core
+trecondi,Grafapex,Trecondi,treosulfan,NDA214759,EMEA/H/C/004751,CDER,core
+trodelvy,Trodelvy,Trodelvy,sacituzumab govitecan,BLA761115,EMEA/H/C/005182,CDER,core
+truqap,Truqap,Truqap,capivasertib,NDA218197,EMEA/H/C/006017,CDER,core
+tryngolza,Tryngolza,Tryngolza,olezarsen,NDA218614,EMEA/H/C/006477,CDER,core
+tukysa,Tukysa,Tukysa,tucatinib,NDA213411,EMEA/H/C/005263,CDER,core
+uplizna,Uplizna,Uplizna,inebilizumab,BLA761142,EMEA/H/C/005818,CDER,core
+upstaza,Kebilidi,Upstaza,eladocagene exuparvovec,,EMEA/H/C/005352,CBER,core
+vabysmo,Vabysmo,Vabysmo,faricimab,BLA761235,EMEA/H/C/005642,CDER,core
+vafseo,Vafseo,Vafseo,vadadustat,NDA215192,EMEA/H/C/005131,CDER,core
+vanflyta,Vanflyta,Vanflyta,quizartinib,NDA216993,EMEA/H/C/005910,CDER,core
+veklury,Veklury,Veklury,remdesivir,NDA214787,EMEA/H/C/005622,CDER,core
+velsipity,Velsipity,Velsipity,etrasimod,NDA216956,EMEA/H/C/006007,CDER,core
+veoza,Veozah,Veoza,fezolinetant,NDA216578,EMEA/H/C/005851,CDER,core
+verquvo,Verquvo,Verquvo,vericiguat,NDA214377,EMEA/H/C/005319,CDER,core
+voranigo,Voranigo,Voranigo,vorasidenib,NDA218784,EMEA/H/C/006284,CDER,core
+voxzogo,Voxzogo,Voxzogo,vosoritide,NDA214938,EMEA/H/C/005475,CDER,core
+voydeya,Voydeya,Voydeya,danicopan,NDA218037,EMEA/H/C/005517,CDER,core
+nurtec,Nurtec ODT,Vydura,rimegepant,NDA212728,EMEA/H/C/005725,CDER,core
+vyepti,Vyepti,Vyepti,eptinezumab,BLA761119,EMEA/H/C/005287,CDER,core
+vyjuvek,Vyjuvek,Vyjuvek,beremagene geperpavec,,EMEA/H/C/006330,CBER,core
+vyloy,Vyloy,Vyloy,zolbetuximab,BLA761365,EMEA/H/C/005868,CDER,core
+vyvgart,Vyvgart,Vyvgart,efgartigimod alfa,BLA761195,EMEA/H/C/005849,CDER,core
+wainzua,Wainua,Wainzua,eplontersen,NDA217388,EMEA/H/C/006295,CDER,core
+wayrilz,Wayrilz,Wayrilz,rilzabrutinib,NDA219685,EMEA/H/C/006425,CDER,core
+wegovy,Wegovy,Wegovy,semaglutide,NDA215256,EMEA/H/C/005422,CDER,reference
+welireg,Welireg,Welireg,belzutifan,NDA215383,EMEA/H/C/005636,CDER,core
+winlevi,Winlevi,Winlevi,clascoterone,NDA213433,EMEA/H/C/006138,CDER,core
+winrevair,Winrevair,Winrevair,sotatercept,BLA761363,EMEA/H/C/005647,CDER,core
+xenleta,Xenleta,Xenleta,lefamulin,NDA211672,EMEA/H/C/005048,CDER,core
+xenpozyme,Xenpozyme,Xenpozyme,olipudase alfa,BLA761261,EMEA/H/C/004850,CDER,core
+yorvipath,Yorvipath,Yorvipath,palopegteriparatide,NDA216490,EMEA/H/C/005934,CDER,core
+zegalogue,Zegalogue,Zegalogue,dasiglucagon,NDA214231,EMEA/H/C/006214,CDER,core
+zeposia,Zeposia,Zeposia,ozanimod,NDA209899,EMEA/H/C/004835,CDER,core
+ziihera,Ziihera,Ziihera,zanidatamab,BLA761416,EMEA/H/C/006380,CDER,core
+zilbrysq,Zilbrysq,Zilbrysq,zilucoplan,NDA216834,EMEA/H/C/005450,CDER,core
+zokinvy,Zokinvy,Zokinvy,lonafarnib,NDA213969,EMEA/H/C/005271,CDER,core
+zolgensma,Zolgensma,Zolgensma,onasemnogene abeparvovec,,EMEA/H/C/004750,CBER,core
+ztalmy,Ztalmy,Ztalmy,ganaxolone,NDA215904,EMEA/H/C/005825,CDER,core
+zynlonta,Zynlonta,Zynlonta,loncastuximab tesirine,BLA761196,EMEA/H/C/005685,CDER,core
+zynquista,Inpefa,Zynquista,sotagliflozin,NDA216203,EMEA/H/C/004889,CDER,core
+zynteglo,Zynteglo,Zynteglo,betibeglogene autotemcel,,EMEA/H/C/003691,CBER,core
+zynyz,Zynyz,Zynyz,retifanlimab,BLA761334,EMEA/H/C/006194,CDER,core
