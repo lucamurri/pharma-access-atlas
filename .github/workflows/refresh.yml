@@ -1,4 +1,4 @@
-# Monthly refresh of the automatable sources (openFDA, EMA, CMS).
+# Monthly refresh of the automatable sources (openFDA, EMA, CMS, BDPM).
 # Commits only if the data actually changed, then redeploys the site.
 # Manual CSVs in data/manual/ are never touched by this workflow.
 name: Monthly data refresh
@@ -13,6 +13,7 @@ permissions:
   actions: write   # needed to keep this schedule alive (see last step)
   pages: write
   id-token: write
+  issues: write    # to flag new HAS opinions for review (see "Flag new HAS opinions")
 
 jobs:
   refresh:
@@ -41,12 +42,38 @@ jobs:
             echo "No data changes this month."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            # Commit as the repository owner (GitHub no-reply address) so the
+            # contributor list stays one person.
+            git config user.name "Luca Murri"
+            git config user.email "298822451+lucamurri@users.noreply.github.com"
             git add data/
             git commit -m "Monthly data refresh $(date -u +%Y-%m-%d)"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Researched French values are never changed automatically. If HAS has
+      # published something on a drug we have no French value for, open (or
+      # update) one issue so a person reads the opinion and edits france_has.csv.
+      - name: Flag new HAS opinions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY' > has_issue.md
+          import json
+          d = json.load(open("data/processed/has_watch.json"))
+          for item in d["found"]:
+              print(f"- **{item['brand']}** (`{item['drug_id']}`, currently {item['current_status']})")
+              for m in item["matches"][:5]:
+                  print(f"  - {m['source']}: {m['title']} ({m['date']}) {m.get('url', '')}")
+          PY
+          if [ -s has_issue.md ]; then
+            title="New HAS opinions to review"
+            body="$(printf 'The monthly refresh found HAS records for drugs with no French value. Check each opinion and update data/manual/france_has.csv (first inclusion opinion only; ignore early-access decisions).\n\n%s' "$(cat has_issue.md)")"
+            num=$(gh issue list --state open --search "in:title \"$title\"" --json number -q '.[0].number')
+            if [ -n "$num" ]; then gh issue comment "$num" --body "$body"; else gh issue create --title "$title" --body "$body"; fi
+          else
+            echo "No new HAS opinions."
           fi
 
       # GitHub pauses scheduled workflows in repos with no activity for 60 days.
