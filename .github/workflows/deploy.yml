@@ -1,0 +1,57 @@
+# Build the site and publish it to GitHub Pages.
+# Runs on every push to main, on demand, and after the monthly refresh changes data.
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  workflow_call:   # lets refresh.yml reuse this workflow
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main   # after a refresh, build the commit that refresh just pushed
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Quality gate: rebuild from the committed data and stop if any rule is broken.
+      - name: Validate data
+        run: python pipeline/run_all.py --offline
+
+      - name: Test the validator
+        run: python -m unittest discover pipeline
+
+      # Also checks every number in the written analysis against the data.
+      - name: Build site
+        run: python pipeline/build_site.py
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
