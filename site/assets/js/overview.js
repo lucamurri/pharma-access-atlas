@@ -128,7 +128,7 @@
   const cap = t => t.charAt(0).toUpperCase() + t.slice(1);
   const gOrder = ["major", "considerable", "minor", "non-quantifiable", "no added benefit", "lesser"];
   const fOrder = ["I", "II", "III", "IV", "V"];
-  const eOrder = ["recommended", "optimised", "cancer drugs fund", "not recommended", "terminated"];
+  const eOrder = ["recommended", "optimised", "managed access", "not recommended", "terminated"];
   const g = gOrder.map(k => s.gba_ratings[k]);
   const f = fOrder.map(k => s.fr_asmr[k]);
   const e = eOrder.map(k => s.en_decisions[k] || 0);

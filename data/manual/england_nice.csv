@@ -1,1 +1,622 @@
 drug_id,field,value,status,source_url,retrieved_date,notes
+abecma,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/terminated/ta936,2026-11-04,NICE is unable to make a recommendation on idecabtagene vicleucel; BMS did not provide an evidence submission.
+abecma,en_nice_date,2023-11-30,verified,https://www.nice.org.uk/guidance/terminated/ta936,2026-11-04,
+abecma,en_nice_ta,TA936,verified,https://www.nice.org.uk/guidance/terminated/ta936,2026-11-04,
+adakveo,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/ta743,2026-11-04,"Guidance since withdrawn (MHRA licence withdrawn); original recommendation text no longer shown, so decision unknown."
+adakveo,en_nice_date,2021-11-03,verified,https://www.nice.org.uk/guidance/ta743,2026-11-04,Publication date on guidance page
+adakveo,en_nice_ta,TA743,verified,https://www.nice.org.uk/guidance/ta743,2026-11-04,
+adbry,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta814/chapter/1-Recommendations,2026-11-04,Tralokinumab is recommended ... only if the disease has not responded to at least 1 systemic immunosuppressant.
+adbry,en_nice_date,2022-08-03,verified,https://www.nice.org.uk/guidance/ta814/chapter/1-Recommendations,2026-11-04,
+adbry,en_nice_ta,TA814,verified,https://www.nice.org.uk/guidance/ta814/chapter/1-Recommendations,2026-11-04,
+agamree,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1031/chapter/1-Recommendation,2026-11-04,"Vamorolone is recommended, within its marketing authorisation, as an option for treating Duchenne muscular dystrophy in people 4+."
+agamree,en_nice_date,2025-01-16,verified,https://www.nice.org.uk/guidance/ta1031/chapter/1-Recommendation,2026-11-04,
+agamree,en_nice_ta,TA1031,verified,https://www.nice.org.uk/guidance/ta1031/chapter/1-Recommendation,2026-11-04,
+alhemo,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/terminated/ta1124,2026-11-04,NICE is unable to make a recommendation on concizumab; the company did not provide an evidence submission.
+alhemo,en_nice_date,2026-01-27,verified,https://www.nice.org.uk/guidance/terminated/ta1124,2026-11-04,
+alhemo,en_nice_ta,TA1124,verified,https://www.nice.org.uk/guidance/terminated/ta1124,2026-11-04,
+alyftrek,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1085/chapter/1-Recommendations,2026-11-04,Vnz-Tez-Diva can be used as an option to treat cystic fibrosis in people 6+ with at least 1 F508del mutation.
+alyftrek,en_nice_date,2025-07-30,verified,https://www.nice.org.uk/guidance/ta1085/chapter/1-Recommendations,2026-11-04,
+alyftrek,en_nice_ta,TA1085,verified,https://www.nice.org.uk/guidance/ta1085/chapter/1-Recommendations,2026-11-04,
+amvuttra,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta868/chapter/1-Recommendations,2026-11-04,"Vutrisiran is recommended, within its marketing authorisation, for hATTR amyloidosis in adults with stage 1 or 2 polyneuropathy."
+amvuttra,en_nice_date,2023-02-15,verified,https://www.nice.org.uk/guidance/ta868/chapter/1-Recommendations,2026-11-04,
+amvuttra,en_nice_ta,TA868,verified,https://www.nice.org.uk/guidance/ta868/chapter/1-Recommendations,2026-11-04,
+andembry,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1101/chapter/1-Recommendations,2026-11-04,"Garadacimab can be used to prevent recurrent HAE attacks in people 12+, only if they have 2 or more attacks a month."
+andembry,en_nice_date,2025-10-08,verified,https://www.nice.org.uk/guidance/ta1101/chapter/1-Recommendations,2026-11-04,
+andembry,en_nice_ta,TA1101,verified,https://www.nice.org.uk/guidance/ta1101/chapter/1-Recommendations,2026-11-04,
+anzupgo,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1107/chapter/1-Recommendations,2026-11-04,"Delgocitinib can be used, within its marketing authorisation, to treat moderate to severe chronic hand eczema in adults."
+anzupgo,en_nice_date,2025-11-05,verified,https://www.nice.org.uk/guidance/ta1107/chapter/1-Recommendations,2026-11-04,
+anzupgo,en_nice_ta,TA1107,verified,https://www.nice.org.uk/guidance/ta1107/chapter/1-Recommendations,2026-11-04,
+aquipta,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta973/chapter/1-Recommendations,2026-11-04,Atogepant is recommended for preventing migraine in adults with 4+ migraine days/month only if 3 preventives failed.
+aquipta,en_nice_date,2024-05-15,verified,https://www.nice.org.uk/guidance/ta973/chapter/1-Recommendations,2026-11-04,
+aquipta,en_nice_ta,TA973,verified,https://www.nice.org.uk/guidance/ta973/chapter/1-Recommendations,2026-11-04,
+artesunateamivas,en_nice_decision,,unknown,,2026-11-04,No NICE TA/HST found via web search; NICE site search returned HTTP 403 so absence could not be confirmed.
+artesunateamivas,en_nice_date,,unknown,,2026-11-04,
+artesunateamivas,en_nice_ta,,unknown,,2026-11-04,
+aspaveli,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta778/chapter/1-Recommendations,2026-11-04,"Pegcetacoplan is recommended, within its marketing authorisation, for PNH in adults with anaemia after 3+ months of a C5 inhibitor."
+aspaveli,en_nice_date,2022-03-09,verified,https://www.nice.org.uk/guidance/ta778/chapter/1-Recommendations,2026-11-04,
+aspaveli,en_nice_ta,TA778,verified,https://www.nice.org.uk/guidance/ta778/chapter/1-Recommendations,2026-11-04,
+aucatzyl,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1116/chapter/1-Recommendations,2026-11-04,Obe-cel can be used to treat relapsed or refractory B-cell precursor ALL in people aged 26 and over (licence: adults 18+).
+aucatzyl,en_nice_date,2025-12-11,verified,https://www.nice.org.uk/guidance/ta1116/chapter/1-Recommendations,2026-11-04,
+aucatzyl,en_nice_ta,TA1116,verified,https://www.nice.org.uk/guidance/ta1116/chapter/1-Recommendations,2026-11-04,
+augtyro,en_nice_decision,not appraised,verified,https://www.nice.org.uk/guidance/discontinued/gid-ta11302,2026-11-04,No guidance: ROS1 NSCLC appraisal ID6277 discontinued (company gave no submission); NTRK topic TSID12147 also suspended.
+augtyro,en_nice_date,,not_assessed,https://www.nice.org.uk/guidance/discontinued/gid-ta11302,2026-11-04,
+augtyro,en_nice_ta,,not_assessed,https://www.nice.org.uk/guidance/discontinued/gid-ta11302,2026-11-04,
+ayvakyt,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/terminated/ta730,2026-11-04,NICE is unable to make a recommendation on avapritinib for GIST; Blueprint withdrew its submission.
+ayvakyt,en_nice_date,2021-09-29,verified,https://www.nice.org.uk/guidance/terminated/ta730,2026-11-04,
+ayvakyt,en_nice_ta,TA730,verified,https://www.nice.org.uk/guidance/terminated/ta730,2026-11-04,
+balversa,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1062/chapter/1-Recommendation,2026-11-04,"Erdafitinib is recommended, within its marketing authorisation, for FGFR3-altered urothelial cancer after a PD-1/PD-L1 inhibitor."
+balversa,en_nice_date,2025-05-12,verified,https://www.nice.org.uk/guidance/ta1062/chapter/1-Recommendation,2026-11-04,
+balversa,en_nice_ta,TA1062,verified,https://www.nice.org.uk/guidance/ta1062/chapter/1-Recommendation,2026-11-04,
+beovu,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta672/chapter/1-Recommendations,2026-11-04,"Brolucizumab is recommended for wet AMD in adults, only if, in the eye to be treated, visual acuity criteria are met."
+beovu,en_nice_date,2021-02-03,verified,https://www.nice.org.uk/guidance/ta672/chapter/1-Recommendations,2026-11-04,
+beovu,en_nice_ta,TA672,verified,https://www.nice.org.uk/guidance/ta672/chapter/1-Recommendations,2026-11-04,
+beqvez,en_nice_decision,not appraised,verified,https://www.nice.org.uk/guidance/discontinued/gid-ta11117,2026-11-04,"No guidance: appraisal ID4032 suspended after company information in January 2025, then discontinued."
+beqvez,en_nice_date,,not_assessed,https://www.nice.org.uk/guidance/discontinued/gid-ta11117,2026-11-04,
+beqvez,en_nice_ta,,not_assessed,https://www.nice.org.uk/guidance/discontinued/gid-ta11117,2026-11-04,
+besremi,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta10497,2026-11-04,"in development: ID1596 for polycythaemia vera, expected publication TBC; no published guidance."
+besremi,en_nice_date,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta10497,2026-11-04,
+besremi,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta10497,2026-11-04,
+beyfortus,en_nice_decision,,unknown,,2026-11-04,"No NICE TA found via web search (RSV immunisation handled outside TA programme); NICE search returned HTTP 403, absence unconfirmed."
+beyfortus,en_nice_date,,unknown,,2026-11-04,
+beyfortus,en_nice_ta,,unknown,,2026-11-04,
+beyonttra,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1121/chapter/1-Recommendations,2026-11-04,"Acoramidis can be used, within its marketing authorisation, to treat ATTR amyloidosis with cardiomyopathy in adults."
+beyonttra,en_nice_date,2026-01-14,verified,https://www.nice.org.uk/guidance/ta1121/chapter/1-Recommendations,2026-11-04,
+beyonttra,en_nice_ta,TA1121,verified,https://www.nice.org.uk/guidance/ta1121/chapter/1-Recommendations,2026-11-04,
+bimzelx,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta723/chapter/1-Recommendations,2026-11-04,"Bimekizumab is recommended for plaque psoriasis in adults, only if the disease is severe (PASI 10+, DLQI >10)."
+bimzelx,en_nice_date,2021-09-01,verified,https://www.nice.org.uk/guidance/ta723/chapter/1-Recommendations,2026-11-04,
+bimzelx,en_nice_ta,TA723,verified,https://www.nice.org.uk/guidance/ta723/chapter/1-Recommendations,2026-11-04,
+blenrep,en_nice_decision,not appraised,verified,https://www.nice.org.uk/guidance/ta1133/chapter/1-Recommendations,2026-11-04,"First-indication appraisal discontinued with no guidance published. Earliest published guidance, but for a later indication (BPd); ID2701 (first, monotherapy) discontinued. Used if 1 prior line with lenalidomide."
+blenrep,en_nice_date,,not_assessed,https://www.nice.org.uk/guidance/ta1133/chapter/1-Recommendations,2026-11-04,First-indication appraisal discontinued with no guidance published.
+blenrep,en_nice_ta,,not_assessed,https://www.nice.org.uk/guidance/ta1133/chapter/1-Recommendations,2026-11-04,First-indication appraisal discontinued with no guidance published.
+breyanzi,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta987,2026-11-04,Terminated appraisal for R/R aggressive B-cell NHL; page states it was updated and replaced by TA1159.
+breyanzi,en_nice_date,2024-07-10,verified,https://www.nice.org.uk/guidance/ta987,2026-11-04,
+breyanzi,en_nice_ta,TA987,verified,https://www.nice.org.uk/guidance/ta987,2026-11-04,
+brinsupri,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/terminated/ta1188,2026-11-04,NICE is unable to make a recommendation on brensocatib; the company did not provide an evidence submission.
+brinsupri,en_nice_date,2026-08-25,verified,https://www.nice.org.uk/guidance/terminated/ta1188,2026-11-04,
+brinsupri,en_nice_ta,TA1188,verified,https://www.nice.org.uk/guidance/terminated/ta1188,2026-11-04,
+briumvi,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1025/chapter/1-Recommendations,2026-11-04,"Ublituximab is recommended for relapsing forms of MS in adults, only if the MS is relapsing-remitting."
+briumvi,en_nice_date,2024-12-18,verified,https://www.nice.org.uk/guidance/ta1025/chapter/1-Recommendations,2026-11-04,
+briumvi,en_nice_ta,TA1025,verified,https://www.nice.org.uk/guidance/ta1025/chapter/1-Recommendations,2026-11-04,
+brukinsa,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta833/chapter/1-Recommendations,2026-11-04,"Zanubrutinib is recommended for Waldenstrom's in adults with 1+ prior treatment, only if bendamustine plus rituximab is suitable."
+brukinsa,en_nice_date,2022-10-19,verified,https://www.nice.org.uk/guidance/ta833/chapter/1-Recommendations,2026-11-04,
+brukinsa,en_nice_ta,TA833,verified,https://www.nice.org.uk/guidance/ta833/chapter/1-Recommendations,2026-11-04,
+byfavo,en_nice_decision,not appraised,verified,https://www.nice.org.uk/guidance/prioritisation/gid-ta10720,2026-11-04,Topic ID3758 stopped after scoping and will not proceed to a TA; decision: not selected (5 Nov 2020).
+byfavo,en_nice_date,,not_assessed,https://www.nice.org.uk/guidance/prioritisation/gid-ta10720,2026-11-04,
+byfavo,en_nice_ta,,not_assessed,https://www.nice.org.uk/guidance/prioritisation/gid-ta10720,2026-11-04,
+bylvay,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/hst17/chapter/1-Recommendations,2026-11-04,"Odevixibat is recommended, within its marketing authorisation, as an option for treating PFIC in people 6 months and older."
+bylvay,en_nice_date,2022-02-22,verified,https://www.nice.org.uk/guidance/hst17/chapter/1-Recommendations,2026-11-04,
+bylvay,en_nice_ta,HST17,verified,https://www.nice.org.uk/guidance/hst17/chapter/1-Recommendations,2026-11-04,
+camzyos,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta913/chapter/1-Recommendations,2026-11-04,"Mavacamten is recommended for symptomatic oHCM NYHA 2-3, only as add-on to optimised standard care or alone if contraindicated."
+camzyos,en_nice_date,2023-09-06,verified,https://www.nice.org.uk/guidance/ta913/chapter/1-Recommendations,2026-11-04,
+camzyos,en_nice_ta,TA913,verified,https://www.nice.org.uk/guidance/ta913/chapter/1-Recommendations,2026-11-04,
+carvykti,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/terminated/ta889,2026-11-04,NICE is unable to make a recommendation on cilta-cel; Janssen withdrew its evidence submission.
+carvykti,en_nice_date,2023-05-17,verified,https://www.nice.org.uk/guidance/terminated/ta889,2026-11-04,
+carvykti,en_nice_ta,TA889,verified,https://www.nice.org.uk/guidance/terminated/ta889,2026-11-04,
+casgevy,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1003/chapter/1-Recommendations,2026-11-04,Managed access (non-cancer): exa-cel can be used during managed access for TDT when HSCT suitable but no matched related donor.
+casgevy,en_nice_date,2024-09-11,verified,https://www.nice.org.uk/guidance/ta1003/chapter/1-Recommendations,2026-11-04,
+casgevy,en_nice_ta,TA1003,verified,https://www.nice.org.uk/guidance/ta1003/chapter/1-Recommendations,2026-11-04,
+cibinqo,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta814/chapter/1-Recommendations,2026-11-04,Abrocitinib is recommended ... only if the disease has not responded to at least 1 systemic immunosuppressant.
+cibinqo,en_nice_date,2022-08-03,verified,https://www.nice.org.uk/guidance/ta814/chapter/1-Recommendations,2026-11-04,
+cibinqo,en_nice_ta,TA814,verified,https://www.nice.org.uk/guidance/ta814/chapter/1-Recommendations,2026-11-04,
+columvi,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta927/chapter/1-Recommendations,2026-11-04,"Glofitamab is recommended, within its marketing authorisation, for R/R DLBCL in adults after 2 or more systemic treatments."
+columvi,en_nice_date,2023-10-17,verified,https://www.nice.org.uk/guidance/ta927/chapter/1-Recommendations,2026-11-04,
+columvi,en_nice_ta,TA927,verified,https://www.nice.org.uk/guidance/ta927/chapter/1-Recommendations,2026-11-04,
+datroway,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11402,2026-11-04,"in development: ID6348 (HR+/HER2- breast) suspended, company will not submit; ID6241 (NSCLC) discontinued. No published guidance."
+datroway,en_nice_date,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11402,2026-11-04,
+datroway,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11402,2026-11-04,
+dovprela,en_nice_decision,not appraised,verified,https://www.nice.org.uk/search?q=pretomanid,2026-11-04,NICE site search for INN and brand (Dovprela) returned 0 results: no guidance or appraisal.
+dovprela,en_nice_date,,not_assessed,https://www.nice.org.uk/search?q=pretomanid,2026-11-04,
+dovprela,en_nice_ta,,not_assessed,https://www.nice.org.uk/search?q=pretomanid,2026-11-04,
+duvyzat,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1157,2026-11-04,Givinostat can be used as an option to treat Duchenne muscular dystrophy in people 6 years and over who are...
+duvyzat,en_nice_date,2026-05-28,verified,https://www.nice.org.uk/guidance/ta1157,2026-11-04,Published/terminated date on guidance page
+duvyzat,en_nice_ta,TA1157,verified,https://www.nice.org.uk/guidance/ta1157,2026-11-04,
+ebglyss,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta986,2026-11-04,Lebrikizumab is recommended as an option for treating moderate to severe atopic dermatitis that is suitable for systemic treatment in...
+ebglyss,en_nice_date,2024-07-10,verified,https://www.nice.org.uk/guidance/ta986,2026-11-04,Published/terminated date on guidance page
+ebglyss,en_nice_ta,TA986,verified,https://www.nice.org.uk/guidance/ta986,2026-11-04,
+ekterly,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11334,2026-11-04,in development (ID6284); no published guidance
+ekterly,en_nice_date,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11334,2026-11-04,in development (ID6284); no published guidance
+ekterly,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11334,2026-11-04,in development (ID6284); no published guidance
+elahere,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1169,2026-11-04,"Mirvetuximab soravtansine can be used, within its marketing authorisation, as an option to treat folate receptor-alpha (FR‑alpha)-positive, platinum-resistant, high-grade serous..."
+elahere,en_nice_date,2026-06-24,verified,https://www.nice.org.uk/guidance/ta1169,2026-11-04,Published/terminated date on guidance page
+elahere,en_nice_ta,TA1169,verified,https://www.nice.org.uk/guidance/ta1169,2026-11-04,
+elfabrio,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta915,2026-11-04,"Pegunigalsidase alfa is recommended, within its marketing authorisation, as an option for treating Fabry disease (also known as alpha-galactosidase deficiency)..."
+elfabrio,en_nice_date,2023-10-04,verified,https://www.nice.org.uk/guidance/ta915,2026-11-04,Published/terminated date on guidance page
+elfabrio,en_nice_ta,TA915,verified,https://www.nice.org.uk/guidance/ta915,2026-11-04,
+elrexfio,en_nice_decision,managed access,verified,https://www.nice.org.uk/guidance/ta1023,2026-11-04,"Elranatamab is recommended with managed access as an option for treating relapsed and refractory multiple myeloma in adults, only after... | Recommended with managed access (CDF)."
+elrexfio,en_nice_date,2024-12-11,verified,https://www.nice.org.uk/guidance/ta1023,2026-11-04,Published/terminated date on guidance page
+elrexfio,en_nice_ta,TA1023,verified,https://www.nice.org.uk/guidance/ta1023,2026-11-04,
+elucirem,en_nice_decision,not appraised,verified,https://www.nice.org.uk/search?q=gadopiclenol,2026-11-04,NICE site search for INN and brand (Elucirem) returned 0 results: no guidance or appraisal.
+elucirem,en_nice_date,,not_assessed,https://www.nice.org.uk/search?q=gadopiclenol,2026-11-04,
+elucirem,en_nice_ta,,not_assessed,https://www.nice.org.uk/search?q=gadopiclenol,2026-11-04,
+enhertu,en_nice_decision,managed access,verified,https://www.nice.org.uk/guidance/ta704,2026-11-04,"TA704 page now shows only replaced-by-TA1202 notice; CDF recommendation confirmed in TA1202 committee discussion: ""trastuzumab deruxtecan through the Cancer Drugs Fund (see ... TA704)""."
+enhertu,en_nice_date,2021-05-26,verified,https://www.nice.org.uk/guidance/ta704,2026-11-04,Published/terminated date on guidance page
+enhertu,en_nice_ta,TA704,verified,https://www.nice.org.uk/guidance/ta704,2026-11-04,
+enjaymo,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta11892,2026-11-04,awaiting development (ID6673); no published guidance
+enjaymo,en_nice_date,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta11892,2026-11-04,awaiting development (ID6673); no published guidance
+enjaymo,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta11892,2026-11-04,awaiting development (ID6673); no published guidance
+enspryng,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta960,2026-11-04,NICE is unable to make a recommendation on satralizumab (Enspryng) for preventing relapses in NMOSD in adults. Roche did not submit evidence.
+enspryng,en_nice_date,2024-03-27,verified,https://www.nice.org.uk/guidance/ta960,2026-11-04,Published/terminated date on guidance page
+enspryng,en_nice_ta,TA960,verified,https://www.nice.org.uk/guidance/ta960,2026-11-04,
+evenity,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta791,2026-11-04,Romosozumab is recommended as an option for treating severe osteoporosis in people after menopause who are at high risk of...
+evenity,en_nice_date,2022-05-25,verified,https://www.nice.org.uk/guidance/ta791,2026-11-04,Published/terminated date on guidance page
+evenity,en_nice_ta,TA791,verified,https://www.nice.org.uk/guidance/ta791,2026-11-04,
+evkeeza,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1002,2026-11-04,"Evinacumab alongside diet and other low-density lipoprotein-cholesterol (LDL‑C) lowering therapies is recommended, within its marketing authorisation, as an option for..."
+evkeeza,en_nice_date,2024-09-11,verified,https://www.nice.org.uk/guidance/ta1002,2026-11-04,Published/terminated date on guidance page
+evkeeza,en_nice_ta,TA1002,verified,https://www.nice.org.uk/guidance/ta1002,2026-11-04,
+evrysdi,en_nice_decision,managed access,verified,https://www.nice.org.uk/guidance/ta755,2026-11-04,"JUDGEMENT: recommended with managed access (non-cancer managed access agreement, not literally CDF); per TA1162 committee discussion ""TA755 recommends risdiplam in managed access"". TA755 replaced by TA1162."
+evrysdi,en_nice_date,2021-12-16,verified,https://www.nice.org.uk/guidance/ta755,2026-11-04,Published/terminated date on guidance page
+evrysdi,en_nice_ta,TA755,verified,https://www.nice.org.uk/guidance/ta755,2026-11-04,
+exblifep,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/prioritisation/gid-ta11574,2026-11-04,topic prioritisation (antimicrobial subscription model route); no published guidance
+exblifep,en_nice_date,,unknown,https://www.nice.org.uk/guidance/prioritisation/gid-ta11574,2026-11-04,topic prioritisation (antimicrobial subscription model route); no published guidance
+exblifep,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/prioritisation/gid-ta11574,2026-11-04,topic prioritisation (antimicrobial subscription model route); no published guidance
+ezmekly,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1192,2026-11-04,"Mirdametinib can be used as an option to treat symptomatic, inoperable plexiform neurofibromas associated with neurofibromatosis type 1 (NF1) in... | Restricted to ages 2-17 (licence includes adults)."
+ezmekly,en_nice_date,2026-09-16,verified,https://www.nice.org.uk/guidance/ta1192,2026-11-04,Published/terminated date on guidance page
+ezmekly,en_nice_ta,TA1192,verified,https://www.nice.org.uk/guidance/ta1192,2026-11-04,
+fabhalta,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1000,2026-11-04,"Iptacopan is recommended, within its marketing authorisation, as an option for treating paroxysmal nocturnal haemoglobinuria (PNH) in adults with haemolytic..."
+fabhalta,en_nice_date,2024-09-04,verified,https://www.nice.org.uk/guidance/ta1000,2026-11-04,Published/terminated date on guidance page
+fabhalta,en_nice_ta,TA1000,verified,https://www.nice.org.uk/guidance/ta1000,2026-11-04,
+fetcroja,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/amr2,2026-11-04,"Cefiderocol is recommended, within its marketing authorisation, as an option for treating severe drug-resistant infections caused by gram-negative bacteria | JUDGEMENT: antimicrobial resistance guidance AMR2 (formerly HTE2; subscription model), not a TA/HST."
+fetcroja,en_nice_date,2022-08-17,verified,https://www.nice.org.uk/guidance/amr2,2026-11-04,Published/terminated date on guidance page
+fetcroja,en_nice_ta,AMR2,verified,https://www.nice.org.uk/guidance/amr2,2026-11-04,
+filspari,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1074,2026-11-04,"Sparsentan can be used as option to treat primary immunoglobulin A nephropathy (IgAN) in adults with a: urine protein-to-creatinine ratio... | JUDGEMENT: population matches licence (UPCR>=85 mg/mmol or >=1 g/day) though ""within MA"" wording absent; 36-week stopping rule."
+filspari,en_nice_date,2025-06-25,verified,https://www.nice.org.uk/guidance/ta1074,2026-11-04,Published/terminated date on guidance page
+filspari,en_nice_ta,TA1074,verified,https://www.nice.org.uk/guidance/ta1074,2026-11-04,
+fruzaqla,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1079,2026-11-04,Fruquintinib can be used as an option at third line or later to treat metastatic colorectal cancer in adults when... | Only if trifluridine-tipiracil with bevacizumab not suitable.
+fruzaqla,en_nice_date,2025-07-23,verified,https://www.nice.org.uk/guidance/ta1079,2026-11-04,Published/terminated date on guidance page
+fruzaqla,en_nice_ta,TA1079,verified,https://www.nice.org.uk/guidance/ta1079,2026-11-04,
+gavreto,en_nice_decision,not recommended,verified,https://www.nice.org.uk/guidance/ta812,2026-11-04,"Pralsetinib is not recommended, within its marketing authorisation, for treating RET fusion-positive advanced non-small-cell lung cancer (NSCLC) in adults who..."
+gavreto,en_nice_date,2022-08-03,verified,https://www.nice.org.uk/guidance/ta812,2026-11-04,Published/terminated date on guidance page
+gavreto,en_nice_ta,TA812,verified,https://www.nice.org.uk/guidance/ta812,2026-11-04,
+givlaari,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/hst16,2026-11-04,Givosiran is recommended as an option for treating acute hepatic porphyria (AHP) in adults and young people aged 12 and...
+givlaari,en_nice_date,2021-11-24,verified,https://www.nice.org.uk/guidance/hst16,2026-11-04,Published/terminated date on guidance page
+givlaari,en_nice_ta,HST16,verified,https://www.nice.org.uk/guidance/hst16,2026-11-04,
+hemgenix,en_nice_decision,managed access,verified,https://www.nice.org.uk/guidance/ta989,2026-11-04,"Etranacogene dezaparvovec is recommended with managed access as an option for treating moderately severe or severe haemophilia B (congenital factor... | JUDGEMENT: recommended with managed access (non-cancer managed access, not literally CDF)."
+hemgenix,en_nice_date,2024-07-24,verified,https://www.nice.org.uk/guidance/ta989,2026-11-04,Published/terminated date on guidance page
+hemgenix,en_nice_ta,TA989,verified,https://www.nice.org.uk/guidance/ta989,2026-11-04,
+hympavzi,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1073,2026-11-04,"Marstacimab is recommended, within its marketing authorisation, as an option for preventing bleeding episodes caused by severe (factor IX [9]... | Recommended for haemophilia B; not recommended for haemophilia A."
+hympavzi,en_nice_date,2025-06-24,verified,https://www.nice.org.uk/guidance/ta1073,2026-11-04,Published/terminated date on guidance page
+hympavzi,en_nice_ta,TA1073,verified,https://www.nice.org.uk/guidance/ta1073,2026-11-04,
+imaavy,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta11492,2026-11-04,awaiting development (ID6562); no published guidance
+imaavy,en_nice_date,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta11492,2026-11-04,awaiting development (ID6562); no published guidance
+imaavy,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta11492,2026-11-04,awaiting development (ID6562); no published guidance
+imcivree,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/hst21,2026-11-04,"Setmelanotide is recommended, within its marketing authorisation, as an option for treating obesity and controlling hunger caused by pro-opiomelanocortin (POMC)..."
+imcivree,en_nice_date,2022-07-06,verified,https://www.nice.org.uk/guidance/hst21,2026-11-04,Published/terminated date on guidance page
+imcivree,en_nice_ta,HST21,verified,https://www.nice.org.uk/guidance/hst21,2026-11-04,
+imjudo,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1090,2026-11-04,"Durvalumab with tremelimumab can be used, within its marketing authorisation, as an option for untreated advanced or unresectable hepatocellular carcinoma... | With durvalumab."
+imjudo,en_nice_date,2025-08-19,verified,https://www.nice.org.uk/guidance/ta1090,2026-11-04,Published/terminated date on guidance page
+imjudo,en_nice_ta,TA1090,verified,https://www.nice.org.uk/guidance/ta1090,2026-11-04,
+inaqovi,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta932,2026-11-04,NICE is unable to make a recommendation on decitabine-cedazuridine for untreated AML; Otsuka did not submit evidence.
+inaqovi,en_nice_date,2023-11-23,verified,https://www.nice.org.uk/guidance/ta932,2026-11-04,Published/terminated date on guidance page
+inaqovi,en_nice_ta,TA932,verified,https://www.nice.org.uk/guidance/ta932,2026-11-04,
+inrebic,en_nice_decision,managed access,verified,https://www.nice.org.uk/guidance/ta756,2026-11-04,"TA756 page shows replaced-by-TA1018 notice; TA1018 states TA756 ""was available with managed access"" and fedratinib ""was used via the Cancer Drugs Fund (CDF)""."
+inrebic,en_nice_date,2021-12-16,verified,https://www.nice.org.uk/guidance/ta756,2026-11-04,Published/terminated date on guidance page
+inrebic,en_nice_ta,TA756,verified,https://www.nice.org.uk/guidance/ta756,2026-11-04,
+iqirvo,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1016,2026-11-04,"Elafibranor is recommended, within its marketing authorisation, as an option for treating primary biliary cholangitis in adults, when used: with..."
+iqirvo,en_nice_date,2024-11-14,verified,https://www.nice.org.uk/guidance/ta1016,2026-11-04,Published/terminated date on guidance page
+iqirvo,en_nice_ta,TA1016,verified,https://www.nice.org.uk/guidance/ta1016,2026-11-04,
+isturisa,en_nice_decision,not appraised,verified,https://www.nice.org.uk/search?q=osilodrostat,2026-11-04,NICE site search for INN and brand (Isturisa) returned 0 results: no guidance or appraisal.
+isturisa,en_nice_date,,not_assessed,https://www.nice.org.uk/search?q=osilodrostat,2026-11-04,
+isturisa,en_nice_ta,,not_assessed,https://www.nice.org.uk/search?q=osilodrostat,2026-11-04,
+itovebi,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11519,2026-11-04,in development; no published guidance
+itovebi,en_nice_date,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11519,2026-11-04,in development; no published guidance
+itovebi,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11519,2026-11-04,in development; no published guidance
+jaypirca,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/ta1173,2026-11-04,"Only guidance found covers a later indication; first-indication guidance not published. Pirtobrutinib can be used as an option to treat relapsed or refractory chronic lymphocytic leukaemia (CLL) in adults who have... | JUDGEMENT: first published guidance is for CLL; first EU indication (mantle cell lymphoma, ID3975) still in development."
+jaypirca,en_nice_date,,unknown,https://www.nice.org.uk/guidance/ta1173,2026-11-04,Only guidance found covers a later indication; first-indication guidance not published. Published/terminated date on guidance page
+jaypirca,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/ta1173,2026-11-04,Only guidance found covers a later indication; first-indication guidance not published.
+jemperli,en_nice_decision,managed access,verified,https://www.nice.org.uk/guidance/ta779,2026-11-04,"TA779 page shows replaced-by-TA1189 notice; TA1189 states ""Dostarlimab has been available through the Cancer Drugs Fund ... (TA779)""."
+jemperli,en_nice_date,2022-03-16,verified,https://www.nice.org.uk/guidance/ta779,2026-11-04,Published/terminated date on guidance page
+jemperli,en_nice_ta,TA779,verified,https://www.nice.org.uk/guidance/ta779,2026-11-04,
+trikafta,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta988,2026-11-04,"Ivacaftor–tezacaftor–elexacaftor (IVA–TEZ–ELX) plus ivacaftor (IVA) alone is recommended within its marketing authorisation, as an option for treating cystic fibrosis in... | Multiple technology appraisal with TEZ-IVA and LUM-IVA; earlier appraisal ID (gid-ta10566) discontinued."
+trikafta,en_nice_date,2024-07-24,verified,https://www.nice.org.uk/guidance/ta988,2026-11-04,Published/terminated date on guidance page
+trikafta,en_nice_ta,TA988,verified,https://www.nice.org.uk/guidance/ta988,2026-11-04,
+kapruvia,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta890,2026-11-04,"Difelikefalin is recommended, within its marketing authorisation, for treating moderate to severe pruritus in adults having haemodialysis."
+kapruvia,en_nice_date,2023-05-17,verified,https://www.nice.org.uk/guidance/ta890,2026-11-04,
+kapruvia,en_nice_ta,TA890,verified,https://www.nice.org.uk/guidance/ta890,2026-11-04,
+kerendia,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta877,2026-11-04,"Finerenone is recommended as an option for stage 3-4 CKD with type 2 diabetes, only if add-on to optimised standard care."
+kerendia,en_nice_date,2023-03-23,verified,https://www.nice.org.uk/guidance/ta877,2026-11-04,
+kerendia,en_nice_ta,TA877,verified,https://www.nice.org.uk/guidance/ta877,2026-11-04,
+kimmtrak,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1027,2026-11-04,"Tebentafusp is recommended, within its marketing authorisation, for HLA-A*02:01-positive unresectable or metastatic uveal melanoma."
+kimmtrak,en_nice_date,2025-01-09,verified,https://www.nice.org.uk/guidance/ta1027,2026-11-04,
+kimmtrak,en_nice_ta,TA1027,verified,https://www.nice.org.uk/guidance/ta1027,2026-11-04,
+kisunla,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11221,2026-11-04,in development (ID6222); no published guidance
+kisunla,en_nice_date,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11221,2026-11-04,in development (ID6222); no published guidance
+kisunla,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11221,2026-11-04,in development (ID6222); no published guidance
+klisyri,en_nice_decision,not appraised,verified,https://www.nice.org.uk/search?q=tirbanibulin,2026-11-04,NICE search for tirbanibulin and Klisyri returns no guidance or appraisal.
+klisyri,en_nice_date,,not_assessed,https://www.nice.org.uk/search?q=tirbanibulin,2026-11-04,
+klisyri,en_nice_ta,,not_assessed,https://www.nice.org.uk/search?q=tirbanibulin,2026-11-04,
+koselugo,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/hst20,2026-11-04,"Selumetinib can be used, within its marketing authorisation, for symptomatic inoperable plexiform neurofibromas in NF1, ages 3-17."
+koselugo,en_nice_date,2022-05-05,verified,https://www.nice.org.uk/guidance/hst20,2026-11-04,
+koselugo,en_nice_ta,HST20,verified,https://www.nice.org.uk/guidance/hst20,2026-11-04,
+krazati,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/terminated/ta1076,2026-11-04,"NICE unable to recommend; BMS will consider restarting when final overall survival analysis available (company paused, not non-submission)."
+krazati,en_nice_date,2025-07-02,verified,https://www.nice.org.uk/guidance/terminated/ta1076,2026-11-04,
+krazati,en_nice_ta,TA1076,verified,https://www.nice.org.uk/guidance/terminated/ta1076,2026-11-04,
+lazcluze,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1122,2026-11-04,"Amivantamab plus lazertinib can be used, within its marketing authorisation, for untreated EGFR-mutated advanced NSCLC."
+lazcluze,en_nice_date,2026-01-21,verified,https://www.nice.org.uk/guidance/ta1122,2026-11-04,
+lazcluze,en_nice_ta,TA1122,verified,https://www.nice.org.uk/guidance/ta1122,2026-11-04,
+leqembi,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11220,2026-11-04,in development (ID4043); no published guidance
+leqembi,en_nice_date,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11220,2026-11-04,in development (ID4043); no published guidance
+leqembi,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11220,2026-11-04,in development (ID4043); no published guidance
+leqvio,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta733,2026-11-04,Inclisiran is recommended for primary hypercholesterolaemia or mixed dyslipidaemia only if there is a history of cardiovascular events.
+leqvio,en_nice_date,2021-10-06,verified,https://www.nice.org.uk/guidance/ta733,2026-11-04,
+leqvio,en_nice_ta,TA733,verified,https://www.nice.org.uk/guidance/ta733,2026-11-04,
+libmeldy,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/hst18,2026-11-04,"Atidarsagene autotemcel is recommended, within its marketing authorisation, for metachromatic leukodystrophy with ARSA mutations."
+libmeldy,en_nice_date,2022-03-28,verified,https://www.nice.org.uk/guidance/hst18,2026-11-04,
+libmeldy,en_nice_ta,HST18,verified,https://www.nice.org.uk/guidance/hst18,2026-11-04,
+litfulo,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta958,2026-11-04,"Ritlecitinib is recommended, within its marketing authorisation, for severe alopecia areata in people 12 years and over."
+litfulo,en_nice_date,2024-03-27,verified,https://www.nice.org.uk/guidance/ta958,2026-11-04,
+litfulo,en_nice_ta,TA958,verified,https://www.nice.org.uk/guidance/ta958,2026-11-04,
+livmarli,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1205,2026-11-04,Maralixibat can be used for cholestatic pruritus in Alagille syndrome only as add-on to standard first-line treatment.
+livmarli,en_nice_date,2026-10-29,verified,https://www.nice.org.uk/guidance/ta1205,2026-11-04,
+livmarli,en_nice_ta,TA1205,verified,https://www.nice.org.uk/guidance/ta1205,2026-11-04,
+livtencity,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta860,2026-11-04,"Maribavir is recommended, within its marketing authorisation, for refractory CMV infection after HSCT or solid organ transplant."
+livtencity,en_nice_date,2023-01-18,verified,https://www.nice.org.uk/guidance/ta860,2026-11-04,
+livtencity,en_nice_ta,TA860,verified,https://www.nice.org.uk/guidance/ta860,2026-11-04,
+loqtorzi,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/terminated/ta1024,2026-11-04,Terminated (oesophageal SCC): company requested delay to evidence submission. Nasopharyngeal appraisal ID6406 in development.
+loqtorzi,en_nice_date,2024-12-11,verified,https://www.nice.org.uk/guidance/terminated/ta1024,2026-11-04,
+loqtorzi,en_nice_ta,TA1024,verified,https://www.nice.org.uk/guidance/terminated/ta1024,2026-11-04,
+lumakras,en_nice_decision,managed access,verified,https://www.nice.org.uk/guidance/ta781,2026-11-04,Sotorasib is recommended for use within the Cancer Drugs Fund for previously treated KRAS G12C-positive advanced NSCLC.
+lumakras,en_nice_date,2022-03-30,verified,https://www.nice.org.uk/guidance/ta781,2026-11-04,
+lumakras,en_nice_ta,TA781,verified,https://www.nice.org.uk/guidance/ta781,2026-11-04,
+lunsumio,en_nice_decision,not recommended,verified,https://www.nice.org.uk/guidance/ta892,2026-11-04,"Mosunetuzumab is not recommended, within its marketing authorisation, for relapsed or refractory follicular lymphoma after 2+ therapies."
+lunsumio,en_nice_date,2023-05-31,verified,https://www.nice.org.uk/guidance/ta892,2026-11-04,
+lunsumio,en_nice_ta,TA892,verified,https://www.nice.org.uk/guidance/ta892,2026-11-04,
+lupkynis,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta882,2026-11-04,"Voclosporin with mycophenolate mofetil is recommended, within its marketing authorisation, for active class 3-5 lupus nephritis."
+lupkynis,en_nice_date,2023-05-03,verified,https://www.nice.org.uk/guidance/ta882,2026-11-04,
+lupkynis,en_nice_ta,TA882,verified,https://www.nice.org.uk/guidance/ta882,2026-11-04,
+lydisilka,en_nice_decision,not appraised,verified,https://www.nice.org.uk/search?q=estetrol,2026-11-04,No NICE guidance/appraisal for estetrol-drospirenone contraception; only unrelated estetrol VMS topic (ID4037) awaiting development.
+lydisilka,en_nice_date,,not_assessed,https://www.nice.org.uk/search?q=estetrol,2026-11-04,
+lydisilka,en_nice_ta,,not_assessed,https://www.nice.org.uk/search?q=estetrol,2026-11-04,
+lynkuet,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11428,2026-11-04,in development (ID6359); no published guidance
+lynkuet,en_nice_date,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11428,2026-11-04,in development (ID6359); no published guidance
+lynkuet,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11428,2026-11-04,in development (ID6359); no published guidance
+lynozyfic,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11052,2026-11-04,in development (ID6609); no published guidance
+lynozyfic,en_nice_date,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11052,2026-11-04,in development (ID6609); no published guidance
+lynozyfic,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11052,2026-11-04,in development (ID6609); no published guidance
+lytgobi,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1005,2026-11-04,"Futibatinib is recommended, within its marketing authorisation, for previously treated FGFR2 fusion-positive advanced cholangiocarcinoma."
+lytgobi,en_nice_date,2024-09-11,verified,https://www.nice.org.uk/guidance/ta1005,2026-11-04,
+lytgobi,en_nice_ta,TA1005,verified,https://www.nice.org.uk/guidance/ta1005,2026-11-04,
+minjuvi,en_nice_decision,not recommended,verified,https://www.nice.org.uk/guidance/ta883,2026-11-04,"Tafasitamab with lenalidomide is not recommended, within its marketing authorisation, for relapsed or refractory DLBCL."
+minjuvi,en_nice_date,2023-05-03,verified,https://www.nice.org.uk/guidance/ta883,2026-11-04,
+minjuvi,en_nice_ta,TA883,verified,https://www.nice.org.uk/guidance/ta883,2026-11-04,
+mounjaro,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta924,2026-11-04,Tirzepatide is recommended for type 2 diabetes only if triple oral therapy is ineffective and BMI criteria met.
+mounjaro,en_nice_date,2023-10-25,verified,https://www.nice.org.uk/guidance/ta924,2026-11-04,
+mounjaro,en_nice_ta,TA924,verified,https://www.nice.org.uk/guidance/ta924,2026-11-04,
+nemluvio,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1077,2026-11-04,"Nemolizumab can be used for moderate to severe atopic dermatitis, only if not responded to a systemic immunosuppressant."
+nemluvio,en_nice_date,2025-07-02,verified,https://www.nice.org.uk/guidance/ta1077,2026-11-04,
+nemluvio,en_nice_ta,TA1077,verified,https://www.nice.org.uk/guidance/ta1077,2026-11-04,
+nexpovio,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta700,2026-11-04,Terminated appraisal of selinexor with low-dose dexamethasone; since withdrawn and replaced by TA970 (recommended) and TA974.
+nexpovio,en_nice_date,2021-05-19,verified,https://www.nice.org.uk/guidance/ta700,2026-11-04,
+nexpovio,en_nice_ta,TA700,verified,https://www.nice.org.uk/guidance/ta700,2026-11-04,
+nexviadyme,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta821,2026-11-04,"Avalglucosidase alfa is recommended, within its marketing authorisation, for treating Pompe disease, with commercial arrangement."
+nexviadyme,en_nice_date,2022-08-24,verified,https://www.nice.org.uk/guidance/ta821,2026-11-04,
+nexviadyme,en_nice_ta,TA821,verified,https://www.nice.org.uk/guidance/ta821,2026-11-04,
+ngenla,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta863,2026-11-04,"Somatrogon is recommended, within its marketing authorisation, for growth disturbance from growth hormone deficiency, aged 3+."
+ngenla,en_nice_date,2023-02-01,verified,https://www.nice.org.uk/guidance/ta863,2026-11-04,
+ngenla,en_nice_ta,TA863,verified,https://www.nice.org.uk/guidance/ta863,2026-11-04,
+nilemdo,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta694,2026-11-04,Bempedoic acid with ezetimibe recommended only if statins unsuitable and ezetimibe alone insufficient (separate tablets or FDC).
+nilemdo,en_nice_date,2021-04-28,verified,https://www.nice.org.uk/guidance/ta694,2026-11-04,
+nilemdo,en_nice_ta,TA694,verified,https://www.nice.org.uk/guidance/ta694,2026-11-04,
+nubeqa,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta660,2026-11-04,"Darolutamide with ADT is recommended, within its marketing authorisation, for high-risk hormone-relapsed non-metastatic prostate cancer."
+nubeqa,en_nice_date,2020-11-25,verified,https://www.nice.org.uk/guidance/ta660,2026-11-04,
+nubeqa,en_nice_ta,TA660,verified,https://www.nice.org.uk/guidance/ta660,2026-11-04,
+nulibry,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/terminated/ta1078,2026-11-04,NICE unable to make a recommendation; Sentynl Therapeutics withdrew from the appraisal.
+nulibry,en_nice_date,2025-06-25,verified,https://www.nice.org.uk/guidance/terminated/ta1078,2026-11-04,
+nulibry,en_nice_ta,TA1078,verified,https://www.nice.org.uk/guidance/terminated/ta1078,2026-11-04,
+nustendi,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta694,2026-11-04,Bempedoic acid with ezetimibe recommended only if statins unsuitable and ezetimibe alone insufficient.
+nustendi,en_nice_date,2021-04-28,verified,https://www.nice.org.uk/guidance/ta694,2026-11-04,
+nustendi,en_nice_ta,TA694,verified,https://www.nice.org.uk/guidance/ta694,2026-11-04,
+obgemsa,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta999,2026-11-04,Vibegron is recommended for overactive bladder only if antimuscarinic medicines are unsuitable or ineffective.
+obgemsa,en_nice_date,2024-09-04,verified,https://www.nice.org.uk/guidance/ta999,2026-11-04,
+obgemsa,en_nice_ta,TA999,verified,https://www.nice.org.uk/guidance/ta999,2026-11-04,
+ogsiveo,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1199,2026-11-04,"Nirogacestat can be used, within its marketing authorisation, for progressing desmoid tumours needing systemic treatment."
+ogsiveo,en_nice_date,2026-10-14,verified,https://www.nice.org.uk/guidance/ta1199,2026-11-04,
+ogsiveo,en_nice_ta,TA1199,verified,https://www.nice.org.uk/guidance/ta1199,2026-11-04,
+omjjara,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta957,2026-11-04,Momelotinib is recommended for myelofibrosis with moderate-severe anaemia only if intermediate-2 or high-risk.
+omjjara,en_nice_date,2024-03-20,verified,https://www.nice.org.uk/guidance/ta957,2026-11-04,
+omjjara,en_nice_ta,TA957,verified,https://www.nice.org.uk/guidance/ta957,2026-11-04,
+omvoh,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta925,2026-11-04,Recommended for moderately to severely active UC only if a TNF-alpha inhibitor has not worked or is unsuitable.
+omvoh,en_nice_date,2023-10-25,verified,https://www.nice.org.uk/guidance/ta925,2026-11-04,
+omvoh,en_nice_ta,TA925,verified,https://www.nice.org.uk/guidance/ta925,2026-11-04,
+ontozry,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta753,2026-11-04,"Recommended as add-on for drug-resistant focal seizures, only as second-line add-on (text as updated 2025)."
+ontozry,en_nice_date,2021-12-15,verified,https://www.nice.org.uk/guidance/ta753,2026-11-04,
+ontozry,en_nice_ta,TA753,verified,https://www.nice.org.uk/guidance/ta753,2026-11-04,
+opdualag,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta950,2026-11-04,"Recommended for untreated advanced melanoma 12+, only if stopped after 2 years (stopping rule, not narrower population)."
+opdualag,en_nice_date,2024-02-07,verified,https://www.nice.org.uk/guidance/ta950,2026-11-04,
+opdualag,en_nice_ta,TA950,verified,https://www.nice.org.uk/guidance/ta950,2026-11-04,
+orgovyx,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta995,2026-11-04,"Relugolix is recommended, within its marketing authorisation, as an option for treating prostate cancer in adults."
+orgovyx,en_nice_date,2024-08-14,verified,https://www.nice.org.uk/guidance/ta995,2026-11-04,
+orgovyx,en_nice_ta,TA995,verified,https://www.nice.org.uk/guidance/ta995,2026-11-04,
+orladeyo,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta738,2026-11-04,Recommended for preventing HAE attacks in 12+ only if they have at least 2 attacks per month.
+orladeyo,en_nice_date,2021-10-20,verified,https://www.nice.org.uk/guidance/ta738,2026-11-04,
+orladeyo,en_nice_ta,TA738,verified,https://www.nice.org.uk/guidance/ta738,2026-11-04,
+orserdu,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1036,2026-11-04,Recommended for ER+ HER2- ESR1-mutated breast cancer only if progressed after at least 12 months ET plus CDK4/6i.
+orserdu,en_nice_date,2025-02-05,verified,https://www.nice.org.uk/guidance/ta1036,2026-11-04,
+orserdu,en_nice_ta,TA1036,verified,https://www.nice.org.uk/guidance/ta1036,2026-11-04,
+oxbryta,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/ta981,2026-11-04,"Guidance withdrawn (product recalled); original recommendation text not viewable. NICE news 3 May 2024 says recommended, IMF-funded."
+oxbryta,en_nice_date,2024-06-12,verified,https://www.nice.org.uk/guidance/ta981,2026-11-04,
+oxbryta,en_nice_ta,TA981,verified,https://www.nice.org.uk/guidance/ta981,2026-11-04,
+oxlumo,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/hst25,2026-11-04,"Lumasiran is recommended, within its marketing authorisation, as an option for treating PH1 in people of all ages."
+oxlumo,en_nice_date,2023-04-19,verified,https://www.nice.org.uk/guidance/hst25,2026-11-04,
+oxlumo,en_nice_ta,HST25,verified,https://www.nice.org.uk/guidance/hst25,2026-11-04,
+padcev,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/terminated/ta797,2026-11-04,NICE is unable to make a recommendation because Astellas did not provide an evidence submission.
+padcev,en_nice_date,2022-06-15,verified,https://www.nice.org.uk/guidance/terminated/ta797,2026-11-04,
+padcev,en_nice_ta,TA797,verified,https://www.nice.org.uk/guidance/terminated/ta797,2026-11-04,
+paxlovid,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta878,2026-11-04,Recommended for COVID-19 in adults only if no supplemental oxygen needed and increased risk of severe disease.
+paxlovid,en_nice_date,2023-03-29,verified,https://www.nice.org.uk/guidance/ta878,2026-11-04,
+paxlovid,en_nice_ta,TA878,verified,https://www.nice.org.uk/guidance/ta878,2026-11-04,
+pemazyre,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta722,2026-11-04,"Pemigatinib is recommended, within its marketing authorisation, for FGFR2 fusion cholangiocarcinoma progressed after systemic therapy."
+pemazyre,en_nice_date,2021-08-25,verified,https://www.nice.org.uk/guidance/ta722,2026-11-04,
+pemazyre,en_nice_ta,TA722,verified,https://www.nice.org.uk/guidance/ta722,2026-11-04,
+piasky,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1019,2026-11-04,"Crovalimab is recommended, within its marketing authorisation, as an option for PNH in people 12 years and over."
+piasky,en_nice_date,2024-11-20,verified,https://www.nice.org.uk/guidance/ta1019,2026-11-04,
+piasky,en_nice_ta,TA1019,verified,https://www.nice.org.uk/guidance/ta1019,2026-11-04,
+piqray,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta652,2026-11-04,"Titled terminated appraisal; page replaced by TA816 (Aug 2022, optimised). Recommendation text no longer viewable."
+piqray,en_nice_date,2020-10-07,verified,https://www.nice.org.uk/guidance/ta652,2026-11-04,
+piqray,en_nice_ta,TA652,verified,https://www.nice.org.uk/guidance/ta652,2026-11-04,
+pluvicto,en_nice_decision,not recommended,verified,https://www.nice.org.uk/guidance/ta930,2026-11-04,"Lutetium-177 vipivotide tetraxetan is not recommended, within its marketing authorisation, for PSMA-positive hormone-relapsed mPC."
+pluvicto,en_nice_date,2023-11-15,verified,https://www.nice.org.uk/guidance/ta930,2026-11-04,
+pluvicto,en_nice_ta,TA930,verified,https://www.nice.org.uk/guidance/ta930,2026-11-04,
+polivy,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta649,2026-11-04,"Polatuzumab with rituximab and bendamustine is recommended, within its marketing authorisation, for R/R DLBCL unsuitable for HSCT."
+polivy,en_nice_date,2020-09-23,verified,https://www.nice.org.uk/guidance/ta649,2026-11-04,
+polivy,en_nice_ta,TA649,verified,https://www.nice.org.uk/guidance/ta649,2026-11-04,
+pombiliti,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta912,2026-11-04,"Cipaglucosidase alfa plus miglustat is recommended, within its marketing authorisation, for late-onset Pompe disease in adults."
+pombiliti,en_nice_date,2023-08-15,verified,https://www.nice.org.uk/guidance/ta912,2026-11-04,
+pombiliti,en_nice_ta,TA912,verified,https://www.nice.org.uk/guidance/ta912,2026-11-04,
+ponvory,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta767,2026-11-04,"Ponesimod is recommended for active RRMS in adults, only if provided per the commercial arrangement."
+ponvory,en_nice_date,2022-02-02,verified,https://www.nice.org.uk/guidance/ta767,2026-11-04,
+ponvory,en_nice_ta,TA767,verified,https://www.nice.org.uk/guidance/ta767,2026-11-04,
+pyrukynd,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/terminated/ta867,2026-11-04,NICE is unable to make a recommendation because Agios did not provide an evidence submission.
+pyrukynd,en_nice_date,2023-02-16,verified,https://www.nice.org.uk/guidance/terminated/ta867,2026-11-04,
+pyrukynd,en_nice_ta,TA867,verified,https://www.nice.org.uk/guidance/terminated/ta867,2026-11-04,
+qalsody,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-hst10062,2026-11-04,"in development (HST, ID3767), expected publication 17 March 2027."
+qalsody,en_nice_date,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-hst10062,2026-11-04,"in development (HST, ID3767), expected publication 17 March 2027."
+qalsody,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-hst10062,2026-11-04,"in development (HST, ID3767), expected publication 17 March 2027."
+qinlock,en_nice_decision,not recommended,verified,https://www.nice.org.uk/guidance/ta881,2026-11-04,"Not recommended within MA (per NICE committee slides gid-ta11676/documents/1); replaced by TA1146 (2026, recommended)."
+qinlock,en_nice_date,2023-05-03,verified,https://www.nice.org.uk/guidance/ta881,2026-11-04,
+qinlock,en_nice_ta,TA881,verified,https://www.nice.org.uk/guidance/ta881,2026-11-04,
+quviviq,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta922,2026-11-04,"Recommended for long-term insomnia only if CBTi has been tried and not worked, or is unavailable/unsuitable."
+quviviq,en_nice_date,2023-10-18,verified,https://www.nice.org.uk/guidance/ta922,2026-11-04,
+quviviq,en_nice_ta,TA922,verified,https://www.nice.org.uk/guidance/ta922,2026-11-04,
+rayvow,en_nice_decision,not appraised,verified,https://www.nice.org.uk/guidance/discontinued/gid-ta10807,2026-11-04,Appraisal ID3759 discontinued after company information (Aug 2022); no guidance published.
+rayvow,en_nice_date,,not_assessed,https://www.nice.org.uk/guidance/discontinued/gid-ta10807,2026-11-04,
+rayvow,en_nice_ta,,not_assessed,https://www.nice.org.uk/guidance/discontinued/gid-ta10807,2026-11-04,
+reblozyl,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/terminated/ta844,2026-11-04,"Unable to recommend for MDS anaemia, BMS made no submission. TA843 (beta-thalassaemia) terminated same day."
+reblozyl,en_nice_date,2022-11-24,verified,https://www.nice.org.uk/guidance/terminated/ta844,2026-11-04,
+reblozyl,en_nice_ta,TA844,verified,https://www.nice.org.uk/guidance/terminated/ta844,2026-11-04,
+recarbrio,en_nice_decision,not appraised,verified,https://www.nice.org.uk/search?q=relebactam,2026-11-04,No TA/HST; only antimicrobial evidence summary ES30 (2020) found.
+recarbrio,en_nice_date,,not_assessed,https://www.nice.org.uk/search?q=relebactam,2026-11-04,
+recarbrio,en_nice_ta,,not_assessed,https://www.nice.org.uk/search?q=relebactam,2026-11-04,
+retevmo,en_nice_decision,managed access,verified,https://www.nice.org.uk/guidance/ta742,2026-11-04,"TA742 (thyroid) replaced by TA1038, which states it reviews data from TA742's managed access agreement."
+retevmo,en_nice_date,2021-11-03,verified,https://www.nice.org.uk/guidance/ta742,2026-11-04,
+retevmo,en_nice_ta,TA742,verified,https://www.nice.org.uk/guidance/ta742,2026-11-04,
+rezdiffra,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11414,2026-11-04,in development (ID6529).
+rezdiffra,en_nice_date,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11414,2026-11-04,in development (ID6529).
+rezdiffra,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11414,2026-11-04,in development (ID6529).
+rezzayo,en_nice_decision,not appraised,verified,https://www.nice.org.uk/guidance/prioritisation/gid-ta11172,2026-11-04,Topic not selected (25 July 2022): not eligible for technology evaluation guidance.
+rezzayo,en_nice_date,,not_assessed,https://www.nice.org.uk/guidance/prioritisation/gid-ta11172,2026-11-04,
+rezzayo,en_nice_ta,,not_assessed,https://www.nice.org.uk/guidance/prioritisation/gid-ta11172,2026-11-04,
+rinvoq,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta665,2026-11-04,Recommended with methotrexate for RA after intensive cDMARDs only if disease is severe (DAS28 >5.1).
+rinvoq,en_nice_date,2020-12-09,verified,https://www.nice.org.uk/guidance/ta665,2026-11-04,
+rinvoq,en_nice_ta,TA665,verified,https://www.nice.org.uk/guidance/ta665,2026-11-04,
+roctavian,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta10682,2026-11-04,awaiting development (ID3806); no guidance published.
+roctavian,en_nice_date,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta10682,2026-11-04,awaiting development (ID3806); no guidance published.
+roctavian,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta10682,2026-11-04,awaiting development (ID3806); no guidance published.
+romvimza,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11964,2026-11-04,in development (ID6736).
+romvimza,en_nice_date,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11964,2026-11-04,in development (ID6736).
+romvimza,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta11964,2026-11-04,in development (ID6736).
+rozlytrek,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta643,2026-11-04,"Recommended within MA for ROS1+ NSCLC. TA644 (NTRK, CDF) published same day."
+rozlytrek,en_nice_date,2020-08-12,verified,https://www.nice.org.uk/guidance/ta643,2026-11-04,
+rozlytrek,en_nice_ta,TA643,verified,https://www.nice.org.uk/guidance/ta643,2026-11-04,
+rybelsus,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta10438,2026-11-04,Semaglutide for type 2 diabetes (ID1450) awaiting development; no guidance published.
+rybelsus,en_nice_date,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta10438,2026-11-04,Semaglutide for type 2 diabetes (ID1450) awaiting development; no guidance published.
+rybelsus,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta10438,2026-11-04,Semaglutide for type 2 diabetes (ID1450) awaiting development; no guidance published.
+rybrevant,en_nice_decision,not recommended,verified,https://www.nice.org.uk/guidance/ta850,2026-11-04,"Amivantamab is not recommended, within its marketing authorisation, for EGFR exon 20 NSCLC after platinum chemotherapy."
+rybrevant,en_nice_date,2022-12-14,verified,https://www.nice.org.uk/guidance/ta850,2026-11-04,
+rybrevant,en_nice_ta,TA850,verified,https://www.nice.org.uk/guidance/ta850,2026-11-04,
+rystiggo,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1155,2026-11-04,Can be used as add-on for antibody-positive gMG only if MGFA class 2-4a and uncontrolled after 2+ treatments.
+rystiggo,en_nice_date,2026-05-20,verified,https://www.nice.org.uk/guidance/ta1155,2026-11-04,
+rystiggo,en_nice_ta,TA1155,verified,https://www.nice.org.uk/guidance/ta1155,2026-11-04,
+rytelo,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta10800,2026-11-04,"in development (MDS, ID3922)."
+rytelo,en_nice_date,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta10800,2026-11-04,"in development (MDS, ID3922)."
+rytelo,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/indevelopment/gid-ta10800,2026-11-04,"in development (MDS, ID3922)."
+saphnelo,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta793,2026-11-04,NICE is unable to make a recommendation on anifrolumab (Saphnelo) for active autoantibody-positive SLE; no evidence submission.
+saphnelo,en_nice_date,2022-06-08,verified,https://www.nice.org.uk/guidance/ta793,2026-11-04,
+saphnelo,en_nice_ta,TA793,verified,https://www.nice.org.uk/guidance/ta793,2026-11-04,
+sarclisa,en_nice_decision,managed access,verified,https://www.nice.org.uk/guidance/ta658,2026-11-04,Recommended for CDF per TA658 final draft guidance (meets CDF criteria; managed access agreement); TA658 now withdrawn/replaced by TA1194.
+sarclisa,en_nice_date,2020-11-18,verified,https://www.nice.org.uk/guidance/ta658,2026-11-04,
+sarclisa,en_nice_ta,TA658,verified,https://www.nice.org.uk/guidance/ta658,2026-11-04,
+scemblix,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta813,2026-11-04,"Asciminib is recommended, within its marketing authorisation, as an option for treating chronic-phase Ph+ CML."
+scemblix,en_nice_date,2022-08-03,verified,https://www.nice.org.uk/guidance/ta813,2026-11-04,
+scemblix,en_nice_ta,TA813,verified,https://www.nice.org.uk/guidance/ta813,2026-11-04,
+skyclarys,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta1061,2026-11-04,NICE is unable to make a recommendation on omaveloxolone; Biogen withdrew its evidence submission.
+skyclarys,en_nice_date,2025-05-06,verified,https://www.nice.org.uk/guidance/ta1061,2026-11-04,
+skyclarys,en_nice_ta,TA1061,verified,https://www.nice.org.uk/guidance/ta1061,2026-11-04,
+skyrizi,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta596,2026-11-04,"Risankizumab is recommended as an option for treating plaque psoriasis in adults, only if: the disease is severe."
+skyrizi,en_nice_date,2019-08-21,verified,https://www.nice.org.uk/guidance/ta596,2026-11-04,
+skyrizi,en_nice_ta,TA596,verified,https://www.nice.org.uk/guidance/ta596,2026-11-04,
+sogroya,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1066,2026-11-04,"Somapacitan can be used, within its marketing authorisation, to treat growth failure caused by GHD in people 3-17."
+sogroya,en_nice_date,2025-06-03,verified,https://www.nice.org.uk/guidance/ta1066,2026-11-04,
+sogroya,en_nice_ta,TA1066,verified,https://www.nice.org.uk/guidance/ta1066,2026-11-04,
+sotyktu,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta907,2026-11-04,"Deucravacitinib is recommended as an option for moderate to severe plaque psoriasis in adults, only if PASI>=10, DLQI>10."
+sotyktu,en_nice_date,2023-06-28,verified,https://www.nice.org.uk/guidance/ta907,2026-11-04,
+sotyktu,en_nice_ta,TA907,verified,https://www.nice.org.uk/guidance/ta907,2026-11-04,
+spevigo,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1070,2026-11-04,"Spesolimab is recommended as an option for treating GPP flares in adults, only if used to treat moderate-severe flares."
+spevigo,en_nice_date,2025-06-18,verified,https://www.nice.org.uk/guidance/ta1070,2026-11-04,
+spevigo,en_nice_ta,TA1070,verified,https://www.nice.org.uk/guidance/ta1070,2026-11-04,
+sunosi,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta758,2026-11-04,Solriamfetol is recommended for EDS in narcolepsy; only if modafinil and dexamfetamine/methylphenidate have not worked.
+sunosi,en_nice_date,2022-01-05,verified,https://www.nice.org.uk/guidance/ta758,2026-11-04,
+sunosi,en_nice_ta,TA758,verified,https://www.nice.org.uk/guidance/ta758,2026-11-04,
+tabrecta,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta884,2026-11-04,NICE is unable to make a recommendation on capmatinib; Novartis did not provide an evidence submission.
+tabrecta,en_nice_date,2023-05-03,verified,https://www.nice.org.uk/guidance/ta884,2026-11-04,
+tabrecta,en_nice_ta,TA884,verified,https://www.nice.org.uk/guidance/ta884,2026-11-04,
+talvey,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1114,2026-11-04,Talquetamab can be used to treat RRMM in adults after 3 or more lines of treatment (matches licence population).
+talvey,en_nice_date,2025-12-03,verified,https://www.nice.org.uk/guidance/ta1114,2026-11-04,
+talvey,en_nice_ta,TA1114,verified,https://www.nice.org.uk/guidance/ta1114,2026-11-04,
+tecartus,en_nice_decision,managed access,verified,https://www.nice.org.uk/guidance/ta677,2026-11-04,Brexucabtagene autoleucel is recommended for use within the Cancer Drugs Fund for relapsed or refractory mantle cell lymphoma.
+tecartus,en_nice_date,2021-02-24,verified,https://www.nice.org.uk/guidance/ta677,2026-11-04,
+tecartus,en_nice_ta,TA677,verified,https://www.nice.org.uk/guidance/ta677,2026-11-04,
+tecvayli,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta869,2026-11-04,Terminated appraisal TA869 (RRMM after 3+ therapies); since updated and replaced by TA1015 (2024-11-13).
+tecvayli,en_nice_date,2023-02-16,verified,https://www.nice.org.uk/guidance/ta869,2026-11-04,
+tecvayli,en_nice_ta,TA869,verified,https://www.nice.org.uk/guidance/ta869,2026-11-04,
+tepkinly,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta954,2026-11-04,"Epcoritamab is recommended for R/R DLBCL after 2+ systemic treatments, only if they have had polatuzumab vedotin."
+tepkinly,en_nice_date,2024-03-06,verified,https://www.nice.org.uk/guidance/ta954,2026-11-04,
+tepkinly,en_nice_ta,TA954,verified,https://www.nice.org.uk/guidance/ta954,2026-11-04,
+tepmetko,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta789,2026-11-04,"Tepotinib is recommended, within its marketing authorisation, as an option for advanced NSCLC with METex14 skipping."
+tepmetko,en_nice_date,2022-05-18,verified,https://www.nice.org.uk/guidance/ta789,2026-11-04,
+tepmetko,en_nice_ta,TA789,verified,https://www.nice.org.uk/guidance/ta789,2026-11-04,
+tevimbra,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta1068,2026-11-04,Unable to recommend tislelizumab for 2L oesophageal SCC (first EU indication); BeiGene withdrew submission. TA1058 (NSCLC) terminated earlier 2025-04-23.
+tevimbra,en_nice_date,2025-05-29,verified,https://www.nice.org.uk/guidance/ta1068,2026-11-04,
+tevimbra,en_nice_ta,TA1068,verified,https://www.nice.org.uk/guidance/ta1068,2026-11-04,
+tezspire,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta880,2026-11-04,Tezepelumab add-on is recommended for severe asthma in 12+; only if 3+ exacerbations or maintenance oral corticosteroids.
+tezspire,en_nice_date,2023-04-20,verified,https://www.nice.org.uk/guidance/ta880,2026-11-04,
+tezspire,en_nice_ta,TA880,verified,https://www.nice.org.uk/guidance/ta880,2026-11-04,
+tivdak,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1164,2026-11-04,"Tisotumab vedotin can be used, within its marketing authorisation, to treat recurrent or metastatic cervical cancer."
+tivdak,en_nice_date,2026-06-11,verified,https://www.nice.org.uk/guidance/ta1164,2026-11-04,
+tivdak,en_nice_ta,TA1164,verified,https://www.nice.org.uk/guidance/ta1164,2026-11-04,
+trecondi,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta640,2026-11-04,Treosulfan with fludarabine is recommended for conditioning before allo-HSCT in malignant disease where reduced intensity suitable.
+trecondi,en_nice_date,2020-08-05,verified,https://www.nice.org.uk/guidance/ta640,2026-11-04,
+trecondi,en_nice_ta,TA640,verified,https://www.nice.org.uk/guidance/ta640,2026-11-04,
+trodelvy,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta819,2026-11-04,"Sacituzumab govitecan is recommended, within its marketing authorisation, for unresectable triple-negative advanced breast cancer."
+trodelvy,en_nice_date,2022-08-17,verified,https://www.nice.org.uk/guidance/ta819,2026-11-04,
+trodelvy,en_nice_ta,TA819,verified,https://www.nice.org.uk/guidance/ta819,2026-11-04,
+truqap,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1063,2026-11-04,"Capivasertib plus fulvestrant recommended for HR+/HER2- advanced breast cancer with alterations, after CDK4/6 inhibitor plus AI."
+truqap,en_nice_date,2025-05-15,verified,https://www.nice.org.uk/guidance/ta1063,2026-11-04,
+truqap,en_nice_ta,TA1063,verified,https://www.nice.org.uk/guidance/ta1063,2026-11-04,
+tryngolza,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1203,2026-11-04,"Olezarsen can be used for genetically confirmed FCS in adults, only if diet and conventional treatments inadequate."
+tryngolza,en_nice_date,2026-10-27,verified,https://www.nice.org.uk/guidance/ta1203,2026-11-04,
+tryngolza,en_nice_ta,TA1203,verified,https://www.nice.org.uk/guidance/ta1203,2026-11-04,
+tukysa,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta786,2026-11-04,"Tucatinib with trastuzumab and capecitabine is recommended, within its marketing authorisation, for HER2+ advanced breast cancer."
+tukysa,en_nice_date,2022-04-27,verified,https://www.nice.org.uk/guidance/ta786,2026-11-04,
+tukysa,en_nice_ta,TA786,verified,https://www.nice.org.uk/guidance/ta786,2026-11-04,
+uplizna,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/ta1151,2026-11-04,Only guidance found covers a later indication; first-indication guidance not published. Unable to recommend inebilizumab for IgG4-related disease; no submission. First indication NMOSD has no guidance (ID1529 discontinued).
+uplizna,en_nice_date,,unknown,https://www.nice.org.uk/guidance/ta1151,2026-11-04,Only guidance found covers a later indication; first-indication guidance not published.
+uplizna,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/ta1151,2026-11-04,Only guidance found covers a later indication; first-indication guidance not published.
+upstaza,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/hst26,2026-11-04,"Eladocagene exuparvovec is recommended, within its marketing authorisation, as an option for treating AADC deficiency."
+upstaza,en_nice_date,2023-04-19,verified,https://www.nice.org.uk/guidance/hst26,2026-11-04,
+upstaza,en_nice_ta,HST26,verified,https://www.nice.org.uk/guidance/hst26,2026-11-04,
+vabysmo,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta800,2026-11-04,"Faricimab is recommended for wet AMD in adults, only if criteria met. TA799 (DMO, also optimised) published same day."
+vabysmo,en_nice_date,2022-06-29,verified,https://www.nice.org.uk/guidance/ta800,2026-11-04,
+vabysmo,en_nice_ta,TA800,verified,https://www.nice.org.uk/guidance/ta800,2026-11-04,
+vafseo,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1035,2026-11-04,"Vadadustat is recommended, within its marketing authorisation, for symptomatic anaemia of CKD in adults on dialysis."
+vafseo,en_nice_date,2025-01-23,verified,https://www.nice.org.uk/guidance/ta1035,2026-11-04,
+vafseo,en_nice_ta,TA1035,verified,https://www.nice.org.uk/guidance/ta1035,2026-11-04,
+vanflyta,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1013,2026-11-04,"Quizartinib is recommended, within its marketing authorisation, as an option for newly diagnosed FLT3-ITD-positive AML."
+vanflyta,en_nice_date,2024-10-23,verified,https://www.nice.org.uk/guidance/ta1013,2026-11-04,
+vanflyta,en_nice_ta,TA1013,verified,https://www.nice.org.uk/guidance/ta1013,2026-11-04,
+tavneos,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/ta825,2026-11-04,TA825 withdrawn (MHRA suspended MA); original recommendation text no longer viewable on NICE page
+tavneos,en_nice_date,2022-09-21,verified,https://www.nice.org.uk/guidance/ta825,2026-11-04,TA825 published date shown on withdrawn guidance page
+tavneos,en_nice_ta,TA825,verified,https://www.nice.org.uk/guidance/ta825,2026-11-04,
+ryzneuta,en_nice_decision,not appraised,verified,https://www.nice.org.uk/search?q=efbemalenograstim%20alfa,2026-11-04,NICE search for INN and brand (Ryzneuta) returns 0 results; no guidance or appraisal
+ryzneuta,en_nice_date,,not_assessed,https://www.nice.org.uk/search?q=efbemalenograstim%20alfa,2026-11-04,
+ryzneuta,en_nice_ta,,not_assessed,https://www.nice.org.uk/search?q=efbemalenograstim%20alfa,2026-11-04,
+skysona,en_nice_decision,not appraised,verified,https://www.nice.org.uk/guidance/discontinued/gid-hst10038,2026-11-04,HST appraisal ID1284 discontinued; no guidance published
+skysona,en_nice_date,,not_assessed,https://www.nice.org.uk/guidance/discontinued/gid-hst10038,2026-11-04,
+skysona,en_nice_ta,,not_assessed,https://www.nice.org.uk/guidance/discontinued/gid-hst10038,2026-11-04,
+sephience,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta11982,2026-11-04,"in development (awaiting development, ID6750); no published guidance"
+sephience,en_nice_date,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta11982,2026-11-04,"in development (awaiting development, ID6750); no published guidance"
+sephience,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta11982,2026-11-04,"in development (awaiting development, ID6750); no published guidance"
+skytrofa,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta12013,2026-11-04,"in development (awaiting development, GID-TA12013); no published guidance"
+skytrofa,en_nice_date,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta12013,2026-11-04,"in development (awaiting development, GID-TA12013); no published guidance"
+skytrofa,en_nice_ta,,unknown,https://www.nice.org.uk/guidance/awaiting-development/gid-ta12013,2026-11-04,"in development (awaiting development, GID-TA12013); no published guidance"
+sunlenca,en_nice_decision,,unknown,https://www.nice.org.uk/search?q=lenacapavir,2026-11-04,in development (MDR HIV ID6196 at topic prioritisation); no published guidance
+sunlenca,en_nice_date,,unknown,https://www.nice.org.uk/search?q=lenacapavir,2026-11-04,in development (MDR HIV ID6196 at topic prioritisation); no published guidance
+sunlenca,en_nice_ta,,unknown,https://www.nice.org.uk/search?q=lenacapavir,2026-11-04,in development (MDR HIV ID6196 at topic prioritisation); no published guidance
+tepezza,en_nice_decision,,unknown,https://www.nice.org.uk/search?q=teprotumumab,2026-11-04,in development (ID6432 deferred; ID6756 in development); no published guidance
+tepezza,en_nice_date,,unknown,https://www.nice.org.uk/search?q=teprotumumab,2026-11-04,in development (ID6432 deferred; ID6756 in development); no published guidance
+tepezza,en_nice_ta,,unknown,https://www.nice.org.uk/search?q=teprotumumab,2026-11-04,in development (ID6432 deferred; ID6756 in development); no published guidance
+veklury,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta971,2026-11-04,Remdesivir is recommended as an option for treating COVID-19 in hospitals in adults only if high risk.
+veklury,en_nice_date,2024-05-08,verified,https://www.nice.org.uk/guidance/ta971,2026-11-04,
+veklury,en_nice_ta,TA971,verified,https://www.nice.org.uk/guidance/ta971,2026-11-04,
+velsipity,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta956,2026-11-04,"Etrasimod is recommended, within its marketing authorisation, as an option for moderately to severely active ulcerative colitis."
+velsipity,en_nice_date,2024-03-11,verified,https://www.nice.org.uk/guidance/ta956,2026-11-04,
+velsipity,en_nice_ta,TA956,verified,https://www.nice.org.uk/guidance/ta956,2026-11-04,
+veoza,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1143,2026-11-04,Fezolinetant can be used as an option to treat moderate to severe vasomotor symptoms when HRT is unsuitable.
+veoza,en_nice_date,2026-03-31,verified,https://www.nice.org.uk/guidance/ta1143,2026-11-04,
+veoza,en_nice_ta,TA1143,verified,https://www.nice.org.uk/guidance/ta1143,2026-11-04,
+verquvo,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta731,2026-11-04,NICE is unable to make a recommendation on vericiguat because Bayer did not provide an evidence submission.
+verquvo,en_nice_date,2021-09-29,verified,https://www.nice.org.uk/guidance/ta731,2026-11-04,
+verquvo,en_nice_ta,TA731,verified,https://www.nice.org.uk/guidance/ta731,2026-11-04,
+voranigo,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1147,2026-11-04,Vorasidenib can be used as an option to treat grade 2 IDH-mutant astrocytoma or oligodendroglioma after surgery (matches licence).
+voranigo,en_nice_date,2026-04-29,verified,https://www.nice.org.uk/guidance/ta1147,2026-11-04,
+voranigo,en_nice_ta,TA1147,verified,https://www.nice.org.uk/guidance/ta1147,2026-11-04,
+voxzogo,en_nice_decision,,unknown,https://www.nice.org.uk/search?q=vosoritide,2026-11-04,in development (GID-TA11528); earlier ID3807 awaiting development; no published guidance.
+voxzogo,en_nice_date,,unknown,https://www.nice.org.uk/search?q=vosoritide,2026-11-04,in development (GID-TA11528); earlier ID3807 awaiting development; no published guidance.
+voxzogo,en_nice_ta,,unknown,https://www.nice.org.uk/search?q=vosoritide,2026-11-04,in development (GID-TA11528); earlier ID3807 awaiting development; no published guidance.
+voydeya,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1010,2026-11-04,Danicopan is recommended as add-on option for PNH only if clinically significant extravascular haemolysis on C5 inhibitor.
+voydeya,en_nice_date,2024-10-23,verified,https://www.nice.org.uk/guidance/ta1010,2026-11-04,
+voydeya,en_nice_ta,TA1010,verified,https://www.nice.org.uk/guidance/ta1010,2026-11-04,
+nurtec,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta906,2026-11-04,Rimegepant is recommended for preventing episodic migraine only if at least 3 preventatives have not worked.
+nurtec,en_nice_date,2023-07-05,verified,https://www.nice.org.uk/guidance/ta906,2026-11-04,
+nurtec,en_nice_ta,TA906,verified,https://www.nice.org.uk/guidance/ta906,2026-11-04,
+vyepti,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta871,2026-11-04,"Eptinezumab is recommended as an option for preventing migraine in adults, only if 3 preventives failed."
+vyepti,en_nice_date,2023-03-01,verified,https://www.nice.org.uk/guidance/ta871,2026-11-04,
+vyepti,en_nice_ta,TA871,verified,https://www.nice.org.uk/guidance/ta871,2026-11-04,
+vyjuvek,en_nice_decision,,unknown,https://www.nice.org.uk/search?q=beremagene%20geperpavec,2026-11-04,"in development (GID-TA10868), expected publication 18 November 2026."
+vyjuvek,en_nice_date,,unknown,https://www.nice.org.uk/search?q=beremagene%20geperpavec,2026-11-04,"in development (GID-TA10868), expected publication 18 November 2026."
+vyjuvek,en_nice_ta,,unknown,https://www.nice.org.uk/search?q=beremagene%20geperpavec,2026-11-04,"in development (GID-TA10868), expected publication 18 November 2026."
+vyloy,en_nice_decision,not recommended,verified,https://www.nice.org.uk/guidance/ta1046,2026-11-04,"Zolbetuximab with chemotherapy is not recommended, within its marketing authorisation, for untreated CLDN18.2-positive gastric/GOJ adenocarcinoma."
+vyloy,en_nice_date,2025-03-12,verified,https://www.nice.org.uk/guidance/ta1046,2026-11-04,
+vyloy,en_nice_ta,TA1046,verified,https://www.nice.org.uk/guidance/ta1046,2026-11-04,
+vyvgart,en_nice_decision,not recommended,verified,https://www.nice.org.uk/guidance/ta1069,2026-11-04,"Efgartigimod is not recommended, within its marketing authorisation, as add-on for AChR-antibody-positive generalised myasthenia gravis."
+vyvgart,en_nice_date,2025-06-04,verified,https://www.nice.org.uk/guidance/ta1069,2026-11-04,
+vyvgart,en_nice_ta,TA1069,verified,https://www.nice.org.uk/guidance/ta1069,2026-11-04,
+wainzua,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1020,2026-11-04,"Eplontersen is recommended, within its marketing authorisation, for hereditary ATTR amyloidosis with stage 1 or 2 polyneuropathy."
+wainzua,en_nice_date,2024-11-27,verified,https://www.nice.org.uk/guidance/ta1020,2026-11-04,
+wainzua,en_nice_ta,TA1020,verified,https://www.nice.org.uk/guidance/ta1020,2026-11-04,
+wayrilz,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta1187,2026-11-04,NICE is unable to make a recommendation on rilzabrutinib; company did not provide an evidence submission.
+wayrilz,en_nice_date,2026-08-20,verified,https://www.nice.org.uk/guidance/ta1187,2026-11-04,
+wayrilz,en_nice_ta,TA1187,verified,https://www.nice.org.uk/guidance/ta1187,2026-11-04,
+wegovy,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta875,2026-11-04,Semaglutide is recommended for weight management only if used max 2 years within specialist service.
+wegovy,en_nice_date,2023-03-08,verified,https://www.nice.org.uk/guidance/ta875,2026-11-04,
+wegovy,en_nice_ta,TA875,verified,https://www.nice.org.uk/guidance/ta875,2026-11-04,
+welireg,en_nice_decision,managed access,verified,https://www.nice.org.uk/guidance/ta1011,2026-11-04,Belzutifan is recommended with managed access as an option for treating von Hippel-Lindau disease tumours in adults.
+welireg,en_nice_date,2024-10-16,verified,https://www.nice.org.uk/guidance/ta1011,2026-11-04,
+welireg,en_nice_ta,TA1011,verified,https://www.nice.org.uk/guidance/ta1011,2026-11-04,
+winlevi,en_nice_decision,terminated,verified,https://www.nice.org.uk/guidance/ta1105,2026-11-04,NICE is unable to make a recommendation on clascoterone; company did not provide an evidence submission.
+winlevi,en_nice_date,2025-10-22,verified,https://www.nice.org.uk/guidance/ta1105,2026-11-04,
+winlevi,en_nice_ta,TA1105,verified,https://www.nice.org.uk/guidance/ta1105,2026-11-04,
+winrevair,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta1161,2026-11-04,"Sotatercept with other PAH treatments can be used for WHO FC 2-3 PAH, only under risk conditions."
+winrevair,en_nice_date,2026-06-03,verified,https://www.nice.org.uk/guidance/ta1161,2026-11-04,
+winrevair,en_nice_ta,TA1161,verified,https://www.nice.org.uk/guidance/ta1161,2026-11-04,
+xenleta,en_nice_decision,not appraised,verified,https://www.nice.org.uk/search?q=lefamulin,2026-11-04,NICE site search for lefamulin returns no results; no guidance or appraisal.
+xenleta,en_nice_date,,not_assessed,https://www.nice.org.uk/search?q=lefamulin,2026-11-04,
+xenleta,en_nice_ta,,not_assessed,https://www.nice.org.uk/search?q=lefamulin,2026-11-04,
+xenpozyme,en_nice_decision,not recommended,verified,https://www.nice.org.uk/guidance/hst32,2026-11-04,"Olipudase alfa is not recommended, within its marketing authorisation, for ASMD type AB and type B."
+xenpozyme,en_nice_date,2025-04-02,verified,https://www.nice.org.uk/guidance/hst32,2026-11-04,
+xenpozyme,en_nice_ta,HST32,verified,https://www.nice.org.uk/guidance/hst32,2026-11-04,
+yorvipath,en_nice_decision,,unknown,https://www.nice.org.uk/search?q=palopegteriparatide,2026-11-04,"in development (GID-TA11454), expected publication TBC."
+yorvipath,en_nice_date,,unknown,https://www.nice.org.uk/search?q=palopegteriparatide,2026-11-04,"in development (GID-TA11454), expected publication TBC."
+yorvipath,en_nice_ta,,unknown,https://www.nice.org.uk/search?q=palopegteriparatide,2026-11-04,"in development (GID-TA11454), expected publication TBC."
+zegalogue,en_nice_decision,not appraised,verified,https://www.nice.org.uk/search?q=dasiglucagon,2026-11-04,"No guidance or appraisal; only a topic-prioritisation entry (TSID12255, under-6s)."
+zegalogue,en_nice_date,,not_assessed,https://www.nice.org.uk/search?q=dasiglucagon,2026-11-04,
+zegalogue,en_nice_ta,,not_assessed,https://www.nice.org.uk/search?q=dasiglucagon,2026-11-04,
+zeposia,en_nice_decision,not recommended,verified,https://www.nice.org.uk/guidance/ta706,2026-11-04,"Ozanimod is not recommended, within its marketing authorisation, for relapsing-remitting multiple sclerosis."
+zeposia,en_nice_date,2021-06-09,verified,https://www.nice.org.uk/guidance/ta706,2026-11-04,
+zeposia,en_nice_ta,TA706,verified,https://www.nice.org.uk/guidance/ta706,2026-11-04,
+ziihera,en_nice_decision,recommended,verified,https://www.nice.org.uk/guidance/ta1153,2026-11-04,"Zanidatamab can be used, within its marketing authorisation, for HER2-positive advanced biliary tract cancer after 1+ lines."
+ziihera,en_nice_date,2026-05-07,verified,https://www.nice.org.uk/guidance/ta1153,2026-11-04,
+ziihera,en_nice_ta,TA1153,verified,https://www.nice.org.uk/guidance/ta1153,2026-11-04,
+zilbrysq,en_nice_decision,,unknown,https://www.nice.org.uk/search?q=zilucoplan,2026-11-04,"in development (GID-TA11096), expected publication 10 March 2027."
+zilbrysq,en_nice_date,,unknown,https://www.nice.org.uk/search?q=zilucoplan,2026-11-04,"in development (GID-TA11096), expected publication 10 March 2027."
+zilbrysq,en_nice_ta,,unknown,https://www.nice.org.uk/search?q=zilucoplan,2026-11-04,"in development (GID-TA11096), expected publication 10 March 2027."
+zokinvy,en_nice_decision,not appraised,verified,https://www.nice.org.uk/search?q=lonafarnib,2026-11-04,No guidance or appraisal; only an HST topic-prioritisation entry (ID3867).
+zokinvy,en_nice_date,,not_assessed,https://www.nice.org.uk/search?q=lonafarnib,2026-11-04,
+zokinvy,en_nice_ta,,not_assessed,https://www.nice.org.uk/search?q=lonafarnib,2026-11-04,
+zolgensma,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/hst15,2026-11-04,Recommended for type 1 SMA in babies only if conditions met; page last updated 19 April 2023.
+zolgensma,en_nice_date,2021-07-07,verified,https://www.nice.org.uk/guidance/hst15,2026-11-04,
+zolgensma,en_nice_ta,HST15,verified,https://www.nice.org.uk/guidance/hst15,2026-11-04,
+ztalmy,en_nice_decision,not recommended,verified,https://www.nice.org.uk/guidance/ta1033,2026-11-04,"Ganaxolone is not recommended, within its marketing authorisation, as add-on for seizures in CDKL5 deficiency disorder."
+ztalmy,en_nice_date,2025-02-12,verified,https://www.nice.org.uk/guidance/ta1033,2026-11-04,
+ztalmy,en_nice_ta,TA1033,verified,https://www.nice.org.uk/guidance/ta1033,2026-11-04,
+zynlonta,en_nice_decision,optimised,verified,https://www.nice.org.uk/guidance/ta947,2026-11-04,Loncastuximab tesirine is recommended for R/R DLBCL after 2+ treatments only if previously had polatuzumab vedotin.
+zynlonta,en_nice_date,2024-01-31,verified,https://www.nice.org.uk/guidance/ta947,2026-11-04,
+zynlonta,en_nice_ta,TA947,verified,https://www.nice.org.uk/guidance/ta947,2026-11-04,
+zynquista,en_nice_decision,,unknown,https://www.nice.org.uk/guidance/ta622,2026-11-04,TA622 withdrawn (marketing authorisation withdrawn); original recommendation text no longer viewable on NICE.
+zynquista,en_nice_date,2020-02-12,verified,https://www.nice.org.uk/guidance/ta622,2026-11-04,Published date shown on withdrawn TA622 page.
+zynquista,en_nice_ta,TA622,verified,https://www.nice.org.uk/guidance/ta622,2026-11-04,
+zynteglo,en_nice_decision,not appraised,verified,https://www.nice.org.uk/search?q=betibeglogene,2026-11-04,First-indication appraisal discontinued with no guidance published. Appraisal ID968 discontinued (GID-TA10334); no guidance published.
+zynteglo,en_nice_date,,not_assessed,https://www.nice.org.uk/search?q=betibeglogene,2026-11-04,First-indication appraisal discontinued with no guidance published. Appraisal ID968 discontinued (GID-TA10334); no guidance published.
+zynteglo,en_nice_ta,,not_assessed,https://www.nice.org.uk/search?q=betibeglogene,2026-11-04,First-indication appraisal discontinued with no guidance published. Appraisal ID968 discontinued (GID-TA10334); no guidance published.
+zynyz,en_nice_decision,,unknown,https://www.nice.org.uk/search?q=retifanlimab,2026-11-04,in development (GID-TA11625); earlier ID3815 discontinued; no published guidance.
+zynyz,en_nice_date,,unknown,https://www.nice.org.uk/search?q=retifanlimab,2026-11-04,in development (GID-TA11625); earlier ID3815 discontinued; no published guidance.
+zynyz,en_nice_ta,,unknown,https://www.nice.org.uk/search?q=retifanlimab,2026-11-04,in development (GID-TA11625); earlier ID3815 discontinued; no published guidance.

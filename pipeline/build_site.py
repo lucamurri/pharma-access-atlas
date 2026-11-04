@@ -215,7 +215,7 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
     fr_note = (f'HAS opinion, {fmt_date(row["fr_date"])}' if row["fr_date"] else
                (f.get("fr_has_asmr_best") or {}).get("notes") or "Not available")
     en_labels = {"recommended": "Recommended", "optimised": "Recommended (restricted)",
-                 "cancer drugs fund": "Cancer Drugs Fund", "not recommended": "Not recommended",
+                 "managed access": "Managed access (CDF / IMF)", "not recommended": "Not recommended",
                  "terminated": "Terminated appraisal", "not appraised": "Not appraised"}
     en_text = en_labels.get(row["en_decision"], "Unknown")
 

@@ -83,7 +83,7 @@ def pct(part, whole):
     return round(100 * part / whole) if whole else None
 
 
-NICE_POSITIVE = ("recommended", "optimised", "cancer drugs fund")
+NICE_POSITIVE = ("recommended", "optimised", "managed access")
 NICE_APPRAISED = NICE_POSITIVE + ("not recommended", "terminated")
 
 

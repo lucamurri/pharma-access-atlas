@@ -18,7 +18,7 @@ ASMR_TEXT = {"I": "major improvement (ASMR I)", "II": "important improvement (AS
              "III": "moderate improvement (ASMR III)", "IV": "minor improvement (ASMR IV)",
              "V": "no improvement over existing care (ASMR V)"}
 NICE_TEXT = {"recommended": "recommended it", "optimised": "recommended it for a narrower group than licensed",
-             "cancer drugs fund": "made it available through the Cancer Drugs Fund",
+             "managed access": "recommended it with managed access (e.g. Cancer Drugs Fund)",
              "not recommended": "did not recommend it", "terminated": "terminated its appraisal (no company submission)",
              "not appraised": "has not appraised it"}
 

@@ -88,11 +88,11 @@
       ],
       "fields": 3,
       "cells": 621,
-      "filled": 0,
-      "checked_none": 0,
-      "unknown": 621,
-      "pct_filled": 0.0,
-      "pct_resolved": 0.0
+      "filled": 491,
+      "checked_none": 36,
+      "unknown": 94,
+      "pct_filled": 79.1,
+      "pct_resolved": 84.9
     },
     {
       "group": "CMS",
@@ -157,13 +157,18 @@
       "not_assessed": 16
     },
     "en_nice_decision": {
-      "unknown": 207
+      "filled": 173,
+      "unknown": 34
     },
     "en_nice_date": {
-      "unknown": 207
+      "filled": 159,
+      "unknown": 30,
+      "not_assessed": 18
     },
     "en_nice_ta": {
-      "unknown": 207
+      "filled": 159,
+      "unknown": 30,
+      "not_assessed": 18
     },
     "cms_list_price_30day": {
       "filled": 2

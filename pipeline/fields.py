@@ -10,7 +10,7 @@ IT_CLASSES = ["A", "H", "C", "Cnn"]
 FR_SMR = ["important", "moderate", "low", "insufficient"]
 FR_ASMR = ["I", "II", "III", "IV", "V"]
 # NICE technology appraisal outcomes, as worded by NICE.
-NICE_DECISIONS = ["recommended", "optimised", "cancer drugs fund", "not recommended", "terminated", "not appraised"]
+NICE_DECISIONS = ["recommended", "optimised", "managed access", "not recommended", "terminated", "not appraised"]
 
 FIELDS = {
     # --- Identity (curated in data/manual/drugs.csv) -----------------------
