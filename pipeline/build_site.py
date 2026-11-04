@@ -22,7 +22,7 @@ from common import PROCESSED, ROOT, write_json
 
 SITE = ROOT / "site"
 OUT = ROOT / "_site"
-REPO_URL = "https://github.com/defking1/pharma-access-atlas"
+REPO_URL = "https://github.com/lucamurri/pharma-access-atlas"
 
 NAV = [
     ("index.html", "Overview"),
