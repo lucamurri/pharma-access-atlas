@@ -196,3 +196,7 @@ details.sources summary { font-weight: 600; }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* Company scorecard: room for the drug list under each company name */
+#scorecard th[scope="row"] { min-width: 16rem; }
+#scorecard thead th { white-space: normal; vertical-align: bottom; min-width: 6.5rem; }

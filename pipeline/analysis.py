@@ -208,7 +208,50 @@ def summary(all_rows: list[dict]) -> dict:
         "en_lag_median": median([r["en_lag"] for r in rows]),
         "cms_n_selected": sum(1 for r in all_rows if r["cms_selected"] == "yes"),
         "access": access_curves(all_rows),
+        "companies": company_scorecard(all_rows),
     }
+
+
+# ---------------------------------------------------------------------------
+# Company scorecard: the same measures as the rest of the atlas, per company.
+SCORECARD_MIN = 5  # companies with fewer drugs are shown only on request (small numbers)
+
+
+def company_scorecard(all_rows: list[dict]) -> list[dict]:
+    by = defaultdict(list)
+    for r in core(all_rows):
+        by[r["company"]].append(r)
+    out = []
+    for name, rs in by.items():
+        lags = [r["lag"] for r in rs if r["lag"] is not None]
+        it = kaplan_meier([r["km"]["it"] for r in rs])
+        rated = [r for r in rs if r["gba_rating"] in G_BA_ORDER]
+        fr = [r for r in rs if r["fr_verdict"]]
+        en = [r for r in rs if r["en_decision"] in NICE_APPRAISED]
+        de_pos = sum(1 for r in rated if r["gba_rating"] not in ("no added benefit", "lesser"))
+        fr_pos = sum(1 for r in fr if r["fr_verdict"] not in FR_NEGATIVE)
+        en_pos = sum(1 for r in en if r["en_decision"] in NICE_POSITIVE)
+        out.append({
+            "company": name, "n": len(rs), "drugs": sorted(r["brand_us"] for r in rs),
+            "lag_median": median(lags), "eu_first": sum(1 for x in lags if x < 0),
+            "it_median": it["median"], "it_n": it["n"], "it_waiting": it["waiting"], "it_events": it["events"],
+            "de_pos": de_pos, "de_n": len(rated), "de_pct": pct(de_pos, len(rated)),
+            "fr_pos": fr_pos, "fr_n": len(fr), "fr_pct": pct(fr_pos, len(fr)),
+            "en_pos": en_pos, "en_n": len(en), "en_pct": pct(en_pos, len(en)),
+        })
+    return sorted(out, key=lambda c: (-c["n"], c["company"]))
+
+
+def scorecard_title(s: dict) -> str:
+    big = [c for c in s["companies"] if c["n"] >= SCORECARD_MIN]
+    timed = [c for c in big if c["it_median"] is not None]
+    if not timed:
+        return f"{len(big)} companies have at least {SCORECARD_MIN} drugs in the atlas"
+    fast = min(timed, key=lambda c: (c["it_median"], c["company"]))
+    slow = max(timed, key=lambda c: (c["it_median"], c["company"]))
+    return (f"Among the {len(big)} companies with at least {SCORECARD_MIN} drugs, {fast['company']} got half of its "
+            f"drugs reimbursed in Italy fastest ({fast['it_median']} days) and {slow['company']} slowest "
+            f"({slow['it_median']})")
 
 
 def chart_titles(s: dict) -> dict:

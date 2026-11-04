@@ -1,0 +1,44 @@
+<p class="eyebrow">Company scorecard</p>
+<h1>How each company's new drugs fared in Europe</h1>
+<p class="lede">The same measures as the rest of the atlas, grouped by the EU marketing authorisation holder.
+  Select a company to see its drugs in the explorer.</p>
+
+<section class="chart-card" aria-labelledby="sc-h">
+  <h2 id="sc-h">{{title_companies}}</h2>
+  <p class="chart-sub">Italy counts drugs still waiting, as on the overview (the day by which half of the
+    company's drugs were reimbursed). Verdict shares count only drugs each country has rated: Germany "added
+    benefit" is any rating above "no added benefit"; France "improvement" is ASMR I–IV; England "positive" is
+    recommended, recommended for a narrower group, or managed access.</p>
+  <form class="filters" id="sc-filters" aria-label="Scorecard options" onsubmit="return false">
+    <label>Companies shown
+      <select id="sc-min">
+        <option value="{{scorecard_min}}">With at least {{scorecard_min}} drugs</option>
+        <option value="3">With at least 3 drugs</option>
+        <option value="1">All {{n_companies}} companies</option>
+      </select>
+    </label>
+  </form>
+  <p class="result-count" id="sc-count" aria-live="polite"></p>
+  <div class="table-scroll">
+    <table class="data-table" id="scorecard">
+      <caption class="visually-hidden">Company scorecard, sortable by each column</caption>
+      <thead>
+        <tr>
+          <th scope="col" data-key="company"><button class="sort-btn" type="button">Company</button></th>
+          <th scope="col" class="num" data-key="n"><button class="sort-btn" type="button">Drugs</button></th>
+          <th scope="col" class="num" data-key="lag_median"><button class="sort-btn" type="button">US→EU lag, median days</button></th>
+          <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Italy: half reimbursed within (days)</button></th>
+          <th scope="col" class="num" data-key="de_pct"><button class="sort-btn" type="button">Germany: added benefit</button></th>
+          <th scope="col" class="num" data-key="fr_pct"><button class="sort-btn" type="button">France: improvement</button></th>
+          <th scope="col" class="num" data-key="en_pct"><button class="sort-btn" type="button">England: positive</button></th>
+        </tr>
+      </thead>
+      <tbody id="scorecard-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<p class="muted small">Small numbers: with five to eleven drugs per company, one drug can move a share by 10–20
+  points, so read differences between companies as indications, not rankings. Headline figures cover the
+  {{n}} drugs selected by rule; reference drugs are excluded. Company names are the EU holder with its legal
+  form removed (rules in <a href="{{repo_url}}/blob/main/pipeline/taxonomy.py">taxonomy.py</a>).</p>

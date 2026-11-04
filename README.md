@@ -21,6 +21,9 @@ and EU approval to benefit assessment in **Germany** (G-BA), **France** (HAS) an
 reimbursement in **Italy** (AIFA), plus Medicare price negotiation in the **US** where it applies.
 **Every value links to its public source**, and anything that could not be verified is left blank and flagged.
 
+The site has an overview with time-to-access curves, a filterable drug explorer, a one-page brief per drug, a
+[company scorecard](https://lucamurri.github.io/pharma-access-atlas/companies.html) and six written findings.
+
 ## Three key findings
 
 *(Data as of 4 November 2026; full analysis on the [Insights](https://lucamurri.github.io/pharma-access-atlas/insights.html) page.)*

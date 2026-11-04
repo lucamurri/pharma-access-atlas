@@ -29,15 +29,19 @@ REPO_URL = "https://github.com/lucamurri/pharma-access-atlas"
 NAV = [
     ("index.html", "Overview"),
     ("explorer.html", "Drug explorer"),
+    ("companies.html", "Companies"),
     ("insights.html", "Insights"),
     ("methodology.html", "Methodology & sources"),
     ("about.html", "About"),
 ]
 
 PAGES = {
-    "index.html": ("Pharma Access Atlas: how fast new drugs reach patients in the US, Italy and Germany",
-                   "Comparing approval and access timelines for 30 innovative drugs across the US, Italy and Germany."),
-    "explorer.html": ("Drug explorer | Pharma Access Atlas", "Sortable, filterable table of all 30 drugs."),
+    "index.html": ("Pharma Access Atlas: how fast new drugs reach patients in the US and Europe",
+                   "Approval, benefit assessment and reimbursement timelines for 205 new drugs across the US, "
+                   "Italy, Germany, France and England, with a public source for every number."),
+    "explorer.html": ("Drug explorer | Pharma Access Atlas", "Sortable, filterable table of every drug in the atlas."),
+    "companies.html": ("Company scorecard | Pharma Access Atlas",
+                       "How quickly each company's new drugs reached patients in Europe, and how they were rated."),
     "insights.html": ("Insights | Pharma Access Atlas", "Findings on drug access in the US and Europe."),
     "methodology.html": ("Methodology & sources | Pharma Access Atlas", "Definitions, data sources, limitations."),
     "about.html": ("About | Pharma Access Atlas", "About the author of the Pharma Access Atlas."),
@@ -385,6 +389,9 @@ def main() -> None:
         "title_italy": esc(titles["italy"]),
         "title_countries": esc(titles["countries"]),
         "title_hta": esc(titles["hta"]),
+        "title_companies": esc(analysis.scorecard_title(s)),
+        "scorecard_min": analysis.SCORECARD_MIN,
+        "n_companies": len(s["companies"]),
         "n_reference": s["n_reference"],
         "fr_pct_negative": s["fr_pct_negative"],
         "fr_n": s["fr_n"],
@@ -397,7 +404,8 @@ def main() -> None:
         is_year = key in ("cms_ipay", "cms_list_year")
         values[key] = value if is_year or not isinstance(value, int) else f"{value:,}"
     scripts = {"index.html": ["vendor/chart.umd.min.js", "js/common.js", "js/overview.js"],
-               "explorer.html": ["js/common.js", "js/explorer.js"]}
+               "explorer.html": ["js/common.js", "js/explorer.js"],
+               "companies.html": ["js/common.js", "js/companies.js"]}
     for page, (title, description) in PAGES.items():
         template = (SITE / "pages" / page).read_text(encoding="utf-8")
         if page == "insights.html" and findings is None:
