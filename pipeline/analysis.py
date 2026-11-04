@@ -224,6 +224,7 @@ def findings(all_rows: list[dict], s: dict) -> dict:
     guards = {
         "1: Italy is the slowest of the four milestones": it == max(fr, de, en, it),
         "1: France is the fastest of the four milestones": fr == min(fr, de, en, it),
+        "1: Italy's step is more than twice the US-EU gap": it > 2 * s["lag_median"],
         "1: end-to-end median over two years": fda_to_it > 730,
         "2: 2022 gap shorter than 2019 gap": lag22 < lag19,
         "3: most comparator-route drugs got no added benefit": len(comp_nab) * 2 > len(comp),
