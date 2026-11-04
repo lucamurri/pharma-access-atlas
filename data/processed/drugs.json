@@ -10614,17 +10614,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-07-18&atto.codiceRedazionale=25A04003",
+          "retrieved_date": "2026-11-04",
+          "notes": "No A/H act found in GU index 2019-06..2026-11 or TrovaNormeFarmaco; latest act Determina n. 952/2025 GU SG n.165 del 2025-07-18"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-07-18&atto.codiceRedazionale=25A04003",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 952/2025 (art. 12 c.5 L.189/2012); GU n.165; evidence: \"denominata Classe C (nn), dedicata ai farmaci non ancora valutati\""
         },
         "de_gba_decision_date": {
           "value": "2025-11-20",
@@ -10727,6 +10727,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 579,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 230,
@@ -10897,18 +10906,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-01-04",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-01-04&atto.codiceRedazionale=21A07612",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. DG/1526/2021 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.2 del 2022-01-04; prior Cnn as «Pretomanid FGK»: Determina 111/2020 GU n.261 del 2020-10-21; L.648 BPaLM listing 2023 ignored; evidence: \"Riclassificazione del medicinale per uso umano «Dovprela»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-01-04&atto.codiceRedazionale=21A07612",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. DG/1526/2021; GU n.2; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": null,
@@ -11009,6 +11018,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 522,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -11181,18 +11199,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-03-26",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-03-26&atto.codiceRedazionale=26A01526",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina PRES/357/2026 del 2026-03-19 published on TrovaNormeFarmaco; GU SG n.71 del 2026-03-26 avviso 26A01526; prior Cnn: Determina 1287/2025 GU n.251 del 2025-10-28; evidence: \"DET PRES 357 ... Classificazione ... del medicinale DUVYZAT\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/1735",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA determina PDF on TrovaNormeFarmaco (GU avviso states no class); Determina PRES/357/2026; evidence: \"Classe di rimborsabilità H Prezzo ex-factory (IVA esclusa)\""
         },
         "de_gba_decision_date": {
           "value": "2026-01-22",
@@ -11293,6 +11311,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 293,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -11474,18 +11501,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-01-31",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-01-31&atto.codiceRedazionale=25A00516",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 53/2025 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.25 del 2025-01-31; prior Cnn: Determina 8/2024 GU n.26 del 2024-02-01; multipack AICs class C; evidence: \"Riclassificazione del medicinale per uso umano «Ebglyss»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-01-31&atto.codiceRedazionale=25A00516",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 53/2025; GU n.25; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2024-06-06",
@@ -11586,6 +11613,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 442,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -11777,17 +11813,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-12-03&atto.codiceRedazionale=25A06461",
+          "retrieved_date": "2026-11-04",
+          "notes": "No A/H act found in GU index 2019-06..2026-11 or TrovaNormeFarmaco; latest act Determina n. 1657/2025 GU SG n.281 del 2025-12-03"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-12-03&atto.codiceRedazionale=25A06461",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 1657/2025 (art. 12 c.5 L.189/2012); GU n.281; evidence: \"denominata Classe C (nn), dedicata ai farmaci non ancora valutati\""
         },
         "de_gba_decision_date": {
           "value": "2026-04-02",
@@ -11890,6 +11926,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 413,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 197,
@@ -12060,18 +12105,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-06-25",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-06-25&atto.codiceRedazionale=26A03229",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina PRES/851/2026 del 2026-06-19 published on TrovaNormeFarmaco; GU SG n.145 del 2026-06-25 avviso 26A03229; prior Cnn: Determina 61/2025 GU n.16 del 2025-01-21; evidence: \"DET PRES 851 ... Classificazione ... del medicinale ELAHERE\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/2182",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA determina PDF on TrovaNormeFarmaco (GU avviso states no class); Determina PRES/851/2026; evidence: \"Classe di rimborsabilità H Prezzo ex-factory (IVA esclusa)\""
         },
         "de_gba_decision_date": {
           "value": "2025-06-05",
@@ -12172,6 +12217,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 588,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -12362,18 +12416,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-07-20",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-07-20&atto.codiceRedazionale=24A03622",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 174/2024 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.169 del 2024-07-20; prior Cnn: Determina 150/2023 GU n.7 del 2024-01-10; evidence: \"Riclassificazione del medicinale per uso umano «Elfabrio»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-07-20&atto.codiceRedazionale=24A03622",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 174/2024; GU n.169; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2024-03-21",
@@ -12474,6 +12528,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 443,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -12655,18 +12718,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-05-19",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-05-19&atto.codiceRedazionale=25A02912",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina PRES/664/2025 del 2025-05-07 published on TrovaNormeFarmaco; GU SG n.114 del 2025-05-19 avviso 25A02912; prior Cnn: Determina 75/2024 GU n.131 del 2024-06-06; evidence: \"DET PRES 664 ... Classificazione ... del medicinale ELREXFIO\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/301",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA determina PDF on TrovaNormeFarmaco (GU avviso states no class); Determina PRES/664/2025; evidence: \"Classe di rimborsabilità H Prezzo ex-factory (IVA esclusa)\""
         },
         "de_gba_decision_date": {
           "value": "2024-07-04",
@@ -12767,6 +12830,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 529,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -12958,17 +13030,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-09-03&atto.codiceRedazionale=25A04851",
+          "retrieved_date": "2026-11-04",
+          "notes": "Latest act Determina PRES/1111/2025 (TrovaNormeFarmaco) GU SG n.204 del 2025-09-03 avviso 25A04851 classifies it C; earlier Cnn: Determina 77/2024 GU n.131 del 2024-06-06"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "C",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/765",
+          "retrieved_date": "2026-11-04",
+          "notes": "AIFA determina PDF PRES/1111/2025; evidence: \"Classe di rimborsabilità C\"; GU avviso 25A04851 does not state class"
         },
         "de_gba_decision_date": {
           "value": "2024-09-19",
@@ -13071,6 +13143,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 1063,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 287,
@@ -13561,18 +13642,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-10-17",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-10-17&atto.codiceRedazionale=24A05353",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 529/2024 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.244 del 2024-10-17; prior Cnn: Determina 56/2023 GU n.86 del 2023-04-12; evidence: \"Riclassificazione del medicinale per uso umano «Enjaymo»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-10-17&atto.codiceRedazionale=24A05353",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 529/2024; GU n.244; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2023-06-15",
@@ -13673,6 +13754,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 702,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -13854,18 +13944,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-09-09",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-09-09&atto.codiceRedazionale=22A05108",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 588/2022 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.211 del 2022-09-09; prior Cnn: Determina 151/2021 GU n.274 del 2021-11-17; evidence: \"Riclassificazione del medicinale per uso umano «Enspryng»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-09-09&atto.codiceRedazionale=22A05108",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 588/2022; GU n.211; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2022-01-06",
@@ -13966,6 +14056,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 442,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -14156,18 +14255,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-08-29",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-08-29&atto.codiceRedazionale=22A04779",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 548/2022 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.201 del 2022-08-29; prior Cnn: Determina 88/2020 GU n.217 del 2020-09-01; earlier Determina 26/2022 (GU n.19 2022-01-25) set class C only; evidence: \"Riclassificazione del medicinale per uso umano «Evenity»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-08-29&atto.codiceRedazionale=22A04779",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 548/2022; GU n.201; evidence: \"classe di rimborsabilita': A\""
         },
         "de_gba_decision_date": {
           "value": "2020-09-03",
@@ -14268,6 +14367,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 994,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -14458,18 +14566,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-10-27",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-10-27&atto.codiceRedazionale=23A05886",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 636/2023 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.252 del 2023-10-27; prior Cnn: Determina 117/2021 GU n.240 del 2021-10-07; evidence: \"Riclassificazione del medicinale per uso umano «Evkeeza»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-10-27&atto.codiceRedazionale=23A05886",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 636/2023; GU n.252; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2024-07-04",
@@ -14570,6 +14678,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 862,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -15071,18 +15188,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-09-22",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-09-22&atto.codiceRedazionale=25A05206",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina PRES/1215/2025 del 2025-09-17 published on TrovaNormeFarmaco; GU SG n.220 del 2025-09-22 avviso 25A05206; prior Cnn: Determina 160/2024 GU n.161 del 2024-07-11; evidence: \"DET PRES 1215 ... Classificazione ... del medicinale EXBLIFEP\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/842",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA determina PDF on TrovaNormeFarmaco (GU avviso states no class); Determina PRES/1215/2025; evidence: \"Classe di rimborsabilità H Prezzo ex-factory (IVA esclusa)\""
         },
         "de_gba_decision_date": {
           "value": "2024-12-05",
@@ -15183,6 +15300,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 550,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -15364,18 +15490,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-10-30",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-10-30&atto.codiceRedazionale=26A05757",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina PRES/1421/2026 del 2026-10-20 published on TrovaNormeFarmaco; GU SG n.253 del 2026-10-30 avviso 26A05757; prior Cnn: Determina 1363/2025 GU n.253 del 2025-10-30; evidence: \"DET PRES 1421 ... Classificazione ... del medicinale EZMEKLY\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/2642",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA determina PDF on TrovaNormeFarmaco (GU avviso states no class); Determina PRES/1421/2026; evidence: \"Classe di rimborsabilità H Prezzo ex-factory (IVA esclusa)\""
         },
         "de_gba_decision_date": {
           "value": "2026-03-19",
@@ -15476,6 +15602,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 470,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -15666,18 +15801,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-06-13",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-06-13&atto.codiceRedazionale=25A03372",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina PRES/765/2025 del 2025-06-04 published on TrovaNormeFarmaco; GU SG n.135 del 2025-06-13 avviso 25A03372; prior Cnn: Determina 193/2025 GU n.41 del 2025-02-19; evidence: \"DET PRES 765 ... Classificazione ... del medicinale FABHALTA\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/388",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA determina PDF on TrovaNormeFarmaco (GU avviso states no class); Determina PRES/765/2025; evidence: \"Classe di rimborsabilità H Prezzo ex-factory (IVA esclusa)\""
         },
         "de_gba_decision_date": {
           "value": "2024-12-19",
@@ -15778,6 +15913,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 392,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -15968,18 +16112,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2021-06-24",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-06-24&atto.codiceRedazionale=21A03686",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. DG/690/2021 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.149 del 2021-06-24; prior Cnn: Determina 71/2020 GU n.185 del 2020-07-24; evidence: \"Riclassificazione del medicinale per uso umano «Fetcroja»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-06-24&atto.codiceRedazionale=21A03686",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. DG/690/2021; GU n.149; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2022-05-05",
@@ -16080,6 +16224,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 427,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -16271,17 +16424,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-05-20&atto.codiceRedazionale=25A02791",
+          "retrieved_date": "2026-11-04",
+          "notes": "No A/H act found in GU index 2019-06..2026-11 or TrovaNormeFarmaco; latest act Determina n. 615/2025 GU SG n.115 del 2025-05-20 (earlier Cnn: Determina 409/2024 GU n.190 del 2024-08-14)"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-05-20&atto.codiceRedazionale=25A02791",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 615/2025 (art. 12 c.5 L.189/2012); GU n.115; evidence: \"denominata Classe C (nn), dedicata ai farmaci non ancora valutati\""
         },
         "de_gba_decision_date": {
           "value": "2025-02-06",
@@ -16384,6 +16537,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 929,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 293,
@@ -16563,18 +16725,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-06-17",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-06-17&atto.codiceRedazionale=25A03427",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina PRES/767/2025 del 2025-06-04 published on TrovaNormeFarmaco; GU SG n.138 del 2025-06-17 avviso 25A03427; prior Cnn: Determina 616/2024 GU n.256 del 2024-10-31; evidence: \"DET PRES 767 ... Classificazione ... del medicinale FRUZAQLA\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/376",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA determina PDF on TrovaNormeFarmaco (GU avviso states no class); Determina PRES/767/2025; evidence: \"Classe di rimborsabilità A Prezzo ex-factory (IVA esclusa)\""
         },
         "de_gba_decision_date": {
           "value": "2025-01-16",
@@ -16675,6 +16837,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 362,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -16865,18 +17036,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-11-17",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-11-17&atto.codiceRedazionale=22A06475",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 805/2022 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.269 del 2022-11-17; prior Cnn: Determina 14/2022 GU n.27 del 2022-02-02; evidence: \"Riclassificazione del medicinale per uso umano «Gavreto»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-11-17&atto.codiceRedazionale=22A06475",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 805/2022; GU n.269; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2022-06-16",
@@ -16977,6 +17148,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 364,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -17167,18 +17347,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2021-01-19",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-01-19&atto.codiceRedazionale=21A00201",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. DG/53/2021 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.14 del 2021-01-19; prior Cnn: Determina 53/2020 GU n.159 del 2020-06-25; evidence: \"Riclassificazione del medicinale per uso umano «Givlaari»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-01-19&atto.codiceRedazionale=21A00201",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. DG/53/2021; GU n.14; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2020-10-15",
@@ -17279,6 +17459,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 323,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -17780,18 +17969,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-01-27",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-01-27&atto.codiceRedazionale=26A00339",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina PRES/19/2026 del 2026-01-16 published on TrovaNormeFarmaco; GU SG n.21 del 2026-01-27 avviso 26A00339; prior Cnn: Determina 198/2025 GU n.42 del 2025-02-20; evidence: \"DET PRES 19 ... Classificazione ... del medicinale HYMPAVZI\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/1364",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA determina PDF on TrovaNormeFarmaco (GU avviso states no class); Determina PRES/19/2026; evidence: \"Classe di rimborsabilità A Prezzo ex-factory (IVA esclusa)\""
         },
         "de_gba_decision_date": {
           "value": "2025-07-17",
@@ -17892,6 +18081,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 435,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -18074,17 +18272,17 @@
         },
         "it_gu_date": {
           "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-02-24&atto.codiceRedazionale=26A00852",
+          "retrieved_date": "2026-11-04",
+          "notes": "No A/H act found in GU index 2019-06..2026-11 or TrovaNormeFarmaco; latest act Determina n. 131/2026 GU SG n.45 del 2026-02-24"
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "Cnn",
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-02-24&atto.codiceRedazionale=26A00852",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 131/2026 (art. 12 c.5 L.189/2012); GU n.45; evidence: \"denominata Classe C (nn), dedicata ai farmaci non ancora valutati\""
         },
         "de_gba_decision_date": {
           "value": "2026-06-18",
@@ -18187,6 +18385,15 @@
             "ec_approval_date"
           ],
           "notes": ""
+        },
+        "it_days_waiting": {
+          "value": 341,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": "Still not reimbursed when checked on 2026-11-04"
         },
         "de_gba_lag_days": {
           "value": 202,
@@ -18357,18 +18564,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-08-27",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-08-27&atto.codiceRedazionale=22A04774",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 562/2022 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.200 del 2022-08-27; prior Cnn: Determina 118/2021 GU n.240 del 2021-10-07; later L.648 listing (2024) ignored; evidence: \"Riclassificazione del medicinale per uso umano «Imcivree»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-08-27&atto.codiceRedazionale=22A04774",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 562/2022; GU n.200; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2022-12-01",
@@ -18469,6 +18676,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 407,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -18659,18 +18875,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-02-17",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-02-17&atto.codiceRedazionale=24A00890",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 89/2024 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.40 del 2024-02-17; prior Cnn: Determina 80/2023 GU n.154 del 2023-07-04; evidence: \"Riclassificazione del medicinale per uso umano «Imjudo»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-02-17&atto.codiceRedazionale=24A00890",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 89/2024; GU n.40; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2023-10-05",
@@ -18771,6 +18987,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 362,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -18961,18 +19186,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2024-09-23",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-09-23&atto.codiceRedazionale=24A04857",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 461/2024 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.223 del 2024-09-23; prior Cnn: Determina 139/2023 GU n.293 del 2023-12-16; evidence: \"Riclassificazione del medicinale per uso umano «Inaqovi»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2024-09-23&atto.codiceRedazionale=24A04857",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 461/2024; GU n.223; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2024-08-15",
@@ -19073,6 +19298,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 374,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -19254,18 +19488,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2022-05-03",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-03&atto.codiceRedazionale=22A02662",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 298/2022 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.102 del 2022-05-03; prior Cnn: Determina 66/2021 GU n.115 del 2021-05-15; evidence: \"Riclassificazione del medicinale per uso umano «Inrebic»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-03&atto.codiceRedazionale=22A02662",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 298/2022; GU n.102; evidence: \"classe di rimborsabilita': H\""
         },
         "de_gba_decision_date": {
           "value": "2021-09-02",
@@ -19366,6 +19600,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 449,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -19556,18 +19799,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2025-05-19",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-05-19&atto.codiceRedazionale=25A02912",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina PRES/659/2025 del 2025-05-07 published on TrovaNormeFarmaco; GU SG n.114 del 2025-05-19 avviso 25A02912; prior Cnn: Determina 792/2024 GU n.3 del 2025-01-04; evidence: \"DET PRES 659 ... Classificazione ... del medicinale IQIRVO\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/278",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA determina PDF on TrovaNormeFarmaco (GU avviso states no class); Determina PRES/659/2025; evidence: \"Classe di rimborsabilità H Prezzo ex-factory (IVA esclusa)\""
         },
         "de_gba_decision_date": {
           "value": "2025-04-03",
@@ -19668,6 +19911,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 242,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -19858,18 +20110,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2023-01-04",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-01-04&atto.codiceRedazionale=22A07368",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 909/2022 (Riclassificazione art. 8 c.10 L.537/1993); GU SG n.3 del 2023-01-04; prior Cnn: Determina 27/2020 GU n.89 del 2020-04-03; evidence: \"Riclassificazione del medicinale per uso umano «Isturisa»\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2023-01-04&atto.codiceRedazionale=22A07368",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina n. 909/2022; GU n.3; evidence: \"classe di rimborsabilita': A\""
         },
         "de_gba_decision_date": {
           "value": "2021-01-07",
@@ -19970,6 +20222,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 1091,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
@@ -20151,18 +20412,18 @@
           "notes": ""
         },
         "it_gu_date": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "2026-09-10",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-09-10&atto.codiceRedazionale=26A04767",
+          "retrieved_date": "2026-11-04",
+          "notes": "Determina PRES/1184/2026 del 2026-09-03 published on TrovaNormeFarmaco; GU SG n.210 del 2026-09-10 avviso 26A04767; prior Cnn: Determina 1364/2025 GU n.253 del 2025-10-30; evidence: \"DET PRES 1184 ... Classificazione ... del medicinale ITOVEBI\""
         },
         "it_reimbursement_class": {
-          "value": null,
-          "status": "unknown",
-          "source_url": null,
-          "retrieved_date": null,
-          "notes": "Not yet researched"
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://trovanorme.aifa.gov.it/tnf-service/determina/tnf/pubblicate/allegato/2522",
+          "retrieved_date": "2026-11-04",
+          "notes": "Class from AIFA determina PDF on TrovaNormeFarmaco (GU avviso states no class); Determina PRES/1184/2026; evidence: \"Classe di rimborsabilità H Prezzo ex-factory (IVA esclusa)\""
         },
         "de_gba_decision_date": {
           "value": "2026-02-19",
@@ -20263,6 +20524,15 @@
           "derived_from": [
             "fda_approval_date",
             "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 419,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
           ],
           "notes": ""
         },
