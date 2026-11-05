@@ -47,7 +47,7 @@
       indexAxis: "y", maintainAspectRatio: false, layout: { padding: { right: 40 } },
       scales: {
         x: { min: 0, max: 100, grid: { color: c.grid }, border: { display: false },
-             ticks: { stepSize: 25, callback: v => `${v}%` } },
+             ticks: { stepSize: 25, callback: v => Atlas.t("js.pct", { n: v }) } },
         y: { grid: { display: false }, ticks: { autoSkip: false } },
       },
       plugins: { tooltip: {
