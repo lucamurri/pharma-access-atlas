@@ -58,10 +58,10 @@
   // Drugs still waiting stay in the denominator until the day they were checked.
   const HORIZON = 4 * 365;
   const countries = [
-    { key: "fr", name: "France", milestone: "HAS opinion", color: Atlas.cssVar("--country-fr") },
-    { key: "de", name: "Germany", milestone: "G-BA decision", color: Atlas.cssVar("--country-de") },
-    { key: "en", name: "England", milestone: "NICE guidance", color: Atlas.cssVar("--country-en") },
-    { key: "it", name: "Italy", milestone: "reimbursement", color: Atlas.cssVar("--country-it") },
+    { key: "fr", name: Atlas.t("js.country.fr"), milestone: Atlas.t("js.ms.fr"), color: Atlas.cssVar("--country-fr") },
+    { key: "de", name: Atlas.t("js.country.de"), milestone: Atlas.t("js.ms.de"), color: Atlas.cssVar("--country-de") },
+    { key: "en", name: Atlas.t("js.country.en"), milestone: Atlas.t("js.ms.en"), color: Atlas.cssVar("--country-en") },
+    { key: "it", name: Atlas.t("js.country.it"), milestone: Atlas.t("js.ms.it"), color: Atlas.cssVar("--country-it") },
   ].map(ct => ({ ...ct, ...s.access[ct.key] }));
   // Read the step curve on every day so the tooltip can compare countries on the same day.
   const reachedBy = (steps, day) => { let v = 0; for (const [t, p] of steps) { if (t > day) break; v = p; } return v; };
@@ -81,7 +81,7 @@
       ends.forEach(({ i, y }) => {
         const ct = countries[i];
         ctx.fillStyle = ct.color; ctx.beginPath(); ctx.arc(chartArea.right + 8, y, 4, 0, 2 * Math.PI); ctx.fill();
-        ctx.fillStyle = c.text; ctx.fillText(`${ct.name} ${Math.round(chart.data.datasets[i].data[HORIZON])}%`, chartArea.right + 16, y);
+        ctx.fillStyle = c.text; ctx.fillText(`${ct.name} ${Atlas.t("js.pct", { n: Math.round(chart.data.datasets[i].data[HORIZON]) })}`, chartArea.right + 16, y);
       });
       // Dashed reference line at 50%: where each curve crosses it is that country's median.
       const y50 = chart.scales.y.getPixelForValue(50);
@@ -102,26 +102,26 @@
       interaction: { mode: "index", intersect: false },
       scales: {
         x: { type: "linear", min: 0, max: HORIZON, grid: { color: c.grid }, border: { display: false },
-             title: { display: true, text: "Days after European Commission approval" },
+             title: { display: true, text: Atlas.t("js.axis_days_after_ec") },
              ticks: { stepSize: 365, maxRotation: 0,
-                      callback: v => (v === 0 ? "0" : narrow ? `${v / 365} yr` : `${v} (${v / 365} yr)`) } },
+                      callback: v => (v === 0 ? "0" : narrow ? Atlas.t("js.yr", { n: v / 365 }) : Atlas.t("js.tick_days_yr", { v: Atlas.num(v), n: v / 365 })) } },
         y: { min: 0, max: 100, grid: { color: c.grid }, border: { display: false },
-             title: { display: !narrow, text: "Drugs that reached the milestone" }, ticks: { stepSize: 25, callback: v => `${v}%` } },
+             title: { display: !narrow, text: Atlas.t("js.axis_reached") }, ticks: { stepSize: 25, callback: v => Atlas.t("js.pct", { n: v }) } },
       },
       plugins: { tooltip: { ...tooltip, displayColors: true, boxPadding: 4, callbacks: {
-        title: items => `Day ${items[0].parsed.x} after EU approval`,
-        label: item => ` ${countries[item.datasetIndex].name}: ${Math.round(item.parsed.y)}% reached`,
+        title: items => Atlas.t("js.tip_day_after_ec", { d: Atlas.num(items[0].parsed.x) }),
+        label: item => ` ${Atlas.t("js.tip_reached", { name: countries[item.datasetIndex].name, pct: Math.round(item.parsed.y) })}`,
       } } },
     },
     plugins: [curveLabels],
   });
   document.getElementById("table-countries").innerHTML = Atlas.table(countries, [
-    { label: "Milestone", value: ct => `${ct.name}: ${ct.milestone}` },
-    { label: "Median days (incl. waiting)", value: ct => ct.median ?? "not reached", num: true },
-    { label: "Reached within 1 year", value: ct => `${Math.round(ct.pct_1y)}%`, num: true },
-    { label: "Reached within 2 years", value: ct => `${Math.round(ct.pct_2y)}%`, num: true },
-    { label: "Drugs counted", value: ct => ct.n, num: true },
-    { label: "Still waiting when checked", value: ct => ct.waiting, num: true },
+    { label: Atlas.t("js.col_milestone"), value: ct => `${ct.name}: ${ct.milestone}` },
+    { label: Atlas.t("js.col_median_incl"), value: ct => (ct.median === null ? Atlas.t("js.not_reached") : Atlas.num(ct.median)), num: true },
+    { label: Atlas.t("js.col_within1"), value: ct => Atlas.t("js.pct", { n: Math.round(ct.pct_1y) }), num: true },
+    { label: Atlas.t("js.col_within2"), value: ct => Atlas.t("js.pct", { n: Math.round(ct.pct_2y) }), num: true },
+    { label: Atlas.t("js.col_counted"), value: ct => Atlas.num(ct.n), num: true },
+    { label: Atlas.t("js.col_waiting_checked"), value: ct => Atlas.num(ct.waiting), num: true },
   ]);
 
   // ---- 2. US-to-EU lag distribution -------------------------------------------
@@ -136,48 +136,47 @@
   new Chart(document.getElementById("chart-lag"), {
     type: "bar",
     data: {
-      labels: bins.map(b => `${b.start} to ${b.end}`),
+      labels: bins.map(b => Atlas.t("js.range", { a: Atlas.num(b.start), b: Atlas.num(b.end) })),
       datasets: [{ ...bar, data: bins.map(b => b.drugs.length), barPercentage: 0.95, categoryPercentage: 1,
                    backgroundColor: bins.map(b => (b.end < 0 ? c.s2 : c.s1)) }],
     },
     options: {
       maintainAspectRatio: false,
       scales: {
-        x: { title: { display: true, text: "Days from FDA to EC approval (negative = EU first)" }, grid: { display: false },
-             ticks: { maxRotation: 0, autoSkip: true, callback: (v, i) => bins[i].start } },
-        y: { beginAtZero: true, ticks: { precision: 0 }, title: { display: true, text: "Drugs" },
+        x: { title: { display: true, text: Atlas.t("js.axis_lag") }, grid: { display: false },
+             ticks: { maxRotation: 0, autoSkip: true, callback: (v, i) => Atlas.num(bins[i].start) } },
+        y: { beginAtZero: true, ticks: { precision: 0 }, title: { display: true, text: Atlas.t("js.axis_drugs") },
              grid: { color: c.grid }, border: { display: false } },
       },
       plugins: { tooltip: { ...tooltip, callbacks: {
-        title: items => `${bins[items[0].dataIndex].start} to ${bins[items[0].dataIndex].end} days`,
+        title: items => Atlas.t("js.range_days", { a: Atlas.num(bins[items[0].dataIndex].start), b: Atlas.num(bins[items[0].dataIndex].end) }),
         label: item => {
           const names = bins[item.dataIndex].drugs.map(r => r.brand_us);
-          return [`${names.length} drug${names.length === 1 ? "" : "s"}`,
-                  ...names.slice(0, 8), ...(names.length > 8 ? [`and ${names.length - 8} more`] : [])];
+          return [names.length === 1 ? Atlas.t("js.n_drug") : Atlas.t("js.n_drugs", { n: names.length }),
+                  ...names.slice(0, 8), ...(names.length > 8 ? [Atlas.t("js.and_more", { n: names.length - 8 })] : [])];
         },
       } } },
     },
   });
   document.getElementById("table-lag").innerHTML = Atlas.table(bins.filter(b => b.drugs.length), [
-    { label: "Days (FDA to EC)", value: b => `${b.start} to ${b.end}` },
-    { label: "Drugs", value: b => b.drugs.length, num: true },
-    { label: "Which", html: b => b.drugs.map(r => `<a href="${Atlas.briefUrl(r.id)}">${Atlas.esc(r.brand_us)}</a>`).join(", ") },
+    { label: Atlas.t("js.col_days_fda_ec"), value: b => Atlas.t("js.range", { a: Atlas.num(b.start), b: Atlas.num(b.end) }) },
+    { label: Atlas.t("js.col_drugs"), value: b => b.drugs.length, num: true },
+    { label: Atlas.t("js.col_which"), html: b => b.drugs.map(r => `<a href="${Atlas.briefUrl(r.id)}">${Atlas.esc(r.brand_us)}</a>`).join(", ") },
   ]);
 
   // ---- 3. Italy delay by therapy area -----------------------------------------
   const areas = Object.entries(s.it_lag_by_area).filter(([, v]) => v.n >= 3)
     .map(([area, v]) => ({ area, ...v })).sort((a, b) => b.median - a.median);
-  hbar("chart-italy", areas.map(a => a.area), areas.map(a => a.median),
-       areas.map(a => `${round(a.median)} (n=${a.n})`),
-       item => [`Median ${round(item.raw)} days`, `${areas[item.dataIndex].n} reimbursed drugs`]);
+  hbar("chart-italy", areas.map(a => Atlas.label(a.area)), areas.map(a => a.median),
+       areas.map(a => `${Atlas.num(round(a.median))} (n=${a.n})`),
+       item => [Atlas.t("js.median_days", { n: Atlas.num(round(item.raw)) }), Atlas.t("js.n_reimbursed", { n: areas[item.dataIndex].n })]);
   document.getElementById("table-italy").innerHTML = Atlas.table(areas, [
-    { label: "Therapy area", value: a => a.area },
-    { label: "Median days to reimbursement", value: a => round(a.median), num: true },
-    { label: "Reimbursed drugs", value: a => a.n, num: true },
+    { label: Atlas.t("js.col_area"), value: a => Atlas.label(a.area) },
+    { label: Atlas.t("js.col_median_reimb"), value: a => Atlas.num(round(a.median)), num: true },
+    { label: Atlas.t("js.col_reimbursed"), value: a => a.n, num: true },
   ]);
 
   // ---- 4. Verdicts: Germany, France, England -----------------------------------
-  const cap = t => t.charAt(0).toUpperCase() + t.slice(1);
   const gOrder = ["major", "considerable", "minor", "non-quantifiable", "no added benefit", "lesser"];
   const fOrder = ["I", "II", "III", "IV", "V", "SMR insufficient"];
   const eOrder = ["recommended", "optimised", "managed access", "not recommended", "terminated"];
@@ -187,19 +186,19 @@
   const names = (key, k) => rows.filter(r => r[key] === k).map(r => r.brand_us);
   const tipFor = (key, order) => item => {
     const list = names(key, order[item.dataIndex]);
-    return [`${item.raw} drugs`, ...list.slice(0, 8), ...(list.length > 8 ? [`and ${list.length - 8} more`] : [])];
+    return [Atlas.t("js.n_drugs", { n: item.raw }), ...list.slice(0, 8), ...(list.length > 8 ? [Atlas.t("js.and_more", { n: list.length - 8 })] : [])];
   };
-  hbar("chart-gba", gOrder.map(cap), g, g.map(String), tipFor("gba_rating", gOrder));
-  const frLabel = k => (k.startsWith("SMR") ? k : `ASMR ${k}`);
+  hbar("chart-gba", gOrder.map(k => Atlas.t(`gba.${k}`)), g, g.map(String), tipFor("gba_rating", gOrder));
+  const frLabel = k => Atlas.t(`asmr.${k}`);
   hbar("chart-fr", fOrder.map(frLabel), f, f.map(String), tipFor("fr_verdict", fOrder));
-  hbar("chart-en", eOrder.map(cap), e, e.map(String), tipFor("en_decision", eOrder));
+  hbar("chart-en", eOrder.map(k => Atlas.t(`nice.${k}`)), e, e.map(String), tipFor("en_decision", eOrder));
   const htaRows = [
-    ...gOrder.map((k, i) => ({ country: "Germany", verdict: k, n: g[i] })),
-    ...fOrder.map((k, i) => ({ country: "France", verdict: frLabel(k), n: f[i] })),
-    ...eOrder.map((k, i) => ({ country: "England", verdict: k, n: e[i] })),
+    ...gOrder.map((k, i) => ({ country: Atlas.t("js.country.de"), verdict: Atlas.t(`gba.${k}`), n: g[i] })),
+    ...fOrder.map((k, i) => ({ country: Atlas.t("js.country.fr"), verdict: frLabel(k), n: f[i] })),
+    ...eOrder.map((k, i) => ({ country: Atlas.t("js.country.en"), verdict: Atlas.t(`nice.${k}`), n: e[i] })),
   ];
   document.getElementById("table-hta").innerHTML = Atlas.table(htaRows, [
-    { label: "Country", value: r => r.country }, { label: "Verdict", value: r => r.verdict },
-    { label: "Drugs", value: r => r.n, num: true },
+    { label: Atlas.t("js.col_country"), value: r => r.country }, { label: Atlas.t("js.col_verdict"), value: r => r.verdict },
+    { label: Atlas.t("js.col_drugs"), value: r => r.n, num: true },
   ]);
 })();

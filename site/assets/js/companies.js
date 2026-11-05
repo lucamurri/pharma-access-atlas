@@ -14,14 +14,17 @@
   let sortKey = params.get("sort") || "n";
   let sortDir = params.get("dir") || "desc";
 
-  const share = (pos, n) => (n ? `${Math.round((100 * pos) / n)}%<br><span class="muted small">${pos} of ${n}</span>`
-                               : '<span class="muted">n/a</span>');
+  const share = (pos, n) => (n ? `${Atlas.t("js.pct", { n: Math.round((100 * pos) / n) })}<br><span class="muted small">${Atlas.t("js.x_of_y", { x: pos, y: n })}</span>`
+                               : `<span class="muted">${Atlas.t("na")}</span>`);
   const italy = c => {
-    if (!c.it_n) return '<span class="muted">n/a</span>';
-    const waiting = c.it_waiting ? `, ${c.it_waiting} waiting` : "";
-    const value = c.it_median !== null ? c.it_median.toLocaleString("en-US") : "not yet";
-    return `${value}<br><span class="muted small">${c.it_n} drugs${waiting}</span>`;
+    if (!c.it_n) return `<span class="muted">${Atlas.t("na")}</span>`;
+    const waiting = c.it_waiting ? Atlas.t("js.sc_waiting", { n: c.it_waiting }) : "";
+    const value = c.it_median !== null ? Atlas.num(c.it_median) : Atlas.t("js.not_yet");
+    return `${value}<br><span class="muted small">${Atlas.t("js.n_drugs", { n: c.it_n })}${waiting}</span>`;
   };
+
+  // Card labels on phones (the column headers are hidden there).
+  const L = Object.fromEntries(["drugs", "lag", "it", "de", "fr", "en"].map(k => [k, Atlas.esc(Atlas.t(`js.sc.${k}`))]));
 
   function render() {
     const min = Number(el("sc-min").value);
@@ -37,15 +40,15 @@
       <tr>
         <th scope="row"><a href="explorer.html?company=${encodeURIComponent(c.company)}">${Atlas.esc(c.company)}</a>
           <br><span class="muted small">${Atlas.esc(c.drugs.join(", "))}</span></th>
-        <td class="num" data-label="Drugs"><span>${c.n}</span></td>
-        <td class="num" data-label="US→EU lag, median days"><span>${c.lag_median !== null ? Math.floor(c.lag_median + 0.5).toLocaleString("en-US") : "n/a"}
-          ${c.eu_first ? `<br><span class="muted small">${c.eu_first} EU first</span>` : ""}</span></td>
-        <td class="num" data-label="Italy: half reimbursed within (days)"><span>${italy(c)}</span></td>
-        <td class="num" data-label="Germany: added benefit"><span>${share(c.de_pos, c.de_n)}</span></td>
-        <td class="num" data-label="France: improvement"><span>${share(c.fr_pos, c.fr_n)}</span></td>
-        <td class="num" data-label="England: positive"><span>${share(c.en_pos, c.en_n)}</span></td>
+        <td class="num" data-label="${L.drugs}"><span>${c.n}</span></td>
+        <td class="num" data-label="${L.lag}"><span>${c.lag_median !== null ? Atlas.num(Math.floor(c.lag_median + 0.5)) : Atlas.t("na")}
+          ${c.eu_first ? `<br><span class="muted small">${Atlas.t("js.sc_eu_first", { n: c.eu_first })}</span>` : ""}</span></td>
+        <td class="num" data-label="${L.it}"><span>${italy(c)}</span></td>
+        <td class="num" data-label="${L.de}"><span>${share(c.de_pos, c.de_n)}</span></td>
+        <td class="num" data-label="${L.fr}"><span>${share(c.fr_pos, c.fr_n)}</span></td>
+        <td class="num" data-label="${L.en}"><span>${share(c.en_pos, c.en_n)}</span></td>
       </tr>`).join("");
-    el("sc-count").textContent = `Showing ${visible.length} of ${companies.length} companies`;
+    el("sc-count").textContent = Atlas.t("js.sc_showing", { n: visible.length, total: companies.length });
 
     document.querySelectorAll("#scorecard th[data-key]").forEach(th => {
       if (th.dataset.key === sortKey) th.setAttribute("aria-sort", sortDir === "asc" ? "ascending" : "descending");

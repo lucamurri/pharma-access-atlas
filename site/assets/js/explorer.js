@@ -17,8 +17,8 @@
                      orphan: el("f-orphan"), year: el("f-year") };
 
   // Fill the dropdowns from the data.
-  const fillSelect = (select, values) => values.forEach(v => select.add(new Option(v, v)));
-  fillSelect(controls.area, [...new Set(rows.map(r => r.area))].sort());
+  const fillSelect = (select, values, show = v => v) => values.forEach(v => select.add(new Option(show(v), v)));
+  fillSelect(controls.area, [...new Set(rows.map(r => r.area))].sort(), Atlas.label);
   fillSelect(controls.company, [...new Set(rows.map(r => r.company))].sort());
   fillSelect(controls.year, [...new Set(rows.map(r => r.first_year))].sort());
 
@@ -29,19 +29,23 @@
   let sortDir = params.get("dir") || "asc";
 
   const ratingPill = r => {
-    if (!r.gba_rating) return r.gba_pending ? '<span class="pill">in progress</span>' : '<span class="muted">n/a</span>';
+    if (!r.gba_rating) return r.gba_pending ? `<span class="pill">${Atlas.t("js.in_progress")}</span>` : `<span class="muted">${Atlas.t("na")}</span>`;
     const cls = ["major", "considerable"].includes(r.gba_rating) ? "pill pill-accent" : "pill";
-    return `<span class="${cls}">${Atlas.esc(r.gba_rating)}</span>`;
+    return `<span class="${cls}">${Atlas.esc(Atlas.t(`gba.${r.gba_rating}`))}</span>`;
   };
   const italyCell = r => {
-    if (r.it_lag !== null) return String(r.it_lag);
-    if (r.it_waiting !== null) return `<span class="pill">waiting, ${r.it_waiting} so far</span>`;
-    return '<span class="muted">n/a</span>';
+    if (r.it_lag !== null) return Atlas.num(r.it_lag);
+    if (r.it_waiting !== null) return `<span class="pill">${Atlas.t("js.waiting_so_far", { n: Atlas.num(r.it_waiting) })}</span>`;
+    return `<span class="muted">${Atlas.t("na")}</span>`;
   };
   const orphanCell = r => {
     const parts = [r.us_orphan === "yes" ? "US" : null, r.eu_orphan === "yes" ? "EU" : null].filter(Boolean);
-    return parts.length ? parts.join(" + ") : '<span class="muted">no</span>';
+    return parts.length ? parts.join(" + ") : `<span class="muted">${Atlas.t("js.no")}</span>`;
   };
+
+  // Card labels on phones (the column headers are hidden there).
+  const L = Object.fromEntries(["area", "company", "fda", "ec", "lag", "it", "de", "fr", "en", "orphan"]
+    .map(k => [k, Atlas.esc(Atlas.t(`js.ex.${k}`))]));
 
   function render() {
     const q = controls.search.value.trim().toLowerCase();
@@ -64,22 +68,22 @@
     el("explorer-body").innerHTML = visible.map(r => `
       <tr>
         <th scope="row"><a href="${Atlas.briefUrl(r.id)}">${Atlas.esc(Atlas.drugName(r))}</a>
-          ${r.cohort === "reference" ? ' <span class="pill">Ref.</span>' : ""}
+          ${r.cohort === "reference" ? ` <span class="pill">${Atlas.t("js.ref")}</span>` : ""}
           <br><span class="muted small">${Atlas.esc(r.inn)}</span></th>
-        <td data-label="Area">${Atlas.esc(r.area)}</td>
-        <td data-label="Company">${Atlas.esc(r.company)}</td>
-        <td data-label="FDA approval" style="white-space:nowrap">${Atlas.fmtDate(r.fda_date)}</td>
-        <td data-label="EC approval" style="white-space:nowrap">${Atlas.fmtDate(r.ec_date)}</td>
-        <td class="num" data-label="US→EU lag (days)">${r.lag ?? "n/a"}</td>
-        <td class="num" data-label="Italy delay (days)">${italyCell(r)}</td>
-        <td data-label="Germany G-BA">${ratingPill(r)}</td>
-        <td data-label="France HAS">${r.fr_asmr ? `ASMR ${r.fr_asmr}` : r.fr_smr === "insufficient" ? "SMR insufficient"
-              : r.fr_pending ? '<span class="pill">no opinion yet</span>' : '<span class="muted">n/a</span>'}</td>
-        <td data-label="England NICE">${r.en_decision ? Atlas.esc(r.en_decision) : r.en_pending ? '<span class="pill">in progress</span>' : '<span class="muted">n/a</span>'}</td>
-        <td data-label="Orphan">${orphanCell(r)}</td>
-      </tr>`).join("") || '<tr><td colspan="11">No drugs match these filters.</td></tr>';
+        <td data-label="${L.area}">${Atlas.esc(Atlas.label(r.area))}</td>
+        <td data-label="${L.company}">${Atlas.esc(r.company)}</td>
+        <td data-label="${L.fda}" style="white-space:nowrap">${Atlas.fmtDate(r.fda_date)}</td>
+        <td data-label="${L.ec}" style="white-space:nowrap">${Atlas.fmtDate(r.ec_date)}</td>
+        <td class="num" data-label="${L.lag}">${r.lag === null ? Atlas.t("na") : Atlas.num(r.lag)}</td>
+        <td class="num" data-label="${L.it}">${italyCell(r)}</td>
+        <td data-label="${L.de}">${ratingPill(r)}</td>
+        <td data-label="${L.fr}">${r.fr_verdict ? Atlas.esc(Atlas.t(`asmr.${r.fr_verdict}`))
+              : r.fr_pending ? `<span class="pill">${Atlas.t("js.no_opinion_yet")}</span>` : `<span class="muted">${Atlas.t("na")}</span>`}</td>
+        <td data-label="${L.en}">${r.en_decision ? Atlas.esc(Atlas.t(`nice.${r.en_decision}`)) : r.en_pending ? `<span class="pill">${Atlas.t("js.in_progress")}</span>` : `<span class="muted">${Atlas.t("na")}</span>`}</td>
+        <td data-label="${L.orphan}">${orphanCell(r)}</td>
+      </tr>`).join("") || `<tr><td colspan="11">${Atlas.t("js.no_match")}</td></tr>`;
 
-    el("result-count").textContent = `Showing ${visible.length} of ${rows.length} drugs`;
+    el("result-count").textContent = Atlas.t("js.showing", { n: visible.length, total: rows.length });
 
     // Tell screen readers which column is sorted.
     document.querySelectorAll("#explorer th[data-key]").forEach(th => {

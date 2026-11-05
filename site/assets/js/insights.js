@@ -14,7 +14,7 @@
   Chart.defaults.plugins.legend.display = false;
   Chart.defaults.animation = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? false : { duration: 400 };
 
-  const labels = drivers.map(d => d.yes_label);
+  const labels = drivers.map(d => Atlas.label(d.yes_label));
   const pct = x => Math.round(x);
   const bar = { borderRadius: 4, borderSkipped: "start", borderWidth: 0, maxBarThickness: 14,
                 categoryPercentage: 0.75, barPercentage: 0.9 };
@@ -29,7 +29,7 @@
       ctx.font = `600 11px ${Chart.defaults.font.family}`;
       ctx.textBaseline = "middle";
       chart.data.datasets.forEach((ds, i) => chart.getDatasetMeta(i).data.forEach((el, j) =>
-        ctx.fillText(`${pct(ds.data[j])}%`, el.x + 5, el.y)));
+        ctx.fillText(Atlas.t("js.pct", { n: pct(ds.data[j]) }), el.x + 5, el.y)));
       ctx.restore();
     },
   };
@@ -39,8 +39,8 @@
     data: {
       labels,
       datasets: [
-        { ...bar, label: "With the trait", data: drivers.map(d => d.yes.pct_2y), backgroundColor: c.s1 },
-        { ...bar, label: "Without it", data: drivers.map(d => d.no.pct_2y), backgroundColor: c.s2 },
+        { ...bar, label: Atlas.t("js.in.with"), data: drivers.map(d => d.yes.pct_2y), backgroundColor: c.s1 },
+        { ...bar, label: Atlas.t("js.in.without"), data: drivers.map(d => d.no.pct_2y), backgroundColor: c.s2 },
       ],
     },
     options: {
@@ -53,13 +53,13 @@
       plugins: { tooltip: {
         backgroundColor: c.text, titleColor: c.surface, bodyColor: c.surface, padding: 10, displayColors: true,
         callbacks: {
-          title: items => drivers[items[0].dataIndex].yes_label,
+          title: items => Atlas.label(drivers[items[0].dataIndex].yes_label),
           label: item => {
             const d = drivers[item.dataIndex], g = item.datasetIndex === 0 ? d.yes : d.no;
-            const name = item.datasetIndex === 0 ? d.yes_label : d.no_label;
-            return ` ${name}: ${pct(g.pct_2y)}% within 2 years, median ${g.median ?? "not reached"} days (${g.n} drugs)`;
+            const name = Atlas.label(item.datasetIndex === 0 ? d.yes_label : d.no_label);
+            return ` ${Atlas.t("js.in.tip", { name, pct: pct(g.pct_2y), med: g.median === null ? Atlas.t("js.not_reached") : Atlas.num(g.median), n: g.n })}`;
           },
-          footer: items => `Log-rank p = ${drivers[items[0].dataIndex].p}`,
+          footer: items => Atlas.t("js.in.footer", { p: Atlas.dec(drivers[items[0].dataIndex].p) }),
         },
       } },
     },
@@ -67,13 +67,13 @@
   });
 
   document.getElementById("table-drivers").innerHTML = Atlas.table(drivers, [
-    { label: "Trait", value: d => d.yes_label },
-    { label: "With: within 2 yrs", value: d => `${pct(d.yes.pct_2y)}%`, num: true },
-    { label: "With: median days", value: d => d.yes.median ?? "not reached", num: true },
-    { label: "With: drugs", value: d => d.yes.n, num: true },
-    { label: "Without: within 2 yrs", value: d => `${pct(d.no.pct_2y)}%`, num: true },
-    { label: "Without: median days", value: d => d.no.median ?? "not reached", num: true },
-    { label: "Without: drugs", value: d => d.no.n, num: true },
-    { label: "Log-rank p", value: d => d.p, num: true },
+    { label: Atlas.t("js.in.trait"), value: d => Atlas.label(d.yes_label) },
+    { label: Atlas.t("js.in.with_2y"), value: d => Atlas.t("js.pct", { n: pct(d.yes.pct_2y) }), num: true },
+    { label: Atlas.t("js.in.with_med"), value: d => (d.yes.median === null ? Atlas.t("js.not_reached") : Atlas.num(d.yes.median)), num: true },
+    { label: Atlas.t("js.in.with_n"), value: d => d.yes.n, num: true },
+    { label: Atlas.t("js.in.without_2y"), value: d => Atlas.t("js.pct", { n: pct(d.no.pct_2y) }), num: true },
+    { label: Atlas.t("js.in.without_med"), value: d => (d.no.median === null ? Atlas.t("js.not_reached") : Atlas.num(d.no.median)), num: true },
+    { label: Atlas.t("js.in.without_n"), value: d => d.no.n, num: true },
+    { label: Atlas.t("js.in.p"), value: d => Atlas.dec(d.p), num: true },
   ]);
 })();

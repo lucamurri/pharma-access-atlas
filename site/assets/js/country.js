@@ -19,10 +19,10 @@
 
   // ---- Curve: this country in its own colour, the others in grey -----------------------
   const COUNTRIES = [
-    { key: "fr", name: "France", color: Atlas.cssVar("--country-fr") },
-    { key: "de", name: "Germany", color: Atlas.cssVar("--country-de") },
-    { key: "en", name: "England", color: Atlas.cssVar("--country-en") },
-    { key: "it", name: "Italy", color: Atlas.cssVar("--country-it") },
+    { key: "fr", name: Atlas.t("js.country.fr"), color: Atlas.cssVar("--country-fr") },
+    { key: "de", name: Atlas.t("js.country.de"), color: Atlas.cssVar("--country-de") },
+    { key: "en", name: Atlas.t("js.country.en"), color: Atlas.cssVar("--country-en") },
+    { key: "it", name: Atlas.t("js.country.it"), color: Atlas.cssVar("--country-it") },
   ].map(ct => ({ ...ct, ...summary.access[ct.key] }));
   const HORIZON = 4 * 365;
   const grid = Array.from({ length: HORIZON + 1 }, (_, d) => d);
@@ -46,7 +46,7 @@
         ctx.fillStyle = mine ? ct.color : c.neutral;
         ctx.beginPath(); ctx.arc(chartArea.right + 8, y, 4, 0, 2 * Math.PI); ctx.fill();
         ctx.fillStyle = mine ? c.text : c.text2;
-        ctx.fillText(`${ct.name} ${Math.round(chart.data.datasets[i].data[HORIZON])}%`, chartArea.right + 16, y);
+        ctx.fillText(`${ct.name} ${Atlas.t("js.pct", { n: Math.round(chart.data.datasets[i].data[HORIZON]) })}`, chartArea.right + 16, y);
       });
       const y50 = chart.scales.y.getPixelForValue(50);
       ctx.strokeStyle = c.text2; ctx.setLineDash([4, 4]); ctx.lineWidth = 1;
@@ -68,28 +68,35 @@
         x: { type: "linear", min: 0, max: HORIZON, grid: { color: c.grid }, border: { display: false },
              title: { display: true, text: "Days after European Commission approval" },
              ticks: { stepSize: 365, maxRotation: 0,
-                      callback: v => (v === 0 ? "0" : narrow ? `${v / 365} yr` : `${v} (${v / 365} yr)`) } },
+                      callback: v => (v === 0 ? "0" : narrow ? Atlas.t("js.yr", { n: v / 365 }) : Atlas.t("js.tick_days_yr", { v: Atlas.num(v), n: v / 365 })) } },
         y: { min: 0, max: 100, grid: { color: c.grid }, border: { display: false },
              ticks: { stepSize: 25, callback: v => `${v}%` } },
       },
       plugins: { tooltip: { ...tooltip, displayColors: false, callbacks: {
-        title: items => `Day ${items[0].parsed.x} after EU approval`,
-        label: item => `${ordered[item.datasetIndex].name}: ${Math.round(item.parsed.y)}% reached`,
+        title: items => Atlas.t("js.tip_day_after_ec", { d: Atlas.num(items[0].parsed.x) }),
+        label: item => Atlas.t("js.tip_reached", { name: ordered[item.datasetIndex].name, pct: Math.round(item.parsed.y) }),
       } } },
     },
     plugins: [endLabels],
   });
   document.getElementById("table-country").innerHTML = Atlas.table(COUNTRIES, [
-    { label: "Country", value: ct => ct.name },
-    { label: "Median days (incl. waiting)", value: ct => ct.median ?? "not reached", num: true },
-    { label: "Within 1 year", value: ct => `${Math.round(ct.pct_1y)}%`, num: true },
-    { label: "Within 2 years", value: ct => `${Math.round(ct.pct_2y)}%`, num: true },
-    { label: "Drugs counted", value: ct => ct.n, num: true },
-    { label: "Still waiting", value: ct => ct.waiting, num: true },
+    { label: Atlas.t("js.col_country"), value: ct => ct.name },
+    { label: Atlas.t("js.col_median_incl"), value: ct => (ct.median === null ? Atlas.t("js.not_reached") : Atlas.num(ct.median)), num: true },
+    { label: Atlas.t("js.col_within1s"), value: ct => Atlas.t("js.pct", { n: Math.round(ct.pct_1y) }), num: true },
+    { label: Atlas.t("js.col_within2s"), value: ct => Atlas.t("js.pct", { n: Math.round(ct.pct_2y) }), num: true },
+    { label: Atlas.t("js.col_counted"), value: ct => Atlas.num(ct.n), num: true },
+    { label: Atlas.t("js.col_still_waiting"), value: ct => Atlas.num(ct.waiting), num: true },
   ]);
 
   // ---- Verdict mix -----------------------------------------------------------------------
-  const mix = Object.entries(profile.mix).map(([label, n]) => ({ label: label.charAt(0).toUpperCase() + label.slice(1), n }));
+  // Verdict names come from the data as codes (G-BA, NICE) or labels (ASMR, Italian classes).
+  const mixLabel = k => {
+    for (const p of ["gba", "nice"]) { const v = Atlas.t(`${p}.${k}`); if (v !== `${p}.${k}`) return v; }
+    if (k.startsWith("ASMR ")) return Atlas.t(`asmr.${k.slice(5)}`);
+    if (k === "SMR insufficient") return Atlas.t("asmr.SMR insufficient");
+    return Atlas.label(k);
+  };
+  const mix = Object.entries(profile.mix).map(([k, n]) => ({ label: mixLabel(k), n }));
   new Chart(document.getElementById("chart-mix"), {
     type: "bar",
     data: { labels: mix.map(m => m.label),
@@ -99,7 +106,7 @@
       indexAxis: "y", maintainAspectRatio: false, layout: { padding: { right: 36 } },
       scales: { x: { beginAtZero: true, grid: { color: c.grid }, border: { display: false }, ticks: { precision: 0 } },
                 y: { grid: { display: false }, ticks: { autoSkip: false } } },
-      plugins: { tooltip: { ...tooltip, displayColors: false, callbacks: { label: item => `${item.raw} drugs` } } },
+      plugins: { tooltip: { ...tooltip, displayColors: false, callbacks: { label: item => Atlas.t("js.n_drugs", { n: item.raw }) } } },
     },
     plugins: [{
       id: "values",
@@ -112,28 +119,28 @@
     }],
   });
   document.getElementById("table-mix").innerHTML = Atlas.table(mix, [
-    { label: "Verdict", value: m => m.label }, { label: "Drugs", value: m => m.n, num: true },
+    { label: Atlas.t("js.col_verdict"), value: m => m.label }, { label: Atlas.t("js.col_drugs"), value: m => m.n, num: true },
   ]);
 
   // ---- Therapy areas and drug lists ---------------------------------------------------------
   document.getElementById("table-areas").innerHTML = Atlas.table(profile.areas, [
-    { label: "Therapy area", value: a => a.area },
-    { label: "Median days", value: a => a.median ?? "not reached", num: true },
-    { label: "Within 2 yrs", value: a => `${Math.round(a.pct_2y)}%`, num: true },
-    { label: "Drugs", value: a => a.n, num: true },
-    { label: "Waiting", value: a => a.waiting, num: true },
+    { label: Atlas.t("js.col_area"), value: a => Atlas.label(a.area) },
+    { label: Atlas.t("js.col_median_days"), value: a => (a.median === null ? Atlas.t("js.not_reached") : Atlas.num(a.median)), num: true },
+    { label: Atlas.t("js.col_within2_short"), value: a => Atlas.t("js.pct", { n: Math.round(a.pct_2y) }), num: true },
+    { label: Atlas.t("js.col_drugs"), value: a => a.n, num: true },
+    { label: Atlas.t("js.col_waiting"), value: a => a.waiting, num: true },
   ]);
   const days = (d, suffix) => {
-    if (d.days < 0) return `${(-d.days).toLocaleString("en-US")} days before EU approval`;
-    const base = `${d.days.toLocaleString("en-US")} days${suffix}`;
-    return d.note ? `${base} · ${Atlas.esc(d.note)}` : base;
+    if (d.days < 0) return Atlas.t("js.days_before_ec", { n: Atlas.num(-d.days) });
+    const base = suffix ? Atlas.t("js.days_after_ec", { n: Atlas.num(d.days) }) : Atlas.t("js.n_days", { n: Atlas.num(d.days) });
+    return d.note ? `${base} · ${Atlas.esc(Atlas.label(d.note))}` : base;
   };
   const list = (items, suffix) => (items.length ? `<ol class="rank-list">${items.map(d => `
     <li><a href="${Atlas.briefUrl(d.id)}">${Atlas.esc(d.brand)}</a>
-      <span class="muted small">${Atlas.esc(d.area)}${d.eu_status && d.eu_status !== "Authorised" ? ` · EU: ${Atlas.esc(d.eu_status.toLowerCase())}` : ""}</span>
+      <span class="muted small">${Atlas.esc(Atlas.label(d.area))}${d.eu_status && d.eu_status !== "Authorised" ? ` · ${Atlas.t("js.cmp.eu_status", { status: Atlas.esc(Atlas.label(d.eu_status)) })}` : ""}</span>
       <span class="rank-days">${days(d, suffix)}</span></li>`).join("")}</ol>`
-    : '<p class="muted">None</p>');
+    : `<p class="muted">${Atlas.t("js.none")}</p>`);
   document.getElementById("list-fastest").innerHTML = list(profile.fastest, "");
   document.getElementById("list-slowest").innerHTML = list(profile.slowest, "");
-  document.getElementById("list-waiting").innerHTML = list(profile.longest_waiting, " since EU approval");
+  document.getElementById("list-waiting").innerHTML = list(profile.longest_waiting, true);
 })();

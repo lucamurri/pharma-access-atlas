@@ -1,25 +1,42 @@
 /* Shared helpers for the Pharma Access Atlas pages. No libraries needed. */
 
 const Atlas = (() => {
-  // Pages in sub-folders (drug briefs) set data-root="../" on <body>.
+  // data-root leads back to the site root (assets, data); data-pages to this language's top folder.
   const root = document.body.dataset.root || "";
+  const pages = document.body.dataset.pages || "";
+  const lang = document.body.dataset.lang || "en";
+  let strings = {}, locale = "en-GB";
 
   async function load() {
-    const response = await fetch(root + "data/atlas.json");
-    if (!response.ok) throw new Error("Could not load data/atlas.json");
-    return response.json();
+    const response = await fetch(`${root}data/atlas.${lang}.json`);
+    if (!response.ok) throw new Error(`Could not load data/atlas.${lang}.json`);
+    const data = await response.json();
+    strings = data.t || {};
+    locale = data.locale || locale;
+    return data;
   }
+
+  // Interface text in the page's language: t("js.key", {n: 3}) fills {n}. Falls back to the key.
+  function t(key, vars) {
+    const text = strings[key] ?? key;
+    return vars ? text.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m)) : text;
+  }
+  // Data labels (therapy areas, EU status) translated when a translation exists.
+  const label = text => strings[`label.${text}`] ?? text;
+  // Whole numbers the local way: 1,234 / 1.234 / 1 234.
+  const num = n => (n === null || n === undefined ? t("na") : Number(n).toLocaleString(locale, { maximumFractionDigits: 1 }));
+  // Decimals kept, the local way (0.038 -> 0,038): for p-values.
+  const dec = (n, digits = 3) => (n === null || n === undefined ? t("na") : Number(n).toLocaleString(locale, { maximumFractionDigits: digits }));
 
   // Read a colour from the stylesheet so charts follow light/dark mode.
   function cssVar(name) {
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   }
 
-  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   function fmtDate(iso) {
-    if (!iso) return "n/a";
+    if (!iso) return t("na");
     const [y, m, d] = iso.split("-").map(Number);
-    return `${d} ${MONTHS[m - 1]} ${y}`;
+    return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString(locale, { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
   }
 
   function esc(text) {
@@ -28,7 +45,7 @@ const Atlas = (() => {
   }
 
   function briefUrl(id) {
-    return `${root}drugs/${id}.html`;
+    return `${pages}drugs/${id}.html`;
   }
 
   function drugName(row) {
@@ -46,7 +63,7 @@ const Atlas = (() => {
     return `<table class="data-table"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
   }
 
-  return { load, cssVar, fmtDate, esc, briefUrl, drugName, table, root };
+  return { load, cssVar, fmtDate, esc, briefUrl, drugName, table, root, pages, lang, t, label, num, dec };
 })();
 
 // Keyboard access for tables wider than their box: a box that scrolls sideways gets a focus
@@ -62,7 +79,7 @@ const Atlas = (() => {
         box.setAttribute("tabindex", "0");
         box.setAttribute("role", "region");
         const caption = box.querySelector("caption");
-        box.setAttribute("aria-label", caption ? caption.textContent.trim() : "Table, scrolls sideways");
+        box.setAttribute("aria-label", caption ? caption.textContent.trim() : Atlas.t("js.table_scrolls"));
       } else if (!scrolls && box.getAttribute("tabindex") === "0") {
         ["tabindex", "role", "aria-label"].forEach(a => box.removeAttribute(a));
       }

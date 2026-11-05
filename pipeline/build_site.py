@@ -1,142 +1,112 @@
-"""Build the static website into _site/ (the folder GitHub Pages publishes).
+"""Build the static website into _site/ (the folder GitHub Pages publishes), in four languages.
 
     python3 pipeline/build_site.py
     python3 -m http.server 8000 --directory _site     # then open http://localhost:8000
 
 What it does
-  1. Wraps each page in site/pages/ with the shared layout (header, nav, footer).
-  2. Fills {{placeholders}} in pages with numbers from pipeline/analysis.py.
-  3. Generates one brief page per drug in _site/drugs/.
-  4. Copies assets and writes the data files the JavaScript reads.
+  1. Wraps each page template with the shared layout (header, nav, language switcher, footer).
+     English pages come from site/pages/, translations from site/pages/i18n/<lang>/.
+  2. Fills {{placeholders}} with numbers from pipeline/analysis.py, formatted the local way.
+  3. Generates one brief page per drug and language.
+  4. Copies assets and writes the data files the JavaScript reads (one per language, same data).
+
+English lives at the site root (unchanged addresses); Italian, German and French under /it/, /de/, /fr/.
+All other text (navigation, briefs, chart labels, generated bullets) comes from site/i18n/<lang>.json.
 """
 from __future__ import annotations
 
 import html
 import json
 import shutil
+import sys
 from datetime import date
 
 import analysis
 import check_text
+import i18n
 import so_what as so_what_rules
-import sys
 from common import PROCESSED, ROOT, write_json
 
 SITE = ROOT / "site"
 OUT = ROOT / "_site"
 REPO_URL = "https://github.com/lucamurri/pharma-access-atlas"
 SITE_URL = "https://lucamurri.github.io/pharma-access-atlas/"
+LANG_NAMES = {"en": "English", "it": "Italiano", "de": "Deutsch", "fr": "Français"}
 
-NAV = [
-    ("index.html", "Overview"),
-    ("explorer.html", "Drug explorer"),
-    ("companies.html", "Companies"),
-    ("compare.html", "Compare"),
-    ("italy.html", "Countries"),
-    ("insights.html", "Insights"),
-    ("methodology.html", "Methodology & sources"),
-    ("about.html", "About"),
-]
-
-PAGES = {
-    "index.html": ("Pharma Access Atlas: how fast new drugs reach patients in the US and Europe",
-                   "Approval, benefit assessment and reimbursement timelines for every new drug approved by both "
-                   "the FDA and the EU in 2019-2025, across the US, Italy, Germany, France and England, with a "
-                   "public source for every number."),
-    "explorer.html": ("Drug explorer | Pharma Access Atlas", "Sortable, filterable table of every drug in the atlas."),
-    "compare.html": ("Compare drugs | Pharma Access Atlas",
-                     "Put up to four drugs side by side: approval and access timelines and verdicts in Italy, "
-                     "Germany, France and England."),
-    "companies.html": ("Company scorecard | Pharma Access Atlas",
-                       "How quickly each company's new drugs reached patients in Europe, and how they were rated."),
-    "insights.html": ("Insights | Pharma Access Atlas", "Findings on drug access in the US and Europe."),
-    "methodology.html": ("Methodology & sources | Pharma Access Atlas", "Definitions, data sources, limitations."),
-    "about.html": ("About | Pharma Access Atlas", "About the author of the Pharma Access Atlas."),
-}
-
-# Country pages: one per national milestone, built from site/pages/country.html.
-COUNTRIES = [
-    {"key": "it", "slug": "italy.html", "name": "Italy", "short": "reimbursement in Italy",
-     "title": "reimbursement by the national health service",
-     "lede": "AIFA negotiates price and reimbursement with the company, and access starts when the decision is "
-             "published in the Gazzetta Ufficiale. Until then a new drug can usually be sold only in class C(nn), "
-             "which the national health service does not pay for.",
-     "mix_title": "How reimbursed drugs are dispensed",
-     "mix_sub": "Class of the first reimbursement decision (H: hospital use; A: community pharmacies), and drugs "
-                "not yet reimbursed when checked.",
-     "note": "Regional formulary listing can add months after the national decision and is not measured; "
-             "early access under Law 648/96 or the AIFA 5% fund is not counted."},
-    {"key": "de", "slug": "germany.html", "name": "Germany", "short": "a G-BA decision",
-     "title": "the G-BA benefit assessment",
-     "lede": "In Germany a new drug is reimbursed from launch. Within about six months the G-BA decides its added "
-             "benefit over an appropriate comparator (AMNOG), and that verdict is the basis for the price the "
-             "company then negotiates with the statutory health insurers.",
-     "mix_title": "First G-BA verdict (best patient group)",
-     "mix_sub": "Each drug's best rating in its first concluded assessment.",
-     "note": "For orphan drugs below the revenue threshold, added benefit is deemed proven by law; reserve "
-             "antibiotics get no quantified rating and are left blank."},
-    {"key": "fr", "slug": "france.html", "name": "France", "short": "a HAS opinion",
-     "title": "the HAS opinion on reimbursement",
-     "lede": "The HAS Transparency Committee rates whether a drug merits reimbursement at all (SMR) and its added "
-             "benefit over existing care (ASMR I to V). The opinion opens price negotiations with the CEPS; the "
-             "listing that gives patients access usually follows months later.",
-     "mix_title": "First HAS verdict",
-     "mix_sub": "Best ASMR across the opinion's indications, or SMR insufficient (judged not worth reimbursing).",
-     "note": "The milestone is the HAS opinion, not the later price and listing decision; drugs with no HAS "
-             "opinion when checked count as waiting."},
-    {"key": "en", "slug": "england.html", "name": "England", "short": "NICE guidance",
-     "title": "NICE guidance",
-     "lede": "NICE appraises whether a drug is good value for the NHS at the price offered. A positive "
-             "recommendation obliges the NHS in England to fund it, normally within three months.",
-     "mix_title": "First NICE decision",
-     "mix_sub": "Outcome of the first published appraisal for the drug's first indication.",
-     "note": "England uses its own UK licence since Brexit, but times are counted from EC approval for "
-             "comparability; drugs NICE will not appraise stay in the count as waiting."},
-]
+NAV = [("index.html", "nav.overview"), ("explorer.html", "nav.explorer"), ("companies.html", "nav.companies"),
+       ("compare.html", "nav.compare"), ("italy.html", "nav.countries"), ("insights.html", "nav.insights"),
+       ("methodology.html", "nav.methodology"), ("about.html", "nav.about")]
+PAGES = ["index.html", "explorer.html", "compare.html", "companies.html", "insights.html", "methodology.html",
+         "about.html"]
+SCRIPTS = {"index.html": ["vendor/chart.umd.min.js", "js/common.js", "js/overview.js"],
+           "explorer.html": ["js/common.js", "js/explorer.js"],
+           "companies.html": ["js/common.js", "js/companies.js"],
+           "compare.html": ["vendor/chart.umd.min.js", "js/common.js", "js/compare.js"],
+           "insights.html": ["vendor/chart.umd.min.js", "js/common.js", "js/insights.js"]}
+US_SLUG = "united-states.html"
+COUNTRIES = [{"key": "it", "slug": "italy.html"}, {"key": "de", "slug": "germany.html"},
+             {"key": "fr", "slug": "france.html"}, {"key": "en", "slug": "england.html"}]
 
 esc = html.escape
+
+
+def lang_prefix(lang: str) -> str:
+    return "" if lang == "en" else f"{lang}/"
 
 
 # ---------------------------------------------------------------------------
 # Layout
 # ---------------------------------------------------------------------------
-def layout(title: str, description: str, body: str, active: str, root: str, data_as_of: str, scripts=(),
-           path: str = "") -> str:
+def layout(t: i18n.Strings, title: str, description: str, body: str, active: str, path: str,
+           scripts=(), data_as_of: str = "", extra_body_attr: str = "") -> str:
+    """path: the page's address inside a language, e.g. 'explorer.html' or 'drugs/kisunla.html'."""
+    depth = path.count("/")
+    pages = "../" * depth                                  # back to this language's top folder
+    assets = pages + ("../" if t.lang != "en" else "")     # back to the site root (assets, data)
     current = ' aria-current="page"'
-    nav = "\n".join(
-        f'<li><a href="{root}{href}"{current if href == active else ""}>{label}</a></li>'
-        for href, label in NAV
-    )
-    script_tags = "\n".join(f'<script src="{root}assets/{s}" defer></script>' for s in scripts)
+    nav = "\n".join(f'<li><a href="{pages}{href}"{current if href == active else ""}>{esc(t(key))}</a></li>'
+                    for href, key in NAV)
+    langs = "".join(
+        f'<a href="{assets}{lang_prefix(l)}{path}" hreflang="{l}" lang="{l}"'
+        f'{current if l == t.lang else ""}>{l.upper()}<span class="visually-hidden"> {LANG_NAMES[l]}</span></a>'
+        for l in i18n.available())
+    alternates = "\n".join(f'<link rel="alternate" hreflang="{l}" href="{SITE_URL}{lang_prefix(l)}{path}">'
+                           for l in i18n.available())
+    page_url = f"{SITE_URL}{lang_prefix(t.lang)}{'' if path == 'index.html' else path}"
+    script_tags = "\n".join(f'<script src="{assets}assets/{s}" defer></script>' for s in scripts)
     return f"""<!doctype html>
-<html lang="en">
+<html lang="{t.lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
-<link rel="canonical" href="{SITE_URL}{path}">
-<link rel="icon" href="{root}assets/img/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="{page_url}">
+{alternates}
+<link rel="alternate" hreflang="x-default" href="{SITE_URL}{path}">
+<link rel="icon" href="{assets}assets/img/favicon.svg" type="image/svg+xml">
 <!-- Link previews (LinkedIn, Slack, iMessage, X): one site-wide image, per-page title and summary. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Pharma Access Atlas">
+<meta property="og:locale" content="{t.loc['locale'].replace('-', '_')}">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(description)}">
-<meta property="og:url" content="{SITE_URL}{path}">
+<meta property="og:url" content="{page_url}">
 <meta property="og:image" content="{SITE_URL}assets/img/social.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Pharma Access Atlas: how fast do new drugs reach patients in the US and Europe?">
+<meta property="og:image:alt" content="{esc(t('layout.og_alt'))}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="{root}assets/css/style.css">
+<link rel="stylesheet" href="{assets}assets/css/style.css">
 {script_tags}
 </head>
-<body data-root="{root}">
-<a class="skip-link" href="#main">Skip to content</a>
+<body data-root="{assets}" data-pages="{pages}" data-lang="{t.lang}"{extra_body_attr}>
+<a class="skip-link" href="#main">{esc(t('layout.skip'))}</a>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="{root}index.html">Pharma Access Atlas</a>
-    <nav aria-label="Main">
+    <a class="brand" href="{pages}index.html">Pharma Access Atlas</a>
+    <nav class="lang-switch" aria-label="{esc(t('layout.lang_aria'))}">{langs}</nav>
+    <nav aria-label="{esc(t('layout.nav_aria'))}">
       <ul class="nav">{nav}</ul>
     </nav>
   </div>
@@ -146,23 +116,15 @@ def layout(title: str, description: str, body: str, active: str, root: str, data
 </main>
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <p>Data as of {esc(fmt_date(data_as_of))}. Every value links to its public source.
-       Not medical, legal or investment advice.</p>
-    <p><a href="{root}methodology.html">Methodology &amp; sources</a> ·
-       <a href="{root}data/drugs.json">Download the data (JSON)</a> ·
-       <a href="{REPO_URL}">Code on GitHub</a></p>
+    <p>{esc(t('layout.footer_asof', date=t.date(data_as_of)))}</p>
+    <p><a href="{pages}methodology.html">{esc(t('layout.footer_method'))}</a> ·
+       <a href="{assets}data/drugs.json">{esc(t('layout.footer_data'))}</a> ·
+       <a href="{REPO_URL}">{esc(t('layout.footer_code'))}</a></p>
   </div>
 </footer>
 </body>
 </html>
 """
-
-
-def fmt_date(iso: str | None) -> str:
-    if not iso:
-        return "n/a"
-    d = date.fromisoformat(iso)
-    return f"{d.day} {d.strftime('%b %Y')}"
 
 
 def fill(text: str, values: dict) -> str:
@@ -174,21 +136,49 @@ def fill(text: str, values: dict) -> str:
     return text
 
 
+def template(name: str, lang: str) -> str:
+    """The page template in this language; English if no translation exists yet."""
+    path = SITE / "pages" / ("" if lang == "en" else f"i18n/{lang}") / name
+    if not path.exists():
+        print(f"  warn no {lang} translation of {name}; using English")
+        path = SITE / "pages" / name
+    return path.read_text(encoding="utf-8")
+
+
+# ---------------------------------------------------------------------------
+# Chart titles: each states what the chart shows, built from the data
+# ---------------------------------------------------------------------------
+def titles(s: dict, t: i18n.Strings) -> dict:
+    a = s["access"]
+    steps = {k: a[k]["median"] for k in ("de", "fr", "en", "it") if a[k]["median"] is not None}
+    out = {
+        "lag": t("title.lag", us_first=t.num(s["lag_us_first"]), n=t.num(s["n"]), lag=t.num(analysis.days(s["lag_median"]))),
+        "italy": t("title.italy", n=t.num(s["it_n_reimbursed"]), med=t.num(analysis.days(s["it_lag_median"]))),
+        "hta": t("title.hta", de=s["gba_pct_no_added_benefit"], fr=s["fr_pct_negative"]),
+    }
+    if steps:
+        fast, slow = min(steps, key=steps.get), max(steps, key=steps.get)
+        out["countries"] = t("title.countries", fastest=t(f"country.{fast}.subject"), slowest=t(f"country.{slow}.subject"),
+                             fast=t.num(steps[fast]), slow=t.num(steps[slow]))
+    else:
+        out["countries"] = t("title.countries_none")
+    big = [c for c in s["companies"] if c["n"] >= analysis.SCORECARD_MIN]
+    timed = [c for c in big if c["it_median"] is not None]
+    if timed:
+        f = min(timed, key=lambda c: (c["it_median"], c["company"]))
+        w = max(timed, key=lambda c: (c["it_median"], c["company"]))
+        out["companies"] = t("title.companies", k=len(big), min=analysis.SCORECARD_MIN, fast=f["company"],
+                             fast_days=t.num(f["it_median"]), slow=w["company"], slow_days=t.num(w["it_median"]))
+    else:
+        out["companies"] = t("title.companies_none", k=len(big), min=analysis.SCORECARD_MIN)
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Drug brief pages
 # ---------------------------------------------------------------------------
-RATING_LABEL = {
-    "major": "Major added benefit", "considerable": "Considerable added benefit",
-    "minor": "Minor added benefit", "non-quantifiable": "Non-quantifiable added benefit",
-    "no added benefit": "No added benefit proven", "lesser": "Lesser benefit",
-}
-
-
-def timeline_svg(events: list[dict], as_of: str | None) -> str:
-    """A simple horizontal timeline drawn as inline SVG (no JavaScript needed).
-
-    events: [{"label", "date", "kind"}], kind = us | eu | it | de | pending
-    """
+def timeline_svg(events: list[dict], as_of: str | None, t: i18n.Strings) -> str:
+    """A simple horizontal timeline drawn as inline SVG (no JavaScript needed)."""
     dated = [e for e in events if e["date"]]
     if not dated:
         return ""
@@ -212,195 +202,199 @@ def timeline_svg(events: list[dict], as_of: str | None) -> str:
         cls = "tl-dot tl-pending" if e["kind"] == "pending" else f"tl-dot tl-{e['kind']}"
         parts.append(f'<circle cx="{cx:.1f}" cy="80" r="7" class="{cls}"/>')
         parts.append(f'<text x="{cx:.1f}" y="{ty}" text-anchor="{anchor}" class="tl-label">{esc(e["label"])}</text>')
-        parts.append(f'<text x="{cx:.1f}" y="{ty + 17}" text-anchor="{anchor}" class="tl-date">{esc(fmt_date(e["date"]))}</text>')
-    summary = "; ".join(f'{e["label"]} {fmt_date(e["date"])}' for e in sorted(dated, key=lambda e: e["date"]))
+        parts.append(f'<text x="{cx:.1f}" y="{ty + 17}" text-anchor="{anchor}" class="tl-date">{esc(t.date(e["date"]))}</text>')
+    summary = "; ".join(f'{e["label"]} {t.date(e["date"])}' for e in sorted(dated, key=lambda e: e["date"]))
     return (f'<svg class="timeline" viewBox="0 0 {width} 160" role="img" '
-            f'aria-label="Timeline: {esc(summary)}">{"".join(parts)}</svg>')
+            f'aria-label="{esc(t("tl.aria", summary=summary))}">{"".join(parts)}</svg>')
 
 
-def source_link(obj: dict, text="source") -> str:
+def source_link(obj: dict, text: str) -> str:
     url = obj.get("source_url")
     return f'<a href="{esc(url)}" rel="noopener">{text}</a>' if url else ""
 
 
-def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
+def brief_page(drug: dict, row: dict, prev_next: tuple, defs: dict, t: i18n.Strings) -> str:
     f = drug["fields"]
     name = row["brand_us"] if row["brand_us"] == row["brand_eu"] else f'{row["brand_us"]} / {row["brand_eu"]}'
+    days = lambda n: t("brief.days", n=t.num(n))
+    src_word = t("brief.src_word")
 
     badges = []
     if row["us_orphan"] == "yes":
-        badges.append("US orphan")
+        badges.append(t("badge.us_orphan"))
     if row["eu_orphan"] == "yes":
-        badges.append("EU orphan")
+        badges.append(t("badge.eu_orphan"))
     if row["eu_conditional"] == "yes":
-        badges.append("EU conditional approval")
+        badges.append(t("badge.conditional"))
     if row["atmp"] == "yes":
-        badges.append("Cell / gene therapy")
+        badges.append(t("badge.atmp"))
     if row["cms_selected"] == "yes":
-        badges.append(f"Medicare negotiation ({row['cms_ipay']})")
+        badges.append(t("badge.cms", year=row["cms_ipay"]))
     if row["cohort"] == "reference":
-        badges.append("Reference drug (not in headline statistics)")
+        badges.append(t("badge.reference"))
     if row["eu_status"] and row["eu_status"] != "Authorised":
-        badges.append(f"EU status: {row['eu_status']}")
+        badges.append(t("badge.eu_status", status=t.label(row["eu_status"])))
     badge_html = "".join(f'<li class="badge">{esc(b)}</li>' for b in badges)
 
     # --- timeline ---------------------------------------------------------
     events = [
-        {"label": "FDA approval", "date": row["fda_date"], "kind": "us"},
-        {"label": "EC approval", "date": row["ec_date"], "kind": "eu"},
-        {"label": "Italy reimbursed", "date": row["it_date"], "kind": "it"},
-        {"label": "G-BA decision", "date": row["gba_date"], "kind": "de"},
-        {"label": "HAS opinion", "date": row["fr_date"], "kind": "fr"},
-        {"label": "NICE guidance", "date": row["en_date"], "kind": "en"},
+        {"label": t("tl.fda"), "date": row["fda_date"], "kind": "us"},
+        {"label": t("tl.ec"), "date": row["ec_date"], "kind": "eu"},
+        {"label": t("tl.it"), "date": row["it_date"], "kind": "it"},
+        {"label": t("tl.de"), "date": row["gba_date"], "kind": "de"},
+        {"label": t("tl.fr"), "date": row["fr_date"], "kind": "fr"},
+        {"label": t("tl.en"), "date": row["en_date"], "kind": "en"},
     ]
     as_of = None
     if row["it_status"] == "not reimbursed":
-        events.append({"label": "Italy: still waiting", "date": row["it_checked"], "kind": "pending"})
+        events.append({"label": t("tl.it_waiting"), "date": row["it_checked"], "kind": "pending"})
         as_of = row["it_checked"]
-    svg = timeline_svg(events, as_of)
+    svg = timeline_svg(events, as_of, t)
     # The same events as a plain list, shown instead of the drawing on narrow screens.
     tl_list = '<ol class="timeline-list">' + "".join(
-        f'<li><span>{esc(e["label"])}</span><span class="tl-when">{esc(fmt_date(e["date"]))}</span></li>'
+        f'<li><span>{esc(e["label"])}</span><span class="tl-when">{esc(t.date(e["date"]))}</span></li>'
         for e in sorted((e for e in events if e["date"]), key=lambda e: e["date"])) + "</ol>"
 
     # --- key numbers ------------------------------------------------------
     lag = row["lag"]
-    lag_text = (f"{lag:,} days" if lag is not None else "n/a")
-    lag_note = ("US approved first" if lag and lag > 0 else "EU approved first" if lag and lag < 0 else "Same day")
+    lag_text = days(lag) if lag is not None else t("na")
+    lag_note = t("brief.lag_us") if lag and lag > 0 else t("brief.lag_eu") if lag and lag < 0 else t("brief.lag_same")
     if row["it_lag"] is not None:
-        it_text, it_note = f'{row["it_lag"]:,} days', "EC approval to Italian reimbursement"
+        it_text, it_note = days(row["it_lag"]), t("brief.it_note")
     elif row["it_status"] == "not reimbursed":
-        it_text, it_note = "Not reimbursed", f'{row["it_waiting"]:,} days since EC approval, as of {fmt_date(row["it_checked"])}'
+        it_text = t("brief.it_not")
+        it_note = t("brief.it_waiting_note", days=t.num(row["it_waiting"]), date=t.date(row["it_checked"]))
     else:
-        it_text, it_note = "Unknown", "Not yet verified"
+        it_text, it_note = t("brief.unknown"), t("brief.not_verified")
     rating = row["gba_rating"]
-    de_text = RATING_LABEL.get(rating, "Not assessed" if rating == "not assessed"
-                               else "Assessment in progress" if row["gba_pending"] else "Unknown")
-    de_note = (f'Best result across patient groups, {fmt_date(row["gba_date"])}' if row["gba_date"]
-               else "No § 35a benefit assessment found")
+    if rating in analysis.G_BA_ORDER:
+        de_text = t("brief.gba." + rating)
+    else:
+        de_text = (t("brief.gba.not_assessed") if rating == "not assessed"
+                   else t("brief.gba.pending") if row["gba_pending"] else t("brief.unknown"))
+    de_note = t("brief.de_note", date=t.date(row["gba_date"])) if row["gba_date"] else t("brief.de_none")
 
-    ASMR_LABEL = {"I": "ASMR I (major)", "II": "ASMR II (important)", "III": "ASMR III (moderate)",
-                  "IV": "ASMR IV (minor)", "V": "ASMR V (no improvement)"}
-    fr_text = ASMR_LABEL.get(row["fr_asmr"], "SMR insufficient (no ASMR)" if row["fr_smr"] == "insufficient"
-                             else "No HAS opinion yet" if row["fr_pending"] else "Unknown")
-    fr_note = (f'HAS opinion, {fmt_date(row["fr_date"])}' if row["fr_date"] else
-               (f.get("fr_has_asmr_best") or {}).get("notes") or "Not available")
-    en_labels = {"recommended": "Recommended", "optimised": "Recommended (restricted)",
-                 "managed access": "Managed access (CDF / IMF)", "not recommended": "Not recommended",
-                 "terminated": "Terminated appraisal", "not appraised": "Not appraised"}
-    en_text = en_labels.get(row["en_decision"], "Appraisal in progress" if row["en_pending"] else "Unknown")
+    if row["fr_asmr"]:
+        fr_text = t("brief.asmr." + row["fr_asmr"])
+    else:
+        fr_text = (t("brief.fr_insufficient") if row["fr_smr"] == "insufficient"
+                   else t("brief.fr_pending") if row["fr_pending"] else t("brief.unknown"))
+    fr_note = t("brief.fr_note", date=t.date(row["fr_date"])) if row["fr_date"] else t("brief.not_available")
+    en_text = (t("brief.nice." + row["en_decision"]) if row["en_decision"]
+               else t("brief.nice.pending") if row["en_pending"] else t("brief.unknown"))
 
     # --- access outcomes table ---------------------------------------------
-    def cell(name, text=None):
-        obj = f.get(name) or {}
-        shown = text if text is not None else (obj.get("value") if obj.get("value") is not None else "n/a")
-        return f'{esc(str(shown))} <span class="src">{source_link(obj)}</span>'
+    def cell(field, text):
+        return f'{esc(str(text))} <span class="src">{source_link(f.get(field) or {}, src_word)}</span>'
 
     if row["it_status"] == "reimbursed":
-        it_outcome = f'Reimbursed, class {row["it_class"]}'
+        it_outcome = t("brief.it_out_reimbursed", cls=row["it_class"])
     elif row["it_status"] == "not reimbursed":
-        it_outcome = f'Not reimbursed as of {fmt_date(row["it_checked"])} (class {row["it_class"]})'
+        it_outcome = t("brief.it_out_not", date=t.date(row["it_checked"]), cls=row["it_class"])
     else:
-        it_outcome = "Unknown"
+        it_outcome = t("brief.unknown")
     gba_extra = []
     if row["gba_any_nab"] == "yes" and rating != "no added benefit":
-        gba_extra.append("at least one patient group: no added benefit")
+        gba_extra.append(t("brief.gba_extra_nab"))
     if row["gba_orphan"] == "yes":
-        gba_extra.append("orphan route (benefit deemed proven by law)")
+        gba_extra.append(t("brief.gba_extra_orphan"))
     de_outcome = de_text + (f' ({"; ".join(gba_extra)})' if gba_extra else "")
     if row["cms_selected"] == "yes":
-        us_outcome = (f'Selected for Medicare negotiation; Maximum Fair Price ${row["cms_mfp"]:,} per 30 days '
-                      f'from {row["cms_ipay"]}, vs CMS list price ${row["cms_list"]:,} '
-                      f'({row["cms_discount"]}% lower)')
+        us_outcome = t("brief.us_out_cms", mfp=t.num(row["cms_mfp"]), year=row["cms_ipay"],
+                       list=t.num(row["cms_list"]), pct=t.num(row["cms_discount"]))
     else:
-        us_outcome = "Not selected for Medicare negotiation"
+        us_outcome = t("brief.us_out_none")
+    # The SMR is added after the ASMR; with no ASMR the label already says "SMR insufficient".
+    smr = f' · {t("brief.smr", level=t("brief.smr." + row["fr_smr"]))}' if row["fr_smr"] and row["fr_asmr"] else ""
+    it_date = t.date(row["it_date"]) if row["it_date"] else (t("brief.none_yet") if row["it_status"] == "not reimbursed" else t("na"))
+    de_date = t.date(row["gba_date"]) if row["gba_date"] else (t("brief.none") if rating == "not assessed" else t("na"))
 
     table = f"""
 <table class="data-table">
-  <caption class="visually-hidden">Access milestones and outcomes by country</caption>
-  <thead><tr><th scope="col">Market</th><th scope="col">Milestone</th><th scope="col">Date</th><th scope="col">Outcome</th></tr></thead>
+  <caption class="visually-hidden">{esc(t("brief.table_caption"))}</caption>
+  <thead><tr><th scope="col">{esc(t("brief.th_market"))}</th><th scope="col">{esc(t("brief.th_milestone"))}</th><th scope="col">{esc(t("brief.th_date"))}</th><th scope="col">{esc(t("brief.th_outcome"))}</th></tr></thead>
   <tbody>
-    <tr><th scope="row">United States</th><td>FDA approval</td><td>{cell("fda_approval_date", fmt_date(row["fda_date"]))}</td>
+    <tr><th scope="row">{esc(t("brief.m_us"))}</th><td>{esc(t("brief.ms_fda"))}</td><td>{cell("fda_approval_date", t.date(row["fda_date"]))}</td>
         <td>{cell("cms_selected", us_outcome)}</td></tr>
-    <tr><th scope="row">European Union</th><td>EC marketing authorisation</td><td>{cell("ec_approval_date", fmt_date(row["ec_date"]))}</td>
-        <td>{"Conditional approval" if row["eu_conditional"] == "yes" else "Standard approval"} <span class="src">{source_link(f["eu_conditional"])}</span></td></tr>
-    <tr><th scope="row">Italy</th><td>Reimbursement published in Gazzetta Ufficiale</td>
-        <td>{cell("it_gu_date", fmt_date(row["it_date"]) if row["it_date"] else ("None yet" if row["it_status"] == "not reimbursed" else "n/a"))}</td>
+    <tr><th scope="row">{esc(t("brief.m_eu"))}</th><td>{esc(t("brief.ms_ec"))}</td><td>{cell("ec_approval_date", t.date(row["ec_date"]))}</td>
+        <td>{esc(t("brief.eu_conditional") if row["eu_conditional"] == "yes" else t("brief.eu_standard"))} <span class="src">{source_link(f["eu_conditional"], src_word)}</span></td></tr>
+    <tr><th scope="row">{esc(t("brief.m_it"))}</th><td>{esc(t("brief.ms_it"))}</td>
+        <td>{cell("it_gu_date", it_date)}</td>
         <td>{cell("it_reimbursement_class", it_outcome)}</td></tr>
-    <tr><th scope="row">Germany</th><td>G-BA AMNOG decision</td>
-        <td>{cell("de_gba_decision_date", fmt_date(row["gba_date"]) if row["gba_date"] else ("None" if rating == "not assessed" else "n/a"))}</td>
+    <tr><th scope="row">{esc(t("brief.m_de"))}</th><td>{esc(t("brief.ms_de"))}</td>
+        <td>{cell("de_gba_decision_date", de_date)}</td>
         <td>{cell("de_gba_rating_best", de_outcome)}</td></tr>
-    <tr><th scope="row">France</th><td>HAS Transparency Committee opinion</td>
-        <td>{cell("fr_has_date", fmt_date(row["fr_date"]) if row["fr_date"] else "n/a")}</td>
-        <td>{cell("fr_has_asmr_best", fr_text + (f' · SMR {row["fr_smr"]}' if row["fr_smr"] else ""))}</td></tr>
-    <tr><th scope="row">England</th><td>NICE guidance{f' ({esc(row["en_ta"])})' if row["en_ta"] else ""}</td>
-        <td>{cell("en_nice_date", fmt_date(row["en_date"]) if row["en_date"] else "n/a")}</td>
+    <tr><th scope="row">{esc(t("brief.m_fr"))}</th><td>{esc(t("brief.ms_fr"))}</td>
+        <td>{cell("fr_has_date", t.date(row["fr_date"]) if row["fr_date"] else t("na"))}</td>
+        <td>{cell("fr_has_asmr_best", fr_text + smr)}</td></tr>
+    <tr><th scope="row">{esc(t("brief.m_en"))}</th><td>{esc(t("brief.ms_en"))}{f' ({esc(row["en_ta"])})' if row["en_ta"] else ""}</td>
+        <td>{cell("en_nice_date", t.date(row["en_date"]) if row["en_date"] else t("na"))}</td>
         <td>{cell("en_nice_decision", en_text)}</td></tr>
   </tbody>
 </table>"""
 
-    # --- every field with its source -------------------------------------
-    defs = json.loads((PROCESSED / "drugs.json").read_text())["field_definitions"]
+    # --- every field with its source (values and source notes stay as recorded) ---
     source_rows = []
     for key, obj in f.items():
+        label = t("field." + key) if t.has("field." + key) else defs[key]["label"]
         if obj.get("status") == "calculated":
-            src = "Calculated from " + ", ".join(defs[k]["label"] for k in obj["derived_from"])
+            src = t("brief.src_calc", fields=", ".join(t("field." + k) for k in obj["derived_from"]))
         elif obj.get("source_url"):
-            src = f'{source_link(obj, "link")} · retrieved {esc(obj.get("retrieved_date") or "")}'
+            src = f'{source_link(obj, t("brief.src_link"))} · {esc(t("brief.src_retrieved", date=t.date(obj.get("retrieved_date"))))}'
         else:
-            src = "No source: value not available"
+            src = esc(t("brief.src_none"))
         value = obj.get("value")
-        shown = "n/a" if value is None else value
+        shown = t("na") if value is None else value
         status = obj.get("status", "")
+        status_txt = "" if status in ("verified", "calculated") else \
+            f' <span class=status>({esc(t("status." + status) if t.has("status." + status) else status)})</span>'
         note = f'<br><span class="muted small">{esc(obj["notes"])}</span>' if obj.get("notes") else ""
-        source_rows.append(f'<tr><th scope="row">{esc(defs[key]["label"])}</th><td>{esc(str(shown))}'
-                           f'{"" if status in ("verified", "calculated") else f" <span class=status>({esc(status)})</span>"}'
-                           f'{note}</td><td>{src}</td></tr>')
+        source_rows.append(f'<tr><th scope="row">{esc(label)}</th><td>{esc(str(shown))}{status_txt}{note}</td><td>{src}</td></tr>')
 
     prev_row, next_row = prev_next
-    pager = '<nav class="pager" aria-label="Other drugs">'
+    pager = f'<nav class="pager" aria-label="{esc(t("brief.pager_aria"))}">'
     if prev_row:
         pager += f'<a href="{prev_row["id"]}.html">← {esc(prev_row["brand_us"])}</a>'
-    pager += '<a href="../explorer.html">All drugs</a>'
+    pager += f'<a href="../explorer.html">{esc(t("brief.pager_all"))}</a>'
     if next_row:
         pager += f'<a href="{next_row["id"]}.html">{esc(next_row["brand_us"])} →</a>'
     pager += "</nav>"
 
     return f"""
 <article class="brief">
-  <p class="eyebrow">{esc(row["area"])} · Market-access brief</p>
+  <p class="eyebrow">{esc(t("brief.eyebrow", area=t.label(row["area"])))}</p>
   <h1>{esc(name)}</h1>
   <p class="lede">{esc(row["inn"])} · {esc(row["company"])}</p>
-  <ul class="badges" aria-label="Characteristics">{badge_html}</ul>
-  <p class="small"><a href="../compare.html?ids={row["id"]}">Compare {esc(name)} with other drugs →</a></p>
+  <ul class="badges" aria-label="{esc(t("brief.badges_aria"))}">{badge_html}</ul>
+  <p class="small"><a href="../compare.html?ids={row["id"]}">{esc(t("brief.compare_link", name=name))}</a></p>
 
   <section aria-labelledby="tl-h">
-    <h2 id="tl-h">Timeline</h2>
+    <h2 id="tl-h">{esc(t("brief.h_timeline"))}</h2>
     <div class="timeline-wrap">{svg}{tl_list}</div>
   </section>
 
-  <section class="kpis" aria-label="Key numbers">
-    <div class="kpi"><p class="kpi-label">US-to-EU approval lag</p><p class="kpi-value">{esc(lag_text)}</p><p class="kpi-note">{esc(lag_note)}</p></div>
-    <div class="kpi"><p class="kpi-label">Italy access delay</p><p class="kpi-value">{esc(it_text)}</p><p class="kpi-note">{esc(it_note)}</p></div>
-    <div class="kpi"><p class="kpi-label">Germany G-BA rating</p><p class="kpi-value kpi-value-sm">{esc(de_text)}</p><p class="kpi-note">{esc(de_note)}</p></div>
-    <div class="kpi"><p class="kpi-label">France HAS rating</p><p class="kpi-value kpi-value-sm">{esc(fr_text)}</p><p class="kpi-note">{esc(fr_note)} · NICE: {esc(en_text)}</p></div>
+  <section class="kpis" aria-label="{esc(t("brief.kpis_aria"))}">
+    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_lag"))}</p><p class="kpi-value">{esc(lag_text)}</p><p class="kpi-note">{esc(lag_note)}</p></div>
+    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_it"))}</p><p class="kpi-value">{esc(it_text)}</p><p class="kpi-note">{esc(it_note)}</p></div>
+    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_de"))}</p><p class="kpi-value kpi-value-sm">{esc(de_text)}</p><p class="kpi-note">{esc(de_note)}</p></div>
+    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_fr"))}</p><p class="kpi-value kpi-value-sm">{esc(fr_text)}</p><p class="kpi-note">{esc(fr_note)} · {esc(t("brief.nice_inline", text=en_text))}</p></div>
   </section>
 
   <section aria-labelledby="out-h">
-    <h2 id="out-h">Access outcomes by market</h2>
+    <h2 id="out-h">{esc(t("brief.h_outcomes"))}</h2>
     <div class="table-scroll">{table}</div>
   </section>
 
   <section aria-labelledby="sw-h" class="so-what">
-    <h2 id="sw-h">So what</h2>
+    <h2 id="sw-h">{esc(t("brief.h_sowhat"))}</h2>
     {{{{so_what}}}}
   </section>
 
   <details class="sources">
-    <summary>All data points and sources for {esc(row["brand_us"])}</summary>
+    <summary>{esc(t("brief.sources_summary", brand=row["brand_us"]))}</summary>
     <div class="table-scroll">
     <table class="data-table small">
-      <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Source</th></tr></thead>
+      <thead><tr><th scope="col">{esc(t("brief.th_field"))}</th><th scope="col">{esc(t("brief.th_value"))}</th><th scope="col">{esc(t("brief.th_source"))}</th></tr></thead>
       <tbody>{"".join(source_rows)}</tbody>
     </table>
     </div>
@@ -410,11 +404,118 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
 
 
 # ---------------------------------------------------------------------------
+def build_language(t: i18n.Strings, ctx: dict) -> int:
+    data, rows, s, findings, as_of = ctx["data"], ctx["rows"], ctx["s"], ctx["findings"], ctx["as_of"]
+    out = OUT / lang_prefix(t.lang)
+    out.mkdir(parents=True, exist_ok=True)
+    tt = titles(s, t)
+    bullets = so_what_rules.generate_all(rows, s, t.lang)
+    pages_written = 0
+
+    # Data for the page scripts: the same data in every language, plus that language's strings.
+    write_json(OUT / "data" / f"atlas.{t.lang}.json",
+               {"data_as_of": as_of, "lang": t.lang, "locale": t.loc["locale"], "summary": s, "titles": tt,
+                "rows": rows, "t": t.js()})
+
+    n = t.num
+    values = {
+        "data_as_of": t.date(as_of), "n": n(s["n"]), "lag_median": n(analysis.days(s["lag_median"])),
+        "lag_us_first": n(s["lag_us_first"]), "lag_eu_first": n(s["lag_eu_first"]),
+        "it_lag_median": n(s["access"]["it"]["median"]), "it_n_reimbursed": n(s["it_n_reimbursed"]),
+        "it_n_waiting": n(s["it_n_waiting"]),
+        "it_waiting_names": ", ".join(w["brand"] for w in s["it_waiting"]) or t("brief.none"),
+        "gba_pct_nab": s["gba_pct_no_added_benefit"], "gba_n_nab": n(s["gba_n_no_added_benefit"]),
+        "gba_n_assessed": n(s["gba_n_assessed"]), "cms_n_selected": s["cms_n_selected"],
+        "title_lag": esc(tt["lag"]), "title_italy": esc(tt["italy"]), "title_countries": esc(tt["countries"]),
+        "title_hta": esc(tt["hta"]), "title_companies": esc(tt["companies"]),
+        "scorecard_min": analysis.SCORECARD_MIN, "n_companies": len(s["companies"]), "n_reference": s["n_reference"],
+        "fr_pct_negative": s["fr_pct_negative"], "fr_n": n(s["fr_n"]),
+        "en_pct_positive": s["en_pct_positive"] if s["en_pct_positive"] is not None else t("na"), "en_n": n(s["en_n"]),
+        "repo_url": REPO_URL,
+    }
+    # Numbers for the Insights page (years stay as they are; other whole numbers are formatted locally).
+    for key, value in (findings or {}).items():
+        is_year = key in ("cms_ipay", "cms_list_year")
+        if key == "drv_lc_p":
+            value = value.replace(".", t.loc["decimal"])
+        values[key] = value if is_year or not isinstance(value, int) else n(value)
+
+    def write(path: str, title: str, desc: str, body: str, active: str, scripts=(), attr=""):
+        nonlocal pages_written
+        target = out / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        page_assets = "../" * path.count("/") + ("../" if t.lang != "en" else "")
+        if page_assets:  # templates link the data file relative to the site root
+            body = body.replace('href="data/', f'href="{page_assets}data/')
+        target.write_text(layout(t, title, desc, body, active, path, scripts, as_of, attr), encoding="utf-8")
+        pages_written += 1
+
+    for page in PAGES:
+        key = page.removesuffix(".html")
+        tpl = template(page, t.lang)
+        if page == "insights.html" and findings is None:
+            tpl = f'<h1>{esc(t("nav.insights"))}</h1><p class="callout">{esc(t("page.insights.draft"))}</p>'
+        write(page, t(f"page.{key}.title"), t(f"page.{key}.desc"), fill(tpl, values), page, SCRIPTS.get(page, ()))
+
+    # Country pages. The US page has its own template: FDA approval is market entry, so it
+    # measures how long after US approval each European milestone came.
+    current = ' aria-current="page"'
+
+    def switch(active_slug):
+        links = [(US_SLUG, t("country.us.name"))] + [(c["slug"], t(f'country.{c["key"]}.name')) for c in COUNTRIES]
+        return "".join(f'<a href="{slug}"{current if slug == active_slug else ""}>{esc(label)}</a>' for slug, label in links)
+
+    u, ua = s["us"], s["access"]
+    us_values = {**values, "country_switch": switch(US_SLUG),
+                 "us_pct_first": u["pct_us_first"], "us_first": n(u["us_first"]), "us_n": n(u["n"]),
+                 "us_pct_priority": u["pct_priority"], "us_priority": n(u["priority"]), "us_reviewed": n(u["reviewed"]),
+                 "us_pct_orphan": u["pct_orphan"], "us_orphan": n(u["orphan"]), "us_orphan_known": n(u["orphan_known"]),
+                 "us_curve_title": esc(t("country.us.curve_title", ec=n(ua["ec_from_fda"]["median"]),
+                                         it=n(ua["it_from_fda"]["median"])))}
+    write(US_SLUG, t("country.us.page_title"), t("country.us.desc", pct=u["pct_us_first"]),
+          fill(template("us.html", t.lang), us_values), "italy.html",
+          ["vendor/chart.umd.min.js", "js/common.js", "js/us.js"])
+
+    tpl = template("country.html", t.lang)
+    for c in COUNTRIES:
+        k, a = c["key"], s["access"][c["key"]]
+        median = n(a["median"]) if a["median"] is not None else t("country.not_reached")
+        cvalues = {**values, "country_switch": switch(c["slug"]),
+                   "c_name": esc(t(f"country.{k}.name")), "c_milestone_title": esc(t(f"country.{k}.title")),
+                   "c_lede": esc(t(f"country.{k}.lede")), "c_median": median,
+                   "c_1y": analysis.days(a["pct_1y"]), "c_2y": analysis.days(a["pct_2y"]),
+                   "c_n": n(a["n"]), "c_waiting": n(a["waiting"]), "c_waiting_note": esc(t("country.waiting_note")),
+                   "c_curve_title": esc(t("country.curve_title", short=t(f"country.{k}.short"), median=median,
+                                          pct=analysis.days(a["pct_2y"]))),
+                   "c_mix_title": esc(t(f"country.{k}.mix_title")), "c_mix_sub": esc(t(f"country.{k}.mix_sub")),
+                   "c_note": esc(t(f"country.{k}.note"))}
+        write(c["slug"], t("country.page_title", name=t(f"country.{k}.name"), title=t(f"country.{k}.title")),
+              t("country.desc", short=t(f"country.{k}.short"), median=median), fill(tpl, cvalues), "italy.html",
+              ["vendor/chart.umd.min.js", "js/common.js", "js/country.js"], f' data-country="{k}"')
+
+    # One brief per drug, ordered as in the drug list.
+    defs = data["field_definitions"]
+    by_id = {d["drug_id"]: d for d in data["drugs"]}
+    for i, row in enumerate(rows):
+        prev_next = (rows[i - 1] if i > 0 else None, rows[i + 1] if i < len(rows) - 1 else None)
+        body = brief_page(by_id[row["id"]], row, prev_next, defs, t)
+        body = body.replace("{{so_what}}", "<ul>" + "".join(f"<li>{esc(b)}</li>" for b in bullets[row["id"]]) + "</ul>")
+        # The preview text is the drug's own first two "so what" bullets (already checked against the data).
+        desc = t("brief.desc", brand=row["brand_us"], inn=row["inn"], text=" ".join(bullets[row["id"]][:2]))
+        if len(desc) > 200:
+            desc = desc[:197].rsplit(" ", 1)[0] + "…"
+        write(f'drugs/{row["id"]}.html', t("brief.title", brand=row["brand_us"]), desc, body, "explorer.html")
+    return pages_written
+
+
 def main() -> None:
+    problems = i18n.check()
+    if problems:
+        print("Translation problems:\n  " + "\n  ".join(problems[:40]))
+        raise SystemExit("Fix site/i18n/*.json before publishing.")
     data = analysis.load()
     rows = analysis.flat_rows(data)
     s = analysis.summary(rows)
-    titles = analysis.chart_titles(s)
     draft = "--draft" in sys.argv
     try:
         findings = analysis.findings(rows, s)  # stops the build if a written claim no longer holds
@@ -422,134 +523,33 @@ def main() -> None:
         if not draft:
             raise
         findings = None  # draft preview: the Insights page shows a placeholder
-    bullets = so_what_rules.generate_all(rows, s)
-    if check_text.main(bullets, findings) != 0:
+    # Numbers in the English bullets are checked against the data; other languages use the same rules.
+    if check_text.main(so_what_rules.generate_all(rows, s, "en"), findings) != 0:
         raise SystemExit("A generated 'so what' bullet contains a number not found in the data.")
-    as_of = data["data_as_of"]
 
     if OUT.exists():
         shutil.rmtree(OUT)
     shutil.copytree(SITE / "assets", OUT / "assets")
     (OUT / ".nojekyll").write_text("")  # tell GitHub Pages to serve files as-is
-
-    # Data for the JavaScript, plus the full sourced dataset for download.
-    write_json(OUT / "data" / "atlas.json", {"data_as_of": as_of, "summary": s, "titles": titles, "rows": rows})
+    (OUT / "data").mkdir()
     shutil.copy(PROCESSED / "drugs.json", OUT / "data" / "drugs.json")
 
-    waiting_names = ", ".join(w["brand"] for w in s["it_waiting"]) or "none"
-    values = {
-        "data_as_of": fmt_date(as_of),
-        "n": s["n"],
-        "lag_median": analysis.days(s["lag_median"]),
-        "lag_us_first": s["lag_us_first"],
-        "lag_eu_first": s["lag_eu_first"],
-        "it_lag_median": s["access"]["it"]["median"],
-        "it_n_reimbursed": s["it_n_reimbursed"],
-        "it_n_waiting": s["it_n_waiting"],
-        "it_waiting_names": waiting_names,
-        "gba_pct_nab": s["gba_pct_no_added_benefit"],
-        "gba_n_nab": s["gba_n_no_added_benefit"],
-        "gba_n_assessed": s["gba_n_assessed"],
-        "cms_n_selected": s["cms_n_selected"],
-        "title_lag": esc(titles["lag"]),
-        "title_italy": esc(titles["italy"]),
-        "title_countries": esc(titles["countries"]),
-        "title_hta": esc(titles["hta"]),
-        "title_companies": esc(analysis.scorecard_title(s)),
-        "scorecard_min": analysis.SCORECARD_MIN,
-        "n_companies": len(s["companies"]),
-        "n_reference": s["n_reference"],
-        "fr_pct_negative": s["fr_pct_negative"],
-        "fr_n": s["fr_n"],
-        "en_pct_positive": s["en_pct_positive"] if s["en_pct_positive"] is not None else "n/a",
-        "en_n": s["en_n"],
-        "repo_url": REPO_URL,
-    }
-    # Numbers for the Insights page (years stay unformatted; other numbers get thousands separators).
-    for key, value in (findings or {}).items():
-        is_year = key in ("cms_ipay", "cms_list_year")
-        values[key] = value if is_year or not isinstance(value, int) else f"{value:,}"
-    scripts = {"index.html": ["vendor/chart.umd.min.js", "js/common.js", "js/overview.js"],
-               "explorer.html": ["js/common.js", "js/explorer.js"],
-               "companies.html": ["js/common.js", "js/companies.js"],
-               "compare.html": ["vendor/chart.umd.min.js", "js/common.js", "js/compare.js"],
-               "insights.html": ["vendor/chart.umd.min.js", "js/common.js", "js/insights.js"]}
-    for page, (title, description) in PAGES.items():
-        template = (SITE / "pages" / page).read_text(encoding="utf-8")
-        if page == "insights.html" and findings is None:
-            template = '<h1>Insights</h1><p class="callout">Draft build: findings are being rewritten.</p>'
-        body = fill(template, values)
-        (OUT / page).write_text(layout(title, description, body, page, "", as_of, scripts.get(page, ()),
-                                       path="" if page == "index.html" else page), encoding="utf-8")
+    ctx = {"data": data, "rows": rows, "s": s, "findings": findings, "as_of": data["data_as_of"]}
+    counts = {lang: build_language(i18n.Strings(lang), ctx) for lang in i18n.available()}
 
-    # Country pages. The US page has its own template: FDA approval is market entry, so it
-    # measures how long after US approval each European milestone came.
-    US_SLUG = "united-states.html"
-    US_LINK = f'<a href="{US_SLUG}">United States</a>'
-    u, ua = s["us"], s["access"]
-    us_values = {**values,
-                 "country_switch": f'<a href="{US_SLUG}" aria-current="page">United States</a>'
-                                   + "".join(f'<a href="{o["slug"]}">{o["name"]}</a>' for o in COUNTRIES),
-                 "us_pct_first": u["pct_us_first"], "us_first": u["us_first"], "us_n": u["n"],
-                 "us_pct_priority": u["pct_priority"], "us_priority": u["priority"], "us_reviewed": u["reviewed"],
-                 "us_pct_orphan": u["pct_orphan"], "us_orphan": u["orphan"], "us_orphan_known": u["orphan_known"],
-                 "us_curve_title": esc(f'Half of drugs were approved in the EU within {ua["ec_from_fda"]["median"]} days of '
-                                       f'US approval; half were reimbursed in Italy within {ua["it_from_fda"]["median"]:,}')}
-    body = fill((SITE / "pages" / "us.html").read_text(encoding="utf-8"), us_values)
-    (OUT / US_SLUG).write_text(layout(
-        "United States: FDA approval and the gap to Europe | Pharma Access Atlas",
-        f'{u["pct_us_first"]}% of new drugs were approved first in the US. How long Europe took after FDA approval, '
-        f'by milestone, therapy area and drug.',
-        body, "italy.html", "", as_of, ["vendor/chart.umd.min.js", "js/common.js", "js/us.js"], path=US_SLUG),
-        encoding="utf-8")
-
-    template = (SITE / "pages" / "country.html").read_text(encoding="utf-8")
-    for c in COUNTRIES:
-        a = s["access"][c["key"]]
-        current = ' aria-current="page"'
-        switch = US_LINK + "".join(f'<a href="{o["slug"]}"{current if o is c else ""}>{o["name"]}</a>' for o in COUNTRIES)
-        median = f'{a["median"]:,}' if a["median"] is not None else "not reached"
-        cvalues = {**values,
-                   "country_switch": switch, "c_name": c["name"], "c_milestone_title": c["title"], "c_lede": esc(c["lede"]),
-                   "c_median": median, "c_1y": analysis.days(a["pct_1y"]), "c_2y": analysis.days(a["pct_2y"]),
-                   "c_n": a["n"], "c_waiting": a["waiting"],
-                   "c_waiting_note": "drugs confirmed as not there yet when checked",
-                   "c_curve_title": esc(f'Half of drugs had {c["short"]} within {median} days of EU approval, '
-                                        f'and {analysis.days(a["pct_2y"])}% within two years'),
-                   "c_mix_title": esc(c["mix_title"]), "c_mix_sub": esc(c["mix_sub"]), "c_note": esc(c["note"])}
-        body = fill(template, cvalues)
-        title = f'{c["name"]}: {c["title"]} | Pharma Access Atlas'
-        desc = (f'How fast new drugs reach {c["short"]}: half within {median} days of EU approval. '
-                f'Curves, verdicts, therapy areas and the fastest and slowest drugs.')
-        (OUT / c["slug"]).write_text(layout(title, desc, body, "italy.html", "", as_of,
-                                            ["vendor/chart.umd.min.js", "js/common.js", "js/country.js"],
-                                            path=c["slug"]).replace("<body ", f'<body data-country="{c["key"]}" ', 1),
-                                     encoding="utf-8")
-
-    # One brief per drug, ordered as in the drug list.
-    so_what = {k: "<ul>" + "".join(f"<li>{esc(b)}</li>" for b in v) + "</ul>" for k, v in bullets.items()}
-    (OUT / "drugs").mkdir()
-    by_id = {d["drug_id"]: d for d in data["drugs"]}
-    for i, row in enumerate(rows):
-        prev_next = (rows[i - 1] if i > 0 else None, rows[i + 1] if i < len(rows) - 1 else None)
-        body = brief_page(by_id[row["id"]], row, prev_next, as_of)
-        body = body.replace("{{so_what}}", so_what[row["id"]])
-        title = f'{row["brand_us"]} market-access brief | Pharma Access Atlas'
-        # The preview text is the drug's own first two "so what" bullets (already checked against the data).
-        desc = f'{row["brand_us"]} ({row["inn"]}): ' + " ".join(bullets[row["id"]][:2])
-        if len(desc) > 200:
-            desc = desc[:197].rsplit(" ", 1)[0] + "…"
-        (OUT / "drugs" / f'{row["id"]}.html').write_text(
-            layout(title, desc, body, "explorer.html", "../", as_of, path=f'drugs/{row["id"]}.html'), encoding="utf-8")
-
-    # Sitemap so search engines find every page and brief (submit it in Google Search Console).
-    urls = ([SITE_URL + ("" if p == "index.html" else p) for p in PAGES]
-            + [SITE_URL + "united-states.html"] + [SITE_URL + c["slug"] for c in COUNTRIES]
-            + [f'{SITE_URL}drugs/{r["id"]}.html' for r in rows])
+    # Sitemap: every page in every language, with its translations (submit in Google Search Console).
+    paths = (PAGES + [US_SLUG] + [c["slug"] for c in COUNTRIES] + [f'drugs/{r["id"]}.html' for r in rows])
+    entries = []
+    for p in paths:
+        alts = "".join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{SITE_URL}{lang_prefix(l)}{p}"/>' for l in i18n.available())
+        for l in i18n.available():
+            loc = f"{SITE_URL}{lang_prefix(l)}{'' if p == 'index.html' else p}"
+            entries.append(f"  <url><loc>{loc}</loc><lastmod>{data['data_as_of']}</lastmod>{alts}</url>\n")
     (OUT / "sitemap.xml").write_text(
-        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        + "".join(f"  <url><loc>{u}</loc><lastmod>{as_of}</lastmod></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
-    print(f"  ok   built {len(PAGES)} pages, {len(COUNTRIES) + 1} country pages and {len(rows)} drug briefs into _site/")
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+        'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "".join(entries) + "</urlset>\n", encoding="utf-8")
+    print(f"  ok   built {sum(counts.values())} pages in {len(counts)} languages "
+          f"({', '.join(f'{k}: {v}' for k, v in counts.items())}) into _site/")
 
 
 if __name__ == "__main__":

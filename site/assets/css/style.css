@@ -263,3 +263,18 @@ details.sources summary { font-weight: 600; }
 .compare-table th[scope="row"] { white-space: nowrap; color: var(--text-2); font-weight: 500; }
 .compare-table thead th { white-space: normal; }
 .compare-table td { min-width: 9rem; }
+
+/* Language switcher (EN · IT · DE · FR) */
+.lang-switch { display: flex; gap: 0.15rem; order: 3; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.03em;
+               margin-left: auto; }
+.lang-switch a { color: var(--text-2); text-decoration: none; padding: 0.25rem 0.45rem; border-radius: 4px; }
+.lang-switch a:hover { color: var(--text); background: var(--surface-2); }
+.lang-switch a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
+.site-header nav[aria-label]:not(.lang-switch) { order: 2; }
+@media (max-width: 640px) {
+  .lang-switch { order: 1; margin-left: auto; }
+  .site-header nav[aria-label]:not(.lang-switch) { order: 4; }
+}
+@media (prefers-color-scheme: dark) {
+  .lang-switch a[aria-current="page"] { background: var(--surface-2); }
+}

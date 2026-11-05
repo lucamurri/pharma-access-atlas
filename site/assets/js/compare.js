@@ -7,12 +7,12 @@
   const byId = Object.fromEntries(rows.map(r => [r.id, r]));
   const MAX = 4;
   const PRESETS = [
-    { label: "Alzheimer's antibodies", ids: ["leqembi", "kisunla"] },
-    { label: "Semaglutide: diabetes vs obesity", ids: ["rybelsus", "wegovy"] },
-    { label: "Myeloma CAR-T", ids: ["abecma", "carvykti"] },
-    { label: "Myeloma bispecifics", ids: ["tecvayli", "elrexfio", "talvey"] },
-    { label: "Spinal muscular atrophy", ids: ["zolgensma", "evrysdi"] },
-    { label: "Psoriasis", ids: ["bimzelx", "sotyktu", "skyrizi"] },
+    { label: Atlas.t("js.cmp.p_alz"), ids: ["leqembi", "kisunla"] },
+    { label: Atlas.t("js.cmp.p_sema"), ids: ["rybelsus", "wegovy"] },
+    { label: Atlas.t("js.cmp.p_cart"), ids: ["abecma", "carvykti"] },
+    { label: Atlas.t("js.cmp.p_bisp"), ids: ["tecvayli", "elrexfio", "talvey"] },
+    { label: Atlas.t("js.cmp.p_sma"), ids: ["zolgensma", "evrysdi"] },
+    { label: Atlas.t("js.cmp.p_pso"), ids: ["bimzelx", "sotyktu", "skyrizi"] },
   ].filter(p => p.ids.every(id => byId[id]));
 
   const el = id => document.getElementById(id);
@@ -42,10 +42,10 @@
   const add = () => {
     const r = findDrug(el("pick-input").value);
     const msg = el("pick-msg");
-    if (!r) { msg.textContent = "No drug matches that name."; return; }
-    if (ids.includes(r.id)) { msg.textContent = `${name(r)} is already in the comparison.`; return; }
-    if (ids.length >= MAX) { msg.textContent = `You can compare up to ${MAX} drugs. Remove one first.`; return; }
-    ids.push(r.id); el("pick-input").value = ""; msg.textContent = `Added ${name(r)}.`; render();
+    if (!r) { msg.textContent = Atlas.t("js.cmp.no_match"); return; }
+    if (ids.includes(r.id)) { msg.textContent = Atlas.t("js.cmp.already", { name: name(r) }); return; }
+    if (ids.length >= MAX) { msg.textContent = Atlas.t("js.cmp.max", { n: MAX }); return; }
+    ids.push(r.id); el("pick-input").value = ""; msg.textContent = Atlas.t("js.cmp.added", { name: name(r) }); render();
   };
   el("pick-form").addEventListener("submit", add);
   el("pick-input").addEventListener("change", () => { if (findDrug(el("pick-input").value)) add(); });
@@ -65,11 +65,11 @@
   Chart.defaults.plugins.legend.display = false;
   Chart.defaults.animation = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? false : { duration: 300 };
   const MILESTONES = [
-    { key: "fda", name: "FDA approval", color: c.neutral, style: "rectRot" },
-    { key: "fr", name: "France: HAS opinion", color: Atlas.cssVar("--country-fr"), style: "circle", date: "fr_date" },
-    { key: "de", name: "Germany: G-BA decision", color: Atlas.cssVar("--country-de"), style: "circle", date: "gba_date" },
-    { key: "en", name: "England: NICE guidance", color: Atlas.cssVar("--country-en"), style: "circle", date: "en_date" },
-    { key: "it", name: "Italy: reimbursement", color: Atlas.cssVar("--country-it"), style: "circle", date: "it_date" },
+    { key: "fda", name: Atlas.t("js.cmp.fda"), color: c.neutral, style: "rectRot" },
+    { key: "fr", name: `${Atlas.t("js.country.fr")}: ${Atlas.t("js.ms.fr")}`, color: Atlas.cssVar("--country-fr"), style: "circle", date: "fr_date" },
+    { key: "de", name: `${Atlas.t("js.country.de")}: ${Atlas.t("js.ms.de")}`, color: Atlas.cssVar("--country-de"), style: "circle", date: "gba_date" },
+    { key: "en", name: `${Atlas.t("js.country.en")}: ${Atlas.t("js.ms.en")}`, color: Atlas.cssVar("--country-en"), style: "circle", date: "en_date" },
+    { key: "it", name: `${Atlas.t("js.country.it")}: ${Atlas.t("js.ms.it")}`, color: Atlas.cssVar("--country-it"), style: "circle", date: "it_date" },
   ];
   const point = (r, m) => {
     if (m.key === "fda") {
@@ -97,8 +97,8 @@
         maintainAspectRatio: false, layout: { padding: { right: 12 } },
         scales: {
           x: { grid: { color: c.grid }, border: { display: false },
-               title: { display: true, text: "Days after European Commission approval" },
-               ticks: { callback: v => v.toLocaleString("en-US") } },
+               title: { display: true, text: Atlas.t("js.axis_days_after_ec") },
+               ticks: { callback: v => Atlas.num(v) } },
           y: { type: "category", labels: sel.map(name), offset: true, grid: { color: c.grid }, border: { display: false },
                ticks: { color: c.text, font: { weight: 600 } } },
         },
@@ -108,9 +108,8 @@
             title: items => items[0].raw.y,
             label: item => {
               const m = MILESTONES[item.datasetIndex], p = item.raw;
-              if (!p.reached) return ` ${m.name}: not yet, ${p.x.toLocaleString("en-US")} days after EU approval when checked`;
-              const when = p.x < 0 ? `${(-p.x).toLocaleString("en-US")} days before EU approval`
-                                   : `${p.x.toLocaleString("en-US")} days after EU approval`;
+              if (!p.reached) return ` ${m.name}: ${Atlas.t("js.cmp.tip_waiting", { n: Atlas.num(p.x) })}`;
+              const when = p.x < 0 ? Atlas.t("js.days_before_ec", { n: Atlas.num(-p.x) }) : Atlas.t("js.days_after_ec", { n: Atlas.num(p.x) });
               return ` ${m.name}: ${when}${p.date ? ` (${Atlas.fmtDate(p.date)})` : ""}`;
             },
           },
@@ -122,49 +121,50 @@
   }
 
   // ---- Table -----------------------------------------------------------------------------------
-  const na = '<span class="muted">n/a</span>';
-  const days = n => `${n.toLocaleString("en-US")} days`;
-  const RATING = { "major": "Major", "considerable": "Considerable", "minor": "Minor",
-                   "non-quantifiable": "Non-quantifiable", "no added benefit": "No added benefit", "lesser": "Lesser" };
+  const na = `<span class="muted">${Atlas.t("na")}</span>`;
+  const days = n => Atlas.t("js.n_days", { n: Atlas.num(n) });
+  const sub = text => `<br><span class="muted small">${text}</span>`;
+  const RATING = Object.fromEntries(["major", "considerable", "minor", "non-quantifiable", "no added benefit", "lesser"]
+    .map(k => [k, Atlas.t(`gba.${k}`)]));
   const ROWS = [
-    ["Drug", r => `<a href="${Atlas.briefUrl(r.id)}">${Atlas.esc(name(r))}</a>${r.cohort === "reference" ? ' <span class="pill">Ref.</span>' : ""}`],
-    ["Active ingredient", r => Atlas.esc(r.inn)],
-    ["Company", r => Atlas.esc(r.company)],
-    ["Therapy area", r => Atlas.esc(r.area)],
-    ["Orphan", r => [r.us_orphan === "yes" ? "US" : null, r.eu_orphan === "yes" ? "EU" : null].filter(Boolean).join(" + ") || "No"],
-    ["FDA approval", r => Atlas.fmtDate(r.fda_date)],
-    ["EU approval", r => Atlas.fmtDate(r.ec_date) + (r.eu_conditional === "yes" ? '<br><span class="muted small">conditional</span>' : "")
-      + (r.eu_status && r.eu_status !== "Authorised" ? `<br><span class="muted small">EU: ${Atlas.esc(r.eu_status.toLowerCase())}</span>` : "")],
-    ["US→EU lag", r => (r.lag === null ? na : r.lag < 0 ? `EU first by ${days(-r.lag)}` : days(r.lag))],
-    ["Italy", r => (r.it_lag !== null ? `Reimbursed (class ${Atlas.esc(r.it_class)})<br><span class="muted small">${days(r.it_lag)} after EU approval</span>`
-      : r.it_status === "not reimbursed" ? `Not reimbursed<br><span class="muted small">${days(r.it_waiting)} so far, class ${Atlas.esc(r.it_class)}</span>` : na)],
-    ["Germany (G-BA)", r => (RATING[r.gba_rating] ? `${RATING[r.gba_rating]}${r.gba_orphan === "yes" ? " (orphan rules)" : ""}`
-      + (r.gba_lag !== null ? `<br><span class="muted small">${days(r.gba_lag)} after EU approval</span>` : "")
-      : r.gba_rating === "not assessed" ? "Not assessed" : r.gba_pending ? "In progress" : na)],
-    ["France (HAS)", r => (r.fr_verdict ? (r.fr_verdict.startsWith("SMR") ? "SMR insufficient" : `ASMR ${r.fr_verdict}`)
-      + (r.fr_lag !== null ? `<br><span class="muted small">${days(r.fr_lag)} after EU approval</span>` : "")
-      : r.fr_pending ? "No opinion yet" : na)],
-    ["England (NICE)", r => (r.en_decision ? Atlas.esc(r.en_decision.charAt(0).toUpperCase() + r.en_decision.slice(1))
-      + (r.en_lag !== null ? `<br><span class="muted small">${r.en_lag < 0 ? `${days(-r.en_lag)} before` : `${days(r.en_lag)} after`} EU approval</span>` : "")
-      : r.en_pending ? "In progress" : na)],
-    ["Medicare price", r => (r.cms_selected === "yes" && r.cms_mfp ? `$${r.cms_mfp.toLocaleString("en-US")} per 30 days from ${r.cms_ipay}` : '<span class="muted">Not negotiated</span>')],
+    [Atlas.t("js.cmp.r_drug"), r => `<a href="${Atlas.briefUrl(r.id)}">${Atlas.esc(name(r))}</a>${r.cohort === "reference" ? ` <span class="pill">${Atlas.t("js.ref")}</span>` : ""}`],
+    [Atlas.t("js.cmp.r_inn"), r => Atlas.esc(r.inn)],
+    [Atlas.t("js.cmp.r_company"), r => Atlas.esc(r.company)],
+    [Atlas.t("js.cmp.r_area"), r => Atlas.esc(Atlas.label(r.area))],
+    [Atlas.t("js.cmp.r_orphan"), r => [r.us_orphan === "yes" ? "US" : null, r.eu_orphan === "yes" ? "EU" : null].filter(Boolean).join(" + ") || Atlas.t("js.cmp.no")],
+    [Atlas.t("js.cmp.r_fda"), r => Atlas.fmtDate(r.fda_date)],
+    [Atlas.t("js.cmp.r_ec"), r => Atlas.fmtDate(r.ec_date) + (r.eu_conditional === "yes" ? sub(Atlas.t("js.cmp.conditional")) : "")
+      + (r.eu_status && r.eu_status !== "Authorised" ? sub(Atlas.t("js.cmp.eu_status", { status: Atlas.esc(Atlas.label(r.eu_status)) })) : "")],
+    [Atlas.t("js.cmp.r_lag"), r => (r.lag === null ? na : r.lag < 0 ? Atlas.t("js.cmp.eu_first_by", { d: days(-r.lag) }) : days(r.lag))],
+    [Atlas.t("js.country.it"), r => (r.it_lag !== null ? Atlas.t("js.cmp.it_reimb", { cls: Atlas.esc(r.it_class) }) + sub(Atlas.t("js.days_after_ec", { n: Atlas.num(r.it_lag) }))
+      : r.it_status === "not reimbursed" ? Atlas.t("js.cmp.it_not") + sub(Atlas.t("js.cmp.it_so_far", { d: days(r.it_waiting), cls: Atlas.esc(r.it_class) })) : na)],
+    [Atlas.t("js.cmp.r_de"), r => (RATING[r.gba_rating] ? `${RATING[r.gba_rating]}${r.gba_orphan === "yes" ? Atlas.t("js.cmp.orphan_rules") : ""}`
+      + (r.gba_lag !== null ? sub(Atlas.t("js.days_after_ec", { n: Atlas.num(r.gba_lag) })) : "")
+      : r.gba_rating === "not assessed" ? Atlas.t("gba.not assessed") : r.gba_pending ? Atlas.t("js.cmp.in_progress") : na)],
+    [Atlas.t("js.cmp.r_fr"), r => (r.fr_verdict ? Atlas.t(`asmr.${r.fr_verdict}`)
+      + (r.fr_lag !== null ? sub(Atlas.t("js.days_after_ec", { n: Atlas.num(r.fr_lag) })) : "")
+      : r.fr_pending ? Atlas.t("js.cmp.no_opinion") : na)],
+    [Atlas.t("js.cmp.r_en"), r => (r.en_decision ? Atlas.esc(Atlas.t(`nice.${r.en_decision}`))
+      + (r.en_lag !== null ? sub(r.en_lag < 0 ? Atlas.t("js.days_before_ec", { n: Atlas.num(-r.en_lag) }) : Atlas.t("js.days_after_ec", { n: Atlas.num(r.en_lag) })) : "")
+      : r.en_pending ? Atlas.t("js.cmp.in_progress") : na)],
+    [Atlas.t("js.cmp.r_cms"), r => (r.cms_selected === "yes" && r.cms_mfp ? Atlas.t("js.cmp.cms", { p: Atlas.num(r.cms_mfp), y: r.cms_ipay }) : `<span class="muted">${Atlas.t("js.cmp.not_negotiated")}</span>`)],
   ];
   function drawTable(sel) {
-    el("compare-table").innerHTML = `<caption class="visually-hidden">Selected drugs compared side by side</caption>
-      <thead><tr><th scope="col"><span class="visually-hidden">Measure</span></th>${sel.map(r => `<th scope="col">${Atlas.esc(name(r))}</th>`).join("")}</tr></thead>
+    el("compare-table").innerHTML = `<caption class="visually-hidden">${Atlas.t("js.cmp.caption")}</caption>
+      <thead><tr><th scope="col"><span class="visually-hidden">${Atlas.t("js.cmp.measure")}</span></th>${sel.map(r => `<th scope="col">${Atlas.esc(name(r))}</th>`).join("")}</tr></thead>
       <tbody>${ROWS.slice(1).map(([lab, fn]) => `<tr><th scope="row">${lab}</th>${sel.map(r => `<td>${fn(r)}</td>`).join("")}</tr>`).join("")}
-      <tr><th scope="row">Brief</th>${sel.map(r => `<td>${ROWS[0][1](r)}</td>`).join("")}</tr></tbody>`;
+      <tr><th scope="row">${Atlas.t("js.cmp.r_brief")}</th>${sel.map(r => `<td>${ROWS[0][1](r)}</td>`).join("")}</tr></tbody>`;
   }
 
   // ---- Render ------------------------------------------------------------------------------------
   function render() {
     const sel = ids.map(id => byId[id]);
     el("chips").innerHTML = sel.map(r => `<li class="chip">${Atlas.esc(name(r))}
-      <button type="button" data-id="${r.id}" aria-label="Remove ${Atlas.esc(name(r))}">×</button></li>`).join("");
+      <button type="button" data-id="${r.id}" aria-label="${Atlas.esc(Atlas.t("js.cmp.remove", { name: name(r) }))}">×</button></li>`).join("");
     el("compare-empty").hidden = sel.length > 0;
     el("compare-body").hidden = sel.length === 0;
     el("pick-input").disabled = el("pick-add").disabled = sel.length >= MAX;
-    el("pick-input").placeholder = sel.length >= MAX ? `Up to ${MAX} drugs` : "Brand or ingredient";
+    el("pick-input").placeholder = sel.length >= MAX ? Atlas.t("js.cmp.up_to", { n: MAX }) : Atlas.t("js.cmp.placeholder");
     history.replaceState(null, "", sel.length ? `?ids=${ids.join(",")}` : location.pathname);
     if (sel.length) { drawChart(sel); drawTable(sel); }
   }

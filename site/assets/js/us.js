@@ -17,11 +17,11 @@
 
   // ---- Curves from FDA approval ------------------------------------------------------------
   const SERIES = [
-    { key: "ec_from_fda", name: "EU approval", color: c.neutral },
-    { key: "fr_from_fda", name: "France", color: Atlas.cssVar("--country-fr") },
-    { key: "de_from_fda", name: "Germany", color: Atlas.cssVar("--country-de") },
-    { key: "en_from_fda", name: "England", color: Atlas.cssVar("--country-en") },
-    { key: "it_from_fda", name: "Italy", color: Atlas.cssVar("--country-it") },
+    { key: "ec_from_fda", name: Atlas.t("js.us.ec"), color: c.neutral },
+    { key: "fr_from_fda", name: Atlas.t("js.country.fr"), color: Atlas.cssVar("--country-fr") },
+    { key: "de_from_fda", name: Atlas.t("js.country.de"), color: Atlas.cssVar("--country-de") },
+    { key: "en_from_fda", name: Atlas.t("js.country.en"), color: Atlas.cssVar("--country-en") },
+    { key: "it_from_fda", name: Atlas.t("js.country.it"), color: Atlas.cssVar("--country-it") },
   ].map(s => ({ ...s, ...summary.access[s.key] }));
   const HORIZON = 5 * 365;
   const grid = Array.from({ length: HORIZON + 1 }, (_, d) => d);
@@ -40,7 +40,7 @@
       ends.forEach(({ i, y }) => {
         ctx.fillStyle = SERIES[i].color; ctx.beginPath(); ctx.arc(chartArea.right + 8, y, 4, 0, 2 * Math.PI); ctx.fill();
         ctx.fillStyle = c.text;
-        ctx.fillText(`${SERIES[i].name} ${Math.round(chart.data.datasets[i].data[HORIZON])}%`, chartArea.right + 16, y);
+        ctx.fillText(`${SERIES[i].name} ${Atlas.t("js.pct", { n: Math.round(chart.data.datasets[i].data[HORIZON]) })}`, chartArea.right + 16, y);
       });
       const y50 = chart.scales.y.getPixelForValue(50);
       ctx.strokeStyle = c.text2; ctx.setLineDash([4, 4]); ctx.lineWidth = 1;
@@ -59,30 +59,30 @@
       interaction: { mode: "index", intersect: false },
       scales: {
         x: { type: "linear", min: 0, max: HORIZON, grid: { color: c.grid }, border: { display: false },
-             title: { display: true, text: "Days after FDA approval" },
+             title: { display: true, text: Atlas.t("js.us.axis") },
              ticks: { stepSize: 365, maxRotation: 0,
-                      callback: v => (v === 0 ? "0" : narrow ? `${v / 365} yr` : `${v} (${v / 365} yr)`) } },
+                      callback: v => (v === 0 ? "0" : narrow ? Atlas.t("js.yr", { n: v / 365 }) : Atlas.t("js.tick_days_yr", { v: Atlas.num(v), n: v / 365 })) } },
         y: { min: 0, max: 100, grid: { color: c.grid }, border: { display: false },
              ticks: { stepSize: 25, callback: v => `${v}%` } },
       },
       plugins: { tooltip: { ...tooltip, displayColors: true, boxPadding: 4, callbacks: {
-        title: items => `Day ${items[0].parsed.x} after FDA approval`,
-        label: item => ` ${SERIES[item.datasetIndex].name}: ${Math.round(item.parsed.y)}% reached`,
+        title: items => Atlas.t("js.us.tip_day", { d: Atlas.num(items[0].parsed.x) }),
+        label: item => ` ${Atlas.t("js.tip_reached", { name: SERIES[item.datasetIndex].name, pct: Math.round(item.parsed.y) })}`,
       } } },
     },
     plugins: [endLabels],
   });
   document.getElementById("table-us").innerHTML = Atlas.table(SERIES, [
-    { label: "Milestone", value: s => s.name },
-    { label: "Median days after FDA approval", value: s => s.median ?? "not reached", num: true },
-    { label: "Within 1 year", value: s => `${Math.round(s.pct_1y)}%`, num: true },
-    { label: "Within 2 years", value: s => `${Math.round(s.pct_2y)}%`, num: true },
-    { label: "Drugs counted", value: s => s.n, num: true },
-    { label: "Still waiting", value: s => s.waiting, num: true },
+    { label: Atlas.t("js.col_milestone"), value: s => s.name },
+    { label: Atlas.t("js.us.col_median"), value: s => (s.median === null ? Atlas.t("js.not_reached") : Atlas.num(s.median)), num: true },
+    { label: Atlas.t("js.col_within1s"), value: s => Atlas.t("js.pct", { n: Math.round(s.pct_1y) }), num: true },
+    { label: Atlas.t("js.col_within2s"), value: s => Atlas.t("js.pct", { n: Math.round(s.pct_2y) }), num: true },
+    { label: Atlas.t("js.col_counted"), value: s => Atlas.num(s.n), num: true },
+    { label: Atlas.t("js.col_still_waiting"), value: s => Atlas.num(s.waiting), num: true },
   ]);
 
   // ---- Review mix ------------------------------------------------------------------------------
-  const mix = Object.entries(us.mix).map(([label, n]) => ({ label, n }));
+  const mix = Object.entries(us.mix).map(([label, n]) => ({ label: Atlas.label(label), n }));
   new Chart(document.getElementById("chart-us-mix"), {
     type: "bar",
     data: { labels: mix.map(m => m.label),
@@ -91,7 +91,7 @@
       indexAxis: "y", maintainAspectRatio: false, layout: { padding: { right: 36 } },
       scales: { x: { beginAtZero: true, grid: { color: c.grid }, border: { display: false }, ticks: { precision: 0 } },
                 y: { grid: { display: false }, ticks: { autoSkip: false } } },
-      plugins: { tooltip: { ...tooltip, displayColors: false, callbacks: { label: item => `${item.raw} drugs` } } },
+      plugins: { tooltip: { ...tooltip, displayColors: false, callbacks: { label: item => Atlas.t("js.n_drugs", { n: item.raw }) } } },
     },
     plugins: [{
       id: "values",
@@ -104,21 +104,21 @@
     }],
   });
   document.getElementById("table-us-mix").innerHTML = Atlas.table(mix, [
-    { label: "FDA review", value: m => m.label }, { label: "Drugs", value: m => m.n, num: true },
+    { label: Atlas.t("js.us.col_review"), value: m => m.label }, { label: Atlas.t("js.col_drugs"), value: m => m.n, num: true },
   ]);
 
   // ---- Areas and lists -----------------------------------------------------------------------------
   document.getElementById("table-us-areas").innerHTML = Atlas.table(us.areas, [
-    { label: "Therapy area", value: a => a.area },
-    { label: "Median days", value: a => a.median, num: true },
-    { label: "US first", value: a => `${a.us_first} of ${a.n}`, num: true },
+    { label: Atlas.t("js.col_area"), value: a => Atlas.label(a.area) },
+    { label: Atlas.t("js.col_median_days"), value: a => Atlas.num(a.median), num: true },
+    { label: Atlas.t("js.us.col_first"), value: a => Atlas.t("js.x_of_y", { x: a.us_first, y: a.n }), num: true },
   ]);
   const list = (items, text) => `<ol class="rank-list">${items.map(d => `
     <li><a href="${Atlas.briefUrl(d.id)}">${Atlas.esc(d.brand)}</a>
-      <span class="muted small">${Atlas.esc(d.area)}</span>
+      <span class="muted small">${Atlas.esc(Atlas.label(d.area))}</span>
       <span class="rank-days">${text(d)}</span></li>`).join("")}</ol>`;
   document.getElementById("list-gap").innerHTML =
-    list(us.longest_gap, d => `EU approval ${d.days.toLocaleString("en-US")} days after the FDA's`);
+    list(us.longest_gap, d => Atlas.t("js.us.after", { n: Atlas.num(d.days) }));
   document.getElementById("list-eu-first").innerHTML =
-    list(us.eu_first, d => `EU approval ${(-d.days).toLocaleString("en-US")} days before the FDA's`);
+    list(us.eu_first, d => Atlas.t("js.us.before", { n: Atlas.num(-d.days) }));
 })();
