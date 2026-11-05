@@ -189,6 +189,7 @@ details.sources summary { font-weight: 600; }
   .nav { flex-wrap: nowrap; overflow-x: auto; gap: 1.1rem; width: 100%; font-size: 0.9rem;
          scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .nav::-webkit-scrollbar { display: none; }
+  .site-header nav { min-width: 0; width: 100%; }
   .nav a { white-space: nowrap; }
   main { padding-top: 1.5rem; }
 
@@ -231,3 +232,16 @@ details.sources summary { font-weight: 600; }
 /* Company scorecard: room for the drug list under each company name */
 #scorecard th[scope="row"] { min-width: 16rem; }
 #scorecard thead th { white-space: normal; vertical-align: bottom; min-width: 6.5rem; }
+
+/* Country pages */
+.country-switch { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0 0.25rem; }
+.country-switch a { padding: 0.3rem 0.85rem; border: 1px solid var(--border); border-radius: 999px; color: var(--text-2);
+                    text-decoration: none; font-size: 0.9rem; background: var(--surface); }
+.country-switch a:hover { color: var(--text); border-color: var(--text-2); }
+.country-switch a[aria-current="page"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.rank-list { margin: 0; padding-left: 1.4rem; }
+.rank-list li { padding: 0.4rem 0; border-bottom: 1px solid var(--border); }
+.rank-list li > span { display: block; }
+.rank-days { font-variant-numeric: tabular-nums; color: var(--text); font-size: 0.9rem; }
+.spacer { height: 1.5rem; }
+.chart-grid > *, .chart-grid-3 > * { min-width: 0; }

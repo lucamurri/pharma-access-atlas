@@ -31,6 +31,7 @@ NAV = [
     ("index.html", "Overview"),
     ("explorer.html", "Drug explorer"),
     ("companies.html", "Companies"),
+    ("italy.html", "Countries"),
     ("insights.html", "Insights"),
     ("methodology.html", "Methodology & sources"),
     ("about.html", "About"),
@@ -48,6 +49,46 @@ PAGES = {
     "methodology.html": ("Methodology & sources | Pharma Access Atlas", "Definitions, data sources, limitations."),
     "about.html": ("About | Pharma Access Atlas", "About the author of the Pharma Access Atlas."),
 }
+
+# Country pages: one per national milestone, built from site/pages/country.html.
+COUNTRIES = [
+    {"key": "it", "slug": "italy.html", "name": "Italy", "short": "reimbursement in Italy",
+     "title": "reimbursement by the national health service",
+     "lede": "AIFA negotiates price and reimbursement with the company, and access starts when the decision is "
+             "published in the Gazzetta Ufficiale. Until then a new drug can usually be sold only in class C(nn), "
+             "which the national health service does not pay for.",
+     "mix_title": "How reimbursed drugs are dispensed",
+     "mix_sub": "Class of the first reimbursement decision (H: hospital use; A: community pharmacies), and drugs "
+                "not yet reimbursed when checked.",
+     "note": "Regional formulary listing can add months after the national decision and is not measured; "
+             "early access under Law 648/96 or the AIFA 5% fund is not counted."},
+    {"key": "de", "slug": "germany.html", "name": "Germany", "short": "a G-BA decision",
+     "title": "the G-BA benefit assessment",
+     "lede": "In Germany a new drug is reimbursed from launch. Within about six months the G-BA decides its added "
+             "benefit over an appropriate comparator (AMNOG), and that verdict is the basis for the price the "
+             "company then negotiates with the statutory health insurers.",
+     "mix_title": "First G-BA verdict (best patient group)",
+     "mix_sub": "Each drug's best rating in its first concluded assessment.",
+     "note": "For orphan drugs below the revenue threshold, added benefit is deemed proven by law; reserve "
+             "antibiotics get no quantified rating and are left blank."},
+    {"key": "fr", "slug": "france.html", "name": "France", "short": "a HAS opinion",
+     "title": "the HAS opinion on reimbursement",
+     "lede": "The HAS Transparency Committee rates whether a drug merits reimbursement at all (SMR) and its added "
+             "benefit over existing care (ASMR I to V). The opinion opens price negotiations with the CEPS; the "
+             "listing that gives patients access usually follows months later.",
+     "mix_title": "First HAS verdict",
+     "mix_sub": "Best ASMR across the opinion's indications, or SMR insufficient (judged not worth reimbursing).",
+     "note": "The milestone is the HAS opinion, not the later price and listing decision; drugs with no HAS "
+             "opinion when checked count as waiting."},
+    {"key": "en", "slug": "england.html", "name": "England", "short": "NICE guidance",
+     "title": "NICE guidance",
+     "lede": "NICE appraises whether a drug is good value for the NHS at the price offered. A positive "
+             "recommendation obliges the NHS in England to fund it, normally within three months.",
+     "mix_title": "First NICE decision",
+     "mix_sub": "Outcome of the first published appraisal for the drug's first indication.",
+     "note": "England uses its own UK licence since Brexit, but times are counted from EC approval for "
+             "comparability; drugs NICE will not appraise stay in the count as waiting."},
+]
 
 esc = html.escape
 
@@ -435,6 +476,30 @@ def main() -> None:
         (OUT / page).write_text(layout(title, description, body, page, "", as_of, scripts.get(page, ()),
                                        path="" if page == "index.html" else page), encoding="utf-8")
 
+    # Country pages.
+    template = (SITE / "pages" / "country.html").read_text(encoding="utf-8")
+    for c in COUNTRIES:
+        a = s["access"][c["key"]]
+        current = ' aria-current="page"'
+        switch = "".join(f'<a href="{o["slug"]}"{current if o is c else ""}>{o["name"]}</a>' for o in COUNTRIES)
+        median = f'{a["median"]:,}' if a["median"] is not None else "not reached"
+        cvalues = {**values,
+                   "country_switch": switch, "c_name": c["name"], "c_milestone_title": c["title"], "c_lede": esc(c["lede"]),
+                   "c_median": median, "c_1y": analysis.days(a["pct_1y"]), "c_2y": analysis.days(a["pct_2y"]),
+                   "c_n": a["n"], "c_waiting": a["waiting"],
+                   "c_waiting_note": "drugs confirmed as not there yet when checked",
+                   "c_curve_title": esc(f'Half of drugs had {c["short"]} within {median} days of EU approval, '
+                                        f'and {analysis.days(a["pct_2y"])}% within two years'),
+                   "c_mix_title": esc(c["mix_title"]), "c_mix_sub": esc(c["mix_sub"]), "c_note": esc(c["note"])}
+        body = fill(template, cvalues)
+        title = f'{c["name"]}: {c["title"]} | Pharma Access Atlas'
+        desc = (f'How fast new drugs reach {c["short"]}: half within {median} days of EU approval. '
+                f'Curves, verdicts, therapy areas and the fastest and slowest drugs.')
+        (OUT / c["slug"]).write_text(layout(title, desc, body, "italy.html", "", as_of,
+                                            ["vendor/chart.umd.min.js", "js/common.js", "js/country.js"],
+                                            path=c["slug"]).replace("<body ", f'<body data-country="{c["key"]}" ', 1),
+                                     encoding="utf-8")
+
     # One brief per drug, ordered as in the drug list.
     so_what = {k: "<ul>" + "".join(f"<li>{esc(b)}</li>" for b in v) + "</ul>" for k, v in bullets.items()}
     (OUT / "drugs").mkdir()
@@ -452,11 +517,12 @@ def main() -> None:
             layout(title, desc, body, "explorer.html", "../", as_of, path=f'drugs/{row["id"]}.html'), encoding="utf-8")
 
     # Sitemap so search engines find every page and brief (submit it in Google Search Console).
-    urls = [SITE_URL + ("" if p == "index.html" else p) for p in PAGES] + [f'{SITE_URL}drugs/{r["id"]}.html' for r in rows]
+    urls = ([SITE_URL + ("" if p == "index.html" else p) for p in PAGES] + [SITE_URL + c["slug"] for c in COUNTRIES]
+            + [f'{SITE_URL}drugs/{r["id"]}.html' for r in rows])
     (OUT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "".join(f"  <url><loc>{u}</loc><lastmod>{as_of}</lastmod></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
-    print(f"  ok   built {len(PAGES)} pages + {len(rows)} drug briefs into _site/")
+    print(f"  ok   built {len(PAGES)} pages, {len(COUNTRIES)} country pages and {len(rows)} drug briefs into _site/")
 
 
 if __name__ == "__main__":

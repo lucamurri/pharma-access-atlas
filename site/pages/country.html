@@ -1,0 +1,61 @@
+<p class="eyebrow">Country profile</p>
+<nav class="country-switch" aria-label="Countries">{{country_switch}}</nav>
+<h1>{{c_name}}: {{c_milestone_title}}</h1>
+<p class="lede">{{c_lede}}</p>
+
+<section class="kpis" aria-label="Key numbers for {{c_name}}">
+  <div class="kpi">
+    <p class="kpi-label">Half of drugs within</p>
+    <p class="kpi-value">{{c_median}} <span class="kpi-unit">days</span></p>
+    <p class="kpi-note">of EU approval, counting drugs still waiting</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Within one year</p>
+    <p class="kpi-value">{{c_1y}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">of the {{c_n}} drugs counted</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Within two years</p>
+    <p class="kpi-value">{{c_2y}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">of the {{c_n}} drugs counted</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Still waiting</p>
+    <p class="kpi-value">{{c_waiting}}</p>
+    <p class="kpi-note">{{c_waiting_note}}</p>
+  </div>
+</section>
+
+<section class="chart-card" aria-labelledby="cc-h">
+  <h2 id="cc-h">{{c_curve_title}}</h2>
+  <p class="chart-sub">Share of drugs that had reached the milestone, by days since European Commission approval.
+    The other three countries are shown in grey for comparison. Drugs still waiting count until the day they were checked.</p>
+  <div class="chart-box" style="height: 340px"><canvas id="chart-country" role="img" aria-label="{{c_curve_title}}. Data in the table below."></canvas></div>
+  <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-country"></div></details>
+</section>
+
+<div class="chart-grid">
+  <section class="chart-card" aria-labelledby="cm-h">
+    <h2 id="cm-h">{{c_mix_title}}</h2>
+    <p class="chart-sub">{{c_mix_sub}}</p>
+    <div class="chart-box" style="height: 260px"><canvas id="chart-mix" role="img" aria-label="{{c_mix_title}}. Data in the table below."></canvas></div>
+    <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-mix"></div></details>
+  </section>
+  <section class="chart-card" aria-labelledby="ca-h">
+    <h2 id="ca-h">By therapy area</h2>
+    <p class="chart-sub">Days until half of the area's drugs reached the milestone (areas with at least 5 drugs).
+      A drug still waiting counts only until the day it was checked, so an area can reach 100% within two years
+      while one of its recent drugs is still waiting.</p>
+    <div class="table-scroll" id="table-areas"></div>
+  </section>
+</div>
+
+<div class="chart-grid-3">
+  <section aria-labelledby="cf-h"><h2 id="cf-h">Fastest</h2><div id="list-fastest"></div></section>
+  <section aria-labelledby="cs-h"><h2 id="cs-h">Slowest to get there</h2><div id="list-slowest"></div></section>
+  <section aria-labelledby="cw-h"><h2 id="cw-h">Waiting longest</h2><div id="list-waiting"></div></section>
+</div>
+<div class="spacer"></div>
+
+<p class="muted small">{{c_note}} Definitions and limitations are on the <a href="methodology.html">methodology</a>
+  page; every drug's values are in the <a href="explorer.html">explorer</a>.</p>

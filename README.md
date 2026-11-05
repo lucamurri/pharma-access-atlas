@@ -22,7 +22,8 @@ reimbursement in **Italy** (AIFA), plus Medicare price negotiation in the **US**
 **Every value links to its public source**, and anything that could not be verified is left blank and flagged.
 
 The site has an overview with time-to-access curves, a filterable drug explorer, a one-page brief per drug, a
-[company scorecard](https://lucamurri.github.io/pharma-access-atlas/companies.html) and seven written findings.
+[company scorecard](https://lucamurri.github.io/pharma-access-atlas/companies.html), a profile per
+[country](https://lucamurri.github.io/pharma-access-atlas/italy.html) and seven written findings.
 
 ## Three key findings
 

@@ -234,6 +234,7 @@ def summary(all_rows: list[dict]) -> dict:
         "access": access_curves(all_rows),
         "companies": company_scorecard(all_rows),
         "drivers": italy_drivers(all_rows),
+        "countries": country_profiles(all_rows),
     }
 
 
@@ -306,6 +307,60 @@ def italy_drivers(all_rows: list[dict]) -> list[dict]:
         p = log_rank_p(groups["yes"], groups["no"])
         out.append({"key": key, "yes_label": yes_label, "no_label": no_label, **stats,
                     "p": round(p, 3) if p is not None else None})
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Country pages: one profile per national milestone.
+COUNTRY_KEYS = ["it", "de", "fr", "en"]
+
+
+def country_profiles(all_rows: list[dict]) -> dict:
+    rows = core(all_rows)
+    out = {}
+    for k in COUNTRY_KEYS:
+        timed = [(r, r["km"][k]) for r in rows if r["km"][k]]
+        reached = sorted(((t, r) for r, (t, e) in timed if e), key=lambda x: (x[0], x[1]["brand_us"]))
+        waiting = sorted(((t, r) for r, (t, e) in timed if not e), key=lambda x: (-x[0], x[1]["brand_us"]))
+        def brief(t, r):
+            # Why a drug without a milestone is still counted: in progress, or none at all.
+            note = None
+            if k == "en" and r["en_decision"] == "not appraised":
+                note = "NICE did not appraise it"
+            elif k == "de" and r["gba_rating"] == "not assessed":
+                note = "no G-BA assessment"
+            elif k == "fr" and not r["fr_date"]:
+                note = "no HAS opinion when checked"
+            return {"id": r["id"], "brand": r["brand_us"], "area": r["area"], "days": t,
+                    "eu_status": r["eu_status"], "note": note}
+
+        by_area = defaultdict(list)
+        for r, pair in timed:
+            by_area[r["area"]].append(pair)
+        areas = []
+        for area, pairs in by_area.items():
+            if len(pairs) >= 5:
+                km = kaplan_meier(pairs)
+                areas.append({"area": area, "n": km["n"], "waiting": km["waiting"], "median": km["median"],
+                              "pct_2y": km["pct_2y"]})
+        areas.sort(key=lambda a: (a["median"] is None, a["median"] or 0, a["area"]))
+
+        if k == "it":
+            mix = {"A (community pharmacies)": sum(1 for r in rows if r["it_status"] == "reimbursed" and r["it_class"] == "A"),
+                   "H (hospital)": sum(1 for r in rows if r["it_status"] == "reimbursed" and r["it_class"] == "H"),
+                   "Not reimbursed yet": sum(1 for r in rows if r["it_status"] == "not reimbursed")}
+        elif k == "de":
+            mix = {g: sum(1 for r in rows if r["gba_rating"] == g) for g in G_BA_ORDER}
+        elif k == "fr":
+            mix = {("ASMR " + g if g != "SMR insufficient" else g): sum(1 for r in rows if r["fr_verdict"] == g) for g in FR_ORDER}
+        else:
+            mix = {g: sum(1 for r in rows if r["en_decision"] == g) for g in NICE_APPRAISED}
+        out[k] = {
+            "fastest": [brief(t, r) for t, r in reached[:5]],
+            "slowest": [brief(t, r) for t, r in reached[-5:][::-1]],
+            "longest_waiting": [brief(t, r) for t, r in waiting[:5]],
+            "areas": areas, "mix": mix,
+        }
     return out
 
 
