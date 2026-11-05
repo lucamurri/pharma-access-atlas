@@ -1,0 +1,69 @@
+<p class="eyebrow">Country profile</p>
+<nav class="country-switch" aria-label="Countries">{{country_switch}}</nav>
+<h1>United States: FDA approval</h1>
+<p class="lede">In the US, FDA approval is the step that brings a drug to market. There is no national benefit
+  assessment or reimbursement decision: each insurer, and Medicare, decides coverage and price itself. So this page
+  looks the other way, at how long after US approval each European milestone followed.</p>
+
+<section class="kpis" aria-label="Key numbers for the United States">
+  <div class="kpi">
+    <p class="kpi-label">Approved first in the US</p>
+    <p class="kpi-value">{{us_pct_first}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">{{us_first}} of {{us_n}} drugs</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">EU approval came</p>
+    <p class="kpi-value">{{lag_median}} <span class="kpi-unit">days</span></p>
+    <p class="kpi-note">later, median across all drugs</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">FDA priority review</p>
+    <p class="kpi-value">{{us_pct_priority}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">{{us_priority}} of {{us_reviewed}} drugs with a review type</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">US orphan designation</p>
+    <p class="kpi-value">{{us_pct_orphan}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">{{us_orphan}} of {{us_orphan_known}} drugs</p>
+  </div>
+</section>
+
+<section class="chart-card" aria-labelledby="us-c-h">
+  <h2 id="us-c-h">{{us_curve_title}}</h2>
+  <p class="chart-sub">Share of drugs that had reached each European milestone, by days since FDA approval. Drugs
+    still waiting count until the day they were checked. Curves start above 0% where Europe acted before the FDA.</p>
+  <ul class="legend" aria-hidden="true">
+    <li style="--swatch: var(--series-neutral)">EU approval</li>
+    <li style="--swatch: var(--country-fr)">France: HAS opinion</li>
+    <li style="--swatch: var(--country-de)">Germany: G-BA decision</li>
+    <li style="--swatch: var(--country-en)">England: NICE guidance</li>
+    <li style="--swatch: var(--country-it)">Italy: reimbursement</li>
+  </ul>
+  <div class="chart-box" style="height: 360px"><canvas id="chart-us" role="img" aria-label="{{us_curve_title}}. Data in the table below."></canvas></div>
+  <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-us"></div></details>
+</section>
+
+<div class="chart-grid">
+  <section class="chart-card" aria-labelledby="us-m-h">
+    <h2 id="us-m-h">How the FDA reviewed them</h2>
+    <p class="chart-sub">Priority review is a six-month target (instead of ten) for drugs that may offer a significant
+      improvement. openFDA does not record it for cell and gene therapies.</p>
+    <div class="chart-box" style="height: 200px"><canvas id="chart-us-mix" role="img" aria-label="FDA review type. Data in the table below."></canvas></div>
+    <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-us-mix"></div></details>
+  </section>
+  <section class="chart-card" aria-labelledby="us-a-h">
+    <h2 id="us-a-h">Gap to EU approval by therapy area</h2>
+    <p class="chart-sub">Median days from FDA to EU approval (areas with at least 5 drugs); negative means Europe first.</p>
+    <div class="table-scroll" id="table-us-areas"></div>
+  </section>
+</div>
+
+<div class="chart-grid">
+  <section aria-labelledby="us-l-h"><h2 id="us-l-h">Longest wait for EU approval</h2><div id="list-gap"></div></section>
+  <section aria-labelledby="us-e-h"><h2 id="us-e-h">Approved in Europe first</h2><div id="list-eu-first"></div></section>
+</div>
+<div class="spacer"></div>
+
+<p class="muted small">Medicare price negotiation only applies years after approval: among these drugs, only the two
+  reference semaglutide brands have a negotiated price so far (see the <a href="insights.html#f6">semaglutide finding</a>).
+  US coverage decisions by private insurers are not public in a comparable form and are not measured.</p>

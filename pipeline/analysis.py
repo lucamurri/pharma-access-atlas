@@ -48,6 +48,7 @@ def flat_rows(data: dict) -> list[dict]:
             "fda_date": fda, "ec_date": ec,
             "first_year": min(fda, ec)[:4] if fda and ec else None,
             "lag": v("us_eu_lag_days"), "first_region": v("first_region"),
+            "fda_priority": v("fda_review_priority"),
             "it_date": it["value"], "it_status": it_status, "it_class": v("it_reimbursement_class"),
             "it_lag": v("it_access_lag_days"), "it_waiting": v("it_days_waiting"),
             "it_checked": it.get("retrieved_date"),
@@ -94,6 +95,11 @@ MILESTONES = {
     "fr": ("ec_approval_date", "fr_has_date"),
     "en": ("ec_approval_date", "en_nice_date"),
     "it_from_fda": ("fda_approval_date", "it_gu_date"),
+    # The US page counts from FDA approval: how far behind the US each European milestone came.
+    "ec_from_fda": ("fda_approval_date", "ec_approval_date"),
+    "de_from_fda": ("fda_approval_date", "de_gba_decision_date"),
+    "fr_from_fda": ("fda_approval_date", "fr_has_date"),
+    "en_from_fda": ("fda_approval_date", "en_nice_date"),
 }
 
 
@@ -235,6 +241,7 @@ def summary(all_rows: list[dict]) -> dict:
         "companies": company_scorecard(all_rows),
         "drivers": italy_drivers(all_rows),
         "countries": country_profiles(all_rows),
+        "us": us_profile(all_rows),
     }
 
 
@@ -362,6 +369,34 @@ def country_profiles(all_rows: list[dict]) -> dict:
             "areas": areas, "mix": mix,
         }
     return out
+
+
+def us_profile(all_rows: list[dict]) -> dict:
+    """The US page: FDA approval is market entry, so it looks at what Europe did afterwards."""
+    rows = core(all_rows)
+    timed = [r for r in rows if r["lag"] is not None]
+    brief = lambda r: {"id": r["id"], "brand": r["brand_us"], "area": r["area"], "days": r["lag"]}
+    by_area = defaultdict(list)
+    for r in timed:
+        by_area[r["area"]].append(r)
+    areas = [{"area": a, "n": len(rs), "median": days(median([r["lag"] for r in rs])),
+              "us_first": sum(1 for r in rs if r["lag"] > 0)} for a, rs in by_area.items() if len(rs) >= 5]
+    areas.sort(key=lambda a: (-a["median"], a["area"]))
+    priority = sum(1 for r in rows if r["fda_priority"] == "Priority")
+    reviewed = sum(1 for r in rows if r["fda_priority"] in ("Priority", "Standard"))
+    orphan = sum(1 for r in rows if r["us_orphan"] == "yes")
+    orphan_known = sum(1 for r in rows if r["us_orphan"] in ("yes", "no"))
+    return {
+        "n": len(timed), "us_first": sum(1 for r in timed if r["lag"] > 0),
+        "pct_us_first": pct(sum(1 for r in timed if r["lag"] > 0), len(timed)),
+        "priority": priority, "reviewed": reviewed, "pct_priority": pct(priority, reviewed),
+        "orphan": orphan, "orphan_known": orphan_known, "pct_orphan": pct(orphan, orphan_known),
+        "mix": {"Priority review": priority, "Standard review": reviewed - priority,
+                "Review type not in openFDA": len(rows) - reviewed},
+        "areas": areas,
+        "eu_first": [brief(r) for r in sorted((r for r in timed if r["lag"] < 0), key=lambda r: (r["lag"], r["brand_us"]))[:5]],
+        "longest_gap": [brief(r) for r in sorted(timed, key=lambda r: (-r["lag"], r["brand_us"]))[:5]],
+    }
 
 
 def scorecard_title(s: dict) -> str:

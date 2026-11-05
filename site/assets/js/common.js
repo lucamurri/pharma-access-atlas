@@ -48,3 +48,29 @@ const Atlas = (() => {
 
   return { load, cssVar, fmtDate, esc, briefUrl, drugName, table, root };
 })();
+
+// Keyboard access for tables wider than their box: a box that scrolls sideways gets a focus
+// stop and a label, so it can be scrolled with the arrow keys (WCAG 2.1.1). Re-checked when
+// page scripts fill tables in, when <details> table views open, and on resize.
+(() => {
+  let pending = false;
+  const update = () => {
+    pending = false;
+    document.querySelectorAll(".table-scroll").forEach(box => {
+      const scrolls = box.scrollWidth > box.clientWidth + 1;
+      if (scrolls && !box.hasAttribute("tabindex")) {
+        box.setAttribute("tabindex", "0");
+        box.setAttribute("role", "region");
+        const caption = box.querySelector("caption");
+        box.setAttribute("aria-label", caption ? caption.textContent.trim() : "Table, scrolls sideways");
+      } else if (!scrolls && box.getAttribute("tabindex") === "0") {
+        ["tabindex", "role", "aria-label"].forEach(a => box.removeAttribute(a));
+      }
+    });
+  };
+  const schedule = () => { if (!pending) { pending = true; requestAnimationFrame(update); } };
+  new MutationObserver(schedule).observe(document.body, { childList: true, subtree: true });
+  document.addEventListener("toggle", schedule, true);
+  window.addEventListener("resize", schedule);
+  schedule();
+})();

@@ -482,12 +482,32 @@ def main() -> None:
         (OUT / page).write_text(layout(title, description, body, page, "", as_of, scripts.get(page, ()),
                                        path="" if page == "index.html" else page), encoding="utf-8")
 
-    # Country pages.
+    # Country pages. The US page has its own template: FDA approval is market entry, so it
+    # measures how long after US approval each European milestone came.
+    US_SLUG = "united-states.html"
+    US_LINK = f'<a href="{US_SLUG}">United States</a>'
+    u, ua = s["us"], s["access"]
+    us_values = {**values,
+                 "country_switch": f'<a href="{US_SLUG}" aria-current="page">United States</a>'
+                                   + "".join(f'<a href="{o["slug"]}">{o["name"]}</a>' for o in COUNTRIES),
+                 "us_pct_first": u["pct_us_first"], "us_first": u["us_first"], "us_n": u["n"],
+                 "us_pct_priority": u["pct_priority"], "us_priority": u["priority"], "us_reviewed": u["reviewed"],
+                 "us_pct_orphan": u["pct_orphan"], "us_orphan": u["orphan"], "us_orphan_known": u["orphan_known"],
+                 "us_curve_title": esc(f'Half of drugs were approved in the EU within {ua["ec_from_fda"]["median"]} days of '
+                                       f'US approval; half were reimbursed in Italy within {ua["it_from_fda"]["median"]:,}')}
+    body = fill((SITE / "pages" / "us.html").read_text(encoding="utf-8"), us_values)
+    (OUT / US_SLUG).write_text(layout(
+        "United States: FDA approval and the gap to Europe | Pharma Access Atlas",
+        f'{u["pct_us_first"]}% of new drugs were approved first in the US. How long Europe took after FDA approval, '
+        f'by milestone, therapy area and drug.',
+        body, "italy.html", "", as_of, ["vendor/chart.umd.min.js", "js/common.js", "js/us.js"], path=US_SLUG),
+        encoding="utf-8")
+
     template = (SITE / "pages" / "country.html").read_text(encoding="utf-8")
     for c in COUNTRIES:
         a = s["access"][c["key"]]
         current = ' aria-current="page"'
-        switch = "".join(f'<a href="{o["slug"]}"{current if o is c else ""}>{o["name"]}</a>' for o in COUNTRIES)
+        switch = US_LINK + "".join(f'<a href="{o["slug"]}"{current if o is c else ""}>{o["name"]}</a>' for o in COUNTRIES)
         median = f'{a["median"]:,}' if a["median"] is not None else "not reached"
         cvalues = {**values,
                    "country_switch": switch, "c_name": c["name"], "c_milestone_title": c["title"], "c_lede": esc(c["lede"]),
@@ -523,12 +543,13 @@ def main() -> None:
             layout(title, desc, body, "explorer.html", "../", as_of, path=f'drugs/{row["id"]}.html'), encoding="utf-8")
 
     # Sitemap so search engines find every page and brief (submit it in Google Search Console).
-    urls = ([SITE_URL + ("" if p == "index.html" else p) for p in PAGES] + [SITE_URL + c["slug"] for c in COUNTRIES]
+    urls = ([SITE_URL + ("" if p == "index.html" else p) for p in PAGES]
+            + [SITE_URL + "united-states.html"] + [SITE_URL + c["slug"] for c in COUNTRIES]
             + [f'{SITE_URL}drugs/{r["id"]}.html' for r in rows])
     (OUT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "".join(f"  <url><loc>{u}</loc><lastmod>{as_of}</lastmod></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
-    print(f"  ok   built {len(PAGES)} pages, {len(COUNTRIES)} country pages and {len(rows)} drug briefs into _site/")
+    print(f"  ok   built {len(PAGES)} pages, {len(COUNTRIES) + 1} country pages and {len(rows)} drug briefs into _site/")
 
 
 if __name__ == "__main__":
