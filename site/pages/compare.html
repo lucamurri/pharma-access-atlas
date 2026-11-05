@@ -1,0 +1,48 @@
+<p class="eyebrow">Compare</p>
+<h1>Compare drugs side by side</h1>
+<p class="lede">Pick up to four drugs, for example rivals for the same disease, to see how their approval and
+  access compare. The link updates as you choose, so you can share the comparison.</p>
+
+<section class="compare-picker" aria-labelledby="pick-h">
+  <h2 id="pick-h" class="visually-hidden">Choose drugs</h2>
+  <form id="pick-form" class="filters" onsubmit="return false">
+    <label>Add a drug
+      <input type="search" id="pick-input" list="pick-list" placeholder="Brand or ingredient" autocomplete="off">
+    </label>
+    <datalist id="pick-list"></datalist>
+    <button type="submit" id="pick-add">Add</button>
+  </form>
+  <p class="small" id="pick-msg" aria-live="polite"></p>
+  <ul class="chips" id="chips" aria-label="Drugs being compared"></ul>
+  <p class="small presets-label">Or start from a common comparison:</p>
+  <div class="presets" id="presets"></div>
+</section>
+
+<div id="compare-empty" class="callout" hidden>
+  <p>Choose at least one drug above to start.</p>
+</div>
+
+<div id="compare-body" hidden>
+  <section class="chart-card" aria-labelledby="cmp-h">
+    <h2 id="cmp-h">When each milestone came, in days after EU approval</h2>
+    <p class="chart-sub">Each row is one drug. Filled markers are milestones reached; hollow markers show a drug
+      still waiting, placed on the day it was last checked. Negative days mean before EU approval.</p>
+    <ul class="legend" aria-hidden="true">
+      <li style="--swatch: var(--series-neutral)">FDA approval</li>
+      <li style="--swatch: var(--country-fr)">France: HAS opinion</li>
+      <li style="--swatch: var(--country-de)">Germany: G-BA decision</li>
+      <li style="--swatch: var(--country-en)">England: NICE guidance</li>
+      <li style="--swatch: var(--country-it)">Italy: reimbursement</li>
+    </ul>
+    <div class="chart-box" id="cmp-box"><canvas id="chart-compare" role="img"
+      aria-label="Milestones of the selected drugs, in days after EU approval. Data in the table below."></canvas></div>
+  </section>
+
+  <section aria-labelledby="cmp-t-h">
+    <h2 id="cmp-t-h">Side by side</h2>
+    <div class="table-scroll"><table class="data-table compare-table" id="compare-table"></table></div>
+  </section>
+</div>
+
+<p class="muted small">Values and their sources are on each drug's brief. Reference drugs (Rybelsus, Wegovy) are
+  not part of the headline statistics. See the <a href="methodology.html">methodology</a> for definitions.</p>

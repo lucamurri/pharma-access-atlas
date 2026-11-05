@@ -31,6 +31,7 @@ NAV = [
     ("index.html", "Overview"),
     ("explorer.html", "Drug explorer"),
     ("companies.html", "Companies"),
+    ("compare.html", "Compare"),
     ("italy.html", "Countries"),
     ("insights.html", "Insights"),
     ("methodology.html", "Methodology & sources"),
@@ -43,6 +44,9 @@ PAGES = {
                    "the FDA and the EU in 2019-2025, across the US, Italy, Germany, France and England, with a "
                    "public source for every number."),
     "explorer.html": ("Drug explorer | Pharma Access Atlas", "Sortable, filterable table of every drug in the atlas."),
+    "compare.html": ("Compare drugs | Pharma Access Atlas",
+                     "Put up to four drugs side by side: approval and access timelines and verdicts in Italy, "
+                     "Germany, France and England."),
     "companies.html": ("Company scorecard | Pharma Access Atlas",
                        "How quickly each company's new drugs reached patients in Europe, and how they were rated."),
     "insights.html": ("Insights | Pharma Access Atlas", "Findings on drug access in the US and Europe."),
@@ -368,6 +372,7 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, data_as_of: str) -> str:
   <h1>{esc(name)}</h1>
   <p class="lede">{esc(row["inn"])} · {esc(row["company"])}</p>
   <ul class="badges" aria-label="Characteristics">{badge_html}</ul>
+  <p class="small"><a href="../compare.html?ids={row["id"]}">Compare {esc(name)} with other drugs →</a></p>
 
   <section aria-labelledby="tl-h">
     <h2 id="tl-h">Timeline</h2>
@@ -467,6 +472,7 @@ def main() -> None:
     scripts = {"index.html": ["vendor/chart.umd.min.js", "js/common.js", "js/overview.js"],
                "explorer.html": ["js/common.js", "js/explorer.js"],
                "companies.html": ["js/common.js", "js/companies.js"],
+               "compare.html": ["vendor/chart.umd.min.js", "js/common.js", "js/compare.js"],
                "insights.html": ["vendor/chart.umd.min.js", "js/common.js", "js/insights.js"]}
     for page, (title, description) in PAGES.items():
         template = (SITE / "pages" / page).read_text(encoding="utf-8")
