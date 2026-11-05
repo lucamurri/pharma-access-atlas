@@ -1,0 +1,160 @@
+<p class="eyebrow">Metodologia &amp; fonti</p>
+<h1>Come è costruito l'atlante</h1>
+<p class="lede">Ogni numero di questo sito proviene da una fonte pubblica e rimanda ad essa. Dove un valore non ha potuto essere
+  verificato, è lasciato vuoto e segnalato. Nulla è stimato.</p>
+<p class="muted">Ultimo aggiornamento dei dati: <strong>{{data_as_of}}</strong>.</p>
+
+<div class="prose">
+<h2>Quali farmaci sono inclusi</h2>
+<p>Ogni medicinale che rispetta una regola fissa, senza selezione manuale: la FDA lo ha approvato come <strong>nuova sostanza
+  attiva</strong> tra il 1° gennaio 2019 e il 31 dicembre 2025 (una NDA originale classificata come new molecular entity,
+  o una BLA originale, in openFDA), <strong>e</strong> la <strong>prima</strong> autorizzazione centralizzata della Commissione Europea
+  per la stessa sostanza attiva ricade anch'essa in questa finestra. Ne risultano <strong>{{n}} farmaci</strong>.</p>
+<ul>
+  <li>I generici, i biosimilari e le nuove formulazioni di molecole più vecchie sono esclusi automaticamente, perché la loro sostanza
+    era stata autorizzata per la prima volta nell'UE prima del 2019.</li>
+  <li>Gli agenti diagnostici (ATC V04, V09) sono esclusi: non sono trattamenti e sono rimborsati con altri percorsi.</li>
+  <li>Le terapie cellulari e geniche (approvate dal CBER della FDA, non presenti in openFDA) provengono dall'elenco EMA delle terapie avanzate.
+    Ciascuna è inclusa solo se la sua data di approvazione FDA nella finestra è stata verificata manualmente.</li>
+  <li>La selezione è stata verificata incrociando gli elenchi annuali ufficiali della FDA delle «novel drug approvals» per il 2021–2025.</li>
+  <li>I {{n_reference}} <strong>farmaci di riferimento</strong> (Rybelsus e Wegovy, marchi più recenti di semaglutide, che era
+    stata approvata per la prima volta come Ozempic nel 2017) sono mostrati per il confronto con Medicare ma esclusi da ogni statistica principale.</li>
+  <li>Il lato UE utilizza i prodotti autorizzati a livello centralizzato. Una sostanza venduta in precedenza solo con autorizzazioni nazionali può
+    risultare «nuova» per l'UE in questo caso. Il codice di selezione è <code>pipeline/universe.py</code>.</li>
+</ul>
+<p>Le <strong>aree terapeutiche</strong> derivano dal codice ATC di ciascun farmaco (classificazione OMS, come pubblicata dall'EMA)
+  mediante regole fisse in <code>pipeline/taxonomy.py</code>. Dove non è ancora assegnato un codice ATC, si usano parole chiave
+  dell'area terapeutica EMA. Lo stato di farmaco orfano è un filtro separato, non un'area terapeutica. L'<strong>azienda</strong> è
+  il titolare dell'autorizzazione all'immissione in commercio nell'UE, senza le parole che indicano la forma giuridica.</p>
+
+<h2>Definizioni</h2>
+<dl>
+  <dt><strong>Data di approvazione FDA</strong></dt>
+  <dd>Data di approvazione della domanda originale del farmaco (NDA o BLA) in Drugs@FDA. Le approvazioni successive per nuove
+    indicazioni sono ignorate. Per le terapie cellulari e geniche (regolate dal CBER della FDA e assenti da openFDA),
+    la data della lettera di approvazione della BLA originale.</dd>
+  <dt><strong>Data di approvazione CE</strong></dt>
+  <dd>Data della prima autorizzazione all'immissione in commercio della Commissione Europea, come pubblicata dall'EMA.</dd>
+  <dt><strong>Intervallo di approvazione USA-UE</strong></dt>
+  <dd>Data di approvazione CE meno data di approvazione FDA, in giorni. Negativo significa che l'UE ha approvato per prima.</dd>
+  <dt><strong>Ritardo di accesso in Italia</strong></dt>
+  <dd>Giorni dall'approvazione CE alla pubblicazione in <em>Gazzetta Ufficiale</em> della prima determina AIFA
+    che concede la rimborsabilità da parte del servizio sanitario nazionale (classe A o H). Le classi C e C(nn) indicano che il farmaco
+    può essere venduto ma non è rimborsato. I farmaci ancora non rimborsati sono indicati come «in attesa» con i giorni trascorsi
+    fino alla data della nostra verifica. Le mediane principali li contano (vedi <a href="#curves">tempo all'accesso</a>); il
+    grafico per area terapeutica usa solo i farmaci rimborsati e lo dichiara.</dd>
+  <dt><strong>Valutazione G-BA della Germania</strong></dt>
+  <dd>L'esito della prima valutazione precoce del beneficio (Nutzenbewertung, AMNOG, § 35a SGB V) conclusa per il farmaco. Una decisione può
+    suddividere i pazienti in gruppi con valutazioni diverse; mostriamo la <em>migliore</em> valutazione tra i gruppi e segnaliamo
+    se qualche gruppo ha ottenuto «nessun beneficio aggiuntivo». In Germania un farmaco è rimborsato dal lancio. La valutazione,
+    di solito circa sei mesi dopo, determina il prezzo negoziato (Erstattungsbetrag), quindi misura il
+    <em>valore riconosciuto</em>, non un ritardo di accesso.</dd>
+  <dt><strong>Valutazione HAS della Francia</strong></dt>
+  <dd>Il primo parere della Commission de la Transparence della HAS sull'iscrizione al rimborso. L'<em>SMR</em> indica se il
+    farmaco meriti il rimborso; l'<em>ASMR</em> valuta il beneficio aggiuntivo da I (maggiore) a V (nessun miglioramento). Mostriamo
+    il livello migliore tra le indicazioni. Quando l'SMR è insufficiente per tutte le indicazioni, la HAS non assegna alcuna ASMR; lo
+    mostriamo come «SMR insufficiente» e lo contiamo, con l'ASMR V, come giudizio negativo. I valori provengono dal database pubblico francese dei medicinali. Per i farmaci che
+    vi mancano (spesso perché non sono mai stati commercializzati in Francia), il parere è stato ricercato su has-sante.fr; dove la
+    HAS non ha un parere di iscrizione, il farmaco è contato come «non ancora» alla data della verifica.</dd>
+  <dt><strong>Decisione NICE dell'Inghilterra</strong></dt>
+  <dd>L'esito della prima technology appraisal (TA) o highly specialised technology (HST) pubblicata dal NICE
+    per la prima indicazione del farmaco. Categorie: <em>raccomandato</em> entro l'autorizzazione;
+    <em>ottimizzato</em> (raccomandato per un gruppo più ristretto); <em>accesso gestito</em> (Cancer Drugs Fund o simili);
+    <em>non raccomandato</em>; <em>terminato</em> (nessuna presentazione da parte dell'azienda o ritiro dell'azienda); e
+    <em>non valutato</em> (nessuna raccomandazione, comprese le valutazioni interrotte prima della pubblicazione della raccomandazione).
+    La data è quella di pubblicazione. Dopo la Brexit l'Inghilterra usa la propria autorizzazione del Regno Unito, ma gli intervalli sono misurati
+    dall'approvazione CE per renderli confrontabili.</dd>
+  <dt><strong>Stato di farmaco orfano</strong></dt>
+  <dd>USA: una designazione di farmaco orfano FDA per l'indicazione della prima approvazione (database FDA OOPD). UE: l'attuale
+    indicatore di farmaco orfano dell'EMA. Un farmaco il cui stato di orfano è stato successivamente revocato risulta «no».</dd>
+  <dt><strong>Negoziazione Medicare</strong></dt>
+  <dd>Se CMS ha selezionato il farmaco ai sensi dell'Inflation Reduction Act e, in tal caso, il Maximum Fair Price (MFP)
+    e il prezzo di listino che CMS indica per una fornitura di 30 giorni.</dd>
+</dl>
+
+<h2 id="curves">Tempo all'accesso: contare i farmaci ancora in attesa</h2>
+<p>Una mediana calcolata solo sui farmaci che hanno già raggiunto una tappa esclude i farmaci ancora in attesa, e
+  sono proprio i più lenti. Sottostima il ritardo, e tanto più quanto più recenti sono i farmaci. Le
+  mediane principali e il grafico per paese usano quindi il <strong>metodo di Kaplan–Meier</strong>, il modo standard
+  per misurare il tempo a un evento quando alcuni casi non lo hanno ancora avuto:</p>
+<ul>
+  <li>Un farmaco con una tappa datata (rimborsabilità, decisione del G-BA, parere della HAS o raccomandazione del NICE) è contato in
+    quel giorno.</li>
+  <li>Un farmaco confermato come <em>non ancora arrivato</em> (per esempio «non rimborsato alla data», valutazione NICE «in
+    sviluppo», procedura G-BA in corso, o nessuna procedura o parere) resta nel conteggio fino al giorno
+    della verifica, poi ne esce senza evento.</li>
+  <li>Un farmaco mai verificato (stato sconosciuto) è escluso.</li>
+</ul>
+<p>La curva mostra la quota di farmaci che avevano raggiunto la tappa a ciascun giorno dopo l'approvazione CE, e la
+  mediana è il primo giorno in cui raggiunge il 50%. I farmaci che il NICE non valuterà mai mantengono la curva inglese sotto il 100%,
+  il che è corretto: non otterranno mai una raccomandazione del NICE. La curva inglese parte sopra lo 0% perché il NICE, lavorando
+  sull'autorizzazione del Regno Unito, ha pubblicato raccomandazioni per alcuni farmaci prima dell'approvazione CE.</p>
+
+<h3>Confronto tra gruppi di farmaci</h3>
+<p>Il risultato 7 suddivide i farmaci per una caratteristica alla volta (per esempio, orfano o no) e confronta le curve dei due gruppi
+  con un <strong>test log-rank</strong>, il test standard per questo tipo di curve. Un valore p inferiore a 0,05 significa che
+  una differenza di tale entità si verificherebbe per caso meno di una volta su venti. Con più confronti, un risultato
+  inferiore a 0,05 può comunque essere casuale, e nessuno dimostra una causa: una caratteristica può essere associata ad altre (le grandi aziende
+  hanno più farmaci oncologici, per esempio). Il calcolo è stato verificato con la libreria statistica
+  <em>lifelines</em>.</p>
+
+<h2>Fonti dei dati</h2>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+  <thead><tr><th scope="col">Fonte</th><th scope="col">Usata per</th><th scope="col">Come viene raccolta</th><th scope="col">Condizioni</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><a href="https://open.fda.gov/apis/drug/drugsfda/">openFDA Drugs@FDA</a></th><td>Date di approvazione FDA, richiedente, priorità di revisione</td><td>API, aggiornata ogni mese</td><td>Pubblico dominio</td></tr>
+    <tr><th scope="row"><a href="https://www.fda.gov/vaccines-blood-biologics">Lettere di approvazione FDA CBER</a></th><td>Date di approvazione delle terapie cellulari e geniche</td><td>Manuale</td><td>Pubblico dominio</td></tr>
+    <tr><th scope="row"><a href="https://www.accessdata.fda.gov/scripts/opdlisting/oopd/">FDA Orphan Drug Designations (OOPD)</a></th><td>Designazione di farmaco orfano USA</td><td>Manuale</td><td>Pubblico dominio</td></tr>
+    <tr><th scope="row"><a href="https://www.ema.europa.eu/en/medicines/download-medicine-data">Dati EMA sui medicinali</a></th><td>Date del parere CHMP e dell'approvazione CE, farmaco orfano UE, approvazione condizionata, titolare</td><td>Download, aggiornato ogni mese</td><td>Riuso con attribuzione</td></tr>
+    <tr><th scope="row"><a href="https://www.gazzettaufficiale.it/">Gazzetta Ufficiale</a> · <a href="https://www.aifa.gov.it/">AIFA</a></th><td>Data e classe di rimborsabilità in Italia</td><td>Manuale</td><td>Atti ufficiali (non soggetti a diritto d'autore); dati AIFA CC BY 4.0</td></tr>
+    <tr><th scope="row"><a href="https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/">Valutazioni del beneficio del G-BA</a></th><td>Data della decisione AMNOG e valutazione</td><td>Manuale</td><td>Riuso libero; nessuna alterazione delle decisioni</td></tr>
+    <tr><th scope="row"><a href="https://base-donnees-publique.medicaments.gouv.fr/">Database pubblico francese dei medicinali (BDPM)</a></th><td>SMR, ASMR e data del parere HAS</td><td>Download, aggiornato ogni mese; lacune ricercate su has-sante.fr e negli open data della HAS</td><td>Licence ouverte (attribuzione, nessuna alterazione)</td></tr>
+    <tr><th scope="row"><a href="https://www.nice.org.uk/guidance/published">Raccomandazioni NICE</a></th><td>Esito, data e numero TA della valutazione in Inghilterra</td><td>Manuale</td><td>Contenuti NICE, citati con link</td></tr>
+    <tr><th scope="row"><a href="https://www.cms.gov/initiatives/medicare-prescription-drug-affordability/overview/medicare-drug-price-negotiation-program/selected-drugs-negotiated-prices">CMS Medicare Drug Price Negotiation</a></th><td>Selezione, Maximum Fair Price; prezzo di listino dalle schede informative</td><td>File di dati aggiornato ogni mese; prezzo di listino manuale</td><td>Pubblico dominio</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="prose">
+<h2>Controlli di qualità</h2>
+<p>Una fase di convalida automatica viene eseguita prima di ogni pubblicazione e blocca la compilazione se un valore non vuoto è privo di
+  un link alla fonte e di una data di rilevazione, se le date sono illogiche (per esempio, rimborsabilità in Italia prima dell'approvazione
+  UE), o se un farmaco compare due volte. Il codice della pipeline e ogni file di input sono
+  <a href="{{repo_url}}">pubblici su GitHub</a>.</p>
+
+<h2>Che cosa è e che cosa non è coperto</h2>
+<ul>
+  <li><strong>I prezzi sono in gran parte fuori ambito.</strong> I prezzi di listino USA (WAC) non sono liberamente disponibili, e
+    i prezzi netti europei sono confidenziali. Gli unici prezzi mostrati sono quelli che CMS pubblica per i farmaci selezionati
+    per la negoziazione Medicare ({{cms_n_selected}} su {{n}} qui).</li>
+  <li><strong>Pochi di questi farmaci sono già negoziabili.</strong> Per legge un farmaco diventa idoneo 7 anni dopo
+    l'approvazione (11 per i biologici). Rybelsus e Wegovy sono inclusi solo perché CMS ha raggruppato tutti i prodotti
+    a base di semaglutide con Ozempic (approvato nel 2017).</li>
+  <li><strong>L'accesso precoce in Italia non è contato.</strong> Il pagamento ai sensi della Legge 648/96 o del fondo AIFA del 5% può
+    precedere la piena rimborsabilità (per esempio Zolgensma e Skyclarys). Contiamo solo la determina di rimborsabilità.</li>
+  <li><strong>L'accesso regionale in Italia</strong> (inserimento nei prontuari regionali) può aggiungere mesi dopo la rimborsabilità
+    nazionale e non è misurato.</li>
+  <li><strong>Germania, Francia e Inghilterra misurano il valore, non il ritardo.</strong> In Germania un farmaco è rimborsato dal
+    lancio; in Francia e in Inghilterra la valutazione precede il finanziamento. Solo la tappa dell'Italia è la rimborsabilità stessa.</li>
+  <li><strong>Gli antibiotici di riserva in Germania</strong> hanno il beneficio aggiuntivo «considerato dimostrato» senza un'entità indicata,
+    quindi la loro valutazione è lasciata vuota.</li>
+  <li><strong>I farmaci recenti sono incompleti.</strong> Molti farmaci approvati nel 2024–2025 sono ancora in valutazione;
+    risultano in attesa o sconosciuti, mai «no».</li>
+  <li><strong>I valori ricercati</strong> per Italia, Germania, Francia (dove mancano nella BDPM), Inghilterra e per lo stato di farmaco orfano USA sono stati ricercati in
+    fonti ufficiali con regole rigorose (una fonte ufficiale per ogni valore, nessuna stima) e controllati a campione.
+    Gli errori sono possibili: ogni valore rimanda alla sua fonte per poterlo verificare.</li>
+  <li><strong>L'accesso negli USA dipende dagli assicuratori.</strong> L'approvazione FDA non garantisce la copertura. Le decisioni di
+    copertura dei pagatori USA non sono pubbliche in una forma comparabile e non sono misurate.</li>
+  <li><strong>Le scelte discrezionali</strong> (per esempio una prima procedura G-BA sospesa, o un farmaco inizialmente classificato
+    come non rimborsato) sono documentate accanto a ogni valore nelle tabelle delle fonti di ogni scheda farmaco.</li>
+</ul>
+
+<h2>Avvertenza</h2>
+<div class="callout">
+  <p>Questo è un progetto di ricerca indipendente, a scopo di portfolio. <strong>Non costituisce consulenza medica, legale o
+    di investimento</strong>, e non è affiliato ad alcun ente regolatorio, agenzia o azienda citati. I dati possono
+    contenere errori. Verifica sempre la fonte ufficiale indicata prima di fare affidamento su un valore.</p>
+</div>
+</div>

@@ -1,0 +1,61 @@
+<p class="eyebrow">Profil pays</p>
+<nav class="country-switch" aria-label="Pays">{{country_switch}}</nav>
+<h1>{{c_name}} : {{c_milestone_title}}</h1>
+<p class="lede">{{c_lede}}</p>
+
+<section class="kpis" aria-label="Chiffres clés pour {{c_name}}">
+  <div class="kpi">
+    <p class="kpi-label">La moitié des médicaments en</p>
+    <p class="kpi-value">{{c_median}} <span class="kpi-unit">jours</span></p>
+    <p class="kpi-note">après l’autorisation dans l’UE, médicaments en attente compris</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">En un an</p>
+    <p class="kpi-value">{{c_1y}}<span class="kpi-unit"> %</span></p>
+    <p class="kpi-note">des {{c_n}} médicaments comptés</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">En deux ans</p>
+    <p class="kpi-value">{{c_2y}}<span class="kpi-unit"> %</span></p>
+    <p class="kpi-note">des {{c_n}} médicaments comptés</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Encore en attente</p>
+    <p class="kpi-value">{{c_waiting}}</p>
+    <p class="kpi-note">{{c_waiting_note}}</p>
+  </div>
+</section>
+
+<section class="chart-card" aria-labelledby="cc-h">
+  <h2 id="cc-h">{{c_curve_title}}</h2>
+  <p class="chart-sub">Part des médicaments ayant franchi l’étape, en jours depuis l’autorisation de la Commission européenne.
+    Les trois autres pays apparaissent en gris à titre de comparaison. Les médicaments encore en attente sont comptés jusqu’au jour de leur vérification.</p>
+  <div class="chart-box" style="height: 340px"><canvas id="chart-country" role="img" aria-label="{{c_curve_title}}. Données dans le tableau ci-dessous."></canvas></div>
+  <details class="data-view"><summary>Afficher les données sous forme de tableau</summary><div class="table-scroll" id="table-country"></div></details>
+</section>
+
+<div class="chart-grid">
+  <section class="chart-card" aria-labelledby="cm-h">
+    <h2 id="cm-h">{{c_mix_title}}</h2>
+    <p class="chart-sub">{{c_mix_sub}}</p>
+    <div class="chart-box" style="height: 260px"><canvas id="chart-mix" role="img" aria-label="{{c_mix_title}}. Données dans le tableau ci-dessous."></canvas></div>
+    <details class="data-view"><summary>Afficher les données sous forme de tableau</summary><div class="table-scroll" id="table-mix"></div></details>
+  </section>
+  <section class="chart-card" aria-labelledby="ca-h">
+    <h2 id="ca-h">Par aire thérapeutique</h2>
+    <p class="chart-sub">Nombre de jours nécessaires pour que la moitié des médicaments de l’aire franchissent l’étape (aires comptant au moins 5 médicaments).
+      Un médicament encore en attente n’est compté que jusqu’au jour de sa vérification; une aire peut donc atteindre 100 % en deux ans
+      alors que l’un de ses médicaments récents est encore en attente.</p>
+    <div class="table-scroll" id="table-areas"></div>
+  </section>
+</div>
+
+<div class="chart-grid-3">
+  <section aria-labelledby="cf-h"><h2 id="cf-h">Les plus rapides</h2><div id="list-fastest"></div></section>
+  <section aria-labelledby="cs-h"><h2 id="cs-h">Les plus lents à y parvenir</h2><div id="list-slowest"></div></section>
+  <section aria-labelledby="cw-h"><h2 id="cw-h">En attente depuis le plus longtemps</h2><div id="list-waiting"></div></section>
+</div>
+<div class="spacer"></div>
+
+<p class="muted small">{{c_note}} Les définitions et les limites figurent dans la page <a href="methodology.html">méthodologie</a>;
+  les valeurs de chaque médicament sont dans l’<a href="explorer.html">explorateur</a>.</p>

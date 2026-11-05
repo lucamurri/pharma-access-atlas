@@ -1,0 +1,66 @@
+<p class="eyebrow">Arzneimittel-Explorer</p>
+<h1>Alle {{n}} Arzneimittel</h1>
+<p class="lede">Filtern und sortieren Sie den gesamten Datensatz. Wählen Sie ein Arzneimittel für seinen einseitigen Market-Access-Steckbrief.</p>
+
+<form class="filters" id="filters" aria-label="Arzneimittel filtern" onsubmit="return false">
+  <label>Suche
+    <input type="search" id="f-search" placeholder="Handelsname oder Wirkstoff" autocomplete="off">
+  </label>
+  <label>Therapiegebiet
+    <select id="f-area"><option value="">Alle</option></select>
+  </label>
+  <label>Unternehmen
+    <select id="f-company"><option value="">Alle</option></select>
+  </label>
+  <label>Orphan-Status
+    <select id="f-orphan">
+      <option value="">Alle</option>
+      <option value="yes">Orphan Drug (USA oder EU)</option>
+      <option value="no">Kein Orphan Drug</option>
+    </select>
+  </label>
+  <label>Erstzulassung (Jahr)
+    <select id="f-year"><option value="">Alle</option></select>
+  </label>
+  <label class="mobile-only">Sortieren nach
+    <select id="f-sort">
+      <option value="brand_us:asc">Arzneimittel (A–Z)</option>
+      <option value="lag:desc">Abstand USA→EU (längster zuerst)</option>
+      <option value="it_sort:asc">Verzögerung Italien (kürzeste zuerst)</option>
+      <option value="it_sort:desc">Verzögerung Italien (längste zuerst)</option>
+      <option value="ec_date:desc">EK-Zulassung (neueste zuerst)</option>
+      <option value="gba_sort:asc">Bewertung Deutschland (beste zuerst)</option>
+      <option value="fr_sort:asc">Bewertung Frankreich (beste zuerst)</option>
+    </select>
+  </label>
+  <button type="reset" id="f-reset">Filter zurücksetzen</button>
+</form>
+
+<p class="result-count" id="result-count" aria-live="polite"></p>
+<div class="table-scroll">
+  <table class="data-table cards" id="explorer">
+    <caption class="visually-hidden">Arzneimittel, nach jeder Spalte sortierbar</caption>
+    <thead>
+      <tr>
+        <th scope="col" data-key="brand_us"><button class="sort-btn" type="button">Arzneimittel</button></th>
+        <th scope="col" data-key="area"><button class="sort-btn" type="button">Gebiet</button></th>
+        <th scope="col" data-key="company"><button class="sort-btn" type="button">Unternehmen</button></th>
+        <th scope="col" data-key="fda_date"><button class="sort-btn" type="button">FDA</button></th>
+        <th scope="col" data-key="ec_date"><button class="sort-btn" type="button">EK</button></th>
+        <th scope="col" class="num" data-key="lag"><button class="sort-btn" type="button">Abstand USA→EU (Tage)</button></th>
+        <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Verzögerung Italien (Tage)</button></th>
+        <th scope="col" data-key="gba_sort"><button class="sort-btn" type="button">G-BA-Bewertung</button></th>
+        <th scope="col" data-key="fr_sort"><button class="sort-btn" type="button">Frankreich ASMR</button></th>
+        <th scope="col" data-key="en_decision"><button class="sort-btn" type="button">NICE</button></th>
+        <th scope="col" data-key="orphan_any"><button class="sort-btn" type="button">Orphan</button></th>
+      </tr>
+    </thead>
+    <tbody id="explorer-body">
+      <tr><td colspan="11">Lädt … (diese Tabelle benötigt JavaScript; die Rohdaten liegen in <a href="data/drugs.json">drugs.json</a>)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="muted small">Abstand = Datum der EK-Zulassung minus Datum der FDA-Zulassung; negativ heißt, die EU hat zuerst zugelassen.
+  Verzögerung Italien = von der EK-Zulassung bis zur Erstattung in der Gazzetta Ufficiale; „wartend“ = bei der Prüfung noch nicht erstattet.
+  Frankreich ASMR: I = erhebliche Verbesserung, V = keine. „Ref.“ kennzeichnet Referenzarzneimittel, die aus den Kennzahlen ausgeschlossen sind.
+  <a href="methodology.html">Definitionen</a>.</p>

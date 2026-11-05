@@ -1,0 +1,159 @@
+<p class="eyebrow">Methodik &amp; Quellen</p>
+<h1>Wie der Atlas aufgebaut ist</h1>
+<p class="lede">Jede Zahl auf dieser Website stammt aus einer öffentlichen Quelle und verlinkt darauf. Wo ein Wert nicht
+  überprüft werden konnte, bleibt er leer und ist gekennzeichnet. Nichts wird geschätzt.</p>
+<p class="muted">Datenstand: <strong>{{data_as_of}}</strong>.</p>
+
+<div class="prose">
+<h2>Welche Arzneimittel enthalten sind</h2>
+<p>Jedes Arzneimittel, das eine feste Regel erfüllt, ohne Handauswahl: Die FDA hat es zwischen dem 1. Januar 2019 und dem 31. Dezember 2025 als <strong>neuen Wirkstoff</strong>
+  zugelassen (ein ursprünglicher NDA, eingestuft als New Molecular Entity, oder ein ursprünglicher BLA, in openFDA), <strong>und</strong> die <strong>erste</strong> zentrale
+  Zulassung desselben Wirkstoffs durch die Europäische Kommission fällt ebenfalls in diesen Zeitraum. Das ergibt <strong>{{n}} Arzneimittel</strong>.</p>
+<ul>
+  <li>Generika, Biosimilars und neue Darreichungsformen älterer Moleküle fallen automatisch heraus, weil ihr Wirkstoff
+    in der EU bereits vor 2019 erstmals zugelassen wurde.</li>
+  <li>Diagnostika (ATC V04, V09) sind ausgeschlossen: Sie sind keine Therapien und werden auf anderen Wegen erstattet.</li>
+  <li>Zell- und Gentherapien (von der CBER der FDA zugelassen, nicht in openFDA) stammen aus der EMA-Liste der Arzneimittel für neuartige Therapien.
+    Jede ist nur enthalten, wenn ihr FDA-Zulassungsdatum im Zeitraum von Hand überprüft wurde.</li>
+  <li>Die Auswahl wurde mit den offiziellen jährlichen Listen der „novel drug approvals“ der FDA für 2021–2025 abgeglichen.</li>
+  <li>{{n_reference}} <strong>Referenzarzneimittel</strong> (Rybelsus und Wegovy, neuere Marken von Semaglutid, das
+    2017 erstmals als Ozempic zugelassen wurde) werden für den Medicare-Vergleich gezeigt, sind aber aus allen Kennzahlen ausgeschlossen.</li>
+  <li>Auf der EU-Seite werden zentral zugelassene Arzneimittel verwendet. Ein Wirkstoff, der zuvor nur mit nationalen Zulassungen vertrieben wurde, kann
+    hier für die EU „neu“ erscheinen. Der Auswahlcode ist <code>pipeline/universe.py</code>.</li>
+</ul>
+<p><strong>Therapiegebiete</strong> ergeben sich aus dem ATC-Code des Arzneimittels (WHO-Klassifikation, von der EMA veröffentlicht)
+  über feste Regeln in <code>pipeline/taxonomy.py</code>. Wo noch kein ATC-Code vergeben ist, werden Stichwörter im EMA-Therapiegebiet
+  verwendet. Der Orphan-Status ist ein eigener Filter, kein Therapiegebiet. <strong>Unternehmen</strong> ist
+  der Inhaber der EU-Zulassung ohne Rechtsformzusätze.</p>
+
+<h2>Definitionen</h2>
+<dl>
+  <dt><strong>FDA-Zulassungsdatum</strong></dt>
+  <dd>Zulassungsdatum des ursprünglichen Antrags des Arzneimittels (NDA oder BLA) in Drugs@FDA. Spätere Zulassungen für neue
+    Indikationen bleiben unberücksichtigt. Bei Zell- und Gentherapien (von der CBER der FDA reguliert und nicht in openFDA enthalten)
+    gilt das Datum des Zulassungsschreibens zum ursprünglichen BLA.</dd>
+  <dt><strong>EK-Zulassungsdatum</strong></dt>
+  <dd>Datum der erstmaligen Zulassung durch die Europäische Kommission, wie von der EMA veröffentlicht.</dd>
+  <dt><strong>Abstand der Zulassungen USA–EU</strong></dt>
+  <dd>EK-Zulassungsdatum minus FDA-Zulassungsdatum, in Tagen. Negativ heißt, die EU hat zuerst zugelassen.</dd>
+  <dt><strong>Zugangsverzögerung in Italien</strong></dt>
+  <dd>Tage von der EK-Zulassung bis zur Veröffentlichung der ersten AIFA-Determina in der <em>Gazzetta Ufficiale</em>, die die Erstattung
+    durch den nationalen Gesundheitsdienst gewährt (Klasse A oder H). Klasse C und C(nn) bedeuten, dass das Arzneimittel
+    verkauft werden darf, aber nicht erstattet wird. Noch nicht erstattete Arzneimittel erscheinen als „wartend“ mit den verstrichenen Tagen
+    bis zum Datum unserer Prüfung. Die Kennzahlen-Mediane beziehen sie ein (siehe <a href="#curves">Zeit bis zum Zugang</a>); das
+    Diagramm nach Therapiegebiet nutzt nur erstattete Arzneimittel und weist darauf hin.</dd>
+  <dt><strong>G-BA-Bewertung in Deutschland</strong></dt>
+  <dd>Das Ergebnis der ersten abgeschlossenen frühen Nutzenbewertung des Arzneimittels (AMNOG, § 35a SGB V). Ein Beschluss kann Patienten
+    in Gruppen mit unterschiedlichen Bewertungen aufteilen; wir zeigen die <em>beste</em> Bewertung über alle Gruppen und kennzeichnen,
+    ob eine Gruppe „keinen Zusatznutzen“ erhielt. In Deutschland wird ein Arzneimittel ab Markteinführung erstattet. Die Bewertung,
+    meist etwa sechs Monate später, prägt den verhandelten Erstattungsbetrag; sie misst also
+    den <em>anerkannten Wert</em>, keine Zugangsverzögerung.</dd>
+  <dt><strong>HAS-Bewertung in Frankreich</strong></dt>
+  <dd>Die erste Stellungnahme der Commission de la Transparence der HAS zur Aufnahme in die Erstattung (inscription au remboursement). Der <em>SMR</em> besagt, ob das
+    Arzneimittel überhaupt erstattungswürdig ist; der <em>ASMR</em> bewertet den Zusatznutzen von I (erheblich) bis V (keine Verbesserung). Wir zeigen
+    die beste Stufe über alle Indikationen. Ist der SMR für jede Indikation unzureichend, vergibt die HAS keinen ASMR; wir
+    zeigen das als „SMR unzureichend“ und zählen es, wie ASMR V, als negatives Urteil. Die Werte stammen aus der öffentlichen französischen Arzneimitteldatenbank. Für Arzneimittel,
+    die dort fehlen (oft, weil sie in Frankreich nie vermarktet wurden), wurde die Stellungnahme auf has-sante.fr recherchiert; wo
+    die HAS keine Stellungnahme zur Aufnahme hat, gilt das Arzneimittel am Prüfdatum als „noch nicht“.</dd>
+  <dt><strong>NICE-Entscheidung in England</strong></dt>
+  <dd>Das Ergebnis der ersten veröffentlichten Technology Appraisal (TA) oder Highly Specialised Technology (HST) von NICE
+    für die erste Indikation des Arzneimittels. Kategorien: <em>empfohlen</em> im Rahmen der Zulassung;
+    <em>optimiert</em> (für eine engere Gruppe empfohlen); <em>Managed Access</em> (Cancer Drugs Fund oder Ähnliches);
+    <em>nicht empfohlen</em>; <em>eingestellt</em> (keine Einreichung des Unternehmens oder das Unternehmen hat zurückgezogen); und
+    <em>nicht bewertet</em> (keine Empfehlung, einschließlich Bewertungen, die vor Veröffentlichung einer Empfehlung eingestellt wurden).
+    Das Datum ist das Veröffentlichungsdatum. England nutzt nach dem Brexit seine eigene britische Zulassung, doch die Abstände werden
+    zur Vergleichbarkeit ab der EK-Zulassung gemessen.</dd>
+  <dt><strong>Orphan-Status</strong></dt>
+  <dd>USA: eine FDA-Orphan-Designation für die Indikation der Erstzulassung (FDA-OOPD-Datenbank). EU: der aktuelle
+    Orphan-Status der EMA. Ein Arzneimittel, dessen Orphan-Status später entzogen wurde, wird mit „nein“ angezeigt.</dd>
+  <dt><strong>Medicare-Verhandlung</strong></dt>
+  <dd>Ob CMS das Arzneimittel nach dem Inflation Reduction Act ausgewählt hat und, falls ja, den Maximum Fair Price (MFP)
+    und den Listenpreis, den CMS für eine 30-Tage-Versorgung angibt.</dd>
+</dl>
+
+<h2 id="curves">Zeit bis zum Zugang: noch wartende Arzneimittel mitzählen</h2>
+<p>Ein Median, der nur über Arzneimittel gebildet wird, die einen Meilenstein bereits erreicht haben, lässt die noch wartenden Arzneimittel aus,
+  und diese sind die langsamsten. Er unterschätzt die Verzögerung, und je jünger die Arzneimittel, desto stärker die Verzerrung. Die
+  Kennzahlen-Mediane und das Länderdiagramm verwenden daher die <strong>Kaplan–Meier-Methode</strong>, das Standardverfahren,
+  um die Zeit bis zu einem Ereignis zu messen, wenn bei einigen Fällen das Ereignis noch nicht eingetreten ist:</p>
+<ul>
+  <li>Ein Arzneimittel mit datiertem Meilenstein (Erstattung, G-BA-Beschluss, HAS-Stellungnahme oder NICE-Empfehlung) wird an diesem
+    Tag gezählt.</li>
+  <li>Ein Arzneimittel, bei dem bestätigt ist, dass es <em>noch nicht so weit ist</em> (zum Beispiel „nicht erstattet Stand“, NICE-Bewertung „in
+    Entwicklung“, G-BA-Verfahren laufend oder gar kein Verfahren oder keine Stellungnahme), bleibt bis zum Tag
+    der Prüfung in der Zählung und scheidet dann ohne Ereignis aus.</li>
+  <li>Ein Arzneimittel, das nie geprüft wurde (Status unbekannt), bleibt unberücksichtigt.</li>
+</ul>
+<p>Die Kurve zeigt den Anteil der Arzneimittel, die den Meilenstein bis zu jedem Tag nach der EK-Zulassung erreicht hatten, und der
+  Median ist der erste Tag, an dem sie 50 % erreicht. Arzneimittel, die NICE nie bewerten wird, halten die englische Kurve unter 100 %,
+  was zutreffend ist: Sie erhalten nie eine NICE-Empfehlung. Die englische Kurve beginnt über 0 %, weil NICE auf Grundlage der
+  britischen Zulassung für einige Arzneimittel vor der EK-Zulassung eine Empfehlung veröffentlicht hat.</p>
+
+<h3>Gruppen von Arzneimitteln vergleichen</h3>
+<p>Befund 7 teilt die Arzneimittel jeweils nach einem Merkmal auf (zum Beispiel Orphan oder nicht) und vergleicht die Kurven der beiden Gruppen
+  mit einem <strong>Log-Rank-Test</strong>, dem Standardtest für diese Art von Kurven. Ein p-Wert unter 0,05 bedeutet,
+  dass ein so großer Unterschied zufällig in weniger als einem von zwanzig Fällen entstünde. Bei mehreren Vergleichen kann ein Ergebnis
+  unter 0,05 dennoch Zufall sein, und keines belegt eine Ursache: Ein Merkmal kann mit anderen einhergehen (große Unternehmen
+  haben zum Beispiel mehr Onkologie-Arzneimittel). Die Berechnung wurde mit der Statistikbibliothek <em>lifelines</em>
+  überprüft.</p>
+
+<h2>Datenquellen</h2>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+  <thead><tr><th scope="col">Quelle</th><th scope="col">Verwendet für</th><th scope="col">Wie sie erhoben wird</th><th scope="col">Nutzungsbedingungen</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><a href="https://open.fda.gov/apis/drug/drugsfda/">openFDA Drugs@FDA</a></th><td>FDA-Zulassungsdaten, Antragsteller, Prüfpriorität</td><td>API, monatlich aktualisiert</td><td>Gemeinfrei</td></tr>
+    <tr><th scope="row"><a href="https://www.fda.gov/vaccines-blood-biologics">FDA CBER approval letters</a></th><td>Zulassungsdaten für Zell- und Gentherapien</td><td>Manuell</td><td>Gemeinfrei</td></tr>
+    <tr><th scope="row"><a href="https://www.accessdata.fda.gov/scripts/opdlisting/oopd/">FDA Orphan Drug Designations (OOPD)</a></th><td>US-Orphan-Designation</td><td>Manuell</td><td>Gemeinfrei</td></tr>
+    <tr><th scope="row"><a href="https://www.ema.europa.eu/en/medicines/download-medicine-data">EMA medicine data</a></th><td>CHMP-Empfehlung und EK-Zulassungsdaten, EU-Orphan-Status, bedingte Zulassung, Inhaber</td><td>Download, monatlich aktualisiert</td><td>Nachnutzung mit Quellenangabe</td></tr>
+    <tr><th scope="row"><a href="https://www.gazzettaufficiale.it/">Gazzetta Ufficiale</a> · <a href="https://www.aifa.gov.it/">AIFA</a></th><td>Italienisches Erstattungsdatum und Klasse</td><td>Manuell</td><td>Amtliche Akte (nicht urheberrechtlich geschützt); AIFA-Daten CC BY 4.0</td></tr>
+    <tr><th scope="row"><a href="https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/">G-BA-Nutzenbewertungen</a></th><td>AMNOG-Beschlussdatum und Bewertung</td><td>Manuell</td><td>Freie Nachnutzung; keine Entstellung der Beschlüsse</td></tr>
+    <tr><th scope="row"><a href="https://base-donnees-publique.medicaments.gouv.fr/">Öffentliche französische Arzneimitteldatenbank (BDPM)</a></th><td>HAS-SMR, -ASMR und Datum der Stellungnahme</td><td>Download, monatlich aktualisiert; Lücken recherchiert auf has-sante.fr und in den offenen Daten der HAS</td><td>Licence ouverte (Namensnennung, keine Veränderung)</td></tr>
+    <tr><th scope="row"><a href="https://www.nice.org.uk/guidance/published">NICE-Empfehlungen</a></th><td>Ergebnis der Bewertung in England, Datum und TA-Nummer</td><td>Manuell</td><td>NICE-Inhalte, mit Links zitiert</td></tr>
+    <tr><th scope="row"><a href="https://www.cms.gov/initiatives/medicare-prescription-drug-affordability/overview/medicare-drug-price-negotiation-program/selected-drugs-negotiated-prices">CMS Medicare Drug Price Negotiation</a></th><td>Auswahl, Maximum Fair Price; Listenpreis aus Faktenblättern</td><td>Datendatei monatlich aktualisiert; Listenpreis manuell</td><td>Gemeinfrei</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="prose">
+<h2>Qualitätsprüfungen</h2>
+<p>Vor jeder Veröffentlichung läuft ein automatisierter Validierungsschritt und stoppt den Build, wenn ein nicht leerer Wert keinen
+  Quellenlink und kein Abrufdatum hat, wenn Daten unlogisch sind (zum Beispiel italienische Erstattung vor der EU-Zulassung)
+  oder wenn ein Arzneimittel doppelt vorkommt. Der Pipeline-Code und jede Eingabedatei sind
+  <a href="{{repo_url}}">öffentlich auf GitHub</a>.</p>
+
+<h2>Was abgedeckt ist und was nicht</h2>
+<ul>
+  <li><strong>Preise sind größtenteils nicht Gegenstand.</strong> US-Listenpreise (WAC) sind nicht frei verfügbar, und
+    europäische Nettopreise sind vertraulich. Gezeigt werden nur die Preise, die CMS für Arzneimittel veröffentlicht, die für die Medicare-Verhandlung
+    ausgewählt wurden ({{cms_n_selected}} von {{n}} hier).</li>
+  <li><strong>Nur wenige dieser Arzneimittel sind bisher verhandelbar.</strong> Gesetzlich wird ein Arzneimittel 7 Jahre nach der
+    Zulassung berechtigt (11 bei Biologika). Rybelsus und Wegovy sind nur enthalten, weil CMS alle Semaglutid-Produkte mit
+    Ozempic (zugelassen 2017) zusammengefasst hat.</li>
+  <li><strong>Früher Zugang in Italien wird nicht gezählt.</strong> Die Kostenübernahme nach Gesetz 648/96 oder aus dem 5-%-Fonds der AIFA kann der vollständigen
+    Erstattung vorausgehen (zum Beispiel bei Zolgensma und Skyclarys). Wir zählen nur die Erstattungsdetermina.</li>
+  <li><strong>Regionaler Zugang in Italien</strong> (Aufnahme in regionale Arzneimittellisten) kann nach der nationalen
+    Erstattung weitere Monate dauern und wird nicht gemessen.</li>
+  <li><strong>Deutschland, Frankreich und England messen Wert, nicht Verzögerung.</strong> In Deutschland wird ein Arzneimittel ab
+    Markteinführung erstattet; in Frankreich und England geht die Bewertung der Finanzierung voraus. Nur der Meilenstein Italiens ist die Erstattung selbst.</li>
+  <li><strong>Reserveantibiotika in Deutschland</strong> gelten mit ihrem Zusatznutzen als „belegt“, ohne ausgewiesenes Ausmaß;
+    ihre Bewertung bleibt daher leer.</li>
+  <li><strong>Neuere Arzneimittel sind unvollständig.</strong> Viele 2024–2025 zugelassene Arzneimittel sind noch in der Bewertung;
+    sie erscheinen als wartend oder unbekannt, nie als „nein“.</li>
+  <li><strong>Recherchierte Werte</strong> für Italien, Deutschland, Frankreich (wo in der BDPM nicht vorhanden), England und den US-Orphan-Status wurden aus
+    amtlichen Quellen nach strengen Regeln recherchiert (eine amtliche Quelle für jeden Wert, keine Schätzungen) und stichprobenartig geprüft.
+    Fehler sind möglich: Jeder Wert verlinkt auf seine Quelle, damit er sich überprüfen lässt.</li>
+  <li><strong>Der Zugang in den USA hängt von den Versicherern ab.</strong> Die FDA-Zulassung garantiert keine Deckung. Deckungsentscheidungen
+    der US-Kostenträger sind nicht in vergleichbarer Form öffentlich und werden nicht gemessen.</li>
+  <li><strong>Ermessensentscheidungen</strong> (zum Beispiel ein ausgesetztes erstes G-BA-Verfahren oder ein Arzneimittel, das zunächst als
+    nicht erstattet eingestuft wurde) sind neben jedem Wert in den Quellentabellen jedes Arzneimittel-Steckbriefs dokumentiert.</li>
+</ul>
+
+<h2>Haftungsausschluss</h2>
+<div class="callout">
+  <p>Dies ist ein unabhängiges Forschungs-Portfolioprojekt. Es ist <strong>keine medizinische, rechtliche oder Anlageberatung</strong>
+    und steht in keiner Verbindung zu einer der genannten Regulierungsbehörden, Behörden oder Unternehmen. Die Daten können
+    Fehler enthalten. Prüfen Sie stets die verlinkte amtliche Quelle, bevor Sie sich auf einen Wert verlassen.</p>
+</div>
+</div>

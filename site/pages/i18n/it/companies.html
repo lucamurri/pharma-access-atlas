@@ -1,0 +1,55 @@
+<p class="eyebrow">Scheda delle aziende</p>
+<h1>Come sono andati in Europa i nuovi farmaci di ciascuna azienda</h1>
+<p class="lede">Le stesse misure del resto dell'atlante, raggruppate per titolare dell'autorizzazione all'immissione in commercio nell'UE.
+  Seleziona un'azienda per vedere i suoi farmaci nell'esploratore.</p>
+
+<section class="chart-card" aria-labelledby="sc-h">
+  <h2 id="sc-h">{{title_companies}}</h2>
+  <p class="chart-sub">Per l'Italia si contano anche i farmaci ancora in attesa, come nella panoramica (il giorno entro cui è stata
+    rimborsata la metà dei farmaci dell'azienda). Le quote dei giudizi comprendono solo i farmaci valutati da ciascun paese: in Germania
+    «beneficio aggiuntivo» è qualsiasi valutazione superiore a «nessun beneficio aggiuntivo»; in Francia «miglioramento» è ASMR I–IV; in Inghilterra «positivo» è
+    raccomandato, raccomandato per un gruppo più ristretto, o accesso gestito.</p>
+  <form class="filters" id="sc-filters" aria-label="Opzioni della scheda" onsubmit="return false">
+    <label>Aziende mostrate
+      <select id="sc-min">
+        <option value="{{scorecard_min}}">Con almeno {{scorecard_min}} farmaci</option>
+        <option value="3">Con almeno 3 farmaci</option>
+        <option value="1">Tutte le {{n_companies}} aziende</option>
+      </select>
+    </label>
+    <label class="mobile-only">Ordina per
+      <select id="sc-sort">
+        <option value="n:desc">Farmaci (prima i più numerosi)</option>
+        <option value="it_sort:asc">Italia (prima i più rapidi)</option>
+        <option value="lag_median:asc">Intervallo USA→UE (prima il più breve)</option>
+        <option value="de_pct:desc">Germania: beneficio aggiuntivo (prima il più alto)</option>
+        <option value="fr_pct:desc">Francia: miglioramento (prima il più alto)</option>
+        <option value="en_pct:desc">Inghilterra: positivo (prima il più alto)</option>
+        <option value="company:asc">Azienda (A–Z)</option>
+      </select>
+    </label>
+  </form>
+  <p class="result-count" id="sc-count" aria-live="polite"></p>
+  <div class="table-scroll">
+    <table class="data-table cards" id="scorecard">
+      <caption class="visually-hidden">Scheda delle aziende, ordinabile per ciascuna colonna</caption>
+      <thead>
+        <tr>
+          <th scope="col" data-key="company"><button class="sort-btn" type="button">Azienda</button></th>
+          <th scope="col" class="num" data-key="n"><button class="sort-btn" type="button">Farmaci</button></th>
+          <th scope="col" class="num" data-key="lag_median"><button class="sort-btn" type="button">Intervallo USA→UE, mediana in giorni</button></th>
+          <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Italia: metà rimborsata entro (giorni)</button></th>
+          <th scope="col" class="num" data-key="de_pct"><button class="sort-btn" type="button">Germania: beneficio aggiuntivo</button></th>
+          <th scope="col" class="num" data-key="fr_pct"><button class="sort-btn" type="button">Francia: miglioramento</button></th>
+          <th scope="col" class="num" data-key="en_pct"><button class="sort-btn" type="button">Inghilterra: positivo</button></th>
+        </tr>
+      </thead>
+      <tbody id="scorecard-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<p class="muted small">Numeri piccoli: con da cinque a undici farmaci per azienda, un solo farmaco può spostare una quota di 10–20
+  punti, quindi le differenze tra le aziende vanno lette come indicazioni, non come classifiche. Le cifre principali riguardano i
+  {{n}} farmaci selezionati secondo la regola; i farmaci di riferimento sono esclusi. I nomi delle aziende sono quelli del titolare nell'UE, senza la forma
+  giuridica (regole in <a href="{{repo_url}}/blob/main/pipeline/taxonomy.py">taxonomy.py</a>).</p>

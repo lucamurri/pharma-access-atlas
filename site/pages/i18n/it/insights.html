@@ -1,0 +1,109 @@
+<p class="eyebrow">Risultati</p>
+<h1>Sette risultati su come i nuovi farmaci arrivano ai pazienti</h1>
+<p class="lede">Questi risultati riguardano tutti i {{n}} nuovi medicinali approvati sia dalla FDA sia dalla Commissione Europea nel 2019–2025.
+  Ciascuno indica su quanti farmaci si basa. Le approvazioni recenti stanno ancora percorrendo i processi nazionali,
+  quindi alcuni valori non sono ancora noti.</p>
+
+<div class="prose findings">
+
+<section aria-labelledby="f1">
+  <h2 id="f1"><span class="finding-num">1</span> L'approvazione è la parte breve dell'attesa, e l'Italia è il passaggio più lento</h2>
+  <p>L'approvazione UE è arrivata in mediana {{lag_median}} giorni dopo quella della FDA. Poi subentrano i processi nazionali, e
+    in Italia questo passaggio da solo richiede più del doppio dell'intervallo regolatorio. Queste mediane contano i farmaci
+    ancora in attesa (una curva di tempo all'accesso, vedi la <a href="methodology.html#curves">metodologia</a>), quindi i casi
+    lenti non vengono esclusi. Contando dall'approvazione UE, per metà dei farmaci è arrivato un parere della HAS francese entro
+    <strong>{{fr_med}} giorni</strong> ({{fr_n2}} farmaci, {{fr_wait}} ancora in attesa), una decisione del G-BA tedesco entro
+    <strong>{{de_med}}</strong> ({{de_n2}}, {{de_wait}} in attesa) e una raccomandazione del NICE inglese entro
+    <strong>{{en_med}}</strong> ({{en_n2}}, {{en_wait}} in attesa). La rimborsabilità in Italia, invece, ha richiesto
+    <strong>{{it_med}} giorni</strong> per raggiungere metà dei farmaci ({{it_n2}} farmaci, {{it_wait}} ancora in attesa), e due anni dopo l'approvazione UE
+    era rimborsato solo il {{it_2y}}% dei farmaci. Da un capo all'altro sono serviti <strong>{{fda_to_it_median}} giorni</strong>,
+    oltre due anni, dall'approvazione USA fino alla rimborsabilità di metà dei farmaci in Italia.</p>
+  <p class="so-what-line"><strong>Implicazione:</strong> il processo di prezzo e rimborso, non l'ente regolatorio, è il
+    percorso critico per il lancio in Europa. Va pianificato, e finanziato, già al momento della domanda regolatoria.</p>
+</section>
+
+<section aria-labelledby="f2">
+  <h2 id="f2"><span class="finding-num">2</span> Il divario regolatorio dell'Europa si sta chiudendo</h2>
+  <p>Per i farmaci approvati dalla FDA nel 2019, l'approvazione UE è seguita in mediana <strong>{{lag19}} giorni</strong> dopo
+    ({{lag19_n}} farmaci). Per le approvazioni del 2022 il divario è stato di <strong>{{lag22}} giorni</strong> ({{lag22_n}} farmaci).
+    Gli anni successivi sono esclusi da questo confronto di proposito. Un farmaco approvato dalla FDA nel 2024–2025 entra
+    nell'atlante solo se è stato approvato anche dall'UE entro la fine del 2025, quindi i loro intervalli sono troncati dalla finestra dello studio.
+    {{lag_eu_first}} dei {{n}} farmaci sono stati approvati prima in Europa.</p>
+  <p class="so-what-line"><strong>Implicazione:</strong> la presentazione simultanea negli USA e nell'UE sta diventando la norma. Il vantaggio
+    competitivo si gioca ormai su ciò che accade dopo l'approvazione.</p>
+</section>
+
+<section aria-labelledby="f3">
+  <h2 id="f3"><span class="finding-num">3</span> Senza la tutela per i farmaci orfani, la maggior parte dei farmaci non mostra un beneficio aggiuntivo in Germania</h2>
+  <p>Dei {{comp_n}} farmaci che il G-BA tedesco ha confrontato con una terapia esistente, <strong>{{comp_nab_n}}
+    ({{comp_nab_pct}}%) non hanno mostrato alcun beneficio aggiuntivo</strong> per nessun gruppo di pazienti nella prima decisione. Tutti
+    i {{orph_route_n}} farmaci valutati con le regole per i farmaci orfani hanno ricevuto una valutazione del beneficio, perché la legge lo considera dimostrato.</p>
+  <p class="so-what-line"><strong>Implicazione:</strong> una valutazione tedesca positiva richiede evidenze di confronto diretto con
+    la terapia comparatrice tedesca (zweckmäßige Vergleichstherapie). I programmi di studi globali costruiti sugli endpoint della FDA spesso non le forniscono.</p>
+</section>
+
+<section aria-labelledby="f4">
+  <h2 id="f4"><span class="finding-num">4</span> L'Inghilterra spesso finanzia ciò per cui la Germania non ha trovato un beneficio aggiuntivo</h2>
+  <p>Tra i {{de_nab_en_n}} farmaci per cui la Germania non ha riconosciuto un beneficio aggiuntivo e che il NICE ha valutato a sua volta,
+    <strong>{{de_nab_en_pos_n}} ({{de_nab_en_pos_pct}}%) hanno ricevuto una decisione positiva del NICE</strong>: raccomandati,
+    raccomandati per un gruppo più ristretto, o finanziati tramite accesso gestito. I due organismi pongono domande diverse.
+    Il G-BA misura il beneficio aggiuntivo rispetto a un comparatore, mentre il NICE giudica il rapporto qualità-prezzo al prezzo
+    offerto (spesso confidenziale).</p>
+  <p class="so-what-line"><strong>Implicazione:</strong> un giudizio tedesco negativo non chiude la vicenda europea.
+    In Inghilterra il prezzo è la leva che può trasformare un «no» in un «sì».</p>
+</section>
+
+<section aria-labelledby="f5">
+  <h2 id="f5"><span class="finding-num">5</span> Germania e Francia sono in disaccordo su più di un terzo dei farmaci</h2>
+  <p>Per i {{both_n}} farmaci con una valutazione tedesca e un giudizio francese, le due agenzie sono giunte a giudizi opposti
+    su <strong>{{disagree_n}} ({{disagree_pct}}%)</strong>: una ha riconosciuto un beneficio aggiuntivo dove l'altra non l'ha riconosciuto («nessun beneficio aggiuntivo» in
+    Germania; ASMR V, o un beneficio troppo piccolo per essere rimborsato, in Francia). Erano d'accordo su {{agree_pos_n}} farmaci con beneficio aggiuntivo e su {{agree_neg_n}} farmaci senza.</p>
+  <p class="so-what-line"><strong>Implicazione:</strong> la «HTA europea» non è un giudizio unico. La valutazione clinica
+    congiunta dell'UE, avviata nel 2025, metterà alla prova fino a che punto queste posizioni possano convergere.</p>
+</section>
+
+<section aria-labelledby="f6">
+  <h2 id="f6"><span class="finding-num">6</span> Una molecola, molti accordi: semaglutide</h2>
+  <p>CMS ha negoziato un unico prezzo Medicare per tutti i prodotti a base di semaglutide: <strong>${{cms_mfp}} per una fornitura di 30 giorni dal
+    {{cms_ipay}}</strong>, il {{cms_discount}}% in meno rispetto al prezzo di listino di ${{cms_list}} indicato da CMS per il {{cms_list_year}}.
+    In Italia Rybelsus orale per il diabete è stato rimborsato {{ryb_it}} giorni dopo l'approvazione UE, mentre Wegovy per il controllo
+    del peso era ancora non rimborsato {{weg_waiting}} giorni dopo. La Germania non ha riconosciuto un beneficio aggiuntivo per Rybelsus e non ha
+    alcuna valutazione del beneficio per Wegovy, che l'assicurazione obbligatoria (GKV) esclude in quanto farmaco «lifestyle».
+    (Rybelsus e Wegovy sono farmaci di riferimento, non rientrano nelle statistiche sui {{n}} farmaci.)</p>
+  <p class="so-what-line"><strong>Implicazione:</strong> la stessa molecola può essere negoziata, rimborsata o esclusa
+    a seconda dell'indicazione e del paese. Per l'obesità, l'accesso è deciso più dalla politica dei pagatori che dalle evidenze.</p>
+</section>
+
+<section aria-labelledby="f7">
+  <h2 id="f7"><span class="finding-num">7</span> In Italia è il processo a dettare il ritmo, non il farmaco</h2>
+  <p>Abbiamo suddiviso i farmaci in {{drv_n}} modi (orfano o no, giudizio della Germania, giudizio della Francia, approvazione condizionata,
+    terapia cellulare o genica, oncologia, dimensione dell'azienda) e confrontato la rapidità con cui ciascun gruppo è stato rimborsato in Italia, contando
+    i farmaci ancora in attesa. La mediana di ogni gruppo è risultata compresa tra <strong>{{drv_med_lo}} e {{drv_med_hi}} giorni</strong>.
+    I farmaci per cui la Germania ha riconosciuto un beneficio aggiuntivo hanno impiegato {{drv_de_y_med}} giorni ({{drv_de_y_n}} farmaci), contro {{drv_de_n_med}}
+    per quelli senza beneficio ({{drv_de_n_n}}). I farmaci orfani hanno impiegato {{drv_or_y_med}}, gli altri {{drv_or_n_med}}. Nessuna
+    di queste differenze supera un test di significatività standard (p < 0.05).</p>
+  <p>L'unico fattore che si è distinto è l'azienda. Le aziende con almeno cinque farmaci nell'atlante hanno avuto
+    il <strong>{{drv_lc_y_2y}}% dei loro farmaci rimborsato entro due anni</strong> dall'approvazione UE ({{drv_lc_y_n}} farmaci),
+    contro il {{drv_lc_n_2y}}% delle aziende più piccole ({{drv_lc_n_n}}). Un test log-rank indica che la probabilità che una differenza di questa
+    entità sia dovuta al caso è p = {{drv_lc_p}}; con {{drv_n}} confronti, un risultato simile potrebbe comunque essere casuale.</p>
+  <figure class="chart-card" aria-labelledby="c-drv-h">
+    <h3 id="c-drv-h">Quota di farmaci rimborsati in Italia entro due anni dall'approvazione UE</h3>
+    <ul class="legend" aria-hidden="true">
+      <li style="--swatch: var(--series-1)">Farmaci con la caratteristica</li>
+      <li style="--swatch: var(--series-2)">Farmaci senza</li>
+    </ul>
+    <div class="chart-box" style="height: 420px"><canvas id="chart-drivers" role="img"
+      aria-label="Quota di farmaci rimborsati in Italia entro due anni, con e senza ciascuna caratteristica. Dati nella tabella sottostante."></canvas></div>
+    <details class="data-view"><summary>Mostra i dati in una tabella</summary><div class="table-scroll" id="table-drivers"></div></details>
+  </figure>
+  <p class="so-what-line"><strong>Implicazione:</strong> un giudizio forte sul beneficio in altri paesi non garantisce un lancio italiano più rapido.
+    Ciò che sembra contare è quanto bene un'azienda sa gestire il processo italiano: un team locale di market access,
+    una preparazione anticipata del dossier e la capacità di negoziare il prezzo.</p>
+</section>
+
+</div>
+
+<p class="muted small">Tutte le cifre sono mediane di giorni tra eventi datati, quote o conteggi di farmaci. I
+  confronti del risultato 7 mostrano un'associazione, non una causa. Vedi la
+  <a href="methodology.html">metodologia</a> per definizioni e limiti, e l'<a href="explorer.html">esploratore</a>
+  per i valori di ogni farmaco.</p>

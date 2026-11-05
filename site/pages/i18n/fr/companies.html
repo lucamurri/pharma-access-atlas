@@ -1,0 +1,55 @@
+<p class="eyebrow">Tableau de bord par entreprise</p>
+<h1>Le parcours des nouveaux médicaments de chaque entreprise en Europe</h1>
+<p class="lede">Les mêmes indicateurs que dans le reste de l’atlas, regroupés par titulaire de l’autorisation de mise sur le marché dans l’UE.
+  Sélectionnez une entreprise pour voir ses médicaments dans l’explorateur.</p>
+
+<section class="chart-card" aria-labelledby="sc-h">
+  <h2 id="sc-h">{{title_companies}}</h2>
+  <p class="chart-sub">Pour l’Italie, les médicaments encore en attente sont comptés, comme dans la vue d’ensemble (jour auquel la moitié des
+    médicaments de l’entreprise étaient remboursés). Les parts d’avis ne portent que sur les médicaments évalués par chaque pays : en Allemagne, un « bénéfice supplémentaire »
+    est toute évaluation supérieure à « aucun bénéfice supplémentaire »; en France, une « amélioration » correspond à une ASMR I à IV; en Angleterre, un avis « positif » est
+    une recommandation, une recommandation pour un groupe plus restreint, ou un accès encadré.</p>
+  <form class="filters" id="sc-filters" aria-label="Options du tableau de bord" onsubmit="return false">
+    <label>Entreprises affichées
+      <select id="sc-min">
+        <option value="{{scorecard_min}}">Avec au moins {{scorecard_min}} médicaments</option>
+        <option value="3">Avec au moins 3 médicaments</option>
+        <option value="1">Les {{n_companies}} entreprises</option>
+      </select>
+    </label>
+    <label class="mobile-only">Trier par
+      <select id="sc-sort">
+        <option value="n:desc">Médicaments (plus nombreux d’abord)</option>
+        <option value="it_sort:asc">Italie (plus rapide d’abord)</option>
+        <option value="lag_median:asc">Décalage États-Unis→UE (plus court d’abord)</option>
+        <option value="de_pct:desc">Allemagne : bénéfice supplémentaire (plus élevé d’abord)</option>
+        <option value="fr_pct:desc">France : amélioration (plus élevée d’abord)</option>
+        <option value="en_pct:desc">Angleterre : positif (plus élevé d’abord)</option>
+        <option value="company:asc">Entreprise (A–Z)</option>
+      </select>
+    </label>
+  </form>
+  <p class="result-count" id="sc-count" aria-live="polite"></p>
+  <div class="table-scroll">
+    <table class="data-table cards" id="scorecard">
+      <caption class="visually-hidden">Tableau de bord par entreprise, triable par chaque colonne</caption>
+      <thead>
+        <tr>
+          <th scope="col" data-key="company"><button class="sort-btn" type="button">Entreprise</button></th>
+          <th scope="col" class="num" data-key="n"><button class="sort-btn" type="button">Médicaments</button></th>
+          <th scope="col" class="num" data-key="lag_median"><button class="sort-btn" type="button">Décalage États-Unis→UE, médiane en jours</button></th>
+          <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Italie : moitié remboursée en (jours)</button></th>
+          <th scope="col" class="num" data-key="de_pct"><button class="sort-btn" type="button">Allemagne : bénéfice supplémentaire</button></th>
+          <th scope="col" class="num" data-key="fr_pct"><button class="sort-btn" type="button">France : amélioration</button></th>
+          <th scope="col" class="num" data-key="en_pct"><button class="sort-btn" type="button">Angleterre : positif</button></th>
+        </tr>
+      </thead>
+      <tbody id="scorecard-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<p class="muted small">Petits effectifs : avec cinq à onze médicaments par entreprise, un seul médicament peut faire varier une part de 10 à 20
+  points; les écarts entre entreprises sont donc à lire comme des indications, non comme un classement. Les chiffres clés portent sur les
+  {{n}} médicaments retenus selon la règle; les médicaments de référence sont exclus. Les noms d’entreprise correspondent au titulaire dans l’UE, sans sa forme
+  juridique (règles dans <a href="{{repo_url}}/blob/main/pipeline/taxonomy.py">taxonomy.py</a>).</p>

@@ -1,0 +1,61 @@
+<p class="eyebrow">Länderprofil</p>
+<nav class="country-switch" aria-label="Länder">{{country_switch}}</nav>
+<h1>{{c_name}}: {{c_milestone_title}}</h1>
+<p class="lede">{{c_lede}}</p>
+
+<section class="kpis" aria-label="Kennzahlen für {{c_name}}">
+  <div class="kpi">
+    <p class="kpi-label">Hälfte der Arzneimittel innerhalb von</p>
+    <p class="kpi-value">{{c_median}} <span class="kpi-unit">Tagen</span></p>
+    <p class="kpi-note">nach der EU-Zulassung, einschließlich der noch wartenden Arzneimittel</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Innerhalb eines Jahres</p>
+    <p class="kpi-value">{{c_1y}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">der {{c_n}} berücksichtigten Arzneimittel</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Innerhalb von zwei Jahren</p>
+    <p class="kpi-value">{{c_2y}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">der {{c_n}} berücksichtigten Arzneimittel</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Noch wartend</p>
+    <p class="kpi-value">{{c_waiting}}</p>
+    <p class="kpi-note">{{c_waiting_note}}</p>
+  </div>
+</section>
+
+<section class="chart-card" aria-labelledby="cc-h">
+  <h2 id="cc-h">{{c_curve_title}}</h2>
+  <p class="chart-sub">Anteil der Arzneimittel, die den Meilenstein erreicht hatten, nach Tagen seit der Zulassung durch die Europäische Kommission.
+    Die drei anderen Länder sind zum Vergleich grau dargestellt. Noch wartende Arzneimittel zählen bis zu dem Tag, an dem sie geprüft wurden.</p>
+  <div class="chart-box" style="height: 340px"><canvas id="chart-country" role="img" aria-label="{{c_curve_title}}. Daten in der Tabelle darunter."></canvas></div>
+  <details class="data-view"><summary>Daten als Tabelle anzeigen</summary><div class="table-scroll" id="table-country"></div></details>
+</section>
+
+<div class="chart-grid">
+  <section class="chart-card" aria-labelledby="cm-h">
+    <h2 id="cm-h">{{c_mix_title}}</h2>
+    <p class="chart-sub">{{c_mix_sub}}</p>
+    <div class="chart-box" style="height: 260px"><canvas id="chart-mix" role="img" aria-label="{{c_mix_title}}. Daten in der Tabelle darunter."></canvas></div>
+    <details class="data-view"><summary>Daten als Tabelle anzeigen</summary><div class="table-scroll" id="table-mix"></div></details>
+  </section>
+  <section class="chart-card" aria-labelledby="ca-h">
+    <h2 id="ca-h">Nach Therapiegebiet</h2>
+    <p class="chart-sub">Tage, bis die Hälfte der Arzneimittel des Gebiets den Meilenstein erreicht hatte (Gebiete mit mindestens 5 Arzneimitteln).
+      Ein noch wartendes Arzneimittel zählt nur bis zu dem Tag, an dem es geprüft wurde. Ein Gebiet kann daher innerhalb von zwei Jahren
+      100 % erreichen, obwohl eines seiner jüngeren Arzneimittel noch wartet.</p>
+    <div class="table-scroll" id="table-areas"></div>
+  </section>
+</div>
+
+<div class="chart-grid-3">
+  <section aria-labelledby="cf-h"><h2 id="cf-h">Am schnellsten</h2><div id="list-fastest"></div></section>
+  <section aria-labelledby="cs-h"><h2 id="cs-h">Am langsamsten am Ziel</h2><div id="list-slowest"></div></section>
+  <section aria-labelledby="cw-h"><h2 id="cw-h">Am längsten wartend</h2><div id="list-waiting"></div></section>
+</div>
+<div class="spacer"></div>
+
+<p class="muted small">{{c_note}} Definitionen und Einschränkungen stehen auf der Seite
+  <a href="methodology.html">Methodik</a>; die Werte jedes Arzneimittels finden Sie im <a href="explorer.html">Explorer</a>.</p>

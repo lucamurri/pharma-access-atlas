@@ -1,0 +1,61 @@
+<p class="eyebrow">Profilo paese</p>
+<nav class="country-switch" aria-label="Paesi">{{country_switch}}</nav>
+<h1>{{c_name}}: {{c_milestone_title}}</h1>
+<p class="lede">{{c_lede}}</p>
+
+<section class="kpis" aria-label="Numeri chiave per {{c_name}}">
+  <div class="kpi">
+    <p class="kpi-label">Metà dei farmaci entro</p>
+    <p class="kpi-value">{{c_median}} <span class="kpi-unit">giorni</span></p>
+    <p class="kpi-note">dall'approvazione nell'UE, contando i farmaci ancora in attesa</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Entro un anno</p>
+    <p class="kpi-value">{{c_1y}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">dei {{c_n}} farmaci considerati</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Entro due anni</p>
+    <p class="kpi-value">{{c_2y}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">dei {{c_n}} farmaci considerati</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Ancora in attesa</p>
+    <p class="kpi-value">{{c_waiting}}</p>
+    <p class="kpi-note">{{c_waiting_note}}</p>
+  </div>
+</section>
+
+<section class="chart-card" aria-labelledby="cc-h">
+  <h2 id="cc-h">{{c_curve_title}}</h2>
+  <p class="chart-sub">Quota di farmaci che avevano raggiunto la tappa, in giorni dall'approvazione della Commissione Europea.
+    Gli altri tre paesi sono in grigio per confronto. I farmaci ancora in attesa sono contati fino al giorno della verifica.</p>
+  <div class="chart-box" style="height: 340px"><canvas id="chart-country" role="img" aria-label="{{c_curve_title}}. Dati nella tabella sottostante."></canvas></div>
+  <details class="data-view"><summary>Mostra i dati in una tabella</summary><div class="table-scroll" id="table-country"></div></details>
+</section>
+
+<div class="chart-grid">
+  <section class="chart-card" aria-labelledby="cm-h">
+    <h2 id="cm-h">{{c_mix_title}}</h2>
+    <p class="chart-sub">{{c_mix_sub}}</p>
+    <div class="chart-box" style="height: 260px"><canvas id="chart-mix" role="img" aria-label="{{c_mix_title}}. Dati nella tabella sottostante."></canvas></div>
+    <details class="data-view"><summary>Mostra i dati in una tabella</summary><div class="table-scroll" id="table-mix"></div></details>
+  </section>
+  <section class="chart-card" aria-labelledby="ca-h">
+    <h2 id="ca-h">Per area terapeutica</h2>
+    <p class="chart-sub">Giorni necessari perché metà dei farmaci dell'area raggiungesse la tappa (aree con almeno 5 farmaci).
+      Un farmaco ancora in attesa è contato solo fino al giorno della verifica, quindi un'area può arrivare al 100% entro due anni
+      mentre uno dei suoi farmaci recenti è ancora in attesa.</p>
+    <div class="table-scroll" id="table-areas"></div>
+  </section>
+</div>
+
+<div class="chart-grid-3">
+  <section aria-labelledby="cf-h"><h2 id="cf-h">Più rapidi</h2><div id="list-fastest"></div></section>
+  <section aria-labelledby="cs-h"><h2 id="cs-h">Più lenti a raggiungerla</h2><div id="list-slowest"></div></section>
+  <section aria-labelledby="cw-h"><h2 id="cw-h">In attesa da più tempo</h2><div id="list-waiting"></div></section>
+</div>
+<div class="spacer"></div>
+
+<p class="muted small">{{c_note}} Definizioni e limiti sono nella pagina di <a href="methodology.html">metodologia</a>;
+  i valori di ogni farmaco sono nell'<a href="explorer.html">esploratore</a>.</p>

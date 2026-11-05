@@ -1,0 +1,66 @@
+<p class="eyebrow">Explorateur de médicaments</p>
+<h1>Les {{n}} médicaments</h1>
+<p class="lede">Filtrez et triez l’ensemble des données. Sélectionnez un médicament pour accéder à sa fiche d’accès au marché d’une page.</p>
+
+<form class="filters" id="filters" aria-label="Filtrer les médicaments" onsubmit="return false">
+  <label>Recherche
+    <input type="search" id="f-search" placeholder="Marque ou substance active" autocomplete="off">
+  </label>
+  <label>Aire thérapeutique
+    <select id="f-area"><option value="">Toutes</option></select>
+  </label>
+  <label>Entreprise
+    <select id="f-company"><option value="">Toutes</option></select>
+  </label>
+  <label>Statut orphelin
+    <select id="f-orphan">
+      <option value="">Tous</option>
+      <option value="yes">Orphelin (États-Unis ou UE)</option>
+      <option value="no">Non orphelin</option>
+    </select>
+  </label>
+  <label>Première autorisation (année)
+    <select id="f-year"><option value="">Toutes</option></select>
+  </label>
+  <label class="mobile-only">Trier par
+    <select id="f-sort">
+      <option value="brand_us:asc">Médicament (A–Z)</option>
+      <option value="lag:desc">Décalage États-Unis→UE (plus long d’abord)</option>
+      <option value="it_sort:asc">Délai en Italie (plus court d’abord)</option>
+      <option value="it_sort:desc">Délai en Italie (plus long d’abord)</option>
+      <option value="ec_date:desc">Autorisation CE (plus récente d’abord)</option>
+      <option value="gba_sort:asc">Évaluation en Allemagne (meilleure d’abord)</option>
+      <option value="fr_sort:asc">Évaluation en France (meilleure d’abord)</option>
+    </select>
+  </label>
+  <button type="reset" id="f-reset">Effacer les filtres</button>
+</form>
+
+<p class="result-count" id="result-count" aria-live="polite"></p>
+<div class="table-scroll">
+  <table class="data-table cards" id="explorer">
+    <caption class="visually-hidden">Médicaments, triables par chaque colonne</caption>
+    <thead>
+      <tr>
+        <th scope="col" data-key="brand_us"><button class="sort-btn" type="button">Médicament</button></th>
+        <th scope="col" data-key="area"><button class="sort-btn" type="button">Aire</button></th>
+        <th scope="col" data-key="company"><button class="sort-btn" type="button">Entreprise</button></th>
+        <th scope="col" data-key="fda_date"><button class="sort-btn" type="button">FDA</button></th>
+        <th scope="col" data-key="ec_date"><button class="sort-btn" type="button">CE</button></th>
+        <th scope="col" class="num" data-key="lag"><button class="sort-btn" type="button">Décalage États-Unis→UE (jours)</button></th>
+        <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Délai en Italie (jours)</button></th>
+        <th scope="col" data-key="gba_sort"><button class="sort-btn" type="button">Évaluation G-BA</button></th>
+        <th scope="col" data-key="fr_sort"><button class="sort-btn" type="button">ASMR France</button></th>
+        <th scope="col" data-key="en_decision"><button class="sort-btn" type="button">NICE</button></th>
+        <th scope="col" data-key="orphan_any"><button class="sort-btn" type="button">Orphelin</button></th>
+      </tr>
+    </thead>
+    <tbody id="explorer-body">
+      <tr><td colspan="11">Chargement… (ce tableau nécessite JavaScript; les données brutes sont dans <a href="data/drugs.json">drugs.json</a>)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="muted small">Décalage = date d’autorisation de la CE moins date d’autorisation de la FDA; une valeur négative signifie que l’UE a autorisé le médicament en premier.
+  Délai en Italie = de l’autorisation de la CE au remboursement publié à la Gazzetta Ufficiale; « en attente » = non remboursé à la date de vérification.
+  ASMR France : I = amélioration majeure, V = aucune. « Réf. » désigne les médicaments de référence exclus des statistiques principales.
+  <a href="methodology.html">Définitions</a>.</p>

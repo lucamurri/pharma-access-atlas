@@ -1,0 +1,92 @@
+<section class="intro">
+  <p class="eyebrow">États-Unis et Europe · tous les nouveaux médicaments autorisés des deux côtés, 2019–2025</p>
+  <h1>En combien de temps les nouveaux médicaments parviennent-ils aux patients aux États-Unis et en Europe ?</h1>
+  <p class="lede">Une date d’autorisation n’est pas l’accès des patients. Cet atlas suit les {{n}} nouveaux médicaments
+    autorisés à la fois par la FDA et par la Commission européenne en 2019–2025.
+    Il suit chacun d’eux, de la première autorisation à l’évaluation de son bénéfice en Allemagne, en France et en Angleterre, puis au remboursement en Italie.
+    Chaque chiffre renvoie à sa source publique.</p>
+</section>
+
+<section class="kpis" aria-label="Chiffres clés">
+  <div class="kpi">
+    <p class="kpi-label">Décalage médian d’autorisation entre les États-Unis et l’UE</p>
+    <p class="kpi-value">{{lag_median}} <span class="kpi-unit">jours</span></p>
+    <p class="kpi-note">Les États-Unis ont autorisé en premier {{lag_us_first}} des {{n}} médicaments</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Délai médian d’accès en Italie</p>
+    <p class="kpi-value">{{it_lag_median}} <span class="kpi-unit">jours</span></p>
+    <p class="kpi-note">De l’autorisation dans l’UE au remboursement, en comptant les {{it_n_waiting}} médicaments encore non remboursés</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Allemagne : « aucun bénéfice supplémentaire »</p>
+    <p class="kpi-value">{{gba_pct_nab}}<span class="kpi-unit"> %</span></p>
+    <p class="kpi-note">{{gba_n_nab}} des {{gba_n_assessed}} médicaments, pour tous les groupes de patients (première décision du G-BA)</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">France : aucune amélioration, ou remboursement non justifié</p>
+    <p class="kpi-value">{{fr_pct_negative}}<span class="kpi-unit"> %</span></p>
+    <p class="kpi-note">ASMR V ou SMR insuffisant, sur {{fr_n}} médicaments ayant un avis d’inscription de la HAS</p>
+  </div>
+</section>
+
+<noscript><p class="callout">Les graphiques nécessitent JavaScript. Les mêmes données se trouvent dans l’<a href="explorer.html">explorateur de médicaments</a> et dans le <a href="data/drugs.json">fichier de données téléchargeable</a>.</p></noscript>
+
+<section class="chart-card" aria-labelledby="c-cty-h">
+  <h2 id="c-cty-h">{{title_countries}}</h2>
+  <p class="chart-sub">Part des médicaments ayant franchi l’étape propre à chaque pays, en jours depuis l’autorisation de la Commission
+    européenne. Les médicaments encore en attente sont comptés jusqu’au jour de leur vérification, de sorte que les courbes ne surestiment pas la rapidité.
+    Les étapes diffèrent : l’Allemagne, la France et l’Angleterre publient des évaluations du bénéfice, et l’Italie publie
+    le remboursement. Le point où une courbe croise 50 % est sa médiane.</p>
+  <ul class="legend" aria-hidden="true">
+    <li style="--swatch: var(--country-fr)">France : avis de la HAS</li>
+    <li style="--swatch: var(--country-de)">Allemagne : décision du G-BA</li>
+    <li style="--swatch: var(--country-en)">Angleterre : recommandation du NICE</li>
+    <li style="--swatch: var(--country-it)">Italie : remboursement</li>
+  </ul>
+  <div class="chart-box" style="height: 360px"><canvas id="chart-countries" role="img" aria-label="{{title_countries}}. Données dans le tableau ci-dessous."></canvas></div>
+  <details class="data-view"><summary>Afficher les données sous forme de tableau</summary><div class="table-scroll" id="table-countries"></div></details>
+  <p class="small">Profils par pays : <a href="united-states.html">États-Unis</a> · <a href="italy.html">Italie</a> · <a href="germany.html">Allemagne</a> ·
+    <a href="france.html">France</a> · <a href="england.html">Angleterre</a></p>
+</section>
+
+<section class="chart-card" aria-labelledby="c-lag-h">
+  <h2 id="c-lag-h">{{title_lag}}</h2>
+  <p class="chart-sub">Nombre de médicaments selon l’écart entre les autorisations de la FDA et de la Commission européenne, par tranches de 90 jours.
+    Les tranches à gauche de zéro correspondent aux médicaments que l’Europe a autorisés en premier.</p>
+  <ul class="legend" aria-hidden="true">
+    <li style="--swatch: var(--series-1)">Autorisé en premier aux États-Unis</li>
+    <li style="--swatch: var(--series-2)">Autorisé en premier dans l’UE</li>
+  </ul>
+  <div class="chart-box" style="height: 320px"><canvas id="chart-lag" role="img" aria-label="{{title_lag}}. Données dans le tableau ci-dessous."></canvas></div>
+  <details class="data-view"><summary>Afficher les données sous forme de tableau</summary><div class="table-scroll" id="table-lag"></div></details>
+</section>
+
+<section class="chart-card" aria-labelledby="c-it-h">
+  <h2 id="c-it-h">{{title_italy}}</h2>
+  <p class="chart-sub">Nombre médian de jours entre l’autorisation de la Commission européenne et le remboursement publié à la Gazzetta Ufficiale,
+    par aire thérapeutique (aires comptant au moins 3 médicaments remboursés). Les médicaments non encore remboursés sont exclus, de sorte que les
+    médianes sous-estiment l’attente.</p>
+  <div class="chart-box" style="height: 360px"><canvas id="chart-italy" role="img" aria-label="{{title_italy}}. Données dans le tableau ci-dessous."></canvas></div>
+  <details class="data-view"><summary>Afficher les données sous forme de tableau</summary><div class="table-scroll" id="table-italy"></div></details>
+</section>
+
+<section class="chart-card" aria-labelledby="c-hta-h">
+  <h2 id="c-hta-h">{{title_hta}}</h2>
+  <p class="chart-sub">Premier avis de chaque pays sur chaque médicament. L’Allemagne et la France évaluent le bénéfice supplémentaire; le NICE anglais
+    décide si le NHS doit financer le médicament. Nombre de médicaments.</p>
+  <div class="chart-grid-3">
+    <div><h3>Allemagne : bénéfice supplémentaire selon le G-BA (meilleur groupe de patients)</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-gba" role="img" aria-label="Évaluations du G-BA en Allemagne. Données dans le tableau ci-dessous."></canvas></div></div>
+    <div><h3>France : ASMR de la HAS (I = majeure, V = aucune), ou SMR insuffisant</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-fr" role="img" aria-label="Évaluations ASMR en France. Données dans le tableau ci-dessous."></canvas></div></div>
+    <div><h3>Angleterre : première décision du NICE</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-en" role="img" aria-label="Décisions du NICE. Données dans le tableau ci-dessous."></canvas></div></div>
+  </div>
+  <details class="data-view"><summary>Afficher les données sous forme de tableau</summary><div class="table-scroll" id="table-hta"></div></details>
+</section>
+
+<p class="muted small">Les chiffres clés portent sur les {{n}} médicaments retenus selon la règle. {{n_reference}} médicaments de référence (nouvelles marques de
+  molécules plus anciennes, conservées pour la comparaison avec Medicare) figurent dans l’explorateur mais pas dans ces statistiques. Les prix de liste américains ne sont
+  généralement pas publics; les prix affichés se limitent à ceux que publie le CMS pour les {{cms_n_selected}} médicaments dont le prix a été négocié par Medicare.
+  <a href="methodology.html">Ce qui est couvert et ce qui ne l’est pas</a>.</p>

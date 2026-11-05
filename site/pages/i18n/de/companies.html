@@ -1,0 +1,57 @@
+<p class="eyebrow">Unternehmensübersicht</p>
+<h1>Wie die neuen Arzneimittel der einzelnen Unternehmen in Europa abgeschnitten haben</h1>
+<p class="lede">Dieselben Kennzahlen wie im übrigen Atlas, gruppiert nach dem Inhaber der EU-Zulassung.
+  Wählen Sie ein Unternehmen, um seine Arzneimittel im Explorer zu sehen.</p>
+
+<section class="chart-card" aria-labelledby="sc-h">
+  <h2 id="sc-h">{{title_companies}}</h2>
+  <p class="chart-sub">Für Italien zählen noch wartende Arzneimittel mit, wie in der Übersicht (der Tag, bis zu dem die
+    Hälfte der Arzneimittel des Unternehmens erstattet wurde). Die Anteile der Bewertungen berücksichtigen nur
+    Arzneimittel, die das jeweilige Land bewertet hat: Deutschland „Zusatznutzen“ ist jede Bewertung über „kein
+    Zusatznutzen“; Frankreich „Verbesserung“ ist ASMR I–IV; England „positiv“ heißt empfohlen, für eine engere
+    Gruppe empfohlen oder Managed Access.</p>
+  <form class="filters" id="sc-filters" aria-label="Optionen der Unternehmensübersicht" onsubmit="return false">
+    <label>Angezeigte Unternehmen
+      <select id="sc-min">
+        <option value="{{scorecard_min}}">Mit mindestens {{scorecard_min}} Arzneimitteln</option>
+        <option value="3">Mit mindestens 3 Arzneimitteln</option>
+        <option value="1">Alle {{n_companies}} Unternehmen</option>
+      </select>
+    </label>
+    <label class="mobile-only">Sortieren nach
+      <select id="sc-sort">
+        <option value="n:desc">Arzneimittel (meiste zuerst)</option>
+        <option value="it_sort:asc">Italien (schnellste zuerst)</option>
+        <option value="lag_median:asc">Abstand USA→EU (kürzester zuerst)</option>
+        <option value="de_pct:desc">Deutschland: Zusatznutzen (höchster zuerst)</option>
+        <option value="fr_pct:desc">Frankreich: Verbesserung (höchste zuerst)</option>
+        <option value="en_pct:desc">England: positiv (höchster zuerst)</option>
+        <option value="company:asc">Unternehmen (A–Z)</option>
+      </select>
+    </label>
+  </form>
+  <p class="result-count" id="sc-count" aria-live="polite"></p>
+  <div class="table-scroll">
+    <table class="data-table cards" id="scorecard">
+      <caption class="visually-hidden">Unternehmensübersicht, nach jeder Spalte sortierbar</caption>
+      <thead>
+        <tr>
+          <th scope="col" data-key="company"><button class="sort-btn" type="button">Unternehmen</button></th>
+          <th scope="col" class="num" data-key="n"><button class="sort-btn" type="button">Arzneimittel</button></th>
+          <th scope="col" class="num" data-key="lag_median"><button class="sort-btn" type="button">Abstand USA→EU, Median in Tagen</button></th>
+          <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Italien: Hälfte erstattet innerhalb von (Tagen)</button></th>
+          <th scope="col" class="num" data-key="de_pct"><button class="sort-btn" type="button">Deutschland: Zusatznutzen</button></th>
+          <th scope="col" class="num" data-key="fr_pct"><button class="sort-btn" type="button">Frankreich: Verbesserung</button></th>
+          <th scope="col" class="num" data-key="en_pct"><button class="sort-btn" type="button">England: positiv</button></th>
+        </tr>
+      </thead>
+      <tbody id="scorecard-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<p class="muted small">Kleine Zahlen: Bei fünf bis elf Arzneimitteln pro Unternehmen kann ein einzelnes Arzneimittel einen
+  Anteil um 10–20 Prozentpunkte verschieben. Unterschiede zwischen Unternehmen sind daher Hinweise, keine Rangfolgen.
+  Die Kennzahlen betreffen die {{n}} nach Regel ausgewählten Arzneimittel; Referenzarzneimittel sind ausgeschlossen.
+  Unternehmensnamen sind der EU-Inhaber ohne Rechtsformzusatz (Regeln in
+  <a href="{{repo_url}}/blob/main/pipeline/taxonomy.py">taxonomy.py</a>).</p>

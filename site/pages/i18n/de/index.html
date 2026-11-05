@@ -1,0 +1,93 @@
+<section class="intro">
+  <p class="eyebrow">USA und Europa im Vergleich · jedes in beiden Regionen zugelassene neue Arzneimittel, 2019–2025</p>
+  <h1>Wie schnell erreichen neue Arzneimittel Patienten in den USA und in Europa?</h1>
+  <p class="lede">Ein Zulassungsdatum ist nicht dasselbe wie Zugang für Patienten. Dieser Atlas verfolgt alle {{n}} neuen Arzneimittel,
+    die 2019–2025 sowohl von der FDA als auch von der Europäischen Kommission zugelassen wurden. Er begleitet jedes
+    von der ersten Zulassung bis zur Nutzenbewertung in Deutschland, Frankreich und England und bis zur Erstattung in Italien.
+    Jede Zahl verweist auf ihre öffentliche Quelle.</p>
+</section>
+
+<section class="kpis" aria-label="Kennzahlen im Überblick">
+  <div class="kpi">
+    <p class="kpi-label">Median des Abstands der Zulassungen USA–EU</p>
+    <p class="kpi-value">{{lag_median}} <span class="kpi-unit">Tage</span></p>
+    <p class="kpi-note">Die USA haben bei {{lag_us_first}} von {{n}} Arzneimitteln zuerst zugelassen</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Median der Zugangsverzögerung in Italien</p>
+    <p class="kpi-value">{{it_lag_median}} <span class="kpi-unit">Tage</span></p>
+    <p class="kpi-note">Von der EU-Zulassung bis zur Erstattung, einschließlich der {{it_n_waiting}} noch nicht erstatteten Arzneimittel</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Deutschland: „kein Zusatznutzen“</p>
+    <p class="kpi-value">{{gba_pct_nab}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">{{gba_n_nab}} von {{gba_n_assessed}} Arzneimitteln, für jede Patientengruppe (erster G-BA-Beschluss)</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Frankreich: keine Verbesserung oder nicht erstattungswürdig</p>
+    <p class="kpi-value">{{fr_pct_negative}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">ASMR V oder SMR unzureichend, bei {{fr_n}} Arzneimitteln mit einer HAS-Stellungnahme zur Aufnahme in die Erstattung</p>
+  </div>
+</section>
+
+<noscript><p class="callout">Die Diagramme benötigen JavaScript. Dieselben Daten finden Sie im
+  <a href="explorer.html">Arzneimittel-Explorer</a> und in der <a href="data/drugs.json">herunterladbaren Datendatei</a>.</p></noscript>
+
+<section class="chart-card" aria-labelledby="c-cty-h">
+  <h2 id="c-cty-h">{{title_countries}}</h2>
+  <p class="chart-sub">Anteil der Arzneimittel, die den Meilenstein des jeweiligen Landes erreicht hatten, nach Tagen seit der Zulassung durch die Europäische
+    Kommission. Noch wartende Arzneimittel zählen bis zu dem Tag, an dem sie geprüft wurden, damit die Kurven die Geschwindigkeit nicht überzeichnen.
+    Die Meilensteine unterscheiden sich: Deutschland, Frankreich und England veröffentlichen Nutzenbewertungen, Italien veröffentlicht
+    die Erstattung. Wo eine Kurve die 50-%-Marke kreuzt, liegt ihr Median.</p>
+  <ul class="legend" aria-hidden="true">
+    <li style="--swatch: var(--country-fr)">Frankreich: HAS-Stellungnahme</li>
+    <li style="--swatch: var(--country-de)">Deutschland: G-BA-Beschluss</li>
+    <li style="--swatch: var(--country-en)">England: NICE-Empfehlung</li>
+    <li style="--swatch: var(--country-it)">Italien: Erstattung</li>
+  </ul>
+  <div class="chart-box" style="height: 360px"><canvas id="chart-countries" role="img" aria-label="{{title_countries}}. Daten in der Tabelle darunter."></canvas></div>
+  <details class="data-view"><summary>Daten als Tabelle anzeigen</summary><div class="table-scroll" id="table-countries"></div></details>
+  <p class="small">Länderprofile: <a href="united-states.html">USA</a> · <a href="italy.html">Italien</a> · <a href="germany.html">Deutschland</a> ·
+    <a href="france.html">Frankreich</a> · <a href="england.html">England</a></p>
+</section>
+
+<section class="chart-card" aria-labelledby="c-lag-h">
+  <h2 id="c-lag-h">{{title_lag}}</h2>
+  <p class="chart-sub">Anzahl der Arzneimittel nach dem Abstand zwischen FDA-Zulassung und Zulassung durch die Europäische Kommission, in Schritten von 90 Tagen.
+    Bereiche links von null sind Arzneimittel, die Europa zuerst zugelassen hat.</p>
+  <ul class="legend" aria-hidden="true">
+    <li style="--swatch: var(--series-1)">USA zuerst zugelassen</li>
+    <li style="--swatch: var(--series-2)">EU zuerst zugelassen</li>
+  </ul>
+  <div class="chart-box" style="height: 320px"><canvas id="chart-lag" role="img" aria-label="{{title_lag}}. Daten in der Tabelle darunter."></canvas></div>
+  <details class="data-view"><summary>Daten als Tabelle anzeigen</summary><div class="table-scroll" id="table-lag"></div></details>
+</section>
+
+<section class="chart-card" aria-labelledby="c-it-h">
+  <h2 id="c-it-h">{{title_italy}}</h2>
+  <p class="chart-sub">Median der Tage von der Zulassung durch die Europäische Kommission bis zur in der Gazzetta Ufficiale veröffentlichten Erstattung,
+    nach Therapiegebiet (Gebiete mit mindestens 3 erstatteten Arzneimitteln). Noch nicht erstattete Arzneimittel sind ausgeschlossen, sodass die
+    Mediane die Wartezeit unterschätzen.</p>
+  <div class="chart-box" style="height: 360px"><canvas id="chart-italy" role="img" aria-label="{{title_italy}}. Daten in der Tabelle darunter."></canvas></div>
+  <details class="data-view"><summary>Daten als Tabelle anzeigen</summary><div class="table-scroll" id="table-italy"></div></details>
+</section>
+
+<section class="chart-card" aria-labelledby="c-hta-h">
+  <h2 id="c-hta-h">{{title_hta}}</h2>
+  <p class="chart-sub">Das erste Urteil jedes Landes zu jedem Arzneimittel. Deutschland und Frankreich bewerten den Zusatznutzen; das englische NICE
+    entscheidet, ob der NHS das Arzneimittel finanzieren soll. Anzahl der Arzneimittel.</p>
+  <div class="chart-grid-3">
+    <div><h3>Deutschland: G-BA-Zusatznutzen (beste Patientengruppe)</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-gba" role="img" aria-label="G-BA-Bewertungen in Deutschland. Daten in der Tabelle darunter."></canvas></div></div>
+    <div><h3>Frankreich: HAS-ASMR (I = erheblich, V = keine) oder SMR unzureichend</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-fr" role="img" aria-label="ASMR-Bewertungen in Frankreich. Daten in der Tabelle darunter."></canvas></div></div>
+    <div><h3>England: erste NICE-Entscheidung</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-en" role="img" aria-label="NICE-Entscheidungen. Daten in der Tabelle darunter."></canvas></div></div>
+  </div>
+  <details class="data-view"><summary>Daten als Tabelle anzeigen</summary><div class="table-scroll" id="table-hta"></div></details>
+</section>
+
+<p class="muted small">Die Kennzahlen betreffen die {{n}} nach Regel ausgewählten Arzneimittel. {{n_reference}} Referenzarzneimittel (neuere Marken
+  älterer Moleküle, für den Medicare-Vergleich aufgenommen) erscheinen im Explorer, aber nicht in diesen Statistiken. US-Listenpreise sind
+  in der Regel nicht öffentlich; gezeigte Preise beschränken sich auf das, was CMS für die {{cms_n_selected}} von Medicare verhandelten Arzneimittel veröffentlicht.
+  <a href="methodology.html">Was abgedeckt ist und was nicht</a>.</p>

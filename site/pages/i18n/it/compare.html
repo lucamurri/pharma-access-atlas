@@ -1,0 +1,48 @@
+<p class="eyebrow">Confronto</p>
+<h1>Confronta i farmaci fianco a fianco</h1>
+<p class="lede">Scegli fino a quattro farmaci, per esempio concorrenti per la stessa malattia, per vedere come si confrontano
+  approvazione e accesso. Il link si aggiorna a ogni scelta, così puoi condividere il confronto.</p>
+
+<section class="compare-picker" aria-labelledby="pick-h">
+  <h2 id="pick-h" class="visually-hidden">Scegli i farmaci</h2>
+  <form id="pick-form" class="filters" onsubmit="return false">
+    <label>Aggiungi un farmaco
+      <input type="search" id="pick-input" list="pick-list" placeholder="Nome commerciale o principio attivo" autocomplete="off">
+    </label>
+    <datalist id="pick-list"></datalist>
+    <button type="submit" id="pick-add">Aggiungi</button>
+  </form>
+  <p class="small" id="pick-msg" aria-live="polite"></p>
+  <ul class="chips" id="chips" aria-label="Farmaci a confronto"></ul>
+  <p class="small presets-label">Oppure parti da un confronto comune:</p>
+  <div class="presets" id="presets"></div>
+</section>
+
+<div id="compare-empty" class="callout" hidden>
+  <p>Scegli almeno un farmaco qui sopra per iniziare.</p>
+</div>
+
+<div id="compare-body" hidden>
+  <section class="chart-card" aria-labelledby="cmp-h">
+    <h2 id="cmp-h">Quando è arrivata ogni tappa, in giorni dopo l'approvazione nell'UE</h2>
+    <p class="chart-sub">Ogni riga è un farmaco. I marcatori pieni indicano le tappe raggiunte; i marcatori vuoti indicano un farmaco
+      ancora in attesa, posizionato nel giorno dell'ultima verifica. I giorni negativi indicano prima dell'approvazione nell'UE.</p>
+    <ul class="legend" aria-hidden="true">
+      <li style="--swatch: var(--series-neutral)">Approvazione FDA</li>
+      <li style="--swatch: var(--country-fr)">Francia: parere HAS</li>
+      <li style="--swatch: var(--country-de)">Germania: decisione G-BA</li>
+      <li style="--swatch: var(--country-en)">Inghilterra: raccomandazione NICE</li>
+      <li style="--swatch: var(--country-it)">Italia: rimborsabilità</li>
+    </ul>
+    <div class="chart-box" id="cmp-box"><canvas id="chart-compare" role="img"
+      aria-label="Tappe dei farmaci selezionati, in giorni dopo l'approvazione nell'UE. Dati nella tabella sottostante."></canvas></div>
+  </section>
+
+  <section aria-labelledby="cmp-t-h">
+    <h2 id="cmp-t-h">Fianco a fianco</h2>
+    <div class="table-scroll"><table class="data-table compare-table" id="compare-table"></table></div>
+  </section>
+</div>
+
+<p class="muted small">I valori e le relative fonti sono nella scheda di ciascun farmaco. I farmaci di riferimento (Rybelsus, Wegovy) non
+  rientrano nelle statistiche principali. Per le definizioni vedi la <a href="methodology.html">metodologia</a>.</p>

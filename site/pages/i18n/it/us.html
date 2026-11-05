@@ -1,0 +1,69 @@
+<p class="eyebrow">Profilo paese</p>
+<nav class="country-switch" aria-label="Paesi">{{country_switch}}</nav>
+<h1>Stati Uniti: approvazione FDA</h1>
+<p class="lede">Negli USA l'approvazione della FDA è il passaggio che porta un farmaco sul mercato. Non esistono una valutazione
+  nazionale del beneficio né una decisione di rimborso: ogni assicuratore, e Medicare, decide da sé copertura e prezzo. Questa pagina
+  guarda quindi dall'altra parte: quanto tempo dopo l'approvazione USA è arrivata ciascuna tappa europea.</p>
+
+<section class="kpis" aria-label="Numeri chiave per gli Stati Uniti">
+  <div class="kpi">
+    <p class="kpi-label">Approvati prima negli USA</p>
+    <p class="kpi-value">{{us_pct_first}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">{{us_first}} farmaci su {{us_n}}</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">L'approvazione UE è arrivata</p>
+    <p class="kpi-value">{{lag_median}} <span class="kpi-unit">giorni</span></p>
+    <p class="kpi-note">dopo, mediana su tutti i farmaci</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Revisione prioritaria FDA</p>
+    <p class="kpi-value">{{us_pct_priority}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">{{us_priority}} farmaci su {{us_reviewed}} con un tipo di revisione</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Designazione di farmaco orfano USA</p>
+    <p class="kpi-value">{{us_pct_orphan}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">{{us_orphan}} farmaci su {{us_orphan_known}}</p>
+  </div>
+</section>
+
+<section class="chart-card" aria-labelledby="us-c-h">
+  <h2 id="us-c-h">{{us_curve_title}}</h2>
+  <p class="chart-sub">Quota di farmaci che avevano raggiunto ciascuna tappa europea, in giorni dall'approvazione FDA. I farmaci
+    ancora in attesa sono contati fino al giorno della verifica. Le curve partono sopra lo 0% dove l'Europa ha agito prima della FDA.</p>
+  <ul class="legend" aria-hidden="true">
+    <li style="--swatch: var(--series-neutral)">Approvazione UE</li>
+    <li style="--swatch: var(--country-fr)">Francia: parere HAS</li>
+    <li style="--swatch: var(--country-de)">Germania: decisione G-BA</li>
+    <li style="--swatch: var(--country-en)">Inghilterra: raccomandazione NICE</li>
+    <li style="--swatch: var(--country-it)">Italia: rimborsabilità</li>
+  </ul>
+  <div class="chart-box" style="height: 360px"><canvas id="chart-us" role="img" aria-label="{{us_curve_title}}. Dati nella tabella sottostante."></canvas></div>
+  <details class="data-view"><summary>Mostra i dati in una tabella</summary><div class="table-scroll" id="table-us"></div></details>
+</section>
+
+<div class="chart-grid">
+  <section class="chart-card" aria-labelledby="us-m-h">
+    <h2 id="us-m-h">Come li ha esaminati la FDA</h2>
+    <p class="chart-sub">La revisione prioritaria ha un obiettivo di sei mesi (invece di dieci) per i farmaci che possono offrire un miglioramento
+      significativo. openFDA non la registra per le terapie cellulari e geniche.</p>
+    <div class="chart-box" style="height: 200px"><canvas id="chart-us-mix" role="img" aria-label="Tipo di revisione FDA. Dati nella tabella sottostante."></canvas></div>
+    <details class="data-view"><summary>Mostra i dati in una tabella</summary><div class="table-scroll" id="table-us-mix"></div></details>
+  </section>
+  <section class="chart-card" aria-labelledby="us-a-h">
+    <h2 id="us-a-h">Distanza dall'approvazione UE per area terapeutica</h2>
+    <p class="chart-sub">Giorni mediani dall'approvazione FDA a quella UE (aree con almeno 5 farmaci); negativo significa che l'Europa è arrivata prima.</p>
+    <div class="table-scroll" id="table-us-areas"></div>
+  </section>
+</div>
+
+<div class="chart-grid">
+  <section aria-labelledby="us-l-h"><h2 id="us-l-h">Attesa più lunga per l'approvazione UE</h2><div id="list-gap"></div></section>
+  <section aria-labelledby="us-e-h"><h2 id="us-e-h">Approvati prima in Europa</h2><div id="list-eu-first"></div></section>
+</div>
+<div class="spacer"></div>
+
+<p class="muted small">La negoziazione dei prezzi di Medicare si applica solo anni dopo l'approvazione: tra questi farmaci, solo i due
+  marchi di riferimento di semaglutide hanno finora un prezzo negoziato (vedi il <a href="insights.html#f6">risultato su semaglutide</a>).
+  Le decisioni di copertura degli assicuratori privati USA non sono pubbliche in una forma comparabile e non sono misurate.</p>

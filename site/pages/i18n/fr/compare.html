@@ -1,0 +1,48 @@
+<p class="eyebrow">Comparer</p>
+<h1>Comparer des médicaments côte à côte</h1>
+<p class="lede">Choisissez jusqu’à quatre médicaments, par exemple des concurrents dans la même maladie, pour comparer leur autorisation et leur
+  accès. Le lien se met à jour au fil de vos choix, ce qui permet de partager la comparaison.</p>
+
+<section class="compare-picker" aria-labelledby="pick-h">
+  <h2 id="pick-h" class="visually-hidden">Choisir des médicaments</h2>
+  <form id="pick-form" class="filters" onsubmit="return false">
+    <label>Ajouter un médicament
+      <input type="search" id="pick-input" list="pick-list" placeholder="Marque ou substance active" autocomplete="off">
+    </label>
+    <datalist id="pick-list"></datalist>
+    <button type="submit" id="pick-add">Ajouter</button>
+  </form>
+  <p class="small" id="pick-msg" aria-live="polite"></p>
+  <ul class="chips" id="chips" aria-label="Médicaments comparés"></ul>
+  <p class="small presets-label">Ou partez d’une comparaison courante :</p>
+  <div class="presets" id="presets"></div>
+</section>
+
+<div id="compare-empty" class="callout" hidden>
+  <p>Choisissez au moins un médicament ci-dessus pour commencer.</p>
+</div>
+
+<div id="compare-body" hidden>
+  <section class="chart-card" aria-labelledby="cmp-h">
+    <h2 id="cmp-h">Date de chaque étape, en jours après l’autorisation dans l’UE</h2>
+    <p class="chart-sub">Chaque ligne représente un médicament. Les marqueurs pleins indiquent les étapes franchies; les marqueurs creux signalent un médicament
+      encore en attente, placé au jour de la dernière vérification. Des jours négatifs signifient avant l’autorisation dans l’UE.</p>
+    <ul class="legend" aria-hidden="true">
+      <li style="--swatch: var(--series-neutral)">Autorisation FDA</li>
+      <li style="--swatch: var(--country-fr)">France : avis de la HAS</li>
+      <li style="--swatch: var(--country-de)">Allemagne : décision du G-BA</li>
+      <li style="--swatch: var(--country-en)">Angleterre : recommandation du NICE</li>
+      <li style="--swatch: var(--country-it)">Italie : remboursement</li>
+    </ul>
+    <div class="chart-box" id="cmp-box"><canvas id="chart-compare" role="img"
+      aria-label="Étapes des médicaments sélectionnés, en jours après l’autorisation dans l’UE. Données dans le tableau ci-dessous."></canvas></div>
+  </section>
+
+  <section aria-labelledby="cmp-t-h">
+    <h2 id="cmp-t-h">Côte à côte</h2>
+    <div class="table-scroll"><table class="data-table compare-table" id="compare-table"></table></div>
+  </section>
+</div>
+
+<p class="muted small">Les valeurs et leurs sources figurent dans la fiche de chaque médicament. Les médicaments de référence (Rybelsus, Wegovy) ne
+  font pas partie des statistiques principales. Voir la <a href="methodology.html">méthodologie</a> pour les définitions.</p>

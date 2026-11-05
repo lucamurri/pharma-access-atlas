@@ -1,0 +1,69 @@
+<p class="eyebrow">Profil pays</p>
+<nav class="country-switch" aria-label="Pays">{{country_switch}}</nav>
+<h1>États-Unis : autorisation de la FDA</h1>
+<p class="lede">Aux États-Unis, l’autorisation de la FDA est l’étape qui permet la mise sur le marché d’un médicament. Il n’existe ni évaluation nationale du bénéfice
+  ni décision nationale de remboursement : chaque assureur, et Medicare, décide lui-même de la couverture et du prix. Cette page
+  adopte donc l’approche inverse et mesure le temps écoulé entre l’autorisation américaine et chaque étape européenne.</p>
+
+<section class="kpis" aria-label="Chiffres clés pour les États-Unis">
+  <div class="kpi">
+    <p class="kpi-label">Autorisés en premier aux États-Unis</p>
+    <p class="kpi-value">{{us_pct_first}}<span class="kpi-unit"> %</span></p>
+    <p class="kpi-note">{{us_first}} des {{us_n}} médicaments</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">L’autorisation dans l’UE est intervenue</p>
+    <p class="kpi-value">{{lag_median}} <span class="kpi-unit">jours</span></p>
+    <p class="kpi-note">plus tard, médiane sur l’ensemble des médicaments</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Examen prioritaire de la FDA</p>
+    <p class="kpi-value">{{us_pct_priority}}<span class="kpi-unit"> %</span></p>
+    <p class="kpi-note">{{us_priority}} des {{us_reviewed}} médicaments dont le type d’examen est connu</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Désignation de médicament orphelin aux États-Unis</p>
+    <p class="kpi-value">{{us_pct_orphan}}<span class="kpi-unit"> %</span></p>
+    <p class="kpi-note">{{us_orphan}} des {{us_orphan_known}} médicaments</p>
+  </div>
+</section>
+
+<section class="chart-card" aria-labelledby="us-c-h">
+  <h2 id="us-c-h">{{us_curve_title}}</h2>
+  <p class="chart-sub">Part des médicaments ayant franchi chaque étape européenne, en jours depuis l’autorisation de la FDA. Les médicaments
+    encore en attente sont comptés jusqu’au jour de leur vérification. Les courbes démarrent au-dessus de 0 % lorsque l’Europe a agi avant la FDA.</p>
+  <ul class="legend" aria-hidden="true">
+    <li style="--swatch: var(--series-neutral)">Autorisation dans l’UE</li>
+    <li style="--swatch: var(--country-fr)">France : avis de la HAS</li>
+    <li style="--swatch: var(--country-de)">Allemagne : décision du G-BA</li>
+    <li style="--swatch: var(--country-en)">Angleterre : recommandation du NICE</li>
+    <li style="--swatch: var(--country-it)">Italie : remboursement</li>
+  </ul>
+  <div class="chart-box" style="height: 360px"><canvas id="chart-us" role="img" aria-label="{{us_curve_title}}. Données dans le tableau ci-dessous."></canvas></div>
+  <details class="data-view"><summary>Afficher les données sous forme de tableau</summary><div class="table-scroll" id="table-us"></div></details>
+</section>
+
+<div class="chart-grid">
+  <section class="chart-card" aria-labelledby="us-m-h">
+    <h2 id="us-m-h">Comment la FDA les a examinés</h2>
+    <p class="chart-sub">L’examen prioritaire vise un délai de six mois (au lieu de dix) pour les médicaments susceptibles d’apporter une amélioration
+      significative. openFDA ne l’enregistre pas pour les thérapies cellulaires et géniques.</p>
+    <div class="chart-box" style="height: 200px"><canvas id="chart-us-mix" role="img" aria-label="Type d’examen de la FDA. Données dans le tableau ci-dessous."></canvas></div>
+    <details class="data-view"><summary>Afficher les données sous forme de tableau</summary><div class="table-scroll" id="table-us-mix"></div></details>
+  </section>
+  <section class="chart-card" aria-labelledby="us-a-h">
+    <h2 id="us-a-h">Écart avec l’autorisation dans l’UE par aire thérapeutique</h2>
+    <p class="chart-sub">Nombre médian de jours entre l’autorisation de la FDA et celle de l’UE (aires comptant au moins 5 médicaments); une valeur négative signifie que l’Europe est passée en premier.</p>
+    <div class="table-scroll" id="table-us-areas"></div>
+  </section>
+</div>
+
+<div class="chart-grid">
+  <section aria-labelledby="us-l-h"><h2 id="us-l-h">Plus longue attente avant l’autorisation dans l’UE</h2><div id="list-gap"></div></section>
+  <section aria-labelledby="us-e-h"><h2 id="us-e-h">Autorisés en premier en Europe</h2><div id="list-eu-first"></div></section>
+</div>
+<div class="spacer"></div>
+
+<p class="muted small">La négociation des prix par Medicare ne s’applique que plusieurs années après l’autorisation : parmi ces médicaments, seules les deux
+  marques de semaglutide de référence ont à ce jour un prix négocié (voir le <a href="insights.html#f6">constat sur le semaglutide</a>).
+  Les décisions de couverture des assureurs privés américains ne sont pas publiques sous une forme comparable et ne sont pas mesurées.</p>

@@ -1,0 +1,69 @@
+<p class="eyebrow">Länderprofil</p>
+<nav class="country-switch" aria-label="Länder">{{country_switch}}</nav>
+<h1>USA: FDA-Zulassung</h1>
+<p class="lede">In den USA ist die FDA-Zulassung der Schritt, der ein Arzneimittel auf den Markt bringt. Es gibt keine nationale
+  Nutzenbewertung und keine Erstattungsentscheidung: Jeder Versicherer und Medicare entscheiden selbst über Deckung und Preis. Diese Seite
+  blickt daher in die andere Richtung: wie lange nach der US-Zulassung der jeweilige europäische Meilenstein folgte.</p>
+
+<section class="kpis" aria-label="Kennzahlen für die USA">
+  <div class="kpi">
+    <p class="kpi-label">Zuerst in den USA zugelassen</p>
+    <p class="kpi-value">{{us_pct_first}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">{{us_first}} von {{us_n}} Arzneimitteln</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">Die EU-Zulassung kam</p>
+    <p class="kpi-value">{{lag_median}} <span class="kpi-unit">Tage</span></p>
+    <p class="kpi-note">später, Median über alle Arzneimittel</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">FDA-Priority-Review</p>
+    <p class="kpi-value">{{us_pct_priority}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">{{us_priority}} von {{us_reviewed}} Arzneimitteln mit Angabe zum Prüfverfahren</p>
+  </div>
+  <div class="kpi">
+    <p class="kpi-label">US-Orphan-Status</p>
+    <p class="kpi-value">{{us_pct_orphan}}<span class="kpi-unit">%</span></p>
+    <p class="kpi-note">{{us_orphan}} von {{us_orphan_known}} Arzneimitteln</p>
+  </div>
+</section>
+
+<section class="chart-card" aria-labelledby="us-c-h">
+  <h2 id="us-c-h">{{us_curve_title}}</h2>
+  <p class="chart-sub">Anteil der Arzneimittel, die den jeweiligen europäischen Meilenstein erreicht hatten, nach Tagen seit der FDA-Zulassung. Noch
+    wartende Arzneimittel zählen bis zu dem Tag, an dem sie geprüft wurden. Kurven beginnen über 0 %, wo Europa vor der FDA entschieden hat.</p>
+  <ul class="legend" aria-hidden="true">
+    <li style="--swatch: var(--series-neutral)">EU-Zulassung</li>
+    <li style="--swatch: var(--country-fr)">Frankreich: HAS-Stellungnahme</li>
+    <li style="--swatch: var(--country-de)">Deutschland: G-BA-Beschluss</li>
+    <li style="--swatch: var(--country-en)">England: NICE-Empfehlung</li>
+    <li style="--swatch: var(--country-it)">Italien: Erstattung</li>
+  </ul>
+  <div class="chart-box" style="height: 360px"><canvas id="chart-us" role="img" aria-label="{{us_curve_title}}. Daten in der Tabelle darunter."></canvas></div>
+  <details class="data-view"><summary>Daten als Tabelle anzeigen</summary><div class="table-scroll" id="table-us"></div></details>
+</section>
+
+<div class="chart-grid">
+  <section class="chart-card" aria-labelledby="us-m-h">
+    <h2 id="us-m-h">Wie die FDA sie geprüft hat</h2>
+    <p class="chart-sub">Priority Review ist ein Sechs-Monats-Ziel (statt zehn) für Arzneimittel, die eine wesentliche
+      Verbesserung bieten könnten. openFDA erfasst es für Zell- und Gentherapien nicht.</p>
+    <div class="chart-box" style="height: 200px"><canvas id="chart-us-mix" role="img" aria-label="FDA-Prüfverfahren. Daten in der Tabelle darunter."></canvas></div>
+    <details class="data-view"><summary>Daten als Tabelle anzeigen</summary><div class="table-scroll" id="table-us-mix"></div></details>
+  </section>
+  <section class="chart-card" aria-labelledby="us-a-h">
+    <h2 id="us-a-h">Abstand zur EU-Zulassung nach Therapiegebiet</h2>
+    <p class="chart-sub">Median der Tage von der FDA- bis zur EU-Zulassung (Gebiete mit mindestens 5 Arzneimitteln); negativ heißt, Europa war zuerst.</p>
+    <div class="table-scroll" id="table-us-areas"></div>
+  </section>
+</div>
+
+<div class="chart-grid">
+  <section aria-labelledby="us-l-h"><h2 id="us-l-h">Längste Wartezeit auf die EU-Zulassung</h2><div id="list-gap"></div></section>
+  <section aria-labelledby="us-e-h"><h2 id="us-e-h">Zuerst in Europa zugelassen</h2><div id="list-eu-first"></div></section>
+</div>
+<div class="spacer"></div>
+
+<p class="muted small">Die Medicare-Preisverhandlung greift erst Jahre nach der Zulassung: Unter diesen Arzneimitteln haben bisher nur die beiden
+  Semaglutid-Referenzmarken einen verhandelten Preis (siehe den <a href="insights.html#f6">Befund zu Semaglutid</a>).
+  Deckungsentscheidungen privater US-Versicherer sind nicht in vergleichbarer Form öffentlich und werden nicht gemessen.</p>

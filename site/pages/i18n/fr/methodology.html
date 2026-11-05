@@ -1,0 +1,159 @@
+<p class="eyebrow">Méthodologie &amp; sources</p>
+<h1>Comment l’atlas est construit</h1>
+<p class="lede">Chaque chiffre de ce site provient d’une source publique et renvoie vers elle. Lorsqu’une valeur n’a pas pu être
+  vérifiée, elle est laissée vide et signalée. Rien n’est estimé.</p>
+<p class="muted">Données mises à jour le : <strong>{{data_as_of}}</strong>.</p>
+
+<div class="prose">
+<h2>Quels médicaments sont inclus</h2>
+<p>Tout médicament qui répond à une règle fixe, sans sélection manuelle : la FDA l’a autorisé comme <strong>nouvelle substance
+  active</strong> entre le 1er janvier 2019 et le 31 décembre 2025 (une NDA originale classée comme nouvelle entité moléculaire,
+  ou une BLA originale, dans openFDA), <strong>et</strong> la <strong>première</strong> autorisation centralisée de la même substance active
+  par la Commission européenne se situe aussi dans cette fenêtre. Cela donne <strong>{{n}} médicaments</strong>.</p>
+<ul>
+  <li>Les génériques, les biosimilaires et les nouvelles formulations de molécules plus anciennes sont écartés automatiquement, car leur substance
+    a été autorisée pour la première fois dans l’UE avant 2019.</li>
+  <li>Les agents de diagnostic (ATC V04, V09) sont exclus : ce ne sont pas des traitements et ils sont remboursés par d’autres voies.</li>
+  <li>Les thérapies cellulaires et géniques (autorisées par le CBER de la FDA, absentes d’openFDA) proviennent de la liste des thérapies innovantes de l’EMA.
+    Chacune n’est incluse que si sa date d’autorisation par la FDA dans la fenêtre a été vérifiée manuellement.</li>
+  <li>La sélection a été recoupée avec les listes annuelles officielles de la FDA des « novel drug approvals » pour 2021–2025.</li>
+  <li>{{n_reference}} <strong>médicaments de référence</strong> (Rybelsus et Wegovy, nouvelles marques du semaglutide, dont la
+    première autorisation date de 2017 sous le nom d’Ozempic) sont présentés pour la comparaison avec Medicare, mais exclus de toutes les statistiques principales.</li>
+  <li>Le côté UE utilise les produits autorisés par la procédure centralisée. Une substance auparavant vendue uniquement sous des autorisations nationales peut
+    sembler « nouvelle » pour l’UE ici. Le code de sélection est <code>pipeline/universe.py</code>.</li>
+</ul>
+<p>Les <strong>aires thérapeutiques</strong> sont issues du code ATC de chaque médicament (classification de l’OMS, telle que publiée par l’EMA)
+  selon des règles fixes dans <code>pipeline/taxonomy.py</code>. Lorsqu’aucun code ATC n’est encore attribué, des mots-clés de l’aire
+  thérapeutique de l’EMA sont utilisés. Le statut orphelin est un filtre distinct, et non une aire thérapeutique. L’<strong>entreprise</strong> est
+  le titulaire de l’autorisation de mise sur le marché dans l’UE, sans les mentions de forme juridique.</p>
+
+<h2>Définitions</h2>
+<dl>
+  <dt><strong>Date d’autorisation de la FDA</strong></dt>
+  <dd>Date d’approbation de la demande originale du médicament (NDA ou BLA) dans Drugs@FDA. Les autorisations ultérieures pour de nouvelles
+    indications sont ignorées. Pour les thérapies cellulaires et géniques (réglementées par le CBER de la FDA et absentes d’openFDA),
+    il s’agit de la date de la lettre d’approbation de la BLA originale.</dd>
+  <dt><strong>Date d’autorisation de la CE</strong></dt>
+  <dd>Date de l’autorisation de mise sur le marché initiale de la Commission européenne, telle que publiée par l’EMA.</dd>
+  <dt><strong>Décalage d’autorisation entre les États-Unis et l’UE</strong></dt>
+  <dd>Date d’autorisation de la CE moins date d’autorisation de la FDA, en jours. Une valeur négative signifie que l’UE a autorisé le médicament en premier.</dd>
+  <dt><strong>Délai d’accès en Italie</strong></dt>
+  <dd>Nombre de jours entre l’autorisation de la CE et la publication à la <em>Gazzetta Ufficiale</em> de la première détermination de l’AIFA
+    accordant le remboursement par le service de santé national (classe A ou H). Les classes C et C(nn) signifient que le médicament
+    peut être vendu mais n’est pas remboursé. Les médicaments encore non remboursés sont indiqués comme « en attente », avec les jours écoulés
+    jusqu’à la date de notre vérification. Les médianes principales les comptent (voir <a href="#curves">délai d’accès</a>); le
+    graphique par aire thérapeutique n’utilise que les médicaments remboursés et le précise.</dd>
+  <dt><strong>Évaluation du G-BA en Allemagne</strong></dt>
+  <dd>Résultat de la première évaluation précoce du bénéfice menée à terme pour le médicament (AMNOG,   35a SGB V). Une décision peut
+    répartir les patients en groupes ayant des évaluations différentes; nous affichons la <em>meilleure</em> évaluation parmi les groupes et indiquons
+    si un groupe a reçu « aucun bénéfice supplémentaire ». En Allemagne, un médicament est remboursé dès son lancement. L’évaluation,
+    qui intervient généralement environ six mois plus tard, détermine le prix négocié; elle mesure donc la
+    <em>valeur reconnue</em>, et non un délai d’accès.</dd>
+  <dt><strong>Évaluation de la HAS en France</strong></dt>
+  <dd>Premier avis de la Commission de la Transparence de la HAS sur l’inscription au remboursement. Le <em>SMR</em> indique si le
+    médicament mérite d’être remboursé; l’<em>ASMR</em> évalue le bénéfice supplémentaire de I (majeur) à V (absence d’amélioration). Nous affichons
+    le meilleur niveau parmi les indications. Lorsque le SMR est insuffisant pour toutes les indications, la HAS n’attribue pas d’ASMR; nous
+    l’affichons comme « SMR insuffisant » et le comptons, avec l’ASMR V, comme un avis négatif. Les valeurs proviennent de la base de données publique des médicaments. Pour les médicaments qui n’y figurent pas
+    (souvent parce qu’ils n’ont jamais été commercialisés en France), l’avis a été recherché sur has-sante.fr; lorsque
+    la HAS n’a rendu aucun avis d’inscription, le médicament est compté comme « pas encore » à la date de vérification.</dd>
+  <dt><strong>Décision du NICE en Angleterre</strong></dt>
+  <dd>Résultat de la première évaluation technologique (TA) ou recommandation sur une technologie hautement spécialisée (HST) publiée par le NICE
+    pour la première indication du médicament. Catégories : <em>recommandé</em> dans le cadre de l’AMM;
+    <em>optimisé</em> (recommandé pour un groupe plus restreint); <em>accès encadré</em> (Cancer Drugs Fund ou équivalent);
+    <em>non recommandé</em>; <em>interrompu</em> (aucun dossier de l’entreprise, ou retrait de l’entreprise); et
+    <em>non évalué</em> (aucune recommandation, y compris les évaluations abandonnées avant la publication d’une recommandation).
+    La date est la date de publication. Après le Brexit, l’Angleterre s’appuie sur sa propre autorisation britannique, mais les décalages sont mesurés à partir de
+    l’autorisation de la CE par souci de comparabilité.</dd>
+  <dt><strong>Statut orphelin</strong></dt>
+  <dd>États-Unis : une désignation de médicament orphelin de la FDA pour l’indication de la première autorisation (base OOPD de la FDA). UE : le
+    statut orphelin actuel de l’EMA. Un médicament dont le statut orphelin a été retiré par la suite apparaît comme « non ».</dd>
+  <dt><strong>Négociation de Medicare</strong></dt>
+  <dd>Indique si le CMS a sélectionné le médicament au titre de l’Inflation Reduction Act et, le cas échéant, le Maximum Fair Price (MFP)
+    et le prix de liste que le CMS déclare pour 30 jours de traitement.</dd>
+</dl>
+
+<h2 id="curves">Délai d’accès : compter les médicaments encore en attente</h2>
+<p>Une médiane calculée uniquement sur les médicaments ayant déjà franchi une étape laisse de côté les médicaments encore en attente, qui
+  sont les plus lents. Elle sous-estime le délai, et le biais est d’autant plus fort que les médicaments sont récents. Les
+  médianes principales et le graphique par pays utilisent donc la <strong>méthode de Kaplan–Meier</strong>, la méthode standard
+  pour mesurer le temps écoulé avant un événement lorsque certains cas ne l’ont pas encore connu :</p>
+<ul>
+  <li>Un médicament ayant une étape datée (remboursement, décision du G-BA, avis de la HAS ou recommandation du NICE) est compté à
+    cette date.</li>
+  <li>Un médicament confirmé comme <em>pas encore concerné</em> (par exemple « non remboursé à la date du », évaluation du NICE « en
+    cours », procédure du G-BA en cours, ou aucune procédure ni aucun avis) reste dans le décompte jusqu’au jour de
+    sa vérification, puis en sort sans événement.</li>
+  <li>Un médicament jamais vérifié (statut inconnu) est écarté.</li>
+</ul>
+<p>La courbe montre la part des médicaments ayant franchi l’étape à chaque jour après l’autorisation de la CE, et la
+  médiane est le premier jour où elle atteint 50 %. Les médicaments que le NICE n’évaluera jamais maintiennent la courbe anglaise sous 100 %,
+  ce qui est exact : ils n’obtiennent jamais de recommandation du NICE. La courbe anglaise démarre au-dessus de 0 % parce que le NICE, en s’appuyant sur
+  l’autorisation britannique, a publié des recommandations pour quelques médicaments avant l’autorisation de la CE.</p>
+
+<h3>Comparer des groupes de médicaments</h3>
+<p>Le constat 7 répartit les médicaments selon une caractéristique à la fois (par exemple, orphelin ou non) et compare les courbes des deux groupes
+  à l’aide d’un <strong>test du log-rank</strong>, le test standard pour ce type de courbe. Une valeur p inférieure à 0.05 signifie
+  qu’un écart de cette ampleur surviendrait par hasard moins d’une fois sur vingt. Avec plusieurs comparaisons, un résultat
+  inférieur à 0.05 peut quand même relever du hasard, et aucun n’établit une causalité : une caractéristique peut en accompagner d’autres (les grandes entreprises
+  ont plus de médicaments d’oncologie, par exemple). Le calcul a été vérifié avec la bibliothèque statistique <em>lifelines</em>.</p>
+
+<h2>Sources de données</h2>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+  <thead><tr><th scope="col">Source</th><th scope="col">Utilisée pour</th><th scope="col">Mode de collecte</th><th scope="col">Conditions</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><a href="https://open.fda.gov/apis/drug/drugsfda/">openFDA Drugs@FDA</a></th><td>Dates d’autorisation de la FDA, demandeur, type d’examen</td><td>API, actualisée chaque mois</td><td>Domaine public</td></tr>
+    <tr><th scope="row"><a href="https://www.fda.gov/vaccines-blood-biologics">Lettres d’approbation du CBER de la FDA</a></th><td>Dates d’autorisation des thérapies cellulaires et géniques</td><td>Manuelle</td><td>Domaine public</td></tr>
+    <tr><th scope="row"><a href="https://www.accessdata.fda.gov/scripts/opdlisting/oopd/">Désignations de médicaments orphelins de la FDA (OOPD)</a></th><td>Désignation orpheline aux États-Unis</td><td>Manuelle</td><td>Domaine public</td></tr>
+    <tr><th scope="row"><a href="https://www.ema.europa.eu/en/medicines/download-medicine-data">Données sur les médicaments de l’EMA</a></th><td>Avis du CHMP et dates d’autorisation de la CE, statut orphelin dans l’UE, autorisation conditionnelle, titulaire</td><td>Téléchargement, actualisé chaque mois</td><td>Réutilisation avec mention de la source</td></tr>
+    <tr><th scope="row"><a href="https://www.gazzettaufficiale.it/">Gazzetta Ufficiale</a> · <a href="https://www.aifa.gov.it/">AIFA</a></th><td>Date et classe de remboursement en Italie</td><td>Manuelle</td><td>Actes officiels (non soumis au droit d’auteur); données de l’AIFA sous licence CC BY 4.0</td></tr>
+    <tr><th scope="row"><a href="https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/">Évaluations du bénéfice du G-BA</a></th><td>Date de décision et évaluation AMNOG</td><td>Manuelle</td><td>Réutilisation libre; sans altération des décisions</td></tr>
+    <tr><th scope="row"><a href="https://base-donnees-publique.medicaments.gouv.fr/">Base de données publique des médicaments (BDPM)</a></th><td>SMR, ASMR et date de l’avis de la HAS</td><td>Téléchargement, actualisé chaque mois; lacunes comblées par des recherches sur has-sante.fr et dans les données ouvertes de la HAS</td><td>Licence ouverte (mention de la source, sans altération)</td></tr>
+    <tr><th scope="row"><a href="https://www.nice.org.uk/guidance/published">Recommandations du NICE</a></th><td>Résultat de l’évaluation en Angleterre, date et numéro de TA</td><td>Manuelle</td><td>Contenu du NICE, cité avec des liens</td></tr>
+    <tr><th scope="row"><a href="https://www.cms.gov/initiatives/medicare-prescription-drug-affordability/overview/medicare-drug-price-negotiation-program/selected-drugs-negotiated-prices">Négociation des prix des médicaments de Medicare (CMS)</a></th><td>Sélection, Maximum Fair Price; prix de liste issu des fiches d’information</td><td>Fichier de données actualisé chaque mois; prix de liste saisi manuellement</td><td>Domaine public</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="prose">
+<h2>Contrôles de qualité</h2>
+<p>Une étape de validation automatisée s’exécute avant chaque publication et interrompt la construction si une valeur non vide ne comporte pas
+  de lien vers sa source ni de date de consultation, si des dates sont illogiques (par exemple, un remboursement italien antérieur à
+  l’autorisation dans l’UE), ou si un médicament apparaît deux fois. Le code du pipeline et tous les fichiers d’entrée sont
+  <a href="{{repo_url}}">publics sur GitHub</a>.</p>
+
+<h2>Ce qui est couvert et ce qui ne l’est pas</h2>
+<ul>
+  <li><strong>Les prix sont en grande partie hors du champ.</strong> Les prix de liste américains (WAC) ne sont pas librement disponibles, et
+    les prix nets européens sont confidentiels. Les seuls prix affichés sont ceux que le CMS publie pour les médicaments sélectionnés
+    pour la négociation de Medicare ({{cms_n_selected}} sur {{n}} ici).</li>
+  <li><strong>Peu de ces médicaments sont déjà négociables.</strong> Selon la loi, un médicament devient éligible 7 ans après
+    son autorisation (11 pour les médicaments biologiques). Rybelsus et Wegovy ne sont inclus que parce que le CMS a regroupé tous les produits
+    à base de semaglutide avec Ozempic (autorisé en 2017).</li>
+  <li><strong>L’accès précoce en Italie n’est pas compté.</strong> La prise en charge au titre de la loi 648/96 ou du fonds de 5 % de l’AIFA peut
+    précéder le remboursement complet (par exemple Zolgensma et Skyclarys). Nous ne comptons que la détermination de remboursement.</li>
+  <li><strong>L’accès régional en Italie</strong> (inscription aux formulaires régionaux) peut ajouter des mois après le remboursement
+    national et n’est pas mesuré.</li>
+  <li><strong>L’Allemagne, la France et l’Angleterre mesurent la valeur, non le délai.</strong> En Allemagne, un médicament est remboursé dès son
+    lancement; en France et en Angleterre, l’évaluation précède le financement. Seule l’étape italienne correspond au remboursement lui-même.</li>
+  <li><strong>Les antibiotiques de réserve en Allemagne</strong> voient leur bénéfice supplémentaire « réputé prouvé » sans ampleur précisée,
+    de sorte que leur évaluation est laissée vide.</li>
+  <li><strong>Les médicaments récents sont incomplets.</strong> Beaucoup de médicaments autorisés en 2024–2025 sont encore en cours d’évaluation;
+    ils apparaissent comme en attente ou inconnus, jamais comme « non ».</li>
+  <li><strong>Les valeurs recherchées</strong> pour l’Italie, l’Allemagne, la France (lorsqu’elles manquent dans la BDPM), l’Angleterre et le statut orphelin aux États-Unis ont été recherchées dans des
+    sources officielles selon des règles strictes (une source officielle pour chaque valeur, aucune estimation) et vérifiées par sondage.
+    Des erreurs sont possibles : chaque valeur renvoie à sa source pour pouvoir être vérifiée.</li>
+  <li><strong>L’accès aux États-Unis dépend des assureurs.</strong> L’autorisation de la FDA ne garantit pas la couverture. Les décisions de couverture des
+    payeurs américains ne sont pas publiques sous une forme comparable et ne sont pas mesurées.</li>
+  <li><strong>Les choix d’appréciation</strong> (par exemple une première procédure du G-BA suspendue, ou un médicament d’abord classé
+    comme non remboursé) sont documentés à côté de chaque valeur dans les tableaux de sources de chaque fiche médicament.</li>
+</ul>
+
+<h2>Avertissement</h2>
+<div class="callout">
+  <p>Ce projet est un projet de recherche indépendant, réalisé à titre de portfolio. Il ne constitue <strong>ni un conseil médical, ni un conseil juridique,
+    ni un conseil en investissement</strong>, et n’est affilié à aucun régulateur, aucune agence ni aucune entreprise cités. Les données peuvent
+    contenir des erreurs. Vérifiez toujours la source officielle indiquée avant de vous fier à une valeur.</p>
+</div>
+</div>
