@@ -3,6 +3,7 @@
 **How quickly, and on what terms, do new drugs reach patients in the US and Europe? A fully sourced market-access dashboard covering every new medicine approved by both the FDA and the EU in 2019–2025 (205 drugs), with Italy, Germany, France and England.**
 
 **Live site → [lucamurri.github.io/pharma-access-atlas](https://lucamurri.github.io/pharma-access-atlas/)**
+in English, [Italiano](https://lucamurri.github.io/pharma-access-atlas/it/), [Deutsch](https://lucamurri.github.io/pharma-access-atlas/de/) and [Français](https://lucamurri.github.io/pharma-access-atlas/fr/).
 
 [![Overview page of the Pharma Access Atlas](docs/screenshot.png)](https://lucamurri.github.io/pharma-access-atlas/)
 
@@ -83,7 +84,7 @@ The site has an overview with time-to-access curves, a filterable drug explorer,
 
 ```
 pipeline/           universe.py (drug selection); fetch_*.py → build.py → validate.py → coverage.py;
-                    watch_has.py (flags new HAS opinions); analysis.py, so_what.py, check_text.py, build_site.py
+                    watch_has.py (flags new HAS opinions); analysis.py, so_what.py, check_text.py, i18n.py, build_site.py
 data/raw/           trimmed extracts of the downloaded sources
 data/manual/        hand-maintained CSVs (one sourced fact per row; see its README)
 data/processed/     drugs.json: every field with value, status, source and date
@@ -125,3 +126,12 @@ the CSVs in `data/manual/` as described in [`data/manual/README.md`](data/manual
 
 **Luca Murri** · Master in Management, University of Chicago Booth School of Business (2027) ·
 [LinkedIn](https://www.linkedin.com/in/lucamurri)
+
+## Languages
+
+The site is built in English, Italian, German and French (`pipeline/i18n.py`). Page texts live in
+`site/pages/` (English) and `site/pages/i18n/<lang>/`; everything else (navigation, briefs, chart labels, the
+generated "so what" sentences) in `site/i18n/<lang>.json`. The build stops if a translation misses a key or
+changes a placeholder, so a number can never be dropped from a translated sentence. Numbers and dates follow
+local conventions. To change a wording, edit the English and the three translations together.
+
