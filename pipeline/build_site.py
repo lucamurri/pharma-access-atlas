@@ -428,7 +428,7 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
         "data_as_of": t.date(as_of), "n": n(s["n"]), "lag_median": n(analysis.days(s["lag_median"])),
         "lag_us_first": n(s["lag_us_first"]), "lag_eu_first": n(s["lag_eu_first"]),
         "it_lag_median": n(s["access"]["it"]["median"]), "it_n_reimbursed": n(s["it_n_reimbursed"]),
-        "it_n_waiting": n(s["it_n_waiting"]),
+        "it_n_waiting": n(s["it_n_waiting"]), "it_n_unknown": n(s["it_n_unknown"]),
         "it_waiting_names": ", ".join(w["brand"] for w in s["it_waiting"]) or t("brief.none"),
         "gba_pct_nab": s["gba_pct_no_added_benefit"], "gba_n_nab": n(s["gba_n_no_added_benefit"]),
         "gba_n_assessed": n(s["gba_n_assessed"]), "cms_n_selected": s["cms_n_selected"],
