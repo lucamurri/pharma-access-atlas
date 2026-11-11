@@ -17,6 +17,10 @@
   <li>Le terapie cellulari e geniche (approvate dal CBER della FDA, non presenti in openFDA) provengono dall'elenco EMA delle terapie avanzate.
     Ciascuna è inclusa solo se la sua data di approvazione FDA nella finestra è stata verificata manualmente.</li>
   <li>La selezione è stata verificata incrociando gli elenchi annuali ufficiali della FDA delle «novel drug approvals» per il 2021–2025.</li>
+  <li><strong>La finestra esclude i farmaci recenti con intervalli lunghi.</strong> Entrambe le approvazioni devono cadere nel 2019–2025,
+    quindi un farmaco approvato dalla FDA nel 2024–2025 e dall'UE solo dal 2026 non è nell'atlante. Tra le approvazioni recenti sono
+    inclusi solo i farmaci che l'Europa ha approvato rapidamente, quindi l'intervallo mediano USA-UE di {{lag_median}} giorni può
+    sottostimare l'intervallo reale. Per questo il Risultato 2 lascia fuori quegli anni.</li>
   <li>I {{n_reference}} <strong>farmaci di riferimento</strong> (Rybelsus e Wegovy, marchi più recenti di semaglutide, che era
     stata approvata per la prima volta come Ozempic nel 2017) sono mostrati per il confronto con Medicare ma esclusi da ogni statistica principale.</li>
   <li>Il lato UE utilizza i prodotti autorizzati a livello centralizzato. Una sostanza venduta in precedenza solo con autorizzazioni nazionali può
@@ -48,7 +52,10 @@
     suddividere i pazienti in gruppi con valutazioni diverse; mostriamo la <em>migliore</em> valutazione tra i gruppi e segnaliamo
     se qualche gruppo ha ottenuto «nessun beneficio aggiuntivo». In Germania un farmaco è rimborsato dal lancio. La valutazione,
     di solito circa sei mesi dopo, determina il prezzo negoziato (Erstattungsbetrag), quindi misura il
-    <em>valore riconosciuto</em>, non il tempo alla rimborsabilità.</dd>
+    <em>valore riconosciuto</em>, non il tempo alla rimborsabilità. «Nessun beneficio aggiuntivo» è relativo al comparatore scelto dal G-BA
+    per quel gruppo di pazienti; non significa che il farmaco non abbia valore clinico. «Non quantificabile» significa che il G-BA ha
+    riconosciuto un beneficio aggiuntivo ma i dati non hanno permesso di stabilirne l'entità; {{gba_n_nq_orphan}} dei {{gba_n_nq}} farmaci
+    valutati in questo modo sono farmaci orfani, il cui beneficio aggiuntivo è considerato dimostrato per legge.</dd>
   <dt><strong>Valutazione HAS della Francia</strong></dt>
   <dd>Il primo parere della Commission de la Transparence della HAS sull'iscrizione al rimborso. L'<em>SMR</em> indica se il
     farmaco meriti il rimborso; l'<em>ASMR</em> valuta il beneficio aggiuntivo da I (maggiore) a V (nessun miglioramento). Mostriamo
@@ -63,7 +70,11 @@
     <em>non raccomandato</em>; <em>terminato</em> (nessuna presentazione da parte dell'azienda o ritiro dell'azienda); e
     <em>non valutato</em> (nessuna raccomandazione, comprese le valutazioni interrotte prima della pubblicazione della raccomandazione).
     La data è quella di pubblicazione. Dopo la Brexit l'Inghilterra usa la propria autorizzazione del Regno Unito, ma gli intervalli sono misurati
-    dall'approvazione CE per renderli confrontabili.</dd>
+    dall'approvazione CE per renderli confrontabili. Una valutazione <em>terminata</em> ({{en_n_term}} farmaci) conta come tappa raggiunta
+    alla data della sua pubblicazione, perché il NICE la pubblica come raccomandazione e ne stabilisce l'esito: l'NHS non finanzia il
+    farmaco per quell'indicazione. Se le valutazioni terminate fossero invece contate come tappa non ancora raggiunta, la mediana
+    inglese sarebbe di {{en_med_cens}} giorni anziché {{en_med_all}}, e la quota raggiunta entro due anni
+    {{en_2y_cens}}% anziché {{en_2y_all}}%.</dd>
   <dt><strong>Stato di farmaco orfano</strong></dt>
   <dd>USA: una designazione di farmaco orfano FDA per l'indicazione della prima approvazione (database FDA OOPD). UE: l'attuale
     indicatore di farmaco orfano dell'EMA. Un farmaco il cui stato di orfano è stato successivamente revocato risulta «no».</dd>
@@ -71,6 +82,19 @@
   <dd>Se CMS ha selezionato il farmaco ai sensi dell'Inflation Reduction Act e, in tal caso, il Maximum Fair Price (MFP)
     e il prezzo di listino che CMS indica per una fornitura di 30 giorni.</dd>
 </dl>
+
+<h2 id="no-verdict">Farmaci senza un giudizio</h2>
+<p>Le quote di giudizi (per esempio «nessun beneficio aggiuntivo» o «ASMR V») sono calcolate sui farmaci che ne hanno uno, non su tutti i {{n}}.</p>
+<ul>
+  <li><strong>Germania:</strong> {{gba_n_assessed}} farmaci hanno una valutazione G-BA. Degli altri {{gba_none_n}},
+    {{gba_none_na}} non hanno alcuna procedura G-BA registrata (il motivo non è registrato),
+    {{gba_none_ongoing}} hanno una valutazione ancora in corso e {{gba_none_unk}} non è stato possibile verificarli.</li>
+  <li><strong>Francia:</strong> {{fr_n}} farmaci hanno un parere HAS sull'iscrizione al rimborso. Gli altri {{fr_none}} non ne hanno, spesso
+    perché il farmaco non è mai stato commercializzato in Francia.</li>
+  <li><strong>Inghilterra:</strong> {{en_n}} farmaci hanno una decisione del NICE (raccomandato, ottimizzato, accesso gestito, non
+    raccomandato o terminato). Degli altri {{en_none_n}}, {{en_none_prog}} hanno una valutazione in corso di sviluppo,
+    {{en_none_na}} non saranno valutati e {{en_none_unk}} non è stato possibile verificarli.</li>
+</ul>
 
 <h2 id="curves">Tempo all'accesso: contare i farmaci ancora in attesa</h2>
 <p>Una mediana calcolata solo sui farmaci che hanno già raggiunto una tappa esclude i farmaci ancora in attesa, e
@@ -132,7 +156,8 @@
 <ul>
   <li><strong>I prezzi sono in gran parte fuori ambito.</strong> I prezzi di listino USA (WAC) non sono liberamente disponibili, e
     i prezzi netti europei sono confidenziali. Gli unici prezzi mostrati sono quelli che CMS pubblica per i farmaci selezionati
-    per la negoziazione Medicare ({{cms_n_selected}} su {{n}} qui).</li>
+    per la negoziazione Medicare ({{cms_n_selected}} sui {{n_all}} farmaci mostrati, entrambi farmaci di riferimento esclusi
+    dalle statistiche sui {{n}} farmaci).</li>
   <li><strong>Pochi di questi farmaci sono già negoziabili.</strong> Per legge un farmaco diventa idoneo 7 anni dopo
     l'approvazione (11 per i biologici). Rybelsus e Wegovy sono inclusi solo perché CMS ha raggruppato tutti i prodotti
     a base di semaglutide con Ozempic (approvato nel 2017).</li>
@@ -144,6 +169,8 @@
     lancio; in Francia e in Inghilterra la valutazione precede il finanziamento. Solo la tappa dell'Italia è la rimborsabilità stessa.</li>
   <li><strong>Gli antibiotici di riserva in Germania</strong> hanno il beneficio aggiuntivo «considerato dimostrato» senza un'entità indicata,
     quindi la loro valutazione è lasciata vuota.</li>
+  <li><strong>La pandemia di COVID-19</strong> rientra nella finestra di studio. Nel 2020–2021 le autorità regolatorie e gli enti di
+    valutazione hanno riordinato le priorità del proprio lavoro, il che può aver modificato le tempistiche. L'atlante non corregge per questo effetto.</li>
   <li><strong>I farmaci recenti sono incompleti.</strong> Molti farmaci approvati nel 2024–2025 sono ancora in valutazione;
     risultano in attesa o sconosciuti, mai «no».</li>
   <li><strong>I valori ricercati</strong> per Italia, Germania, Francia (dove mancano nella BDPM), Inghilterra e per lo stato di farmaco orfano USA sono stati ricercati in

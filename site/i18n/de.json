@@ -76,7 +76,7 @@
  "title.countries": "Vier verschiedene Meilensteine, jeweils ab der EU-Zulassung gerechnet: Für die Hälfte der Arzneimittel lag innerhalb von {fr} Tagen eine französische HAS-Stellungnahme vor, innerhalb von {de} ein deutscher G-BA-Beschluss, innerhalb von {en} eine englische NICE-Empfehlung und innerhalb von {it} die italienische Erstattung",
  "title.countries_none": "Tage nach der EU-Zulassung",
  "title.italy": "Bei den {n} Arzneimitteln, die Italien erstattet hat, lag die mediane Zeit bis zur Erstattung bei {med} Tagen und variierte stark je nach Therapiegebiet",
- "title.hta": "Deutschland sah bei {de} % der Arzneimittel keinen Zusatznutzen; Frankreich sah bei {fr} % keine Verbesserung oder keinen erstattungsfähigen Wert",
+ "title.hta": "Deutschland sah bei {de} % der {de_n} bewerteten Arzneimittel keinen Zusatznutzen; Frankreich bewertete {fr_v} % von {fr_n} als keine Verbesserung (ASMR V, weiterhin erstattungsfähig) und {fr_smr} % als unzureichenden Nutzen für die Erstattung",
  "title.companies": "Unter den {k} Unternehmen mit mindestens {min} Arzneimitteln reichte der Median der Zeit bis zur italienischen Erstattung von {fast_days} Tagen ({fast}) bis {slow_days} ({slow})",
  "title.companies_none": "{k} Unternehmen haben mindestens {min} Arzneimittel im Atlas",
  "brief.title": "Market-Access-Steckbrief {brand} | Pharma Access Atlas",

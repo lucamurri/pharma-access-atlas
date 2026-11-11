@@ -77,7 +77,7 @@
  "title.countries": "Four different milestones, each counted from EU approval: half of drugs had a French HAS opinion within {fr} days, a German G-BA decision within {de}, English NICE guidance within {en} and Italian reimbursement within {it}",
  "title.countries_none": "Days after EU approval",
  "title.italy": "Among the {n} drugs Italy reimbursed, the median time to reimbursement was {med} days, varying widely by therapy area",
- "title.hta": "Germany found no added benefit for {de}% of drugs; France found no improvement or no reimbursable value for {fr}%",
+ "title.hta": "Germany found no added benefit for {de}% of the {de_n} drugs it rated; France rated {fr_v}% of {fr_n} as no improvement (ASMR V, still reimbursable) and {fr_smr}% as insufficient benefit for reimbursement",
  "title.companies": "Among the {k} companies with at least {min} drugs, the median time to Italian reimbursement ranged from {fast_days} days ({fast}) to {slow_days} ({slow})",
  "title.companies_none": "{k} companies have at least {min} drugs in the atlas",
  "brief.title": "{brand} market-access brief | Pharma Access Atlas",

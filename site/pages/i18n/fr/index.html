@@ -28,12 +28,14 @@
   <div class="kpi">
     <p class="kpi-label">Allemagne : « aucun bénéfice supplémentaire »</p>
     <p class="kpi-value">{{gba_pct_nab}}<span class="kpi-unit"> %</span></p>
-    <p class="kpi-note">{{gba_n_nab}} des {{gba_n_assessed}} médicaments, pour tous les groupes de patients (première décision du G-BA)</p>
+    <p class="kpi-note">{{gba_n_nab}} des {{gba_n_assessed}} médicaments ayant une évaluation du G-BA, pour tous les groupes de patients (première
+      décision); {{gba_none_n}} sur {{n}} n’ont pas encore d’évaluation</p>
   </div>
   <div class="kpi">
     <p class="kpi-label">France : aucune amélioration, ou remboursement non justifié</p>
     <p class="kpi-value">{{fr_pct_negative}}<span class="kpi-unit"> %</span></p>
-    <p class="kpi-note">ASMR V ou SMR insuffisant, sur {{fr_n}} médicaments ayant un avis d’inscription de la HAS</p>
+    <p class="kpi-note">{{fr_n_v}} ASMR V (absence d’amélioration, mais remboursable) et {{fr_n_smr}} SMR insuffisant (non
+      remboursé), sur les {{fr_n}} médicaments ayant un avis de la HAS; {{fr_none}} sur {{n}} n’en ont pas</p>
   </div>
 </section>
 
@@ -60,7 +62,8 @@
     <tbody>
       <tr><th scope="row">Allemagne</th><td>Décision du G-BA (environ six mois après le lancement)</td><td>Le médicament est remboursé dès le lancement; l’évaluation éclaire le prix négocié.</td></tr>
       <tr><th scope="row">France</th><td>Avis de la Commission de la transparence de la HAS</td><td>L’évaluation précède le financement.</td></tr>
-      <tr><th scope="row">Angleterre</th><td>Recommandation du NICE</td><td>L’évaluation précède le financement.</td></tr>
+      <tr><th scope="row">Angleterre</th><td>Recommandation du NICE, y compris {{en_n_term}} évaluations interrompues (généralement aucun
+        dossier de l’entreprise), qui signifient l’absence de financement par le NHS</td><td>L’évaluation précède le financement.</td></tr>
       <tr><th scope="row">Italie</th><td>Remboursement publié à la Gazzetta Ufficiale</td><td>Intervient après l’avis du comité de l’AIFA, qui fixe le prix convenu pour le remboursement, et après les
         étapes administratives jusqu’à la ratification par le conseil d’administration de l’AIFA et la publication.</td></tr>
     </tbody>
@@ -87,8 +90,8 @@
 <section class="chart-card" aria-labelledby="c-it-h">
   <h2 id="c-it-h">{{title_italy}}</h2>
   <p class="chart-sub">Nombre médian de jours entre l’autorisation de la Commission européenne et le remboursement publié à la Gazzetta Ufficiale,
-    par aire thérapeutique (aires comptant au moins 3 médicaments remboursés). Les médicaments non encore remboursés sont exclus, de sorte que les
-    médianes sous-estiment l’attente.</p>
+    par aire thérapeutique. Seules les aires comptant au moins 5 médicaments remboursés sont affichées : avec moins, un seul médicament peut faire beaucoup
+    varier la médiane. Les médicaments non encore remboursés sont exclus, de sorte que les médianes sous-estiment le délai.</p>
   <div class="chart-box" style="height: 360px"><canvas id="chart-italy" role="img" aria-label="{{title_italy}}. Données dans le tableau ci-dessous."></canvas></div>
   <details class="data-view"><summary>Afficher les données sous forme de tableau</summary><div class="table-scroll" id="table-italy"></div></details>
 </section>
@@ -96,7 +99,11 @@
 <section class="chart-card" aria-labelledby="c-hta-h">
   <h2 id="c-hta-h">{{title_hta}}</h2>
   <p class="chart-sub">Premier avis de chaque pays sur chaque médicament. L’Allemagne et la France évaluent le bénéfice supplémentaire; le NICE anglais
-    décide si le NHS doit financer le médicament. Nombre de médicaments.</p>
+    décide si le NHS doit financer le médicament. Nombre de médicaments. Les parts se rapportent aux médicaments ayant un avis : {{gba_n_assessed}} en
+    Allemagne, {{fr_n}} en France et {{en_n}} en Angleterre, sur {{n}}
+    (<a href="methodology.html#no-verdict">pourquoi les autres n’en ont pas</a>). En Allemagne, « aucun bénéfice supplémentaire » est relatif
+    au comparateur choisi par le G-BA et ne constitue pas un jugement sur la valeur clinique; « non quantifiable » signifie qu’un bénéfice supplémentaire
+    a été reconnu mais que son ampleur n’a pas pu être fixée ({{gba_n_nq_orphan}} de ces {{gba_n_nq}} médicaments sont des médicaments orphelins).</p>
   <div class="chart-grid-3">
     <div><h3>Allemagne : bénéfice supplémentaire selon le G-BA (meilleur groupe de patients)</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-gba" role="img" aria-label="Évaluations du G-BA en Allemagne. Données dans le tableau ci-dessous."></canvas></div></div>

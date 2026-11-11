@@ -17,6 +17,10 @@
   <li>Les thérapies cellulaires et géniques (autorisées par le CBER de la FDA, absentes d’openFDA) proviennent de la liste des thérapies innovantes de l’EMA.
     Chacune n’est incluse que si sa date d’autorisation par la FDA dans la fenêtre a été vérifiée manuellement.</li>
   <li>La sélection a été recoupée avec les listes annuelles officielles de la FDA des « novel drug approvals » pour 2021–2025.</li>
+  <li><strong>La fenêtre écarte les médicaments récents à long délai.</strong> Les deux autorisations doivent se situer entre 2019 et 2025; un
+    médicament autorisé par la FDA en 2024–2025 et par l’UE seulement à partir de 2026 n’est donc pas dans l’atlas. Parmi les autorisations récentes, seuls
+    les médicaments que l’Europe a autorisés rapidement sont inclus; l’écart médian entre les États-Unis et l’UE, de {{lag_median}} jours, peut donc sous-estimer
+    l’écart réel. Le constat 2 écarte ces années pour cette raison.</li>
   <li>{{n_reference}} <strong>médicaments de référence</strong> (Rybelsus et Wegovy, nouvelles marques du semaglutide, dont la
     première autorisation date de 2017 sous le nom d’Ozempic) sont présentés pour la comparaison avec Medicare, mais exclus de toutes les statistiques principales.</li>
   <li>Le côté UE utilise les produits autorisés par la procédure centralisée. Une substance auparavant vendue uniquement sous des autorisations nationales peut
@@ -48,7 +52,10 @@
     répartir les patients en groupes ayant des évaluations différentes; nous affichons la <em>meilleure</em> évaluation parmi les groupes et indiquons
     si un groupe a reçu « aucun bénéfice supplémentaire ». En Allemagne, un médicament est remboursé dès son lancement. L’évaluation,
     qui intervient généralement environ six mois plus tard, détermine le prix négocié; elle mesure donc la
-    <em>valeur reconnue</em>, et non un délai jusqu’au remboursement.</dd>
+    <em>valeur reconnue</em>, et non un délai jusqu’au remboursement. « Aucun bénéfice supplémentaire » est relatif au comparateur que le G-BA
+    a choisi pour ce groupe de patients; cela ne signifie pas que le médicament n’a aucune valeur clinique. « Non quantifiable » signifie que le G-BA
+    a reconnu un bénéfice supplémentaire mais que les données ne lui ont pas permis d’en fixer l’ampleur; {{gba_n_nq_orphan}} des {{gba_n_nq}} médicaments
+    ainsi évalués sont des médicaments orphelins, dont la loi répute le bénéfice supplémentaire prouvé.</dd>
   <dt><strong>Évaluation de la HAS en France</strong></dt>
   <dd>Premier avis de la Commission de la Transparence de la HAS sur l’inscription au remboursement. Le <em>SMR</em> indique si le
     médicament mérite d’être remboursé; l’<em>ASMR</em> évalue le bénéfice supplémentaire de I (majeur) à V (absence d’amélioration). Nous affichons
@@ -63,7 +70,11 @@
     <em>non recommandé</em>; <em>interrompu</em> (aucun dossier de l’entreprise, ou retrait de l’entreprise); et
     <em>non évalué</em> (aucune recommandation, y compris les évaluations abandonnées avant la publication d’une recommandation).
     La date est la date de publication. Après le Brexit, l’Angleterre s’appuie sur sa propre autorisation britannique, mais les décalages sont mesurés à partir de
-    l’autorisation de la CE par souci de comparabilité.</dd>
+    l’autorisation de la CE par souci de comparabilité. Une évaluation <em>interrompue</em> ({{en_n_term}} médicaments) est comptée comme ayant franchi
+    l’étape à sa date de publication, car le NICE la publie sous forme de recommandation et elle tranche le résultat : le NHS
+    ne finance pas le médicament pour cette indication. Si les évaluations interrompues étaient comptées comme non encore franchies,
+    la médiane anglaise serait de {{en_med_cens}} jours au lieu de {{en_med_all}}, et la part atteinte en deux ans
+    de {{en_2y_cens}} % au lieu de {{en_2y_all}} %.</dd>
   <dt><strong>Statut orphelin</strong></dt>
   <dd>États-Unis : une désignation de médicament orphelin de la FDA pour l’indication de la première autorisation (base OOPD de la FDA). UE : le
     statut orphelin actuel de l’EMA. Un médicament dont le statut orphelin a été retiré par la suite apparaît comme « non ».</dd>
@@ -71,6 +82,19 @@
   <dd>Indique si le CMS a sélectionné le médicament au titre de l’Inflation Reduction Act et, le cas échéant, le Maximum Fair Price (MFP)
     et le prix de liste que le CMS déclare pour 30 jours de traitement.</dd>
 </dl>
+
+<h2 id="no-verdict">Médicaments sans avis</h2>
+<p>Les parts d’avis (par exemple « aucun bénéfice supplémentaire » ou « ASMR V ») se rapportent aux médicaments qui en ont un, et non aux {{n}}.</p>
+<ul>
+  <li><strong>Allemagne :</strong> {{gba_n_assessed}} médicaments ont une évaluation du G-BA. Parmi les {{gba_none_n}} autres,
+    {{gba_none_na}} n’ont aucune procédure du G-BA enregistrée (la raison n’est pas consignée),
+    {{gba_none_ongoing}} ont une évaluation en cours et {{gba_none_unk}} n’ont pas pu être vérifiés.</li>
+  <li><strong>France :</strong> {{fr_n}} médicaments ont un avis d’inscription de la HAS. Les {{fr_none}} autres n’en ont pas, souvent
+    parce que le médicament n’a jamais été commercialisé en France.</li>
+  <li><strong>Angleterre :</strong> {{en_n}} médicaments ont une décision du NICE (recommandé, optimisé, accès encadré, non
+    recommandé ou interrompu). Parmi les {{en_none_n}} autres, {{en_none_prog}} ont une évaluation en cours d’élaboration,
+    {{en_none_na}} ne seront pas évalués et {{en_none_unk}} n’ont pas pu être vérifiés.</li>
+</ul>
 
 <h2 id="curves">Délai d’accès : compter les médicaments encore en attente</h2>
 <p>Une médiane calculée uniquement sur les médicaments ayant déjà franchi une étape laisse de côté les médicaments encore en attente, qui
@@ -131,7 +155,8 @@
 <ul>
   <li><strong>Les prix sont en grande partie hors du champ.</strong> Les prix de liste américains (WAC) ne sont pas librement disponibles, et
     les prix nets européens sont confidentiels. Les seuls prix affichés sont ceux que le CMS publie pour les médicaments sélectionnés
-    pour la négociation de Medicare ({{cms_n_selected}} sur {{n}} ici).</li>
+    pour la négociation de Medicare ({{cms_n_selected}} sur les {{n_all}} médicaments affichés, tous deux des médicaments de référence hors
+    des statistiques portant sur {{n}} médicaments).</li>
   <li><strong>Peu de ces médicaments sont déjà négociables.</strong> Selon la loi, un médicament devient éligible 7 ans après
     son autorisation (11 pour les médicaments biologiques). Rybelsus et Wegovy ne sont inclus que parce que le CMS a regroupé tous les produits
     à base de semaglutide avec Ozempic (autorisé en 2017).</li>
@@ -143,6 +168,8 @@
     lancement; en France et en Angleterre, l’évaluation précède le financement. Seule l’étape italienne correspond au remboursement lui-même.</li>
   <li><strong>Les antibiotiques de réserve en Allemagne</strong> voient leur bénéfice supplémentaire « réputé prouvé » sans ampleur précisée,
     de sorte que leur évaluation est laissée vide.</li>
+  <li><strong>La pandémie de COVID-19</strong> tombe dans la fenêtre d’étude. En 2020–2021, les autorités de régulation et les organismes d’évaluation
+    ont réorganisé leurs priorités, ce qui peut avoir modifié les délais. L’atlas n’en tient pas compte.</li>
   <li><strong>Les médicaments récents sont incomplets.</strong> Beaucoup de médicaments autorisés en 2024–2025 sont encore en cours d’évaluation;
     ils apparaissent comme en attente ou inconnus, jamais comme « non ».</li>
   <li><strong>Les valeurs recherchées</strong> pour l’Italie, l’Allemagne, la France (lorsqu’elles manquent dans la BDPM), l’Angleterre et le statut orphelin aux États-Unis ont été recherchées dans des

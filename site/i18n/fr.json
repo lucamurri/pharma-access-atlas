@@ -72,7 +72,7 @@
  "title.countries": "Quatre étapes différentes, chacune comptée depuis l’autorisation dans l’UE : la moitié des médicaments avaient un avis de la HAS française en {fr} jours, une décision du G-BA allemand en {de}, une recommandation du NICE anglais en {en} et un remboursement italien en {it}",
  "title.countries_none": "Jours après l’autorisation dans l’UE",
  "title.italy": "Sur les {n} médicaments remboursés par l’Italie, le délai médian jusqu’au remboursement a été de {med} jours, avec de fortes variations selon l’aire thérapeutique",
- "title.hta": "L’Allemagne n’a trouvé aucun bénéfice supplémentaire pour {de} % des médicaments ; la France n’a trouvé aucune amélioration ni valeur remboursable pour {fr} %",
+ "title.hta": "L’Allemagne n’a trouvé aucun bénéfice supplémentaire pour {de} % des {de_n} médicaments évalués ; la France a classé {fr_v} % des {fr_n} médicaments en absence d’amélioration (ASMR V, remboursable) et {fr_smr} % en SMR insuffisant (non remboursable)",
  "title.companies": "Parmi les {k} entreprises comptant au moins {min} médicaments, le délai médian jusqu’au remboursement italien allait de {fast_days} jours ({fast}) à {slow_days} ({slow})",
  "title.companies_none": "{k} entreprises comptent au moins {min} médicaments dans l’atlas",
  "brief.title": "Fiche d’accès au marché de {brand} | Pharma Access Atlas",

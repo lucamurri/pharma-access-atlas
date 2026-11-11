@@ -17,6 +17,10 @@
   <li>Cell and gene therapies (approved by FDA's CBER, not in openFDA) come from the EMA list of advanced therapies.
     Each is included only if its FDA approval date in the window was verified by hand.</li>
   <li>The selection was cross-checked against FDA's official yearly "novel drug approvals" lists for 2021–2025.</li>
+  <li><strong>The window cuts off recent drugs with long gaps.</strong> Both approvals must fall in 2019–2025, so a
+    drug the FDA approved in 2024–2025 and the EU only from 2026 is not in the atlas. Among recent approvals, only
+    those Europe approved quickly are included, so the median US-to-EU gap of {{lag_median}} days may understate the
+    gap. Finding 2 leaves those years out for this reason.</li>
   <li>{{n_reference}} <strong>reference drugs</strong> (Rybelsus and Wegovy, newer brands of semaglutide, which was
     first approved as Ozempic in 2017) are shown for the Medicare comparison but excluded from every headline statistic.</li>
   <li>The EU side uses centrally authorised products. A substance previously sold only under national licences can
@@ -48,7 +52,10 @@
     split patients into groups with different ratings; we show the <em>best</em> rating across groups and flag
     whether any group got “no added benefit”. In Germany a drug is reimbursed from launch. The assessment,
     usually about six months later, shapes the negotiated price, so it measures
-    <em>value recognised</em>, not time to reimbursement.</dd>
+    <em>value recognised</em>, not time to reimbursement. "No added benefit" is relative to the comparator the G-BA
+    chose for that patient group; it does not mean the drug has no clinical value. "Non-quantifiable" means the G-BA
+    found an added benefit but the data did not allow it to set its size; {{gba_n_nq_orphan}} of the {{gba_n_nq}} drugs
+    rated this way are orphan drugs, whose added benefit the law deems proven.</dd>
   <dt><strong>France HAS rating</strong></dt>
   <dd>The HAS Transparency Committee's first opinion on inclusion for reimbursement. <em>SMR</em> says whether the
     drug merits reimbursement at all; <em>ASMR</em> rates added benefit from I (major) to V (no improvement). We show
@@ -63,7 +70,11 @@
     <em>not recommended</em>; <em>terminated</em> (no company submission or the company withdrew); and
     <em>not appraised</em> (no guidance, including appraisals discontinued before guidance was published).
     The date is the publication date. England uses its own UK licence after Brexit, but lags are measured from
-    the EC approval for comparability.</dd>
+    the EC approval for comparability. A <em>terminated</em> appraisal ({{en_n_term}} drugs) counts as reaching the
+    milestone on its publication date, because NICE publishes it as guidance and it settles the outcome: the NHS
+    does not fund the drug for that indication. If terminated appraisals were counted instead as not yet reached,
+    the English median would be {{en_med_cens}} days instead of {{en_med_all}}, and the share reached within two years
+    {{en_2y_cens}}% instead of {{en_2y_all}}%.</dd>
   <dt><strong>Orphan status</strong></dt>
   <dd>US: an FDA orphan designation for the indication of first approval (FDA OOPD database). EU: the EMA's
     current orphan flag. A drug whose orphan status was later withdrawn shows “no”.</dd>
@@ -71,6 +82,19 @@
   <dd>Whether CMS selected the drug under the Inflation Reduction Act, and if so the Maximum Fair Price (MFP)
     and the list price that CMS reports for a 30-day supply.</dd>
 </dl>
+
+<h2 id="no-verdict">Drugs without a verdict</h2>
+<p>Shares of verdicts (for example "no added benefit" or "ASMR V") are of the drugs that have one, not of all {{n}}.</p>
+<ul>
+  <li><strong>Germany:</strong> {{gba_n_assessed}} drugs have a G-BA rating. Of the other {{gba_none_n}},
+    {{gba_none_na}} have no G-BA procedure on record (the reason is not recorded),
+    {{gba_none_ongoing}} have an assessment still in progress and {{gba_none_unk}} could not be verified.</li>
+  <li><strong>France:</strong> {{fr_n}} drugs have a HAS inclusion opinion. The other {{fr_none}} have none, often
+    because the drug was never marketed in France.</li>
+  <li><strong>England:</strong> {{en_n}} drugs have a NICE decision (recommended, optimised, managed access, not
+    recommended or terminated). Of the other {{en_none_n}}, {{en_none_prog}} have an appraisal in development,
+    {{en_none_na}} will not be appraised and {{en_none_unk}} could not be verified.</li>
+</ul>
 
 <h2 id="curves">Time to access: counting drugs still waiting</h2>
 <p>A median taken only over drugs that already reached a milestone leaves out the drugs still waiting, and
@@ -132,7 +156,8 @@
 <ul>
   <li><strong>Prices are mostly out of scope.</strong> US list prices (WAC) are not freely available, and
     European net prices are confidential. The only prices shown are those CMS publishes for drugs selected
-    for Medicare negotiation ({{cms_n_selected}} of {{n}} here).</li>
+    for Medicare negotiation ({{cms_n_selected}} of the {{n_all}} drugs shown, both of them reference drugs outside
+    the {{n}}-drug statistics).</li>
   <li><strong>Few drugs here can be negotiated yet.</strong> By law a drug becomes eligible 7 years after
     approval (11 for biologics). Rybelsus and Wegovy are included only because CMS grouped all semaglutide
     products with Ozempic (approved 2017).</li>
@@ -144,6 +169,8 @@
     launch; in France and England the assessment precedes funding. Only Italy's milestone is reimbursement itself.</li>
   <li><strong>Reserve antibiotics in Germany</strong> have their added benefit "deemed proven" without a stated extent,
     so their rating is left blank.</li>
+  <li><strong>The COVID-19 pandemic</strong> falls within the study window. In 2020–2021 regulators and assessment
+    bodies reprioritised their work, which may have changed timelines. The atlas does not adjust for it.</li>
   <li><strong>Recent drugs are incomplete.</strong> Many drugs approved in 2024–2025 are still in assessment;
     they show as waiting or unknown, never as "no".</li>
   <li><strong>Researched values</strong> for Italy, Germany, France (where missing from the BDPM), England and US orphan status were researched from
