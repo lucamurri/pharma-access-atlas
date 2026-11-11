@@ -29,7 +29,10 @@
   <li><strong>La fenêtre écarte les médicaments récents à long délai.</strong> Les deux autorisations doivent se situer entre 2019 et 2025; un
     médicament autorisé par la FDA en 2024–2025 et par l’UE seulement à partir de 2026 n’est donc pas dans l’atlas. Parmi les autorisations récentes, seuls
     les médicaments que l’Europe a autorisés rapidement sont inclus; l’écart médian entre les États-Unis et l’UE, de {{lag_median}} jours, peut donc sous-estimer
-    l’écart réel. Le constat 2 écarte ces années pour cette raison.</li>
+    l’écart réel. Le constat 2 écarte ces années pour cette raison. Sur les {{win_n}} médicaments des listes de nouveaux
+    médicaments de la FDA pour 2024–2025, {{win_in}} figurent dans l’atlas, {{win_late}} n’ont été autorisés dans l’UE qu’à
+    partir de 2026 et {{win_none}} n’ont pas encore d’autorisation centralisée dans l’UE. En comptant ces {{win_late}},
+    l’écart médian resterait de {{win_med}} jours ; les autres pourraient le relever une fois autorisés.</li>
   <li>{{n_reference}} <strong>médicaments de référence</strong> (Rybelsus et Wegovy, nouvelles marques du semaglutide, dont la
     première autorisation date de 2017 sous le nom d’Ozempic) sont présentés pour la comparaison avec Medicare, mais exclus de toutes les statistiques principales.</li>
   <li>Le côté UE utilise les produits autorisés par la procédure centralisée. Une substance auparavant vendue uniquement sous des autorisations nationales peut
@@ -109,7 +112,8 @@
 <ul>
   <li><strong>Allemagne :</strong> {{gba_n_assessed}} médicaments ont une évaluation du G-BA. Parmi les {{gba_none_n}} autres,
     {{gba_none_na}} n’ont aucune procédure du G-BA enregistrée (la raison n’est pas consignée),
-    {{gba_none_ongoing}} ont une évaluation en cours et {{gba_none_unk}} n’ont pas pu être vérifiés.</li>
+    {{gba_none_ongoing}} ont une évaluation en cours et {{gba_none_unk}} sont des antibiotiques de réserve, dont le bénéfice
+    supplémentaire est réputé prouvé par la loi, sans niveau attribué.</li>
   <li><strong>France :</strong> {{fr_n}} médicaments ont un avis d’inscription de la HAS. Les {{fr_none}} autres n’en ont pas, souvent
     parce que le médicament n’a jamais été commercialisé en France.</li>
   <li><strong>Italie :</strong> {{it_n_reimbursed}} médicaments sont remboursés et {{it_n_waiting}} ne l’étaient pas
@@ -161,7 +165,7 @@
 <h3 id="it-price">L’Italie mesurée à l’avis sur le prix</h3>
 <p>L’étape retenue pour l’Italie, la publication à la Gazzetta Ufficiale, intervient après l’accord sur le prix et après les étapes
   administratives qui suivent. À titre d’analyse complémentaire, sans modifier la comparaison principale, la courbe italienne a aussi été
-  tracée jusqu’à la date de l’avis de l’AIFA sur le prix (CPR, ou CSE à partir de 2024), lue dans chaque determina.
+  calculée jusqu’à la date de l’avis de l’AIFA sur le prix (CPR, ou CSE à partir de 2024), lue dans chaque determina.
   Ainsi comptée, la moitié des médicaments avaient reçu un avis sur le prix dans les <strong>{{it_price_med}} jours</strong> suivant l’autorisation dans l’UE
   ({{it_price_n}} médicaments), contre {{it_med}} jours jusqu’à la publication. Pour les {{it_admin_n}} médicaments disposant des deux dates, le
   délai entre l’avis sur le prix et la publication avait une médiane de <strong>{{it_admin_med}} jours</strong>, et la moitié des

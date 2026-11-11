@@ -27,7 +27,10 @@
   <li><strong>The window cuts off recent drugs with long gaps.</strong> Both approvals must fall in 2019–2025, so a
     drug the FDA approved in 2024–2025 and the EU only from 2026 is not in the atlas. Among recent approvals, only
     those Europe approved quickly are included, so the median US-to-EU gap of {{lag_median}} days may understate the
-    gap. Finding 2 leaves those years out for this reason.</li>
+    gap. Finding 2 leaves those years out for this reason. Of the {{win_n}} drugs on FDA's novel lists for 2024–2025,
+    {{win_in}} are in the atlas, {{win_late}} were authorised in the EU only from 2026 and {{win_none}} have no EU central
+    authorisation yet. Counting the {{win_late}} would leave the median gap at {{win_med}} days; the others could raise
+    it once they are authorised.</li>
   <li>{{n_reference}} <strong>reference drugs</strong> (Rybelsus and Wegovy, newer brands of semaglutide, which was
     first approved as Ozempic in 2017) are shown for the Medicare comparison but excluded from every headline statistic.</li>
   <li>The EU side uses centrally authorised products. A substance previously sold only under national licences can
@@ -108,7 +111,8 @@
 <ul>
   <li><strong>Germany:</strong> {{gba_n_assessed}} drugs have a G-BA rating. Of the other {{gba_none_n}},
     {{gba_none_na}} have no G-BA procedure on record (the reason is not recorded),
-    {{gba_none_ongoing}} have an assessment still in progress and {{gba_none_unk}} could not be verified.</li>
+    {{gba_none_ongoing}} have an assessment still in progress and {{gba_none_unk}} are reserve antibiotics, whose added
+    benefit the law deems proven without a rating.</li>
   <li><strong>France:</strong> {{fr_n}} drugs have a HAS inclusion opinion. The other {{fr_none}} have none, often
     because the drug was never marketed in France.</li>
   <li><strong>Italy:</strong> {{it_n_reimbursed}} drugs are reimbursed and {{it_n_waiting}} were not reimbursed when
@@ -160,7 +164,7 @@
 <h3 id="it-price">Italy measured at the price opinion</h3>
 <p>Italy's milestone, publication in the Gazzetta Ufficiale, comes after the price has been agreed and after the
   administrative steps that follow. As an additional analysis, without changing the main comparison, the Italian
-  curve was also drawn to the date of AIFA's price opinion (CPR, or CSE from 2024), read from each determination.
+  curve was also computed to the date of AIFA's price opinion (CPR, or CSE from 2024), read from each determination.
   Counted that way, half of drugs had a price opinion within <strong>{{it_price_med}} days</strong> of EU approval
   ({{it_price_n}} drugs), against {{it_med}} days to publication. For the {{it_admin_n}} drugs with both dates, the
   time from the price opinion to publication had a median of <strong>{{it_admin_med}} days</strong>, and half of

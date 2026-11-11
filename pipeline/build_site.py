@@ -146,6 +146,27 @@ def template(name: str, lang: str) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Study-window check (Methodology): FDA's 2024-2025 novel drugs and the EU
+# ---------------------------------------------------------------------------
+def window_numbers(ctx_rows: list[dict], n) -> dict:
+    """How many of FDA's 2024-2025 novel drugs the window leaves out, from pipeline/crosscheck_fda.py."""
+    import re
+    import statistics
+    path = analysis.PROCESSED.parent / "raw" / "universe" / "fda_crosscheck.json"
+    years = json.loads(path.read_text())["years"]
+    drugs = [d for y in ("2024", "2025") for d in years[y]["drugs"]]
+    late = [d for d in drugs if d.get("reason", "").startswith("EU first authorisation after the window")]
+    late_lags = [(date.fromisoformat(re.search(r"\d{4}-\d{2}-\d{2}", d["reason"]).group(0))
+                  - date.fromisoformat(d["fda_date"])).days for d in late]
+    lags = [r["lag"] for r in analysis.core(ctx_rows) if r["lag"] is not None]
+    return {
+        "win_n": n(len(drugs)), "win_in": n(sum(1 for d in drugs if d["status"] == "in atlas")),
+        "win_late": n(len(late)), "win_none": n(len(drugs) - len(late) - sum(1 for d in drugs if d["status"] == "in atlas")),
+        "win_med": n(analysis.days(statistics.median(lags + late_lags))),
+    }
+
+
+# ---------------------------------------------------------------------------
 # Chart titles: each states what the chart shows, built from the data
 # ---------------------------------------------------------------------------
 def titles(s: dict, t: i18n.Strings) -> dict:
@@ -460,6 +481,7 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
         "en_med_all": n(s["access"]["en"]["median"]), "en_2y_all": analysis.days(s["access"]["en"]["pct_2y"]),
         "en_med_cens": n(s["en_terminated_censored"]["median"]),
         "en_2y_cens": analysis.days(s["en_terminated_censored"]["pct_2y"]),
+        **window_numbers(ctx_rows=ctx["rows"], n=n),
     }
     # Robustness table on the Methodology page: early vs recent EC approvals
     dec = lambda x: f"{x:.2f}".replace(".", t.loc["decimal"])
