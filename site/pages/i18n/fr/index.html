@@ -1,10 +1,17 @@
 <section class="intro">
   <p class="eyebrow">États-Unis et Europe · tous les nouveaux médicaments autorisés des deux côtés, 2019–2025</p>
-  <h1>En combien de temps les nouveaux médicaments parviennent-ils aux patients aux États-Unis et en Europe ?</h1>
+  <h1>Que se passe-t-il après l’autorisation d’un nouveau médicament aux États-Unis et en Europe ?</h1>
   <p class="lede">Une date d’autorisation n’est pas l’accès des patients. Cet atlas suit les {{n}} nouveaux médicaments
     autorisés à la fois par la FDA et par la Commission européenne en 2019–2025.
     Il suit chacun d’eux, de la première autorisation à l’évaluation de son bénéfice en Allemagne, en France et en Angleterre, puis au remboursement en Italie.
     Chaque chiffre renvoie à sa source publique.</p>
+  <div class="callout">
+    <p><strong>Trois choses différentes.</strong> L’atlas distingue la <em>valeur reconnue</em> par un organisme
+      d’évaluation (G-BA en Allemagne, HAS en France, NICE en Angleterre), le <em>remboursement</em> (en Italie, publication
+      à la Gazzetta Ufficiale; en Allemagne, dès le lancement) et la <em>disponibilité réelle</em> pour les patients (formulaires
+      régionaux, voies d’accès précoce comme la loi 648/96 en Italie et le fonds AIFA de 5 %). Il mesure les deux premiers.
+      La disponibilité réelle, la plus proche de ce que vivent les patients, <strong>n’est pas mesurée</strong>.</p>
+  </div>
 </section>
 
 <section class="kpis" aria-label="Chiffres clés">
@@ -14,9 +21,9 @@
     <p class="kpi-note">Les États-Unis ont autorisé en premier {{lag_us_first}} des {{n}} médicaments</p>
   </div>
   <div class="kpi">
-    <p class="kpi-label">Délai médian d’accès en Italie</p>
+    <p class="kpi-label">Délai médian jusqu’au remboursement national en Italie</p>
     <p class="kpi-value">{{it_lag_median}} <span class="kpi-unit">jours</span></p>
-    <p class="kpi-note">De l’autorisation dans l’UE au remboursement, en comptant les {{it_n_waiting}} médicaments encore non remboursés</p>
+    <p class="kpi-note">De l’autorisation dans l’UE à la publication à la Gazzetta Ufficiale, en comptant les {{it_n_waiting}} médicaments encore non remboursés</p>
   </div>
   <div class="kpi">
     <p class="kpi-label">Allemagne : « aucun bénéfice supplémentaire »</p>
@@ -36,8 +43,8 @@
   <h2 id="c-cty-h">{{title_countries}}</h2>
   <p class="chart-sub">Part des médicaments ayant franchi l’étape propre à chaque pays, en jours depuis l’autorisation de la Commission
     européenne. Les médicaments encore en attente sont comptés jusqu’au jour de leur vérification, de sorte que les courbes ne surestiment pas la rapidité.
-    Les étapes diffèrent : l’Allemagne, la France et l’Angleterre publient des évaluations du bénéfice, et l’Italie publie
-    le remboursement. Le point où une courbe croise 50 % est sa médiane.</p>
+    Les étapes sont des événements différents : les courbes décrivent donc quatre processus, et non un classement. Le point où une courbe
+    croise 50 % est sa médiane. <a href="#paths">Comment fonctionne l’étape de chaque pays</a>.</p>
   <ul class="legend" aria-hidden="true">
     <li style="--swatch: var(--country-fr)">France : avis de la HAS</li>
     <li style="--swatch: var(--country-de)">Allemagne : décision du G-BA</li>
@@ -46,6 +53,21 @@
   </ul>
   <div class="chart-box" style="height: 360px"><canvas id="chart-countries" role="img" aria-label="{{title_countries}}. Données dans le tableau ci-dessous."></canvas></div>
   <details class="data-view"><summary>Afficher les données sous forme de tableau</summary><div class="table-scroll" id="table-countries"></div></details>
+  <h3 id="paths">Ce que mesure chaque courbe</h3>
+  <div class="table-scroll">
+  <table class="data-table">
+    <thead><tr><th scope="col">Pays</th><th scope="col">Étape mesurée</th><th scope="col">Lien avec le financement</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Allemagne</th><td>Décision du G-BA (environ six mois après le lancement)</td><td>Le médicament est remboursé dès le lancement; l’évaluation éclaire le prix négocié.</td></tr>
+      <tr><th scope="row">France</th><td>Avis de la Commission de la transparence de la HAS</td><td>L’évaluation précède le financement.</td></tr>
+      <tr><th scope="row">Angleterre</th><td>Recommandation du NICE</td><td>L’évaluation précède le financement.</td></tr>
+      <tr><th scope="row">Italie</th><td>Remboursement publié à la Gazzetta Ufficiale</td><td>Intervient après l’avis du comité de l’AIFA, qui fixe le prix convenu pour le remboursement, et après les
+        étapes administratives jusqu’à la ratification par le conseil d’administration de l’AIFA et la publication.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="small">L’étape italienne intervient donc après la négociation du prix, et pas les trois autres. C’est pourquoi les
+    courbes ne s’alignent pas, et non un jugement sur un pays.</p>
   <p class="small">Profils par pays : <a href="united-states.html">États-Unis</a> · <a href="italy.html">Italie</a> · <a href="germany.html">Allemagne</a> ·
     <a href="france.html">France</a> · <a href="england.html">Angleterre</a></p>
 </section>

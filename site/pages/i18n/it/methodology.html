@@ -37,7 +37,7 @@
   <dd>Data della prima autorizzazione all'immissione in commercio della Commissione Europea, come pubblicata dall'EMA.</dd>
   <dt><strong>Intervallo di approvazione USA-UE</strong></dt>
   <dd>Data di approvazione CE meno data di approvazione FDA, in giorni. Negativo significa che l'UE ha approvato per prima.</dd>
-  <dt><strong>Ritardo di accesso in Italia</strong></dt>
+  <dt><strong>Italia: tempo alla rimborsabilità nazionale</strong></dt>
   <dd>Giorni dall'approvazione CE alla pubblicazione in <em>Gazzetta Ufficiale</em> della prima determina AIFA
     che concede la rimborsabilità da parte del servizio sanitario nazionale (classe A o H). Le classi C e C(nn) indicano che il farmaco
     può essere venduto ma non è rimborsato. I farmaci ancora non rimborsati sono indicati come «in attesa» con i giorni trascorsi
@@ -48,7 +48,7 @@
     suddividere i pazienti in gruppi con valutazioni diverse; mostriamo la <em>migliore</em> valutazione tra i gruppi e segnaliamo
     se qualche gruppo ha ottenuto «nessun beneficio aggiuntivo». In Germania un farmaco è rimborsato dal lancio. La valutazione,
     di solito circa sei mesi dopo, determina il prezzo negoziato (Erstattungsbetrag), quindi misura il
-    <em>valore riconosciuto</em>, non un ritardo di accesso.</dd>
+    <em>valore riconosciuto</em>, non il tempo alla rimborsabilità.</dd>
   <dt><strong>Valutazione HAS della Francia</strong></dt>
   <dd>Il primo parere della Commission de la Transparence della HAS sull'iscrizione al rimborso. L'<em>SMR</em> indica se il
     farmaco meriti il rimborso; l'<em>ASMR</em> valuta il beneficio aggiuntivo da I (maggiore) a V (nessun miglioramento). Mostriamo
@@ -74,7 +74,7 @@
 
 <h2 id="curves">Tempo all'accesso: contare i farmaci ancora in attesa</h2>
 <p>Una mediana calcolata solo sui farmaci che hanno già raggiunto una tappa esclude i farmaci ancora in attesa, e
-  sono proprio i più lenti. Sottostima il ritardo, e tanto più quanto più recenti sono i farmaci. Le
+  sono proprio quelli che impiegano più tempo. Sottostima il tempo, e tanto più quanto più recenti sono i farmaci. Le
   mediane principali e il grafico per paese usano quindi il <strong>metodo di Kaplan–Meier</strong>, il modo standard
   per misurare il tempo a un evento quando alcuni casi non lo hanno ancora avuto:</p>
 <ul>
@@ -92,10 +92,14 @@
 
 <h3>Confronto tra gruppi di farmaci</h3>
 <p>Il risultato 7 suddivide i farmaci per una caratteristica alla volta (per esempio, orfano o no) e confronta le curve dei due gruppi
-  con un <strong>test log-rank</strong>, il test standard per questo tipo di curve. Un valore p inferiore a 0,05 significa che
-  una differenza di tale entità si verificherebbe per caso meno di una volta su venti. Con più confronti, un risultato
-  inferiore a 0,05 può comunque essere casuale, e nessuno dimostra una causa: una caratteristica può essere associata ad altre (le grandi aziende
-  hanno più farmaci oncologici, per esempio). Il calcolo è stato verificato con la libreria statistica
+  con un <strong>test log-rank</strong>, il test standard per questo tipo di curve. Il test confronta le curve
+  intere; il grafico mostra solo la quota raggiunta a due anni, con gli intervalli di confidenza al 95% (metodo di Greenwood,
+  trasformazione log-log) nella tabella. Il valore p è la probabilità di osservare una differenza almeno grande quanto
+  quella osservata se non ci fosse alcuna differenza reale tra i gruppi. Non è la probabilità che la differenza
+  sia dovuta al caso. Con più confronti, un risultato inferiore a 0,05 può comparire anche se nessuna caratteristica conta, quindi
+  riportiamo anche la soglia di Bonferroni (0,05 divisa per il numero di confronti). Con gruppi piccoli, un risultato
+  non significativo non esclude un effetto. Nessuno dei confronti dimostra una causa: una caratteristica può essere associata
+  ad altre (le grandi aziende hanno più farmaci oncologici, per esempio). Il calcolo è stato verificato con la libreria statistica
   <em>lifelines</em>.</p>
 
 <h2>Fonti dei dati</h2>
@@ -136,7 +140,7 @@
     precedere la piena rimborsabilità (per esempio Zolgensma e Skyclarys). Contiamo solo la determina di rimborsabilità.</li>
   <li><strong>L'accesso regionale in Italia</strong> (inserimento nei prontuari regionali) può aggiungere mesi dopo la rimborsabilità
     nazionale e non è misurato.</li>
-  <li><strong>Germania, Francia e Inghilterra misurano il valore, non il ritardo.</strong> In Germania un farmaco è rimborsato dal
+  <li><strong>Germania, Francia e Inghilterra misurano il valore riconosciuto; l'Italia misura la rimborsabilità.</strong> In Germania un farmaco è rimborsato dal
     lancio; in Francia e in Inghilterra la valutazione precede il finanziamento. Solo la tappa dell'Italia è la rimborsabilità stessa.</li>
   <li><strong>Gli antibiotici di riserva in Germania</strong> hanno il beneficio aggiuntivo «considerato dimostrato» senza un'entità indicata,
     quindi la loro valutazione è lasciata vuota.</li>

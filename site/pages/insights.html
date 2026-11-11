@@ -3,23 +3,30 @@
 <p class="lede">These findings cover all {{n}} new medicines approved by both the FDA and the European Commission in 2019–2025.
   Each one states how many drugs it rests on. Recent approvals are still moving through national processes,
   so some values are not yet known.</p>
+<div class="callout">
+  <p><strong>Three different things.</strong> These findings measure the <em>value recognised</em> by assessment
+    bodies (G-BA, HAS, NICE) and <em>reimbursement</em> (in Italy, publication in the Gazzetta Ufficiale). They do not
+    measure <em>actual availability</em> to patients, which also depends on regional formularies and early-access
+    routes such as Law 648/96 and the AIFA 5% fund. The four countries' milestones are different events
+    (<a href="index.html#paths">what each one measures</a>), so their times describe different processes, not a ranking.</p>
+</div>
 
 <div class="prose findings">
 
 <section aria-labelledby="f1">
-  <h2 id="f1"><span class="finding-num">1</span> Approval is the short part of the wait, and Italy is the slowest step</h2>
-  <p>EU approval came a median {{lag_median}} days after the FDA's. Then national processes take over, and
-    in Italy that step alone takes more than twice as long as the regulatory gap. These medians count the drugs
+  <h2 id="f1"><span class="finding-num">1</span> After EU approval, four countries reach four different milestones</h2>
+  <p>EU approval came a median {{lag_median}} days after the FDA's. Then national processes take over. These medians count the drugs
     still waiting (a time-to-access curve, see the <a href="methodology.html#curves">methodology</a>), so slow
     cases are not left out. Counted from EU approval, half of drugs had a French HAS opinion within
     <strong>{{fr_med}} days</strong> ({{fr_n2}} drugs, {{fr_wait}} still waiting), a German G-BA decision within
     <strong>{{de_med}}</strong> ({{de_n2}}, {{de_wait}} waiting) and English NICE guidance within
-    <strong>{{en_med}}</strong> ({{en_n2}}, {{en_wait}} waiting). Italian reimbursement, by contrast, took
-    <strong>{{it_med}} days</strong> to reach half of drugs ({{it_n2}} drugs, {{it_wait}} still waiting), and two years after EU approval
-    only {{it_2y}}% of drugs were reimbursed. End to end, it took <strong>{{fda_to_it_median}} days</strong>,
-    over two years, from US approval until half of drugs were reimbursed in Italy.</p>
-  <p class="so-what-line"><strong>So what:</strong> the pricing and reimbursement process, not the regulator, is the
-    critical path for European launch. Plan it, and fund it, as early as the regulatory filing.</p>
+    <strong>{{en_med}}</strong> ({{en_n2}}, {{en_wait}} waiting). Half of drugs were reimbursed in Italy within
+    <strong>{{it_med}} days</strong> ({{it_n2}} drugs, {{it_wait}} still waiting), and {{it_2y}}% within two years of EU
+    approval. Counted from US approval, half of drugs were reimbursed in Italy within <strong>{{fda_to_it_median}} days</strong>.</p>
+  <p class="so-what-line"><strong>Reading this:</strong> the four milestones are not the same event. In Germany
+    the drug is already reimbursed when the G-BA decides; in France and England the opinion comes before funding;
+    in Italy the date measured comes after the price has been agreed. The times describe each process; they are
+    not a ranking of countries.</p>
 </section>
 
 <section aria-labelledby="f2">
@@ -29,17 +36,18 @@
     Later years are left out of this comparison on purpose. A drug the FDA approved in 2024–2025 only enters the
     atlas if the EU also approved it by the end of 2025, so their gaps are cut short by the study window.
     {{lag_eu_first}} of the {{n}} drugs were approved in Europe first.</p>
-  <p class="so-what-line"><strong>So what:</strong> simultaneous US and EU filing is becoming the norm. The competitive
-    advantage now lies in what happens after approval.</p>
+  <p class="so-what-line"><strong>Reading this:</strong> the comparison rests on two cohorts, and these years overlap
+    with the COVID-19 pandemic, which changed regulators' workloads. The data show the gap, not why it changed.</p>
 </section>
 
 <section aria-labelledby="f3">
-  <h2 id="f3"><span class="finding-num">3</span> Without orphan protection, most drugs fail to show added benefit in Germany</h2>
+  <h2 id="f3"><span class="finding-num">3</span> Without the orphan rules, most drugs were rated as having no added benefit in Germany</h2>
   <p>Of the {{comp_n}} drugs Germany's G-BA compared against an existing therapy, <strong>{{comp_nab_n}}
     ({{comp_nab_pct}}%) showed no added benefit</strong> for any patient group in the first decision. All
     {{orph_route_n}} drugs assessed under the orphan rules received a benefit rating, because the law deems it proven.</p>
-  <p class="so-what-line"><strong>So what:</strong> a positive German rating requires head-to-head evidence against
-    the German comparator. Global trial programmes designed around the FDA's endpoints often do not provide it.</p>
+  <p class="so-what-line"><strong>Reading this:</strong> "no added benefit" is relative to the comparator the G-BA
+    chose; it does not mean the drug has no clinical value. Orphan drugs receive a rating by law, so the two routes
+    are not directly comparable.</p>
 </section>
 
 <section aria-labelledby="f4">
@@ -49,8 +57,8 @@
     recommended for a narrower group, or funded through managed access. The two bodies ask different questions.
     G-BA measures added benefit over a comparator, while NICE judges value for money at the (often confidential)
     price offered.</p>
-  <p class="so-what-line"><strong>So what:</strong> a negative German verdict is not the end of the European story.
-    In England, price is the lever that can turn a "no" into a "yes".</p>
+  <p class="so-what-line"><strong>Reading this:</strong> the two verdicts answer different questions, so they do not
+    contradict each other. NICE decisions often rest on a confidential price, which the atlas cannot see.</p>
 </section>
 
 <section aria-labelledby="f5">
@@ -58,8 +66,9 @@
   <p>For the {{both_n}} drugs with both a German rating and a French verdict, the two agencies reached opposite verdicts
     on <strong>{{disagree_n}} ({{disagree_pct}}%)</strong>: one found added benefit where the other found none ("no added benefit" in
     Germany; ASMR V, or a benefit too small to reimburse at all, in France). They agreed on {{agree_pos_n}} drugs having added benefit and on {{agree_neg_n}} drugs having none.</p>
-  <p class="so-what-line"><strong>So what:</strong> "European HTA" is not one judgement. The EU's joint clinical
-    assessment, which began in 2025, will test how far these views can converge.</p>
+  <p class="so-what-line"><strong>Reading this:</strong> the agencies use different criteria, comparators and scales,
+    so different verdicts on the same drug are expected and are not an error by either. The EU's joint clinical
+    assessment, which began in 2025, applies to medicines filed from then on.</p>
 </section>
 
 <section aria-labelledby="f6">
@@ -70,22 +79,27 @@
     management was still unreimbursed {{weg_waiting}} days after it. Germany found no added benefit for Rybelsus and has
     no benefit assessment for Wegovy, which statutory insurance excludes as a "lifestyle" medicine.
     (Rybelsus and Wegovy are reference drugs, not part of the {{n}}-drug statistics.)</p>
-  <p class="so-what-line"><strong>So what:</strong> the same molecule can be negotiated, reimbursed or excluded
-    depending on the indication and the country. For obesity, payer policy, more than the evidence, decides access.</p>
+  <p class="so-what-line"><strong>Reading this:</strong> each system applies its own rules to each indication, so the
+    same molecule can be negotiated, reimbursed or excluded. The case shows how far outcomes can differ, not which is right.</p>
 </section>
 
 <section aria-labelledby="f7">
-  <h2 id="f7"><span class="finding-num">7</span> In Italy, the process sets the pace, not the drug</h2>
+  <h2 id="f7"><span class="finding-num">7</span> Italian reimbursement times show no clear link to the traits measured here</h2>
   <p>We split the drugs {{drv_n}} ways (orphan or not, Germany's verdict, France's verdict, conditional approval,
     cell or gene therapy, oncology, company size) and compared how fast each group was reimbursed in Italy, counting
     drugs still waiting. Every group's median fell between <strong>{{drv_med_lo}} and {{drv_med_hi}} days</strong>.
     Drugs Germany found had added benefit took {{drv_de_y_med}} days ({{drv_de_y_n}} drugs), against {{drv_de_n_med}}
     for those it found had none ({{drv_de_n_n}}). Orphan drugs took {{drv_or_y_med}}, others {{drv_or_n_med}}. None
-    of these gaps passes a standard significance test (p < 0.05).</p>
-  <p>The one factor that stood out was the company. Companies with at least five drugs in the atlas had
-    <strong>{{drv_lc_y_2y}}% of their drugs reimbursed within two years</strong> of EU approval ({{drv_lc_y_n}} drugs),
-    against {{drv_lc_n_2y}}% for smaller companies ({{drv_lc_n_n}}). A log-rank test puts the chance of a gap this
-    large arising by luck at p = {{drv_lc_p}}; with {{drv_n}} comparisons, one such result could still be chance.</p>
+    of these gaps is statistically significant.</p>
+  <p>One comparison gave a p-value below 0.05. Companies with at least five drugs in the atlas had
+    {{drv_lc_y_2y}}% of their drugs reimbursed within two years of EU approval ({{drv_lc_y_n}} drugs), against
+    {{drv_lc_n_2y}}% for other companies ({{drv_lc_n_n}}); log-rank p = {{drv_lc_p}}. The p-value is the probability of
+    seeing a gap at least this large if there were no real difference. With {{drv_n}} comparisons, a simple Bonferroni
+    correction lowers the threshold to 0.05/{{drv_n}} ≈ {{drv_alpha}}, and no comparison passes it. "Company with five
+    or more drugs" also stands for size, therapy-area mix and the priority a company gives Italy, none of which is
+    measured.</p>
+  <p>The log-rank test compares the two groups' whole curves, while the bars below show only the share reached at two
+    years. The table gives every comparison's p-value, group sizes and 95% confidence intervals.</p>
   <figure class="chart-card" aria-labelledby="c-drv-h">
     <h3 id="c-drv-h">Share of drugs reimbursed in Italy within two years of EU approval</h3>
     <ul class="legend" aria-hidden="true">
@@ -96,9 +110,10 @@
       aria-label="Share of drugs reimbursed in Italy within two years, with and without each trait. Data in the table below."></canvas></div>
     <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-drivers"></div></details>
   </figure>
-  <p class="so-what-line"><strong>So what:</strong> a strong benefit verdict elsewhere does not buy a faster Italian
-    launch. What seems to matter is how well a company works the Italian process: a local market-access team,
-    early dossier preparation and price negotiation capacity.</p>
+  <p class="so-what-line"><strong>Open question:</strong> the data show no clear relation between verdicts abroad and
+    Italian reimbursement times. Many factors, such as how a company is organised, when it submits its dossier and how
+    the price negotiation goes, are not observed. With groups this small, a result that is not significant does not
+    rule out an effect.</p>
 </section>
 
 </div>

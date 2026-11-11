@@ -36,7 +36,7 @@
   <dd>Datum der erstmaligen Zulassung durch die Europäische Kommission, wie von der EMA veröffentlicht.</dd>
   <dt><strong>Abstand der Zulassungen USA–EU</strong></dt>
   <dd>EK-Zulassungsdatum minus FDA-Zulassungsdatum, in Tagen. Negativ heißt, die EU hat zuerst zugelassen.</dd>
-  <dt><strong>Zugangsverzögerung in Italien</strong></dt>
+  <dt><strong>Italien: Zeit bis zur nationalen Erstattung</strong></dt>
   <dd>Tage von der EK-Zulassung bis zur Veröffentlichung der ersten AIFA-Determina in der <em>Gazzetta Ufficiale</em>, die die Erstattung
     durch den nationalen Gesundheitsdienst gewährt (Klasse A oder H). Klasse C und C(nn) bedeuten, dass das Arzneimittel
     verkauft werden darf, aber nicht erstattet wird. Noch nicht erstattete Arzneimittel erscheinen als „wartend“ mit den verstrichenen Tagen
@@ -47,7 +47,7 @@
     in Gruppen mit unterschiedlichen Bewertungen aufteilen; wir zeigen die <em>beste</em> Bewertung über alle Gruppen und kennzeichnen,
     ob eine Gruppe „keinen Zusatznutzen“ erhielt. In Deutschland wird ein Arzneimittel ab Markteinführung erstattet. Die Bewertung,
     meist etwa sechs Monate später, prägt den verhandelten Erstattungsbetrag; sie misst also
-    den <em>anerkannten Wert</em>, keine Zugangsverzögerung.</dd>
+    den <em>anerkannten Wert</em>, nicht die Zeit bis zur Erstattung.</dd>
   <dt><strong>HAS-Bewertung in Frankreich</strong></dt>
   <dd>Die erste Stellungnahme der Commission de la Transparence der HAS zur Aufnahme in die Erstattung (inscription au remboursement). Der <em>SMR</em> besagt, ob das
     Arzneimittel überhaupt erstattungswürdig ist; der <em>ASMR</em> bewertet den Zusatznutzen von I (erheblich) bis V (keine Verbesserung). Wir zeigen
@@ -73,7 +73,7 @@
 
 <h2 id="curves">Zeit bis zum Zugang: noch wartende Arzneimittel mitzählen</h2>
 <p>Ein Median, der nur über Arzneimittel gebildet wird, die einen Meilenstein bereits erreicht haben, lässt die noch wartenden Arzneimittel aus,
-  und diese sind die langsamsten. Er unterschätzt die Verzögerung, und je jünger die Arzneimittel, desto stärker die Verzerrung. Die
+  und diese brauchen am längsten. Er unterschätzt die Zeit, und je jünger die Arzneimittel, desto stärker die Verzerrung. Die
   Kennzahlen-Mediane und das Länderdiagramm verwenden daher die <strong>Kaplan–Meier-Methode</strong>, das Standardverfahren,
   um die Zeit bis zu einem Ereignis zu messen, wenn bei einigen Fällen das Ereignis noch nicht eingetreten ist:</p>
 <ul>
@@ -91,9 +91,13 @@
 
 <h3>Gruppen von Arzneimitteln vergleichen</h3>
 <p>Befund 7 teilt die Arzneimittel jeweils nach einem Merkmal auf (zum Beispiel Orphan oder nicht) und vergleicht die Kurven der beiden Gruppen
-  mit einem <strong>Log-Rank-Test</strong>, dem Standardtest für diese Art von Kurven. Ein p-Wert unter 0,05 bedeutet,
-  dass ein so großer Unterschied zufällig in weniger als einem von zwanzig Fällen entstünde. Bei mehreren Vergleichen kann ein Ergebnis
-  unter 0,05 dennoch Zufall sein, und keines belegt eine Ursache: Ein Merkmal kann mit anderen einhergehen (große Unternehmen
+  mit einem <strong>Log-Rank-Test</strong>, dem Standardtest für diese Art von Kurven. Der Test vergleicht die
+  gesamten Kurven; das Diagramm zeigt nur den nach zwei Jahren erreichten Anteil, die 95-%-Konfidenzintervalle (Greenwood-Methode,
+  Log-log-Transformation) stehen in der Tabelle. Der p-Wert ist die Wahrscheinlichkeit, einen mindestens so großen Unterschied
+  wie den beobachteten zu sehen, wenn es zwischen den Gruppen keinen echten Unterschied gäbe. Er ist nicht die Wahrscheinlichkeit,
+  dass der Unterschied auf Zufall beruht. Bei mehreren Vergleichen kann ein Ergebnis unter 0,05 auch dann auftreten, wenn kein Merkmal eine Rolle spielt;
+  daher geben wir zusätzlich die Bonferroni-Schwelle an (0,05 geteilt durch die Zahl der Vergleiche). Bei kleinen Gruppen schließt ein
+  nicht signifikantes Ergebnis einen Effekt nicht aus. Keiner der Vergleiche belegt eine Ursache: Ein Merkmal kann mit anderen einhergehen (große Unternehmen
   haben zum Beispiel mehr Onkologie-Arzneimittel). Die Berechnung wurde mit der Statistikbibliothek <em>lifelines</em>
   überprüft.</p>
 
@@ -135,7 +139,7 @@
     Erstattung vorausgehen (zum Beispiel bei Zolgensma und Skyclarys). Wir zählen nur die Erstattungsdetermina.</li>
   <li><strong>Regionaler Zugang in Italien</strong> (Aufnahme in regionale Arzneimittellisten) kann nach der nationalen
     Erstattung weitere Monate dauern und wird nicht gemessen.</li>
-  <li><strong>Deutschland, Frankreich und England messen Wert, nicht Verzögerung.</strong> In Deutschland wird ein Arzneimittel ab
+  <li><strong>Deutschland, Frankreich und England messen den anerkannten Wert; Italien misst die Erstattung.</strong> In Deutschland wird ein Arzneimittel ab
     Markteinführung erstattet; in Frankreich und England geht die Bewertung der Finanzierung voraus. Nur der Meilenstein Italiens ist die Erstattung selbst.</li>
   <li><strong>Reserveantibiotika in Deutschland</strong> gelten mit ihrem Zusatznutzen als „belegt“, ohne ausgewiesenes Ausmaß;
     ihre Bewertung bleibt daher leer.</li>

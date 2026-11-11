@@ -3,23 +3,30 @@
 <p class="lede">Ces constats portent sur les {{n}} nouveaux médicaments autorisés à la fois par la FDA et par la Commission européenne en 2019–2025.
   Chacun indique le nombre de médicaments sur lequel il repose. Les autorisations récentes suivent encore les procédures nationales,
   de sorte que certaines valeurs ne sont pas encore connues.</p>
+<div class="callout">
+  <p><strong>Trois choses différentes.</strong> Ces constats mesurent la <em>valeur reconnue</em> par les organismes
+    d’évaluation (G-BA, HAS, NICE) et le <em>remboursement</em> (en Italie, publication à la Gazzetta Ufficiale). Ils ne
+    mesurent pas la <em>disponibilité réelle</em> pour les patients, qui dépend aussi des formulaires régionaux et des voies
+    d’accès précoce comme la loi 648/96 et le fonds AIFA de 5 %. Les étapes des quatre pays sont des événements différents
+    (<a href="index.html#paths">ce que mesure chacune</a>); leurs délais décrivent donc des processus différents, et non un classement.</p>
+</div>
 
 <div class="prose findings">
 
 <section aria-labelledby="f1">
-  <h2 id="f1"><span class="finding-num">1</span> L’autorisation est la partie courte de l’attente, et l’Italie est l’étape la plus lente</h2>
-  <p>L’autorisation dans l’UE est intervenue en médiane {{lag_median}} jours après celle de la FDA. Ensuite, les procédures nationales prennent le relais, et
-    en Italie cette étape à elle seule dure plus de deux fois l’écart réglementaire. Ces médianes comptent les médicaments
+  <h2 id="f1"><span class="finding-num">1</span> Après l’autorisation dans l’UE, quatre pays franchissent quatre étapes différentes</h2>
+  <p>L’autorisation dans l’UE est intervenue en médiane {{lag_median}} jours après celle de la FDA. Ensuite, les procédures nationales prennent le relais. Ces médianes comptent les médicaments
     encore en attente (courbe de délai d’accès, voir la <a href="methodology.html#curves">méthodologie</a>); les cas
     lents ne sont donc pas écartés. À compter de l’autorisation dans l’UE, la moitié des médicaments avaient un avis de la HAS française en
     <strong>{{fr_med}} jours</strong> ({{fr_n2}} médicaments, {{fr_wait}} encore en attente), une décision du G-BA allemand en
     <strong>{{de_med}}</strong> ({{de_n2}}, {{de_wait}} en attente) et une recommandation du NICE anglais en
-    <strong>{{en_med}}</strong> ({{en_n2}}, {{en_wait}} en attente). Le remboursement en Italie, en revanche, a demandé
-    <strong>{{it_med}} jours</strong> pour atteindre la moitié des médicaments ({{it_n2}} médicaments, {{it_wait}} encore en attente), et deux ans après l’autorisation dans l’UE,
-    seuls {{it_2y}} % des médicaments étaient remboursés. De bout en bout, il a fallu <strong>{{fda_to_it_median}} jours</strong>,
-    soit plus de deux ans, entre l’autorisation américaine et le remboursement de la moitié des médicaments en Italie.</p>
-  <p class="so-what-line"><strong>Et alors ?</strong> Le processus de fixation du prix et de remboursement, et non le régulateur, est le
-    chemin critique du lancement en Europe. Il faut le planifier et le financer dès le dépôt réglementaire.</p>
+    <strong>{{en_med}}</strong> ({{en_n2}}, {{en_wait}} en attente). La moitié des médicaments étaient remboursés en Italie en
+    <strong>{{it_med}} jours</strong> ({{it_n2}} médicaments, {{it_wait}} encore en attente), et {{it_2y}} % dans les deux ans suivant l’autorisation dans l’UE.
+    À compter de l’autorisation américaine, la moitié des médicaments étaient remboursés en Italie en <strong>{{fda_to_it_median}} jours</strong>.</p>
+  <p class="so-what-line"><strong>Pour lire ce constat :</strong> les quatre étapes ne sont pas le même événement. En Allemagne,
+    le médicament est déjà remboursé quand le G-BA décide; en France et en Angleterre, l’avis précède le financement;
+    en Italie, la date mesurée intervient après l’accord sur le prix. Les délais décrivent chaque processus; ils ne
+    constituent pas un classement des pays.</p>
 </section>
 
 <section aria-labelledby="f2">
@@ -29,17 +36,18 @@
     Les années suivantes sont volontairement exclues de cette comparaison. Un médicament autorisé par la FDA en 2024–2025 n’entre dans
     l’atlas que si l’UE l’a aussi autorisé avant la fin de 2025; leurs écarts sont donc tronqués par la fenêtre d’étude.
     {{lag_eu_first}} des {{n}} médicaments ont été autorisés en premier en Europe.</p>
-  <p class="so-what-line"><strong>Et alors ?</strong> Le dépôt simultané aux États-Unis et dans l’UE devient la norme. L’avantage
-    concurrentiel se joue désormais après l’autorisation.</p>
+  <p class="so-what-line"><strong>Pour lire ce constat :</strong> la comparaison repose sur deux cohortes, et ces années coïncident
+    avec la pandémie de COVID-19, qui a modifié la charge de travail des régulateurs. Les données montrent l’écart, non la raison de son évolution.</p>
 </section>
 
 <section aria-labelledby="f3">
-  <h2 id="f3"><span class="finding-num">3</span> Sans protection orpheline, la plupart des médicaments ne démontrent pas de bénéfice supplémentaire en Allemagne</h2>
+  <h2 id="f3"><span class="finding-num">3</span> Sans les règles applicables aux médicaments orphelins, la plupart des médicaments ont été jugés sans bénéfice supplémentaire en Allemagne</h2>
   <p>Sur les {{comp_n}} médicaments que le G-BA allemand a comparés à une thérapie existante, <strong>{{comp_nab_n}}
     ({{comp_nab_pct}} %) n’ont montré aucun bénéfice supplémentaire</strong> pour aucun groupe de patients lors de la première décision. Les
     {{orph_route_n}} médicaments évalués selon les règles applicables aux médicaments orphelins ont tous reçu une évaluation de leur bénéfice, car la loi le considère comme prouvé.</p>
-  <p class="so-what-line"><strong>Et alors ?</strong> Une évaluation allemande positive exige des preuves en comparaison directe avec
-    le comparateur allemand. Les programmes d’essais mondiaux conçus autour des critères de la FDA n’en fournissent souvent pas.</p>
+  <p class="so-what-line"><strong>Pour lire ce constat :</strong> « aucun bénéfice supplémentaire » est relatif au comparateur choisi par le G-BA;
+    cela ne signifie pas que le médicament n’a aucune valeur clinique. Les médicaments orphelins reçoivent une évaluation par la loi, de sorte que les deux voies
+    ne sont pas directement comparables.</p>
 </section>
 
 <section aria-labelledby="f4">
@@ -49,8 +57,8 @@
     recommandés pour un groupe plus restreint, ou financés par accès encadré. Les deux organismes ne posent pas la même question.
     Le G-BA mesure le bénéfice supplémentaire par rapport à un comparateur, tandis que le NICE juge le rapport qualité-prix au
     prix proposé (souvent confidentiel).</p>
-  <p class="so-what-line"><strong>Et alors ?</strong> Un avis allemand négatif ne clôt pas l’histoire européenne.
-    En Angleterre, le prix est le levier qui peut transformer un « non » en « oui ».</p>
+  <p class="so-what-line"><strong>Pour lire ce constat :</strong> les deux avis répondent à des questions différentes; ils ne se
+    contredisent donc pas. Les décisions du NICE reposent souvent sur un prix confidentiel, que l’atlas ne peut pas voir.</p>
 </section>
 
 <section aria-labelledby="f5">
@@ -58,8 +66,9 @@
   <p>Pour les {{both_n}} médicaments ayant à la fois une évaluation allemande et un avis français, les deux agences sont parvenues à des conclusions opposées
     pour <strong>{{disagree_n}} ({{disagree_pct}} %)</strong>: l’une a reconnu un bénéfice supplémentaire là où l’autre n’en a trouvé aucun (« aucun bénéfice supplémentaire » en
     Allemagne; ASMR V, ou bénéfice trop faible pour justifier un remboursement, en France). Elles ont convenu que {{agree_pos_n}} médicaments apportaient un bénéfice supplémentaire et que {{agree_neg_n}} médicaments n’en apportaient aucun.</p>
-  <p class="so-what-line"><strong>Et alors ?</strong> L’« HTA européenne » n’est pas un jugement unique. L’évaluation clinique commune de l’UE,
-    entrée en vigueur en 2025, permettra de tester dans quelle mesure ces points de vue peuvent converger.</p>
+  <p class="so-what-line"><strong>Pour lire ce constat :</strong> les agences utilisent des critères, des comparateurs et des échelles différents;
+    des avis différents sur un même médicament sont donc attendus et ne sont pas une erreur de l’une ou de l’autre. L’évaluation clinique commune de l’UE,
+    entrée en vigueur en 2025, s’applique aux médicaments déposés à partir de cette date.</p>
 </section>
 
 <section aria-labelledby="f6">
@@ -70,22 +79,27 @@
     du poids, n’était toujours pas remboursé {{weg_waiting}} jours après. L’Allemagne n’a trouvé aucun bénéfice supplémentaire pour Rybelsus et n’a pas
     d’évaluation du bénéfice pour Wegovy, que l’assurance légale exclut en tant que médicament de « confort ».
     (Rybelsus et Wegovy sont des médicaments de référence, exclus des statistiques sur {{n}} médicaments.)</p>
-  <p class="so-what-line"><strong>Et alors ?</strong> La même molécule peut être négociée, remboursée ou exclue
-    selon l’indication et le pays. Pour l’obésité, la politique des payeurs, plus que les preuves, détermine l’accès.</p>
+  <p class="so-what-line"><strong>Pour lire ce constat :</strong> chaque système applique ses propres règles à chaque indication, de sorte que la
+    même molécule peut être négociée, remboursée ou exclue. Le cas montre l’ampleur des écarts possibles, non lequel a raison.</p>
 </section>
 
 <section aria-labelledby="f7">
-  <h2 id="f7"><span class="finding-num">7</span> En Italie, c’est le processus qui donne le rythme, et non le médicament</h2>
+  <h2 id="f7"><span class="finding-num">7</span> Les délais de remboursement en Italie ne montrent aucun lien clair avec les caractéristiques mesurées ici</h2>
   <p>Nous avons réparti les médicaments de {{drv_n}} façons (orphelin ou non, avis de l’Allemagne, avis de la France, autorisation conditionnelle,
-    thérapie cellulaire ou génique, oncologie, taille de l’entreprise) et comparé la rapidité du remboursement de chaque groupe en Italie, en comptant les
+    thérapie cellulaire ou génique, oncologie, taille de l’entreprise) et comparé le délai de remboursement de chaque groupe en Italie, en comptant les
     médicaments encore en attente. La médiane de chaque groupe se situait entre <strong>{{drv_med_lo}} et {{drv_med_hi}} jours</strong>.
     Les médicaments pour lesquels l’Allemagne a reconnu un bénéfice supplémentaire ont pris {{drv_de_y_med}} jours ({{drv_de_y_n}} médicaments), contre {{drv_de_n_med}}
     pour ceux où elle n’en a reconnu aucun ({{drv_de_n_n}}). Les médicaments orphelins ont pris {{drv_or_y_med}}, les autres {{drv_or_n_med}}. Aucun
-    de ces écarts ne passe un test de significativité standard (p < 0.05).</p>
-  <p>Le seul facteur qui se détache est l’entreprise. Les entreprises comptant au moins cinq médicaments dans l’atlas ont vu
-    <strong>{{drv_lc_y_2y}} % de leurs médicaments remboursés dans les deux ans</strong> suivant l’autorisation dans l’UE ({{drv_lc_y_n}} médicaments),
-    contre {{drv_lc_n_2y}} % pour les entreprises plus petites ({{drv_lc_n_n}}). Un test du log-rank estime à p = {{drv_lc_p}} la probabilité qu’un écart de cette
-    ampleur soit dû au hasard; avec {{drv_n}} comparaisons, un tel résultat pourrait malgré tout relever du hasard.</p>
+    de ces écarts n’est statistiquement significatif.</p>
+  <p>Une comparaison a donné une valeur p inférieure à 0,05. Les entreprises comptant au moins cinq médicaments dans l’atlas ont vu
+    {{drv_lc_y_2y}} % de leurs médicaments remboursés dans les deux ans suivant l’autorisation dans l’UE ({{drv_lc_y_n}} médicaments),
+    contre {{drv_lc_n_2y}} % pour les autres entreprises ({{drv_lc_n_n}}) ; p du log-rank = {{drv_lc_p}}. La valeur p est la probabilité
+    d’observer un écart au moins aussi grand s’il n’y avait pas de différence réelle. Avec {{drv_n}} comparaisons, une simple correction
+    de Bonferroni abaisse le seuil à 0,05/{{drv_n}} ≈ {{drv_alpha}}, et aucune comparaison ne le franchit. « Entreprise comptant cinq
+    médicaments ou plus » recouvre aussi la taille, la répartition des aires thérapeutiques et la priorité qu’une entreprise accorde à l’Italie, ce qui n’est
+    pas mesuré.</p>
+  <p>Le test du log-rank compare les courbes entières des deux groupes, tandis que les barres ci-dessous ne montrent que la part atteinte
+    à deux ans. Le tableau donne la valeur p de chaque comparaison, la taille des groupes et les intervalles de confiance à 95 %.</p>
   <figure class="chart-card" aria-labelledby="c-drv-h">
     <h3 id="c-drv-h">Part des médicaments remboursés en Italie dans les deux ans suivant l’autorisation dans l’UE</h3>
     <ul class="legend" aria-hidden="true">
@@ -96,9 +110,10 @@
       aria-label="Part des médicaments remboursés en Italie dans les deux ans, avec et sans chaque caractéristique. Données dans le tableau ci-dessous."></canvas></div>
     <details class="data-view"><summary>Afficher les données sous forme de tableau</summary><div class="table-scroll" id="table-drivers"></div></details>
   </figure>
-  <p class="so-what-line"><strong>Et alors ?</strong> Un avis très favorable ailleurs n’achète pas un lancement italien plus rapide.
-    Ce qui semble compter, c’est la maîtrise du processus italien par l’entreprise : une équipe locale d’accès au marché,
-    une préparation précoce du dossier et une capacité de négociation du prix.</p>
+  <p class="so-what-line"><strong>Question ouverte :</strong> les données ne montrent aucune relation claire entre les avis à l’étranger et les
+    délais de remboursement en Italie. De nombreux facteurs, comme l’organisation d’une entreprise, le moment où elle dépose son dossier et le
+    déroulement de la négociation du prix, ne sont pas observés. Avec des groupes aussi petits, un résultat non significatif n’exclut
+    pas un effet.</p>
 </section>
 
 </div>

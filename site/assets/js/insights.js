@@ -16,6 +16,7 @@
 
   const labels = drivers.map(d => Atlas.label(d.yes_label));
   const pct = x => Math.round(x);
+  const ci = g => (g.ci_2y ? Atlas.t("js.in.ci", { lo: pct(g.ci_2y[0]), hi: pct(g.ci_2y[1]) }) : Atlas.t("na"));
   const bar = { borderRadius: 4, borderSkipped: "start", borderWidth: 0, maxBarThickness: 14,
                 categoryPercentage: 0.75, barPercentage: 0.9 };
 
@@ -69,9 +70,11 @@
   document.getElementById("table-drivers").innerHTML = Atlas.table(drivers, [
     { label: Atlas.t("js.in.trait"), value: d => Atlas.label(d.yes_label) },
     { label: Atlas.t("js.in.with_2y"), value: d => Atlas.t("js.pct", { n: pct(d.yes.pct_2y) }), num: true },
+    { label: Atlas.t("js.in.with_ci"), value: d => ci(d.yes), num: true },
     { label: Atlas.t("js.in.with_med"), value: d => (d.yes.median === null ? Atlas.t("js.not_reached") : Atlas.num(d.yes.median)), num: true },
     { label: Atlas.t("js.in.with_n"), value: d => d.yes.n, num: true },
     { label: Atlas.t("js.in.without_2y"), value: d => Atlas.t("js.pct", { n: pct(d.no.pct_2y) }), num: true },
+    { label: Atlas.t("js.in.without_ci"), value: d => ci(d.no), num: true },
     { label: Atlas.t("js.in.without_med"), value: d => (d.no.median === null ? Atlas.t("js.not_reached") : Atlas.num(d.no.median)), num: true },
     { label: Atlas.t("js.in.without_n"), value: d => d.no.n, num: true },
     { label: Atlas.t("js.in.p"), value: d => Atlas.dec(d.p), num: true },

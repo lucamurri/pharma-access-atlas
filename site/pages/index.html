@@ -1,10 +1,17 @@
 <section class="intro">
   <p class="eyebrow">US vs Europe · every new drug approved by both, 2019–2025</p>
-  <h1>How fast do new drugs reach patients in the US and Europe?</h1>
+  <h1>What happens after a new drug is approved in the US and Europe?</h1>
   <p class="lede">An approval date is not the same as patient access. This atlas follows all {{n}} new medicines
     approved by both the FDA and the European Commission in 2019–2025. It tracks each one from first approval
     to benefit assessment in Germany, France and England and to reimbursement in Italy.
     Every number links to its public source.</p>
+  <div class="callout">
+    <p><strong>Three different things.</strong> The atlas keeps apart the <em>value recognised</em> by an
+      assessment body (G-BA in Germany, HAS in France, NICE in England), <em>reimbursement</em> (in Italy, publication
+      in the Gazzetta Ufficiale; in Germany, from launch) and <em>actual availability</em> to patients (regional
+      formularies, early-access routes such as Italy's Law 648/96 and the AIFA 5% fund). It measures the first two.
+      Actual availability, the closest to what patients experience, is <strong>not measured</strong>.</p>
+  </div>
 </section>
 
 <section class="kpis" aria-label="Headline numbers">
@@ -14,9 +21,9 @@
     <p class="kpi-note">The US approved first for {{lag_us_first}} of {{n}} drugs</p>
   </div>
   <div class="kpi">
-    <p class="kpi-label">Median Italy access delay</p>
+    <p class="kpi-label">Median time to national reimbursement in Italy</p>
     <p class="kpi-value">{{it_lag_median}} <span class="kpi-unit">days</span></p>
-    <p class="kpi-note">EU approval to reimbursement, counting the {{it_n_waiting}} drugs still not reimbursed</p>
+    <p class="kpi-note">EU approval to publication in the Gazzetta Ufficiale, counting the {{it_n_waiting}} drugs still not reimbursed</p>
   </div>
   <div class="kpi">
     <p class="kpi-label">Germany: “no added benefit”</p>
@@ -37,8 +44,8 @@
   <h2 id="c-cty-h">{{title_countries}}</h2>
   <p class="chart-sub">Share of drugs that had reached each country's milestone, by days since European Commission
     approval. Drugs still waiting count until the day they were checked, so the curves do not overstate speed.
-    The milestones differ: Germany, France and England publish benefit assessments, and Italy publishes
-    reimbursement. Where a curve crosses 50% is its median.</p>
+    The milestones are different events, so the curves describe four processes, not a ranking. Where a curve
+    crosses 50% is its median. <a href="#paths">How each country's milestone works</a>.</p>
   <ul class="legend" aria-hidden="true">
     <li style="--swatch: var(--country-fr)">France: HAS opinion</li>
     <li style="--swatch: var(--country-de)">Germany: G-BA decision</li>
@@ -47,6 +54,21 @@
   </ul>
   <div class="chart-box" style="height: 360px"><canvas id="chart-countries" role="img" aria-label="{{title_countries}}. Data in the table below."></canvas></div>
   <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-countries"></div></details>
+  <h3 id="paths">What each curve measures</h3>
+  <div class="table-scroll">
+  <table class="data-table">
+    <thead><tr><th scope="col">Country</th><th scope="col">Milestone measured</th><th scope="col">How it relates to funding</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Germany</th><td>G-BA decision (about six months after launch)</td><td>The drug is reimbursed from launch; the assessment informs the negotiated price.</td></tr>
+      <tr><th scope="row">France</th><td>HAS Transparency Committee opinion</td><td>The assessment comes before funding.</td></tr>
+      <tr><th scope="row">England</th><td>NICE guidance</td><td>The assessment comes before funding.</td></tr>
+      <tr><th scope="row">Italy</th><td>Reimbursement published in the Gazzetta Ufficiale</td><td>Comes after the AIFA committee's opinion, which sets the price agreed for reimbursement, and after the administrative
+        steps up to ratification by AIFA's Board and publication.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="small">So Italy's milestone comes after price negotiation, and the other three do not. This is why the
+    curves do not line up, not a judgement on any country.</p>
   <p class="small">Country profiles: <a href="united-states.html">United States</a> · <a href="italy.html">Italy</a> · <a href="germany.html">Germany</a> ·
     <a href="france.html">France</a> · <a href="england.html">England</a></p>
 </section>

@@ -156,10 +156,9 @@ def titles(s: dict, t: i18n.Strings) -> dict:
         "italy": t("title.italy", n=t.num(s["it_n_reimbursed"]), med=t.num(analysis.days(s["it_lag_median"]))),
         "hta": t("title.hta", de=s["gba_pct_no_added_benefit"], fr=s["fr_pct_negative"]),
     }
-    if steps:
-        fast, slow = min(steps, key=steps.get), max(steps, key=steps.get)
-        out["countries"] = t("title.countries", fastest=t(f"country.{fast}.subject"), slowest=t(f"country.{slow}.subject"),
-                             fast=t.num(steps[fast]), slow=t.num(steps[slow]))
+    # Fixed country order, no ranking: the four milestones are different events (see Methodology).
+    if len(steps) == 4:
+        out["countries"] = t("title.countries", **{k: t.num(v) for k, v in steps.items()})
     else:
         out["countries"] = t("title.countries_none")
     big = [c for c in s["companies"] if c["n"] >= analysis.SCORECARD_MIN]
@@ -436,7 +435,7 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
     # Numbers for the Insights page (years stay as they are; other whole numbers are formatted locally).
     for key, value in (findings or {}).items():
         is_year = key in ("cms_ipay", "cms_list_year")
-        if key == "drv_lc_p":
+        if key in ("drv_lc_p", "drv_alpha"):
             value = value.replace(".", t.loc["decimal"])
         values[key] = value if is_year or not isinstance(value, int) else n(value)
 
