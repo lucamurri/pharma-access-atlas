@@ -1,5 +1,5 @@
 {
-  "data_as_of": "2026-11-10",
+  "data_as_of": "2026-11-11",
   "groups": [
     {
       "group": "Identity",
@@ -8,8 +8,8 @@
         "manual"
       ],
       "fields": 6,
-      "cells": 1242,
-      "filled": 1242,
+      "cells": 1266,
+      "filled": 1266,
       "checked_none": 0,
       "unknown": 0,
       "pct_filled": 100.0,
@@ -22,12 +22,12 @@
         "manual"
       ],
       "fields": 5,
-      "cells": 1035,
-      "filled": 1003,
+      "cells": 1055,
+      "filled": 1021,
       "checked_none": 0,
-      "unknown": 32,
-      "pct_filled": 96.9,
-      "pct_resolved": 96.9
+      "unknown": 34,
+      "pct_filled": 96.8,
+      "pct_resolved": 96.8
     },
     {
       "group": "EMA",
@@ -35,10 +35,10 @@
         "auto"
       ],
       "fields": 11,
-      "cells": 2277,
-      "filled": 2263,
+      "cells": 2321,
+      "filled": 2306,
       "checked_none": 0,
-      "unknown": 14,
+      "unknown": 15,
       "pct_filled": 99.4,
       "pct_resolved": 99.4
     },
@@ -48,12 +48,12 @@
         "manual"
       ],
       "fields": 7,
-      "cells": 1449,
-      "filled": 1134,
+      "cells": 1477,
+      "filled": 1162,
       "checked_none": 234,
       "unknown": 81,
-      "pct_filled": 78.3,
-      "pct_resolved": 94.4
+      "pct_filled": 78.7,
+      "pct_resolved": 94.5
     },
     {
       "group": "Germany",
@@ -61,11 +61,11 @@
         "manual"
       ],
       "fields": 4,
-      "cells": 828,
-      "filled": 737,
+      "cells": 844,
+      "filled": 753,
       "checked_none": 88,
       "unknown": 3,
-      "pct_filled": 89.0,
+      "pct_filled": 89.2,
       "pct_resolved": 99.6
     },
     {
@@ -74,12 +74,12 @@
         "auto"
       ],
       "fields": 4,
-      "cells": 828,
-      "filled": 701,
+      "cells": 844,
+      "filled": 715,
       "checked_none": 104,
-      "unknown": 23,
+      "unknown": 25,
       "pct_filled": 84.7,
-      "pct_resolved": 97.2
+      "pct_resolved": 97.0
     },
     {
       "group": "England",
@@ -87,12 +87,12 @@
         "manual"
       ],
       "fields": 3,
-      "cells": 621,
-      "filled": 495,
-      "checked_none": 108,
+      "cells": 633,
+      "filled": 504,
+      "checked_none": 111,
       "unknown": 18,
-      "pct_filled": 79.7,
-      "pct_resolved": 97.1
+      "pct_filled": 79.6,
+      "pct_resolved": 97.2
     },
     {
       "group": "CMS",
@@ -101,8 +101,8 @@
         "manual"
       ],
       "fields": 5,
-      "cells": 215,
-      "filled": 215,
+      "cells": 219,
+      "filled": 219,
       "checked_none": 0,
       "unknown": 0,
       "pct_filled": 100.0,
@@ -114,90 +114,90 @@
         "calculated"
       ],
       "fields": 4,
-      "cells": 828,
-      "filled": 728,
+      "cells": 844,
+      "filled": 744,
       "checked_none": 0,
       "unknown": 100,
-      "pct_filled": 87.9,
-      "pct_resolved": 87.9
+      "pct_filled": 88.2,
+      "pct_resolved": 88.2
     }
   ],
   "manual_fields": {
     "us_orphan_designated": {
-      "filled": 205,
+      "filled": 209,
       "unknown": 2
     },
     "it_gu_date": {
-      "filled": 158,
+      "filled": 162,
       "not_reimbursed_as_of": 39,
       "unknown": 10
     },
     "it_reimbursement_class": {
-      "filled": 197,
+      "filled": 201,
       "unknown": 10
     },
     "it_innovative": {
-      "filled": 158,
+      "filled": 162,
       "not_reimbursed_as_of": 39,
       "unknown": 10
     },
     "it_dossier_date": {
-      "filled": 151,
+      "filled": 155,
       "not_reimbursed_as_of": 39,
       "unknown": 17
     },
     "it_cts_date": {
-      "filled": 157,
+      "filled": 161,
       "not_reimbursed_as_of": 39,
       "unknown": 11
     },
     "it_price_opinion_date": {
-      "filled": 157,
+      "filled": 161,
       "not_reimbursed_as_of": 39,
       "unknown": 11
     },
     "it_board_date": {
-      "filled": 156,
+      "filled": 160,
       "not_reimbursed_as_of": 39,
       "unknown": 12
     },
     "de_gba_decision_date": {
-      "filled": 185,
+      "filled": 189,
       "not_reimbursed_as_of": 6,
       "not_assessed": 16
     },
     "de_gba_rating_best": {
-      "filled": 182,
+      "filled": 186,
       "not_reimbursed_as_of": 6,
       "not_assessed": 16,
       "unknown": 3
     },
     "de_gba_any_no_added_benefit": {
-      "filled": 185,
+      "filled": 189,
       "not_reimbursed_as_of": 6,
       "not_assessed": 16
     },
     "de_gba_orphan_route": {
-      "filled": 185,
+      "filled": 189,
       "not_reimbursed_as_of": 6,
       "not_assessed": 16
     },
     "en_nice_decision": {
-      "filled": 177,
+      "filled": 180,
       "unknown": 6,
-      "not_reimbursed_as_of": 24
+      "not_reimbursed_as_of": 25
     },
     "en_nice_date": {
-      "filled": 159,
+      "filled": 162,
       "unknown": 6,
       "not_assessed": 18,
-      "not_reimbursed_as_of": 24
+      "not_reimbursed_as_of": 25
     },
     "en_nice_ta": {
-      "filled": 159,
+      "filled": 162,
       "unknown": 6,
       "not_assessed": 18,
-      "not_reimbursed_as_of": 24
+      "not_reimbursed_as_of": 25
     },
     "cms_list_price_30day": {
       "filled": 2

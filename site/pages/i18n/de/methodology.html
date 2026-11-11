@@ -15,7 +15,15 @@
   <li>Diagnostika (ATC V04, V09) sind ausgeschlossen: Sie sind keine Therapien und werden auf anderen Wegen erstattet.</li>
   <li>Zell- und Gentherapien (von der CBER der FDA zugelassen, nicht in openFDA) stammen aus der EMA-Liste der Arzneimittel für neuartige Therapien.
     Jede ist nur enthalten, wenn ihr FDA-Zulassungsdatum im Zeitraum von Hand überprüft wurde.</li>
-  <li>Die Auswahl wurde mit den offiziellen jährlichen Listen der „novel drug approvals“ der FDA für 2021–2025 abgeglichen.</li>
+  <li>Die Auswahl wurde mit den offiziellen jährlichen Listen der „Novel Drug Approvals“ der FDA für 2019–2025
+    abgeglichen (die Seiten für 2019 und 2020 stellt die FDA nicht mehr bereit, daher wurden Kopien des Internet
+    Archive verwendet). Jedes Arzneimittel dieser Listen ist im Atlas oder aus einem genannten Grund nicht enthalten:
+    keine zentrale EU-Zulassung, eine erste EU-Zulassung außerhalb von 2019–2025 oder ein Diagnostikum. Der Abgleich
+    fand vier Arzneimittel, die eine erste Fassung der Auswahl übersehen hatte, weil der Wirkstoff in der EMA-Datei
+    anders geschrieben ist (Mayzent, Rukobia, Vocabria) oder weil das Arzneimittel in den USA zurückgezogen und aus
+    openFDA entfernt wurde (Pepaxti, von der FDA als Pepaxto zugelassen); sie sind nun enthalten. Ein Arzneimittel des
+    Atlas steht nicht auf den Listen der FDA: Nustendi (Bempedoinsäure mit Ezetimib), weil die FDA Bempedoinsäure nur
+    einmal zählt, unter Nexletol. Der Abgleich steht in <code>pipeline/crosscheck_fda.py</code>.</li>
   <li><strong>Der Zeitraum schneidet jüngere Arzneimittel mit langen Abständen ab.</strong> Beide Zulassungen müssen in 2019–2025
     liegen; ein Arzneimittel, das die FDA 2024–2025 und die EU erst ab 2026 zugelassen hat, ist nicht im Atlas. Unter den jüngeren
     Zulassungen sind nur jene enthalten, die Europa schnell zugelassen hat; der mediane Abstand zwischen USA und EU von {{lag_median}} Tagen kann den

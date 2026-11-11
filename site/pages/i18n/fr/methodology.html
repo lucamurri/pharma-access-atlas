@@ -16,7 +16,16 @@
   <li>Les agents de diagnostic (ATC V04, V09) sont exclus : ce ne sont pas des traitements et ils sont remboursés par d’autres voies.</li>
   <li>Les thérapies cellulaires et géniques (autorisées par le CBER de la FDA, absentes d’openFDA) proviennent de la liste des thérapies innovantes de l’EMA.
     Chacune n’est incluse que si sa date d’autorisation par la FDA dans la fenêtre a été vérifiée manuellement.</li>
-  <li>La sélection a été recoupée avec les listes annuelles officielles de la FDA des « novel drug approvals » pour 2021–2025.</li>
+  <li>La sélection a été recoupée avec les listes annuelles officielles de la FDA des « Novel Drug Approvals »
+    pour 2019–2025 (la FDA ne publie plus les pages de 2019 et 2020 ; des copies de l’Internet Archive ont été
+    utilisées). Chaque médicament de ces listes figure dans l’atlas ou en est exclu pour une raison indiquée : pas
+    d’autorisation centralisée dans l’UE, une première autorisation dans l’UE hors de 2019–2025, ou un produit de
+    diagnostic. Le recoupement a trouvé quatre médicaments qu’une première version de la sélection avait manqués, en
+    raison de l’écriture de la substance dans le fichier de l’EMA (Mayzent, Rukobia, Vocabria) ou parce que le
+    médicament a été retiré aux États-Unis et supprimé d’openFDA (Pepaxti, approuvé par la FDA sous le nom de
+    Pepaxto) ; ils sont désormais inclus. Un médicament de l’atlas ne figure pas sur les listes de la FDA : Nustendi
+    (acide bempédoïque et ézétimibe), car la FDA ne compte l’acide bempédoïque qu’une fois, sous Nexletol. Le
+    recoupement se trouve dans <code>pipeline/crosscheck_fda.py</code>.</li>
   <li><strong>La fenêtre écarte les médicaments récents à long délai.</strong> Les deux autorisations doivent se situer entre 2019 et 2025; un
     médicament autorisé par la FDA en 2024–2025 et par l’UE seulement à partir de 2026 n’est donc pas dans l’atlas. Parmi les autorisations récentes, seuls
     les médicaments que l’Europe a autorisés rapidement sont inclus; l’écart médian entre les États-Unis et l’UE, de {{lag_median}} jours, peut donc sous-estimer

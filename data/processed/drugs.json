@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "data_as_of": "2026-11-10",
+  "data_as_of": "2026-11-11",
   "field_definitions": {
     "brand_us": {
       "group": "Identity",
@@ -9703,7 +9703,7 @@
           "notes": "Initial EU marketing authorisation date"
         },
         "ema_holder": {
-          "value": "BeOne Medicines Netherlands B. V.",
+          "value": "BeOne Medicines Ireland Limited",
           "status": "verified",
           "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/brukinsa",
           "retrieved_date": "2026-11-04",
@@ -33165,6 +33165,370 @@
       }
     },
     {
+      "drug_id": "mayzent",
+      "fields": {
+        "brand_us": {
+          "value": "Mayzent",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "brand_eu": {
+          "value": "Mayzent",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "inn": {
+          "value": "siponimod",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "company": {
+          "value": "Novartis",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": "EU marketing authorisation holder, legal form removed"
+        },
+        "therapy_area": {
+          "value": "Immunology & inflammation",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": "Assigned from the ATC code (rules in pipeline/taxonomy.py)"
+        },
+        "cohort": {
+          "value": "core",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": "Selected by rule: new active substance, first FDA and first EC approval both 2019-2025"
+        },
+        "fda_approval_date": {
+          "value": "2019-03-26",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=209884",
+          "retrieved_date": "2026-11-11",
+          "notes": "Original application approval date (openFDA Drugs@FDA)"
+        },
+        "fda_application": {
+          "value": "NDA209884",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=209884",
+          "retrieved_date": "2026-11-11",
+          "notes": ""
+        },
+        "fda_sponsor": {
+          "value": "NOVARTIS",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=209884",
+          "retrieved_date": "2026-11-11",
+          "notes": ""
+        },
+        "fda_review_priority": {
+          "value": "Priority",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=209884",
+          "retrieved_date": "2026-11-11",
+          "notes": ""
+        },
+        "us_orphan_designated": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/opdlisting/oopd/",
+          "retrieved_date": "2026-11-11",
+          "notes": "no designation found for siponimod matching first approved indication (relapsing MS); only designations: dermatomyositis 07/10/2014 and polymyositis 11/26/2013, both Designation Withdrawn or Revoked; searched siponimod, Mayzent and \"multiple sclerosis\" (25 designations, none siponimod)"
+        },
+        "ema_opinion_date": {
+          "value": "2019-11-14",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "ec_approval_date": {
+          "value": "2020-01-13",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": "Initial EU marketing authorisation date"
+        },
+        "ema_holder": {
+          "value": "Novartis Europharm Limited",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "ema_therapeutic_area": {
+          "value": "Multiple Sclerosis, Relapsing-Remitting",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "atc_code": {
+          "value": "L04",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_status": {
+          "value": "Authorised",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_orphan": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_conditional": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_accelerated": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_prime": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_atmp": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mayzent",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "it_gu_date": {
+          "value": "2021-04-13",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-04-13&atto.codiceRedazionale=21A02191",
+          "retrieved_date": "2026-11-11",
+          "notes": "Determina n. DG 409/2021 (Riclassificazione art. 8 c.10 L.537/1993, 6 Apr 2021); GU Serie Generale n.88 del 2021-04-13; prior Cnn: Determina n. 43/2020 GU n.122 del 13-05-2020; evidence: \"Riclassificazione del medicinale per uso umano «Mayzent», ai sensi dell'articolo 8, comma 10\""
+        },
+        "it_reimbursement_class": {
+          "value": "A",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-04-13&atto.codiceRedazionale=21A02191",
+          "retrieved_date": "2026-11-11",
+          "notes": "Determina n. DG 409/2021 (Riclassificazione art. 8 c.10 L.537/1993, 6 Apr 2021); evidence: \"Classe di rimborsabilita': A; Prezzo ex-factory (IVA esclusa): euro 1.890,86\""
+        },
+        "it_innovative": {
+          "value": "not recognised",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-04-13&atto.codiceRedazionale=21A02191",
+          "retrieved_date": "2026-11-11",
+          "notes": "No attribution of innovativeness in the operative part of the reimbursement determination."
+        },
+        "it_dossier_date": {
+          "value": "2020-02-04",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-04-13&atto.codiceRedazionale=21A02191",
+          "retrieved_date": "2026-11-11",
+          "notes": "Vista la domanda presentata in data 4 febbraio 2020 con la quale l'azienda Novartis Europharm Limited ha chiesto la riclassificazione, ai fini della rimborsabilita' del medicinale «Mayzent» (siponimod)"
+        },
+        "it_cts_date": {
+          "value": "2020-09-23",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-04-13&atto.codiceRedazionale=21A02191",
+          "retrieved_date": "2026-11-11",
+          "notes": "Visto il parere espresso dalla Commissione consultiva tecnico-scientifica dell'AIFA nella sua seduta del 16-18 e 23 settembre 2020"
+        },
+        "it_price_opinion_date": {
+          "value": "2021-02-04",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-04-13&atto.codiceRedazionale=21A02191",
+          "retrieved_date": "2026-11-11",
+          "notes": "Visto il parere reso dal Comitato prezzi e rimborso dell'AIFA nella sua seduta del 26-28 gennaio e 4 febbraio 2021"
+        },
+        "it_board_date": {
+          "value": "2021-03-18",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2021-04-13&atto.codiceRedazionale=21A02191",
+          "retrieved_date": "2026-11-11",
+          "notes": "Vista la deliberazione n. 20 del 18 marzo 2021 del consiglio di amministrazione dell'AIFA, adottata su proposta del direttore generale, concernente l'approvazione delle specialita' medicinali ai fini dell'autorizzazione all'immissione in commercio e rimborsabilita' da parte del Servizio sanitario nazionale"
+        },
+        "de_gba_decision_date": {
+          "value": "2020-08-20",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/519/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 519 (D-513; adult SPMS with active disease = first EU indication, approval 13 Jan 2020); 2 patient groups a (with relapses) and b (without relapses), both: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 25.09.2020 B3). Regular assessment with a zVT, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "de_gba_rating_best": {
+          "value": "no added benefit",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/519/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 519 (D-513; adult SPMS with active disease = first EU indication, approval 13 Jan 2020); 2 patient groups a (with relapses) and b (without relapses), both: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 25.09.2020 B3). Regular assessment with a zVT, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "de_gba_any_no_added_benefit": {
+          "value": "yes",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/519/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 519 (D-513; adult SPMS with active disease = first EU indication, approval 13 Jan 2020); 2 patient groups a (with relapses) and b (without relapses), both: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 25.09.2020 B3). Regular assessment with a zVT, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "de_gba_orphan_route": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/519/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 519 (D-513; adult SPMS with active disease = first EU indication, approval 13 Jan 2020); 2 patient groups a (with relapses) and b (without relapses), both: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 25.09.2020 B3). Regular assessment with a zVT, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "fr_has_date": {
+          "value": "2020-07-22",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3196679",
+          "retrieved_date": "2026-11-11",
+          "notes": "HAS Transparency Committee inscription opinion CT-18468, 22/07/2020; open data SMR file also lists it. Quote: \"Le service médical rendu par MAYZENT (siponimod) est insuffisant dans l'indication de l'AMM.\"; ASMR \"Sans objet\" (no ASMR given); avis défavorable au remboursement; first evaluation"
+        },
+        "fr_has_smr_best": {
+          "value": "insufficient",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3196679",
+          "retrieved_date": "2026-11-11",
+          "notes": "SMR insufficient for the only indication: \"Le service médical rendu par MAYZENT (siponimod) est insuffisant dans l'indication de l'AMM.\""
+        },
+        "fr_has_asmr_best": {
+          "value": null,
+          "status": "unknown",
+          "source_url": "https://www.has-sante.fr/jcms/p_3196679",
+          "retrieved_date": "2026-11-11",
+          "notes": "HAS page: ASMR \"Sans objet\"; SMR insufficient so no ASMR (opinion CT-18468, 22/07/2020)"
+        },
+        "fr_has_any_insufficient": {
+          "value": "yes",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3196679",
+          "retrieved_date": "2026-11-11",
+          "notes": "SMR insufficient for the only indication: \"Le service médical rendu par MAYZENT (siponimod) est insuffisant dans l'indication de l'AMM.\""
+        },
+        "en_nice_decision": {
+          "value": "recommended",
+          "status": "verified",
+          "source_url": "https://www.nice.org.uk/guidance/ta656/chapter/1-Recommendations",
+          "retrieved_date": "2026-11-11",
+          "notes": "\"Siponimod is recommended, within its marketing authorisation, as an option for treating secondary progressive multiple sclerosis with evidence of active disease (that is, relapses or imaging features of inflammatory activity) in adults.\""
+        },
+        "en_nice_date": {
+          "value": "2020-11-18",
+          "status": "verified",
+          "source_url": "https://www.nice.org.uk/guidance/ta656/chapter/1-Recommendations",
+          "retrieved_date": "2026-11-11",
+          "notes": "TA656 published 18 November 2020"
+        },
+        "en_nice_ta": {
+          "value": "TA656",
+          "status": "verified",
+          "source_url": "https://www.nice.org.uk/guidance/ta656/chapter/1-Recommendations",
+          "retrieved_date": "2026-11-11",
+          "notes": ""
+        },
+        "cms_selected": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.cms.gov/initiatives/medicare-prescription-drug-affordability/overview/medicare-drug-price-negotiation-program/selected-drugs-negotiated-prices",
+          "retrieved_date": "2026-11-03",
+          "notes": "Not in CMS selected drug list (all negotiation cycles to date)"
+        },
+        "us_eu_lag_days": {
+          "value": 293,
+          "status": "calculated",
+          "derived_from": [
+            "fda_approval_date",
+            "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "first_region": {
+          "value": "US",
+          "status": "calculated",
+          "derived_from": [
+            "fda_approval_date",
+            "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 456,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": ""
+        },
+        "it_price_opinion_lag_days": {
+          "value": 388,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_price_opinion_date"
+          ],
+          "notes": ""
+        },
+        "it_admin_days": {
+          "value": 68,
+          "status": "calculated",
+          "derived_from": [
+            "it_price_opinion_date",
+            "it_gu_date"
+          ],
+          "notes": ""
+        },
+        "de_gba_lag_days": {
+          "value": 220,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "de_gba_decision_date"
+          ],
+          "notes": ""
+        },
+        "fr_has_lag_days": {
+          "value": 191,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "fr_has_date"
+          ],
+          "notes": ""
+        },
+        "en_nice_lag_days": {
+          "value": 310,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "en_nice_date"
+          ],
+          "notes": ""
+        }
+      }
+    },
+    {
       "drug_id": "minjuvi",
       "fields": {
         "brand_us": {
@@ -41784,6 +42148,370 @@
       }
     },
     {
+      "drug_id": "pepaxti",
+      "fields": {
+        "brand_us": {
+          "value": "Pepaxto",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "brand_eu": {
+          "value": "Pepaxti",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "inn": {
+          "value": "melphalan flufenamide",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "company": {
+          "value": "Oncopeptides publ",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": "EU marketing authorisation holder, legal form removed"
+        },
+        "therapy_area": {
+          "value": "Oncology",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": "Assigned from the ATC code (rules in pipeline/taxonomy.py)"
+        },
+        "cohort": {
+          "value": "core",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": "Selected by rule: new active substance, first FDA and first EC approval both 2019-2025"
+        },
+        "fda_approval_date": {
+          "value": "2021-02-26",
+          "status": "verified",
+          "source_url": "https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2021",
+          "retrieved_date": "2026-11-11",
+          "notes": "FDA Novel Drug Approvals 2021: Pepaxto (melphalan flufenamide), approval date 2/26/2021. Withdrawn in the US later; no longer in openFDA."
+        },
+        "fda_application": {
+          "value": "NDA214383",
+          "status": "verified",
+          "source_url": "https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2021",
+          "retrieved_date": "2026-11-11",
+          "notes": "Drugs@FDA link on FDA's 2021 list (varApplNo=214383)."
+        },
+        "fda_sponsor": {
+          "value": null,
+          "status": "unknown",
+          "source_url": null,
+          "retrieved_date": null,
+          "notes": "Not in openFDA (withdrawn in the US)"
+        },
+        "fda_review_priority": {
+          "value": null,
+          "status": "unknown",
+          "source_url": null,
+          "retrieved_date": null,
+          "notes": "Not in openFDA (withdrawn in the US)"
+        },
+        "us_orphan_designated": {
+          "value": "yes",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=465314",
+          "retrieved_date": "2026-11-11",
+          "notes": "Designated 03/16/2015 (melphalan flufenamide; trade name Pepaxto): treatment of plasma cell myeloma, also referred to as multiple myeloma; status Designated/Approved; approved 02/26/2021"
+        },
+        "ema_opinion_date": {
+          "value": null,
+          "status": "unknown",
+          "source_url": null,
+          "retrieved_date": null,
+          "notes": "Opinion date is blank in the EMA data file"
+        },
+        "ec_approval_date": {
+          "value": "2022-08-17",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": "Initial EU marketing authorisation date"
+        },
+        "ema_holder": {
+          "value": "Oncopeptides AB (publ)",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "ema_therapeutic_area": {
+          "value": "Multiple Myeloma",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "atc_code": {
+          "value": "L01AA10",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_status": {
+          "value": "Authorised",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_orphan": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_conditional": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_accelerated": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_prime": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_atmp": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pepaxti",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "it_gu_date": {
+          "value": "2025-01-25",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-01-25&atto.codiceRedazionale=25A00336",
+          "retrieved_date": "2026-11-11",
+          "notes": "Determina n. 17/2025 (Riclassificazione art. 8 c.10 L.537/1993, 10 Jan 2025); GU Serie Generale n.20 del 2025-01-25; prior Cnn: Determina n. 182/2022 GU n.266 del 14-11-2022; evidence: \"Riclassificazione del medicinale per uso umano «Pepaxti», ai sensi dell'articolo 8, comma 10\""
+        },
+        "it_reimbursement_class": {
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-01-25&atto.codiceRedazionale=25A00336",
+          "retrieved_date": "2026-11-11",
+          "notes": "Determina n. 17/2025 (Riclassificazione art. 8 c.10 L.537/1993, 10 Jan 2025); evidence: \"Classe di rimborsabilita': H. Prezzo ex factory (IVA esclusa): euro 5.450,00\""
+        },
+        "it_innovative": {
+          "value": "not recognised",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-01-25&atto.codiceRedazionale=25A00336",
+          "retrieved_date": "2026-11-11",
+          "notes": "No attribution of innovativeness in the operative part of the reimbursement determination."
+        },
+        "it_dossier_date": {
+          "value": "2023-10-03",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-01-25&atto.codiceRedazionale=25A00336",
+          "retrieved_date": "2026-11-11",
+          "notes": "Vista la domanda presentata in data 3 ottobre 2023 con la quale la societa' Oncopeptides AB ha chiesto la riclassificazione, ai fini della rimborsabilita', del medicinale «Pepaxti» (melfalan flufenamide)"
+        },
+        "it_cts_date": {
+          "value": "2024-10-11",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-01-25&atto.codiceRedazionale=25A00336",
+          "retrieved_date": "2026-11-11",
+          "notes": "Visti i pareri resi dalla Commissione scientifica ed economica nelle sedute dell'8-12 luglio 2024 e nelle sedute del 7-11 ottobre 2024 (CSE, no separate CTS; latest session last day)"
+        },
+        "it_price_opinion_date": {
+          "value": "2024-10-11",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-01-25&atto.codiceRedazionale=25A00336",
+          "retrieved_date": "2026-11-11",
+          "notes": "Visti i pareri resi dalla Commissione scientifica ed economica nelle sedute dell'8-12 luglio 2024 e nelle sedute del 7-11 ottobre 2024"
+        },
+        "it_board_date": {
+          "value": "2024-11-20",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2025-01-25&atto.codiceRedazionale=25A00336",
+          "retrieved_date": "2026-11-11",
+          "notes": "Vista la delibera n. 57 del 20 novembre 2024 del consiglio di amministrazione dell'AIFA, concernente l'approvazione dei medicinali ai fini dell'autorizzazione all'immissione in commercio e rimborsabilita' da parte del Servizio sanitario nazionale"
+        },
+        "de_gba_decision_date": {
+          "value": "2023-03-16",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/883/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 883 (D-868; MM after >=3 prior lines, with dexamethasone = first EU indication, approval 17 Aug 2022); single patient group: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 13.04.2023 B2). Later Beschluss 23.05.2023 concerns Therapiekosten only; proc 1048 (new indication) not used. Regular assessment with a zVT list, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "de_gba_rating_best": {
+          "value": "no added benefit",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/883/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 883 (D-868; MM after >=3 prior lines, with dexamethasone = first EU indication, approval 17 Aug 2022); single patient group: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 13.04.2023 B2). Later Beschluss 23.05.2023 concerns Therapiekosten only; proc 1048 (new indication) not used. Regular assessment with a zVT list, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "de_gba_any_no_added_benefit": {
+          "value": "yes",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/883/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 883 (D-868; MM after >=3 prior lines, with dexamethasone = first EU indication, approval 17 Aug 2022); single patient group: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 13.04.2023 B2). Later Beschluss 23.05.2023 concerns Therapiekosten only; proc 1048 (new indication) not used. Regular assessment with a zVT list, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "de_gba_orphan_route": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/883/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 883 (D-868; MM after >=3 prior lines, with dexamethasone = first EU indication, approval 17 Aug 2022); single patient group: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 13.04.2023 B2). Later Beschluss 23.05.2023 concerns Therapiekosten only; proc 1048 (new indication) not used. Regular assessment with a zVT list, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "fr_has_date": {
+          "value": "2025-02-12",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3590642",
+          "retrieved_date": "2026-11-11",
+          "notes": "HAS Transparency Committee inscription opinion CT-20956, 12/02/2025; open data SMR file also lists it. Quote: \"Le service médical rendu par PEPAXTI (melphalan flufénamide) 20 mg, poudre pour solution à diluer pour perfusion, est insuffisant pour justifier une prise en charge par la solidarité nationale dans l'indication de l'AMM.\"; ASMR \"Sans objet\" (no ASMR given); avis défavorable; only inscription opinion in HAS open data (no earlier opinion found)"
+        },
+        "fr_has_smr_best": {
+          "value": "insufficient",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3590642",
+          "retrieved_date": "2026-11-11",
+          "notes": "SMR insufficient for the only indication: \"Le service médical rendu par PEPAXTI (melphalan flufénamide) 20 mg, poudre pour solution à diluer pour perfusion, est insuffisant pour justifier une prise en charge par la solidarité nationale dans l'indication de l'AMM.\""
+        },
+        "fr_has_asmr_best": {
+          "value": null,
+          "status": "unknown",
+          "source_url": "https://www.has-sante.fr/jcms/p_3590642",
+          "retrieved_date": "2026-11-11",
+          "notes": "HAS page: ASMR \"Sans objet\"; SMR insufficient so no ASMR (opinion CT-20956, 12/02/2025)"
+        },
+        "fr_has_any_insufficient": {
+          "value": "yes",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3590642",
+          "retrieved_date": "2026-11-11",
+          "notes": "SMR insufficient for the only indication: \"Le service médical rendu par PEPAXTI (melphalan flufénamide) 20 mg, poudre pour solution à diluer pour perfusion, est insuffisant pour justifier une prise en charge par la solidarité nationale dans l'indication de l'AMM.\""
+        },
+        "en_nice_decision": {
+          "value": "terminated",
+          "status": "verified",
+          "source_url": "https://www.nice.org.uk/guidance/terminated/ta968",
+          "retrieved_date": "2026-11-11",
+          "notes": "NICE is unable to make a recommendation on melphalan flufenamide (Pepaxti) for treating relapsed or refractory multiple myeloma in adults. This is because Oncopeptides did not provide an evidence submission."
+        },
+        "en_nice_date": {
+          "value": "2024-04-25",
+          "status": "verified",
+          "source_url": "https://www.nice.org.uk/guidance/terminated/ta968",
+          "retrieved_date": "2026-11-11",
+          "notes": "TA968 terminated 25 April 2024"
+        },
+        "en_nice_ta": {
+          "value": "TA968",
+          "status": "verified",
+          "source_url": "https://www.nice.org.uk/guidance/terminated/ta968",
+          "retrieved_date": "2026-11-11",
+          "notes": ""
+        },
+        "cms_selected": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.cms.gov/initiatives/medicare-prescription-drug-affordability/overview/medicare-drug-price-negotiation-program/selected-drugs-negotiated-prices",
+          "retrieved_date": "2026-11-03",
+          "notes": "Not in CMS selected drug list (all negotiation cycles to date)"
+        },
+        "us_eu_lag_days": {
+          "value": 537,
+          "status": "calculated",
+          "derived_from": [
+            "fda_approval_date",
+            "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "first_region": {
+          "value": "US",
+          "status": "calculated",
+          "derived_from": [
+            "fda_approval_date",
+            "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 892,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": ""
+        },
+        "it_price_opinion_lag_days": {
+          "value": 786,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_price_opinion_date"
+          ],
+          "notes": ""
+        },
+        "it_admin_days": {
+          "value": 106,
+          "status": "calculated",
+          "derived_from": [
+            "it_price_opinion_date",
+            "it_gu_date"
+          ],
+          "notes": ""
+        },
+        "de_gba_lag_days": {
+          "value": 211,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "de_gba_decision_date"
+          ],
+          "notes": ""
+        },
+        "fr_has_lag_days": {
+          "value": 910,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "fr_has_date"
+          ],
+          "notes": ""
+        },
+        "en_nice_lag_days": {
+          "value": 617,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "en_nice_date"
+          ],
+          "notes": ""
+        }
+      }
+    },
+    {
       "drug_id": "piasky",
       "fields": {
         "brand_us": {
@@ -48878,6 +49606,361 @@
           "derived_from": [
             "ec_approval_date",
             "en_nice_date"
+          ],
+          "notes": ""
+        }
+      }
+    },
+    {
+      "drug_id": "rukobia",
+      "fields": {
+        "brand_us": {
+          "value": "Rukobia",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "brand_eu": {
+          "value": "Rukobia",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "inn": {
+          "value": "fostemsavir",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "company": {
+          "value": "ViiV Healthcare",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": "EU marketing authorisation holder, legal form removed"
+        },
+        "therapy_area": {
+          "value": "Infectious disease",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": "Assigned from the ATC code (rules in pipeline/taxonomy.py)"
+        },
+        "cohort": {
+          "value": "core",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": "Selected by rule: new active substance, first FDA and first EC approval both 2019-2025"
+        },
+        "fda_approval_date": {
+          "value": "2020-07-02",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212950",
+          "retrieved_date": "2026-11-11",
+          "notes": "Original application approval date (openFDA Drugs@FDA)"
+        },
+        "fda_application": {
+          "value": "NDA212950",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212950",
+          "retrieved_date": "2026-11-11",
+          "notes": ""
+        },
+        "fda_sponsor": {
+          "value": "VIIV HLTHCARE",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212950",
+          "retrieved_date": "2026-11-11",
+          "notes": ""
+        },
+        "fda_review_priority": {
+          "value": "Priority",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212950",
+          "retrieved_date": "2026-11-11",
+          "notes": ""
+        },
+        "us_orphan_designated": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/opdlisting/oopd/",
+          "retrieved_date": "2026-11-11",
+          "notes": "no designation found for fostemsavir matching first approved indication; searched fostemsavir, Rukobia, BMS-663068 and designation text \"HIV\" / \"human immunodeficiency\" (the multidrug-resistant HIV-1 designation there is ibalizumab, not fostemsavir)"
+        },
+        "ema_opinion_date": {
+          "value": "2020-12-10",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "ec_approval_date": {
+          "value": "2021-02-04",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": "Initial EU marketing authorisation date"
+        },
+        "ema_holder": {
+          "value": "ViiV Healthcare B.V.",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "ema_therapeutic_area": {
+          "value": "HIV Infections",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "atc_code": {
+          "value": "J05AX",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_status": {
+          "value": "Authorised",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_orphan": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_conditional": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_accelerated": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_prime": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_atmp": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rukobia",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "it_gu_date": {
+          "value": "2022-06-06",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-06-06&atto.codiceRedazionale=22A03311",
+          "retrieved_date": "2026-11-11",
+          "notes": "Determina n. 415/2022 (Riclassificazione art. 8 c.10 L.537/1993, 23 May 2022); GU Serie Generale n.130 del 2022-06-06; prior Cnn: Determina n. 69/2021 GU n.115 del 15-05-2021; evidence: \"Riclassificazione del medicinale per uso umano «Rukobia», ai sensi dell'articolo 8, comma 10\""
+        },
+        "it_reimbursement_class": {
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-06-06&atto.codiceRedazionale=22A03311",
+          "retrieved_date": "2026-11-11",
+          "notes": "Determina n. 415/2022 (Riclassificazione art. 8 c.10 L.537/1993, 23 May 2022); evidence: \"classe di rimborsabilita': H; prezzo ex-factory (IVA esclusa): euro 3.324,10\""
+        },
+        "it_innovative": {
+          "value": "not recognised",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-06-06&atto.codiceRedazionale=22A03311",
+          "retrieved_date": "2026-11-11",
+          "notes": "No attribution of innovativeness in the operative part of the reimbursement determination."
+        },
+        "it_dossier_date": {
+          "value": "2021-02-19",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-06-06&atto.codiceRedazionale=22A03311",
+          "retrieved_date": "2026-11-11",
+          "notes": "Vista la domanda presentata in data 19 febbraio 2021 con la quale la societa' VIIV Healthcabe BV ha chiesto la riclassificazione, ai fini della rimborsabilita' del medicinale RUKOBIA (fostemsavir) [sic, 'Healthcabe' as printed in GU]"
+        },
+        "it_cts_date": {
+          "value": "2021-10-06",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-06-06&atto.codiceRedazionale=22A03311",
+          "retrieved_date": "2026-11-11",
+          "notes": "Visto il parere espresso dalla Commissione consultiva tecnico-scientifica nella seduta del 4-6 ottobre 2021"
+        },
+        "it_price_opinion_date": {
+          "value": "2022-03-28",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-06-06&atto.codiceRedazionale=22A03311",
+          "retrieved_date": "2026-11-11",
+          "notes": "Visto il parere reso dal Comitato prezzi e rimborso nella seduta del 21-23 e 28 marzo 2022"
+        },
+        "it_board_date": {
+          "value": "2022-05-12",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-06-06&atto.codiceRedazionale=22A03311",
+          "retrieved_date": "2026-11-11",
+          "notes": "Vista la delibera n. 25 del 12 maggio 2022 del consiglio di amministrazione dell'AIFA, adottata su proposta del direttore generale, concernente l'approvazione dei medicinali ai fini dell'autorizzazione all'immissione in commercio e rimborsabilita' da parte del Servizio sanitario nazionale"
+        },
+        "de_gba_decision_date": {
+          "value": "2021-09-16",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/674/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 674 (D-660; adults with multidrug-resistant HIV-1 = first EU indication, approval 4 Feb 2021); single patient group: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 18.10.2021 B5). Regular assessment with a zVT, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "de_gba_rating_best": {
+          "value": "no added benefit",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/674/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 674 (D-660; adults with multidrug-resistant HIV-1 = first EU indication, approval 4 Feb 2021); single patient group: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 18.10.2021 B5). Regular assessment with a zVT, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "de_gba_any_no_added_benefit": {
+          "value": "yes",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/674/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 674 (D-660; adults with multidrug-resistant HIV-1 = first EU indication, approval 4 Feb 2021); single patient group: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 18.10.2021 B5). Regular assessment with a zVT, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "de_gba_orphan_route": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/674/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 674 (D-660; adults with multidrug-resistant HIV-1 = first EU indication, approval 4 Feb 2021); single patient group: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 18.10.2021 B5). Regular assessment with a zVT, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "fr_has_date": {
+          "value": "2021-06-02",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3271861",
+          "retrieved_date": "2026-11-03",
+          "notes": "HAS Transparency Committee opinion CT-19115 (Inscription (CT)). Source: BDPM, Licence ouverte"
+        },
+        "fr_has_smr_best": {
+          "value": "important",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3271861",
+          "retrieved_date": "2026-11-03",
+          "notes": "Best SMR across indications: Important"
+        },
+        "fr_has_asmr_best": {
+          "value": "III",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3271861",
+          "retrieved_date": "2026-11-03",
+          "notes": "Best ASMR across indications: III"
+        },
+        "fr_has_any_insufficient": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3271861",
+          "retrieved_date": "2026-11-03",
+          "notes": ""
+        },
+        "en_nice_decision": {
+          "value": null,
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.nice.org.uk/guidance/awaiting-development/gid-ta10605",
+          "retrieved_date": "2026-11-11",
+          "notes": "awaiting development (ID2726 / GID-TA10605; expected publication date TBC); no published guidance. Page title: Fostemsavir for treating adults with multidrug resistant HIV-1 for whom it is not possible to construct a suppressive anti-viral regimen."
+        },
+        "en_nice_date": {
+          "value": null,
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.nice.org.uk/guidance/awaiting-development/gid-ta10605",
+          "retrieved_date": "2026-11-11",
+          "notes": "awaiting development (ID2726 / GID-TA10605; expected publication date TBC); no published guidance. Page title: Fostemsavir for treating adults with multidrug resistant HIV-1 for whom it is not possible to construct a suppressive anti-viral regimen."
+        },
+        "en_nice_ta": {
+          "value": null,
+          "status": "not_reimbursed_as_of",
+          "source_url": "https://www.nice.org.uk/guidance/awaiting-development/gid-ta10605",
+          "retrieved_date": "2026-11-11",
+          "notes": "awaiting development (ID2726 / GID-TA10605; expected publication date TBC); no published guidance. Page title: Fostemsavir for treating adults with multidrug resistant HIV-1 for whom it is not possible to construct a suppressive anti-viral regimen."
+        },
+        "cms_selected": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.cms.gov/initiatives/medicare-prescription-drug-affordability/overview/medicare-drug-price-negotiation-program/selected-drugs-negotiated-prices",
+          "retrieved_date": "2026-11-03",
+          "notes": "Not in CMS selected drug list (all negotiation cycles to date)"
+        },
+        "us_eu_lag_days": {
+          "value": 217,
+          "status": "calculated",
+          "derived_from": [
+            "fda_approval_date",
+            "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "first_region": {
+          "value": "US",
+          "status": "calculated",
+          "derived_from": [
+            "fda_approval_date",
+            "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 487,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": ""
+        },
+        "it_price_opinion_lag_days": {
+          "value": 417,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_price_opinion_date"
+          ],
+          "notes": ""
+        },
+        "it_admin_days": {
+          "value": 70,
+          "status": "calculated",
+          "derived_from": [
+            "it_price_opinion_date",
+            "it_gu_date"
+          ],
+          "notes": ""
+        },
+        "de_gba_lag_days": {
+          "value": 224,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "de_gba_decision_date"
+          ],
+          "notes": ""
+        },
+        "fr_has_lag_days": {
+          "value": 118,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "fr_has_date"
           ],
           "notes": ""
         }
@@ -64158,6 +65241,370 @@
         },
         "en_nice_lag_days": {
           "value": 75,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "en_nice_date"
+          ],
+          "notes": ""
+        }
+      }
+    },
+    {
+      "drug_id": "vocabria",
+      "fields": {
+        "brand_us": {
+          "value": "Cabenuva",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "brand_eu": {
+          "value": "Vocabria",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "inn": {
+          "value": "cabotegravir",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "company": {
+          "value": "ViiV Healthcare",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": "EU marketing authorisation holder, legal form removed"
+        },
+        "therapy_area": {
+          "value": "Infectious disease",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": "Assigned from the ATC code (rules in pipeline/taxonomy.py)"
+        },
+        "cohort": {
+          "value": "core",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": "Selected by rule: new active substance, first FDA and first EC approval both 2019-2025"
+        },
+        "fda_approval_date": {
+          "value": "2021-01-21",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212888",
+          "retrieved_date": "2026-11-11",
+          "notes": "Original application approval date (openFDA Drugs@FDA)"
+        },
+        "fda_application": {
+          "value": "NDA212888",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212888",
+          "retrieved_date": "2026-11-11",
+          "notes": ""
+        },
+        "fda_sponsor": {
+          "value": "VIIV HLTHCARE",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212888",
+          "retrieved_date": "2026-11-11",
+          "notes": ""
+        },
+        "fda_review_priority": {
+          "value": "Priority",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212888",
+          "retrieved_date": "2026-11-11",
+          "notes": ""
+        },
+        "us_orphan_designated": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.accessdata.fda.gov/scripts/opdlisting/oopd/",
+          "retrieved_date": "2026-11-11",
+          "notes": "no designation found for cabotegravir (or Vocabria, Cabenuva) matching first approved indication; searched cabotegravir, Cabenuva and designation text \"HIV\"; rilpivirine has only a neuroblastoma designation 01/19/2022 (withdrawn)"
+        },
+        "ema_opinion_date": {
+          "value": "2020-10-15",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "ec_approval_date": {
+          "value": "2020-12-17",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": "Initial EU marketing authorisation date"
+        },
+        "ema_holder": {
+          "value": "ViiV Healthcare B.V.",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "ema_therapeutic_area": {
+          "value": "HIV Infections",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "atc_code": {
+          "value": "J05AX",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_status": {
+          "value": "Authorised",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_orphan": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_conditional": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_accelerated": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_prime": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "eu_atmp": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/vocabria",
+          "retrieved_date": "2026-11-04",
+          "notes": ""
+        },
+        "it_gu_date": {
+          "value": "2022-05-18",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-18&atto.codiceRedazionale=22A02928",
+          "retrieved_date": "2026-11-11",
+          "notes": "Determina n. 351/2022 (Riclassificazione art. 8 c.10 L.537/1993, 9 May 2022); GU Serie Generale n.115 del 2022-05-18; prior Cnn: Determina n. 28/2021 GU n.62 del 13-03-2021; covers tablets and prolonged-release injection; evidence: \"Riclassificazione del medicinale per uso umano «Vocabria», ai sensi dell'articolo 8, comma 10\""
+        },
+        "it_reimbursement_class": {
+          "value": "H",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-18&atto.codiceRedazionale=22A02928",
+          "retrieved_date": "2026-11-11",
+          "notes": "Determina n. 351/2022 (Riclassificazione art. 8 c.10 L.537/1993, 9 May 2022); evidence: \"classe di rimborsabilita': H; prezzo ex-factory (IVA esclusa): euro 604,77 (tablets); injection also H\""
+        },
+        "it_innovative": {
+          "value": "not recognised",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-18&atto.codiceRedazionale=22A02928",
+          "retrieved_date": "2026-11-11",
+          "notes": "No attribution of innovativeness in the operative part of the reimbursement determination."
+        },
+        "it_dossier_date": {
+          "value": "2020-12-28",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-18&atto.codiceRedazionale=22A02928",
+          "retrieved_date": "2026-11-11",
+          "notes": "Vista la domanda presentata in data 28 dicembre 2020 con la quale la societa' VIIV Healthcare BV ha chiesto la riclassificazione, ai fini della rimborsabilita' del medicinale «Vocabria» (cabotegravir)"
+        },
+        "it_cts_date": {
+          "value": "2021-07-12",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-18&atto.codiceRedazionale=22A02928",
+          "retrieved_date": "2026-11-11",
+          "notes": "Visto il parere espresso dalla Commissione consultiva tecnico-scientifica nella seduta del 07-09, 12 luglio 2021"
+        },
+        "it_price_opinion_date": {
+          "value": "2022-02-24",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-18&atto.codiceRedazionale=22A02928",
+          "retrieved_date": "2026-11-11",
+          "notes": "Visto il parere reso dal Comitato prezzi e rimborso nella seduta del 22-24 febbraio 2022"
+        },
+        "it_board_date": {
+          "value": "2022-04-11",
+          "status": "verified",
+          "source_url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2022-05-18&atto.codiceRedazionale=22A02928",
+          "retrieved_date": "2026-11-11",
+          "notes": "Vista la delibera n. 20 dell'11 aprile 2022 del consiglio di amministrazione dell'AIFA, adottata su proposta del direttore generale, concernente l'approvazione dei medicinali ai fini dell'autorizzazione all'immissione in commercio e rimborsabilita' da parte del Servizio sanitario nazionale"
+        },
+        "de_gba_decision_date": {
+          "value": "2021-10-21",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/678/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 678 (D-645; cabotegravir in combination with rilpivirine, virologically suppressed adults = first EU indication, approval 17 Dec 2020; assessed as whole therapy concept incl. oral lead-in and bridging); single patient group: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 20.12.2021 B2). Later proc 1178 (adolescents, new indication) not used. Regular assessment with a zVT, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "de_gba_rating_best": {
+          "value": "no added benefit",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/678/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 678 (D-645; cabotegravir in combination with rilpivirine, virologically suppressed adults = first EU indication, approval 17 Dec 2020; assessed as whole therapy concept incl. oral lead-in and bridging); single patient group: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 20.12.2021 B2). Later proc 1178 (adolescents, new indication) not used. Regular assessment with a zVT, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "de_gba_any_no_added_benefit": {
+          "value": "yes",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/678/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 678 (D-645; cabotegravir in combination with rilpivirine, virologically suppressed adults = first EU indication, approval 17 Dec 2020; assessed as whole therapy concept incl. oral lead-in and bridging); single patient group: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 20.12.2021 B2). Later proc 1178 (adolescents, new indication) not used. Regular assessment with a zVT, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "de_gba_orphan_route": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/678/",
+          "retrieved_date": "2026-11-11",
+          "notes": "Beschlussdatum on procedure page. Proc 678 (D-645; cabotegravir in combination with rilpivirine, virologically suppressed adults = first EU indication, approval 17 Dec 2020; assessed as whole therapy concept incl. oral lead-in and bridging); single patient group: \"Ein Zusatznutzen ist nicht belegt.\" Beschluss PDF (BAnz AT 20.12.2021 B2). Later proc 1178 (adolescents, new indication) not used. Regular assessment with a zVT, not orphan (no orphan reference in Beschluss or Tragende Gründe)."
+        },
+        "fr_has_date": {
+          "value": "2021-04-21",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3263063",
+          "retrieved_date": "2026-11-03",
+          "notes": "HAS Transparency Committee opinion CT-18978 (Inscription (CT)). Source: BDPM, Licence ouverte"
+        },
+        "fr_has_smr_best": {
+          "value": "important",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3263063",
+          "retrieved_date": "2026-11-03",
+          "notes": "Best SMR across indications: Important; Insuffisant"
+        },
+        "fr_has_asmr_best": {
+          "value": "V",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3263063",
+          "retrieved_date": "2026-11-03",
+          "notes": "Best ASMR across indications: V"
+        },
+        "fr_has_any_insufficient": {
+          "value": "yes",
+          "status": "verified",
+          "source_url": "https://www.has-sante.fr/jcms/p_3263063",
+          "retrieved_date": "2026-11-03",
+          "notes": ""
+        },
+        "en_nice_decision": {
+          "value": "recommended",
+          "status": "verified",
+          "source_url": "https://www.nice.org.uk/guidance/TA757/chapter/1-recommendations",
+          "retrieved_date": "2026-11-11",
+          "notes": "\"Cabotegravir with rilpivirine is recommended, within its marketing authorisation, as an option for treating HIV-1 infection in adults: with virological suppression ... and without any evidence of viral resistance to ... any non-nucleoside reverse transcriptase inhibitors or integrase inhibitors.\""
+        },
+        "en_nice_date": {
+          "value": "2022-01-05",
+          "status": "verified",
+          "source_url": "https://www.nice.org.uk/guidance/TA757/chapter/1-recommendations",
+          "retrieved_date": "2026-11-11",
+          "notes": "TA757 (cabotegravir with rilpivirine) published 05 January 2022"
+        },
+        "en_nice_ta": {
+          "value": "TA757",
+          "status": "verified",
+          "source_url": "https://www.nice.org.uk/guidance/TA757/chapter/1-recommendations",
+          "retrieved_date": "2026-11-11",
+          "notes": ""
+        },
+        "cms_selected": {
+          "value": "no",
+          "status": "verified",
+          "source_url": "https://www.cms.gov/initiatives/medicare-prescription-drug-affordability/overview/medicare-drug-price-negotiation-program/selected-drugs-negotiated-prices",
+          "retrieved_date": "2026-11-03",
+          "notes": "Not in CMS selected drug list (all negotiation cycles to date)"
+        },
+        "us_eu_lag_days": {
+          "value": -35,
+          "status": "calculated",
+          "derived_from": [
+            "fda_approval_date",
+            "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "first_region": {
+          "value": "EU",
+          "status": "calculated",
+          "derived_from": [
+            "fda_approval_date",
+            "ec_approval_date"
+          ],
+          "notes": ""
+        },
+        "it_access_lag_days": {
+          "value": 517,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_gu_date"
+          ],
+          "notes": ""
+        },
+        "it_price_opinion_lag_days": {
+          "value": 434,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "it_price_opinion_date"
+          ],
+          "notes": ""
+        },
+        "it_admin_days": {
+          "value": 83,
+          "status": "calculated",
+          "derived_from": [
+            "it_price_opinion_date",
+            "it_gu_date"
+          ],
+          "notes": ""
+        },
+        "de_gba_lag_days": {
+          "value": 308,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "de_gba_decision_date"
+          ],
+          "notes": ""
+        },
+        "fr_has_lag_days": {
+          "value": 125,
+          "status": "calculated",
+          "derived_from": [
+            "ec_approval_date",
+            "fr_has_date"
+          ],
+          "notes": ""
+        },
+        "en_nice_lag_days": {
+          "value": 384,
           "status": "calculated",
           "derived_from": [
             "ec_approval_date",
