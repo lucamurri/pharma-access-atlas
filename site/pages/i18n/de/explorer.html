@@ -26,8 +26,8 @@
     <select id="f-sort">
       <option value="brand_us:asc">Arzneimittel (A–Z)</option>
       <option value="lag:desc">Abstand USA→EU (längster zuerst)</option>
-      <option value="it_sort:asc">Verzögerung Italien (kürzeste zuerst)</option>
-      <option value="it_sort:desc">Verzögerung Italien (längste zuerst)</option>
+      <option value="it_sort:asc">Italien: bis zur Erstattung (kürzeste zuerst)</option>
+      <option value="it_sort:desc">Italien: bis zur Erstattung (längste zuerst)</option>
       <option value="ec_date:desc">EK-Zulassung (neueste zuerst)</option>
       <option value="gba_sort:asc">Bewertung Deutschland (beste zuerst)</option>
       <option value="fr_sort:asc">Bewertung Frankreich (beste zuerst)</option>
@@ -48,7 +48,7 @@
         <th scope="col" data-key="fda_date"><button class="sort-btn" type="button">FDA</button></th>
         <th scope="col" data-key="ec_date"><button class="sort-btn" type="button">EK</button></th>
         <th scope="col" class="num" data-key="lag"><button class="sort-btn" type="button">Abstand USA→EU (Tage)</button></th>
-        <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Verzögerung Italien (Tage)</button></th>
+        <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Italien: bis zur Erstattung (Tage)</button></th>
         <th scope="col" data-key="gba_sort"><button class="sort-btn" type="button">G-BA-Bewertung</button></th>
         <th scope="col" data-key="fr_sort"><button class="sort-btn" type="button">Frankreich ASMR</button></th>
         <th scope="col" data-key="en_decision"><button class="sort-btn" type="button">NICE</button></th>
@@ -61,6 +61,6 @@
   </table>
 </div>
 <p class="muted small">Abstand = Datum der EK-Zulassung minus Datum der FDA-Zulassung; negativ heißt, die EU hat zuerst zugelassen.
-  Verzögerung Italien = von der EK-Zulassung bis zur Erstattung in der Gazzetta Ufficiale; „wartend“ = bei der Prüfung noch nicht erstattet.
+  Italien = von der EK-Zulassung bis zur in der Gazzetta Ufficiale veröffentlichten nationalen Erstattung; „wartend“ = bei der Prüfung noch nicht erstattet.
   Frankreich ASMR: I = erhebliche Verbesserung, V = keine. „Ref.“ kennzeichnet Referenzarzneimittel, die aus den Kennzahlen ausgeschlossen sind.
   <a href="methodology.html">Definitionen</a>.</p>

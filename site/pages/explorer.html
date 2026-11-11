@@ -26,8 +26,8 @@
     <select id="f-sort">
       <option value="brand_us:asc">Drug (A–Z)</option>
       <option value="lag:desc">US→EU lag (longest first)</option>
-      <option value="it_sort:asc">Italy delay (shortest first)</option>
-      <option value="it_sort:desc">Italy delay (longest first)</option>
+      <option value="it_sort:asc">Italy: to reimbursement (shortest first)</option>
+      <option value="it_sort:desc">Italy: to reimbursement (longest first)</option>
       <option value="ec_date:desc">EC approval (newest first)</option>
       <option value="gba_sort:asc">Germany rating (best first)</option>
       <option value="fr_sort:asc">France rating (best first)</option>
@@ -48,7 +48,7 @@
         <th scope="col" data-key="fda_date"><button class="sort-btn" type="button">FDA</button></th>
         <th scope="col" data-key="ec_date"><button class="sort-btn" type="button">EC</button></th>
         <th scope="col" class="num" data-key="lag"><button class="sort-btn" type="button">US→EU lag (days)</button></th>
-        <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Italy delay (days)</button></th>
+        <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Italy: to reimbursement (days)</button></th>
         <th scope="col" data-key="gba_sort"><button class="sort-btn" type="button">G-BA rating</button></th>
         <th scope="col" data-key="fr_sort"><button class="sort-btn" type="button">France ASMR</button></th>
         <th scope="col" data-key="en_decision"><button class="sort-btn" type="button">NICE</button></th>
@@ -61,6 +61,6 @@
   </table>
 </div>
 <p class="muted small">Lag = EC approval date minus FDA approval date; negative means the EU approved first.
-  Italy delay = EC approval to reimbursement in the Gazzetta Ufficiale; “waiting” = not reimbursed when checked.
+  Italy = EC approval to national reimbursement published in the Gazzetta Ufficiale; “waiting” = not reimbursed when checked.
   France ASMR: I = major improvement, V = none. “Ref.” marks reference drugs excluded from headline statistics.
   <a href="methodology.html">Definitions</a>.</p>

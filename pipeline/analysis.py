@@ -120,17 +120,36 @@ def time_to(f: dict, start_field: str, end_field: str):
     return None
 
 
+def _ci(surv: float, greenwood: float, z: float = 1.959964) -> list | None:
+    """95% confidence interval, in percent, for the share reached (1 - survival).
+
+    Greenwood's variance with the log(-log) transform, the default in the lifelines
+    library, which keeps the interval between 0% and 100%.
+    """
+    if not 0 < surv < 1:
+        return None
+    se = math.sqrt(greenwood) / abs(math.log(surv))
+    theta = math.log(-math.log(surv))
+    s_high, s_low = (math.exp(-math.exp(theta + k * z * se)) for k in (-1, 1))
+    return [round(100 * (1 - s_high), 1), round(100 * (1 - s_low), 1)]
+
+
 def kaplan_meier(pairs: list) -> dict:
     """Share of drugs that reached the milestone by each day (1 - survival)."""
     pairs = sorted(p for p in pairs if p is not None)
     at_risk, surv, steps, i = len(pairs), 1.0, [[0, 0.0]], 0
+    greenwood, surv_2y, greenwood_2y = 0.0, 1.0, 0.0
     while i < len(pairs):
         t = pairs[i][0]
         events = sum(1 for p in pairs if p[0] == t and p[1] == 1)
         leaving = sum(1 for p in pairs if p[0] == t)
         if events:
             surv *= 1 - events / at_risk
+            if at_risk > events:
+                greenwood += events / (at_risk * (at_risk - events))
             steps.append([t, round(100 * (1 - surv), 1)])
+            if t <= 730:
+                surv_2y, greenwood_2y = surv, greenwood
         at_risk -= leaving
         i += leaving
 
@@ -140,7 +159,7 @@ def kaplan_meier(pairs: list) -> dict:
     med = next((t for t, pct in steps if pct >= 50), None)
     return {
         "n": len(pairs), "events": sum(p[1] for p in pairs), "waiting": sum(1 for p in pairs if p[1] == 0),
-        "median": med, "pct_1y": reached_by(365), "pct_2y": reached_by(730),
+        "median": med, "pct_1y": reached_by(365), "pct_2y": reached_by(730), "ci_2y": _ci(surv_2y, greenwood_2y),
         "max_followup": max((p[0] for p in pairs), default=None), "steps": steps,
     }
 
@@ -310,7 +329,7 @@ def italy_drivers(all_rows: list[dict]) -> list[dict]:
         stats = {}
         for g, pairs in groups.items():
             km = kaplan_meier(pairs)
-            stats[g] = {k: km[k] for k in ("n", "events", "waiting", "median", "pct_1y", "pct_2y")}
+            stats[g] = {k: km[k] for k in ("n", "events", "waiting", "median", "pct_1y", "pct_2y", "ci_2y")}
         p = log_rank_p(groups["yes"], groups["no"])
         out.append({"key": key, "yes_label": yes_label, "no_label": no_label, **stats,
                     "p": round(p, 3) if p is not None else None})
@@ -399,39 +418,6 @@ def us_profile(all_rows: list[dict]) -> dict:
     }
 
 
-def scorecard_title(s: dict) -> str:
-    big = [c for c in s["companies"] if c["n"] >= SCORECARD_MIN]
-    timed = [c for c in big if c["it_median"] is not None]
-    if not timed:
-        return f"{len(big)} companies have at least {SCORECARD_MIN} drugs in the atlas"
-    fast = min(timed, key=lambda c: (c["it_median"], c["company"]))
-    slow = max(timed, key=lambda c: (c["it_median"], c["company"]))
-    return (f"Among the {len(big)} companies with at least {SCORECARD_MIN} drugs, {fast['company']} got half of its "
-            f"drugs reimbursed in Italy fastest ({fast['it_median']} days) and {slow['company']} slowest "
-            f"({slow['it_median']})")
-
-
-def chart_titles(s: dict) -> dict:
-    """Takeaway titles: each states what the chart shows, not just the metric."""
-    a = s["access"]
-    steps = {"Germany (G-BA decision)": a["de"]["median"], "France (HAS opinion)": a["fr"]["median"],
-             "England (NICE guidance)": a["en"]["median"], "Italy (reimbursement)": a["it"]["median"]}
-    known = {k: v for k, v in steps.items() if v is not None}
-    slowest = max(known, key=known.get) if known else None
-    fastest = min(known, key=known.get) if known else None
-    return {
-        "lag": (f"The US approved {s['lag_us_first']} of {s['n']} drugs first; "
-                f"the median EU approval came {days(s['lag_median'])} days after the FDA's"),
-        "countries": (f"After EU approval, {fastest.split(' (')[0]} moves fastest and {slowest.split(' (')[0]} slowest: "
-                      f"half of drugs got there within {known[fastest]} vs {known[slowest]} days"
-                      if known else "Days after EU approval"),
-        "italy": (f"Among the {s['it_n_reimbursed']} drugs Italy reimbursed, the median wait was "
-                  f"{days(s['it_lag_median'])} days, varying widely by therapy area"),
-        "hta": (f"Germany found no added benefit for {s['gba_pct_no_added_benefit']}% of drugs; "
-                f"France found no improvement or no reimbursable value for {s['fr_pct_negative']}%"),
-    }
-
-
 def days(x) -> int:
     """Round a median of days for display (half-days round up)."""
     return int(x + 0.5)
@@ -454,7 +440,7 @@ def findings(all_rows: list[dict], s: dict) -> dict:
         values = [v for v in values if v is not None]
         return (median(values), len(values))
 
-    # 1. Approval is the short part of the wait. Medians come from the time-to-access
+    # 1. Four different milestones after EU approval. Medians come from the time-to-access
     #    curves, so drugs still waiting count (see kaplan_meier above).
     a = s["access"]
     fr, de, en, it, fda_to_it = (a[k]["median"] for k in ("fr", "de", "en", "it", "it_from_fda"))
@@ -484,7 +470,7 @@ def findings(all_rows: list[dict], s: dict) -> dict:
     by_id = {r["id"]: r for r in all_rows}
     ryb, weg = by_id["rybelsus"], by_id["wegovy"]
 
-    # 7. What goes with a faster Italian launch (see italy_drivers)
+    # 7. Traits compared with Italian reimbursement times (see italy_drivers)
     drv = {d["key"]: d for d in s["drivers"]}
     medians = [d[g]["median"] for d in s["drivers"] for g in ("yes", "no") if d[g]["n"] >= 20 and d[g]["median"]]
 
@@ -496,6 +482,8 @@ def findings(all_rows: list[dict], s: dict) -> dict:
         "drv_lc_y_2y": days(drv["large_company"]["yes"]["pct_2y"]), "drv_lc_n_2y": days(drv["large_company"]["no"]["pct_2y"]),
         "drv_lc_y_n": drv["large_company"]["yes"]["n"], "drv_lc_n_n": drv["large_company"]["no"]["n"],
         "drv_lc_p": f'{drv["large_company"]["p"]:.2f}',
+        # Bonferroni threshold for the driver comparisons, shown as e.g. 0.007
+        "drv_alpha": f'{0.05 / len(s["drivers"]):.3f}',
         "fda_to_it_median": fda_to_it,
         "fr_med": fr, "fr_n2": a["fr"]["n"], "fr_wait": a["fr"]["waiting"],
         "de_med": de, "de_n2": a["de"]["n"], "de_wait": a["de"]["waiting"],
@@ -516,10 +504,6 @@ def findings(all_rows: list[dict], s: dict) -> dict:
 
     guards = {
         "1: every curve passes 50% (medians exist)": None not in (fr, de, en, it, fda_to_it),
-        "1: Italy is the slowest of the four milestones": it == max(fr, de, en, it),
-        "1: France is the fastest of the four milestones": fr == min(fr, de, en, it),
-        "1: Italy's step is more than twice the US-EU gap": it > 2 * s["lag_median"],
-        "1: end-to-end median is 'more than two years' (24-36 months)": 730 <= fda_to_it < 1095,
         "2: 2022 gap shorter than 2019 gap": lag22 < lag19,
         "3: most comparator-route drugs got no added benefit": len(comp_nab) * 2 > len(comp),
         "3: every orphan-route drug got a benefit rating": len(orph_pos) == len(orph),
@@ -532,6 +516,7 @@ def findings(all_rows: list[dict], s: dict) -> dict:
         "7: orphan status shows no clear link to Italy's speed (p >= 0.05)": drv["orphan"]["p"] >= 0.05,
         "7: company size is the only factor with p < 0.05": [d["key"] for d in s["drivers"] if d["p"] < 0.05] == ["large_company"],
         "7: large companies reach more drugs within two years": drv["large_company"]["yes"]["pct_2y"] > drv["large_company"]["no"]["pct_2y"],
+        "7: no comparison passes the Bonferroni threshold": all(d["p"] >= 0.05 / len(s["drivers"]) for d in s["drivers"]),
     }
     broken = [name for name, ok in guards.items() if not ok]
     if broken:
@@ -543,4 +528,3 @@ def findings(all_rows: list[dict], s: dict) -> dict:
 if __name__ == "__main__":
     s = summary(flat_rows(load()))
     print(json.dumps(s, indent=2))
-    print(json.dumps(chart_titles(s), indent=2))

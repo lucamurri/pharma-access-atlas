@@ -26,8 +26,8 @@
     <select id="f-sort">
       <option value="brand_us:asc">Farmaco (A–Z)</option>
       <option value="lag:desc">Intervallo USA→UE (prima il più lungo)</option>
-      <option value="it_sort:asc">Ritardo Italia (prima il più breve)</option>
-      <option value="it_sort:desc">Ritardo Italia (prima il più lungo)</option>
+      <option value="it_sort:asc">Italia: alla rimborsabilità (prima il più breve)</option>
+      <option value="it_sort:desc">Italia: alla rimborsabilità (prima il più lungo)</option>
       <option value="ec_date:desc">Approvazione CE (prima le più recenti)</option>
       <option value="gba_sort:asc">Valutazione Germania (prima la migliore)</option>
       <option value="fr_sort:asc">Valutazione Francia (prima la migliore)</option>
@@ -48,7 +48,7 @@
         <th scope="col" data-key="fda_date"><button class="sort-btn" type="button">FDA</button></th>
         <th scope="col" data-key="ec_date"><button class="sort-btn" type="button">CE</button></th>
         <th scope="col" class="num" data-key="lag"><button class="sort-btn" type="button">Intervallo USA→UE (giorni)</button></th>
-        <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Ritardo Italia (giorni)</button></th>
+        <th scope="col" class="num" data-key="it_sort"><button class="sort-btn" type="button">Italia: alla rimborsabilità (giorni)</button></th>
         <th scope="col" data-key="gba_sort"><button class="sort-btn" type="button">Valutazione G-BA</button></th>
         <th scope="col" data-key="fr_sort"><button class="sort-btn" type="button">ASMR Francia</button></th>
         <th scope="col" data-key="en_decision"><button class="sort-btn" type="button">NICE</button></th>
@@ -61,6 +61,6 @@
   </table>
 </div>
 <p class="muted small">Intervallo = data di approvazione CE meno data di approvazione FDA; negativo significa che l'UE ha approvato per prima.
-  Ritardo Italia = dall'approvazione CE alla rimborsabilità pubblicata in Gazzetta Ufficiale; «in attesa» = non rimborsato al momento della verifica.
+  Italia = dall'approvazione CE alla rimborsabilità nazionale pubblicata in Gazzetta Ufficiale; «in attesa» = non rimborsato al momento della verifica.
   ASMR Francia: I = miglioramento maggiore, V = nessuno. «Rif.» indica i farmaci di riferimento esclusi dalle statistiche principali.
   <a href="methodology.html">Definizioni</a>.</p>

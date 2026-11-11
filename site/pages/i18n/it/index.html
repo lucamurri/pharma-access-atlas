@@ -1,10 +1,17 @@
 <section class="intro">
   <p class="eyebrow">USA e Europa · ogni nuovo farmaco approvato da entrambi, 2019–2025</p>
-  <h1>Quanto velocemente i nuovi farmaci raggiungono i pazienti negli USA e in Europa?</h1>
+  <h1>Che cosa accade dopo l'approvazione di un nuovo farmaco negli USA e in Europa?</h1>
   <p class="lede">La data di approvazione non coincide con l'accesso dei pazienti. Questo atlante segue tutti i {{n}} nuovi medicinali
     approvati sia dalla FDA sia dalla Commissione Europea nel 2019–2025. Li monitora uno per uno dalla prima approvazione
     alla valutazione del beneficio in Germania, Francia e Inghilterra e alla rimborsabilità in Italia.
     Ogni numero rimanda alla sua fonte pubblica.</p>
+  <div class="callout">
+    <p><strong>Tre cose diverse.</strong> L'atlante tiene distinti il <em>valore riconosciuto</em> da un organismo di
+      valutazione (G-BA in Germania, HAS in Francia, NICE in Inghilterra), la <em>rimborsabilità</em> (in Italia, la pubblicazione
+      in Gazzetta Ufficiale; in Germania, dal lancio) e la <em>disponibilità effettiva</em> per i pazienti (prontuari
+      regionali, percorsi di accesso precoce come la Legge 648/96 e il fondo AIFA del 5%). Misura le prime due.
+      La disponibilità effettiva, la più vicina a ciò che vivono i pazienti, <strong>non è misurata</strong>.</p>
+  </div>
 </section>
 
 <section class="kpis" aria-label="Numeri principali">
@@ -14,9 +21,9 @@
     <p class="kpi-note">Gli USA hanno approvato per primi {{lag_us_first}} farmaci su {{n}}</p>
   </div>
   <div class="kpi">
-    <p class="kpi-label">Ritardo mediano di accesso in Italia</p>
+    <p class="kpi-label">Tempo mediano alla rimborsabilità nazionale in Italia</p>
     <p class="kpi-value">{{it_lag_median}} <span class="kpi-unit">giorni</span></p>
-    <p class="kpi-note">Dall'approvazione UE alla rimborsabilità, contando i {{it_n_waiting}} farmaci non ancora rimborsati</p>
+    <p class="kpi-note">Dall'approvazione UE alla pubblicazione in Gazzetta Ufficiale, contando i {{it_n_waiting}} farmaci non ancora rimborsati</p>
   </div>
   <div class="kpi">
     <p class="kpi-label">Germania: «nessun beneficio aggiuntivo»</p>
@@ -37,8 +44,8 @@
   <h2 id="c-cty-h">{{title_countries}}</h2>
   <p class="chart-sub">Quota di farmaci che avevano raggiunto la tappa di ciascun paese, in giorni dall'approvazione della Commissione
     Europea. I farmaci ancora in attesa sono contati fino al giorno della verifica, quindi le curve non sovrastimano la rapidità.
-    Le tappe sono diverse: Germania, Francia e Inghilterra pubblicano valutazioni del beneficio, l'Italia pubblica
-    la rimborsabilità. Il punto in cui una curva supera il 50% è la sua mediana.</p>
+    Le tappe sono eventi diversi, quindi le curve descrivono quattro processi, non una classifica. Il punto in cui una curva
+    supera il 50% è la sua mediana. <a href="#paths">Come funziona la tappa di ciascun paese</a>.</p>
   <ul class="legend" aria-hidden="true">
     <li style="--swatch: var(--country-fr)">Francia: parere HAS</li>
     <li style="--swatch: var(--country-de)">Germania: decisione G-BA</li>
@@ -47,6 +54,21 @@
   </ul>
   <div class="chart-box" style="height: 360px"><canvas id="chart-countries" role="img" aria-label="{{title_countries}}. Dati nella tabella sottostante."></canvas></div>
   <details class="data-view"><summary>Mostra i dati in una tabella</summary><div class="table-scroll" id="table-countries"></div></details>
+  <h3 id="paths">Che cosa misura ciascuna curva</h3>
+  <div class="table-scroll">
+  <table class="data-table">
+    <thead><tr><th scope="col">Paese</th><th scope="col">Tappa misurata</th><th scope="col">Rapporto con il finanziamento</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Germania</th><td>Decisione del G-BA (circa sei mesi dopo il lancio)</td><td>Il farmaco è rimborsato dal lancio; la valutazione orienta il prezzo negoziato.</td></tr>
+      <tr><th scope="row">Francia</th><td>Parere della Commission de la Transparence della HAS</td><td>La valutazione precede il finanziamento.</td></tr>
+      <tr><th scope="row">Inghilterra</th><td>Raccomandazione del NICE</td><td>La valutazione precede il finanziamento.</td></tr>
+      <tr><th scope="row">Italia</th><td>Rimborsabilità pubblicata in Gazzetta Ufficiale</td><td>Arriva dopo il parere del comitato AIFA, che fissa il prezzo concordato per la rimborsabilità, e dopo i passaggi amministrativi
+        fino alla ratifica da parte del CdA dell'AIFA e alla pubblicazione.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="small">Quindi la tappa dell'Italia arriva dopo la negoziazione del prezzo, le altre tre no. Per questo le
+    curve non si allineano; non è un giudizio su alcun paese.</p>
   <p class="small">Profili paese: <a href="united-states.html">Stati Uniti</a> · <a href="italy.html">Italia</a> · <a href="germany.html">Germania</a> ·
     <a href="france.html">Francia</a> · <a href="england.html">Inghilterra</a></p>
 </section>

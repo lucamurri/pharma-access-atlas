@@ -37,7 +37,7 @@
   <dd>Date de l’autorisation de mise sur le marché initiale de la Commission européenne, telle que publiée par l’EMA.</dd>
   <dt><strong>Décalage d’autorisation entre les États-Unis et l’UE</strong></dt>
   <dd>Date d’autorisation de la CE moins date d’autorisation de la FDA, en jours. Une valeur négative signifie que l’UE a autorisé le médicament en premier.</dd>
-  <dt><strong>Délai d’accès en Italie</strong></dt>
+  <dt><strong>Italie : délai jusqu’au remboursement national</strong></dt>
   <dd>Nombre de jours entre l’autorisation de la CE et la publication à la <em>Gazzetta Ufficiale</em> de la première détermination de l’AIFA
     accordant le remboursement par le service de santé national (classe A ou H). Les classes C et C(nn) signifient que le médicament
     peut être vendu mais n’est pas remboursé. Les médicaments encore non remboursés sont indiqués comme « en attente », avec les jours écoulés
@@ -48,7 +48,7 @@
     répartir les patients en groupes ayant des évaluations différentes; nous affichons la <em>meilleure</em> évaluation parmi les groupes et indiquons
     si un groupe a reçu « aucun bénéfice supplémentaire ». En Allemagne, un médicament est remboursé dès son lancement. L’évaluation,
     qui intervient généralement environ six mois plus tard, détermine le prix négocié; elle mesure donc la
-    <em>valeur reconnue</em>, et non un délai d’accès.</dd>
+    <em>valeur reconnue</em>, et non un délai jusqu’au remboursement.</dd>
   <dt><strong>Évaluation de la HAS en France</strong></dt>
   <dd>Premier avis de la Commission de la Transparence de la HAS sur l’inscription au remboursement. Le <em>SMR</em> indique si le
     médicament mérite d’être remboursé; l’<em>ASMR</em> évalue le bénéfice supplémentaire de I (majeur) à V (absence d’amélioration). Nous affichons
@@ -74,7 +74,7 @@
 
 <h2 id="curves">Délai d’accès : compter les médicaments encore en attente</h2>
 <p>Une médiane calculée uniquement sur les médicaments ayant déjà franchi une étape laisse de côté les médicaments encore en attente, qui
-  sont les plus lents. Elle sous-estime le délai, et le biais est d’autant plus fort que les médicaments sont récents. Les
+  sont ceux dont les délais sont les plus longs. Elle sous-estime le délai, et le biais est d’autant plus fort que les médicaments sont récents. Les
   médianes principales et le graphique par pays utilisent donc la <strong>méthode de Kaplan–Meier</strong>, la méthode standard
   pour mesurer le temps écoulé avant un événement lorsque certains cas ne l’ont pas encore connu :</p>
 <ul>
@@ -92,9 +92,13 @@
 
 <h3>Comparer des groupes de médicaments</h3>
 <p>Le constat 7 répartit les médicaments selon une caractéristique à la fois (par exemple, orphelin ou non) et compare les courbes des deux groupes
-  à l’aide d’un <strong>test du log-rank</strong>, le test standard pour ce type de courbe. Une valeur p inférieure à 0.05 signifie
-  qu’un écart de cette ampleur surviendrait par hasard moins d’une fois sur vingt. Avec plusieurs comparaisons, un résultat
-  inférieur à 0.05 peut quand même relever du hasard, et aucun n’établit une causalité : une caractéristique peut en accompagner d’autres (les grandes entreprises
+  à l’aide d’un <strong>test du log-rank</strong>, le test standard pour ce type de courbe. Le test compare les courbes
+  entières; le graphique ne montre que la part atteinte à deux ans, avec des intervalles de confiance à 95 % (méthode de Greenwood,
+  transformation log-log) dans le tableau. La valeur p est la probabilité d’observer un écart au moins aussi grand que celui
+  constaté s’il n’y avait pas de différence réelle entre les groupes. Ce n’est pas la probabilité que l’écart soit dû au
+  hasard. Avec plusieurs comparaisons, un résultat inférieur à 0,05 peut apparaître même si aucune caractéristique ne compte; nous
+  donnons donc aussi le seuil de Bonferroni (0,05 divisé par le nombre de comparaisons). Avec de petits groupes, un résultat
+  non significatif n’exclut pas un effet. Aucune de ces comparaisons n’établit une causalité : une caractéristique peut en accompagner d’autres (les grandes entreprises
   ont plus de médicaments d’oncologie, par exemple). Le calcul a été vérifié avec la bibliothèque statistique <em>lifelines</em>.</p>
 
 <h2>Sources de données</h2>
@@ -135,7 +139,7 @@
     précéder le remboursement complet (par exemple Zolgensma et Skyclarys). Nous ne comptons que la détermination de remboursement.</li>
   <li><strong>L’accès régional en Italie</strong> (inscription aux formulaires régionaux) peut ajouter des mois après le remboursement
     national et n’est pas mesuré.</li>
-  <li><strong>L’Allemagne, la France et l’Angleterre mesurent la valeur, non le délai.</strong> En Allemagne, un médicament est remboursé dès son
+  <li><strong>L’Allemagne, la France et l’Angleterre mesurent la valeur reconnue; l’Italie mesure le remboursement.</strong> En Allemagne, un médicament est remboursé dès son
     lancement; en France et en Angleterre, l’évaluation précède le financement. Seule l’étape italienne correspond au remboursement lui-même.</li>
   <li><strong>Les antibiotiques de réserve en Allemagne</strong> voient leur bénéfice supplémentaire « réputé prouvé » sans ampleur précisée,
     de sorte que leur évaluation est laissée vide.</li>

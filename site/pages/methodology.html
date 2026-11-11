@@ -37,7 +37,7 @@
   <dd>Date of the European Commission's initial marketing authorisation, as published by the EMA.</dd>
   <dt><strong>US-to-EU approval lag</strong></dt>
   <dd>EC approval date minus FDA approval date, in days. Negative means the EU approved first.</dd>
-  <dt><strong>Italy access delay</strong></dt>
+  <dt><strong>Italy: time to national reimbursement</strong></dt>
   <dd>Days from EC approval to publication in the <em>Gazzetta Ufficiale</em> of the first AIFA determination
     granting reimbursement by the national health service (class A or H). Classes C and C(nn) mean the drug
     may be sold but is not reimbursed. Drugs still not reimbursed are shown as “waiting” with the days elapsed
@@ -48,7 +48,7 @@
     split patients into groups with different ratings; we show the <em>best</em> rating across groups and flag
     whether any group got “no added benefit”. In Germany a drug is reimbursed from launch. The assessment,
     usually about six months later, shapes the negotiated price, so it measures
-    <em>value recognised</em>, not an access delay.</dd>
+    <em>value recognised</em>, not time to reimbursement.</dd>
   <dt><strong>France HAS rating</strong></dt>
   <dd>The HAS Transparency Committee's first opinion on inclusion for reimbursement. <em>SMR</em> says whether the
     drug merits reimbursement at all; <em>ASMR</em> rates added benefit from I (major) to V (no improvement). We show
@@ -74,7 +74,7 @@
 
 <h2 id="curves">Time to access: counting drugs still waiting</h2>
 <p>A median taken only over drugs that already reached a milestone leaves out the drugs still waiting, and
-  those are the slowest. It understates the delay, and the more recent the drugs, the worse the bias. The
+  those take the longest. It understates the time, and the more recent the drugs, the worse the bias. The
   headline medians and the country chart therefore use the <strong>Kaplan–Meier method</strong>, the standard
   way to measure time until an event when some cases have not had it yet:</p>
 <ul>
@@ -92,10 +92,14 @@
 
 <h3>Comparing groups of drugs</h3>
 <p>Finding 7 splits the drugs by one trait at a time (for example, orphan or not) and compares the two groups'
-  curves with a <strong>log-rank test</strong>, the standard test for this kind of curve. A p-value below 0.05 means
-  a gap that large would arise by chance less than one time in twenty. With several comparisons, one result
-  below 0.05 can still be chance, and none of them shows cause: a trait can travel with others (large companies
-  run more oncology drugs, for example). The calculation was checked against the <em>lifelines</em> statistics
+  curves with a <strong>log-rank test</strong>, the standard test for this kind of curve. The test compares the
+  whole curves; the chart shows only the share reached at two years, with 95% confidence intervals (Greenwood's
+  method, log-log transform) in the table. The p-value is the probability of seeing a gap at least as large as
+  the one observed if there were no real difference between the groups. It is not the probability that the gap
+  is due to chance. With several comparisons, one result below 0.05 can appear even if no trait matters, so we
+  also give the Bonferroni threshold (0.05 divided by the number of comparisons). With small groups, a result
+  that is not significant does not rule out an effect. None of the comparisons shows cause: a trait can travel
+  with others (large companies run more oncology drugs, for example). The calculation was checked against the <em>lifelines</em> statistics
   library.</p>
 
 <h2>Data sources</h2>
@@ -136,7 +140,7 @@
     precede full reimbursement (for example Zolgensma and Skyclarys). We count only the reimbursement determination.</li>
   <li><strong>Regional access in Italy</strong> (inclusion in regional formularies) can add months after national
     reimbursement and is not measured.</li>
-  <li><strong>Germany, France and England measure value, not delay.</strong> In Germany a drug is reimbursed from
+  <li><strong>Germany, France and England measure value recognised; Italy measures reimbursement.</strong> In Germany a drug is reimbursed from
     launch; in France and England the assessment precedes funding. Only Italy's milestone is reimbursement itself.</li>
   <li><strong>Reserve antibiotics in Germany</strong> have their added benefit "deemed proven" without a stated extent,
     so their rating is left blank.</li>

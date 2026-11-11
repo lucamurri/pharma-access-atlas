@@ -1,10 +1,17 @@
 <section class="intro">
   <p class="eyebrow">USA und Europa im Vergleich · jedes in beiden Regionen zugelassene neue Arzneimittel, 2019–2025</p>
-  <h1>Wie schnell erreichen neue Arzneimittel Patienten in den USA und in Europa?</h1>
+  <h1>Was geschieht, nachdem ein neues Arzneimittel in den USA und in Europa zugelassen wurde?</h1>
   <p class="lede">Ein Zulassungsdatum ist nicht dasselbe wie Zugang für Patienten. Dieser Atlas verfolgt alle {{n}} neuen Arzneimittel,
     die 2019–2025 sowohl von der FDA als auch von der Europäischen Kommission zugelassen wurden. Er begleitet jedes
     von der ersten Zulassung bis zur Nutzenbewertung in Deutschland, Frankreich und England und bis zur Erstattung in Italien.
     Jede Zahl verweist auf ihre öffentliche Quelle.</p>
+  <div class="callout">
+    <p><strong>Drei verschiedene Dinge.</strong> Der Atlas hält den <em>anerkannten Wert</em> einer Bewertungsstelle (G-BA in Deutschland,
+      HAS in Frankreich, NICE in England), die <em>Erstattung</em> (in Italien die Veröffentlichung in der Gazzetta Ufficiale; in Deutschland ab
+      Markteinführung) und die <em>tatsächliche Verfügbarkeit</em> für Patienten (regionale Arzneimittellisten, Wege des frühen Zugangs wie
+      das italienische Gesetz 648/96 und der 5-%-Fonds der AIFA) auseinander. Er misst die ersten beiden.
+      Die tatsächliche Verfügbarkeit, die der Erfahrung der Patienten am nächsten kommt, wird <strong>nicht gemessen</strong>.</p>
+  </div>
 </section>
 
 <section class="kpis" aria-label="Kennzahlen im Überblick">
@@ -14,9 +21,9 @@
     <p class="kpi-note">Die USA haben bei {{lag_us_first}} von {{n}} Arzneimitteln zuerst zugelassen</p>
   </div>
   <div class="kpi">
-    <p class="kpi-label">Median der Zugangsverzögerung in Italien</p>
+    <p class="kpi-label">Median der Zeit bis zur nationalen Erstattung in Italien</p>
     <p class="kpi-value">{{it_lag_median}} <span class="kpi-unit">Tage</span></p>
-    <p class="kpi-note">Von der EU-Zulassung bis zur Erstattung, einschließlich der {{it_n_waiting}} noch nicht erstatteten Arzneimittel</p>
+    <p class="kpi-note">Von der EU-Zulassung bis zur Veröffentlichung in der Gazzetta Ufficiale, einschließlich der {{it_n_waiting}} noch nicht erstatteten Arzneimittel</p>
   </div>
   <div class="kpi">
     <p class="kpi-label">Deutschland: „kein Zusatznutzen“</p>
@@ -37,8 +44,8 @@
   <h2 id="c-cty-h">{{title_countries}}</h2>
   <p class="chart-sub">Anteil der Arzneimittel, die den Meilenstein des jeweiligen Landes erreicht hatten, nach Tagen seit der Zulassung durch die Europäische
     Kommission. Noch wartende Arzneimittel zählen bis zu dem Tag, an dem sie geprüft wurden, damit die Kurven die Geschwindigkeit nicht überzeichnen.
-    Die Meilensteine unterscheiden sich: Deutschland, Frankreich und England veröffentlichen Nutzenbewertungen, Italien veröffentlicht
-    die Erstattung. Wo eine Kurve die 50-%-Marke kreuzt, liegt ihr Median.</p>
+    Die Meilensteine sind verschiedene Ereignisse; die Kurven beschreiben daher vier Verfahren und keine Rangfolge. Wo eine Kurve
+    die 50-%-Marke kreuzt, liegt ihr Median. <a href="#paths">Wie der Meilenstein jedes Landes funktioniert</a>.</p>
   <ul class="legend" aria-hidden="true">
     <li style="--swatch: var(--country-fr)">Frankreich: HAS-Stellungnahme</li>
     <li style="--swatch: var(--country-de)">Deutschland: G-BA-Beschluss</li>
@@ -47,6 +54,21 @@
   </ul>
   <div class="chart-box" style="height: 360px"><canvas id="chart-countries" role="img" aria-label="{{title_countries}}. Daten in der Tabelle darunter."></canvas></div>
   <details class="data-view"><summary>Daten als Tabelle anzeigen</summary><div class="table-scroll" id="table-countries"></div></details>
+  <h3 id="paths">Was jede Kurve misst</h3>
+  <div class="table-scroll">
+  <table class="data-table">
+    <thead><tr><th scope="col">Land</th><th scope="col">Gemessener Meilenstein</th><th scope="col">Bezug zur Finanzierung</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Deutschland</th><td>G-BA-Beschluss (etwa sechs Monate nach Markteinführung)</td><td>Das Arzneimittel wird ab Markteinführung erstattet; die Bewertung fließt in den verhandelten Preis ein.</td></tr>
+      <tr><th scope="row">Frankreich</th><td>Stellungnahme der Transparenzkommission der HAS</td><td>Die Bewertung geht der Finanzierung voraus.</td></tr>
+      <tr><th scope="row">England</th><td>NICE-Empfehlung</td><td>Die Bewertung geht der Finanzierung voraus.</td></tr>
+      <tr><th scope="row">Italien</th><td>Erstattung, veröffentlicht in der Gazzetta Ufficiale</td><td>Folgt auf die Stellungnahme des AIFA-Ausschusses, die den für die Erstattung vereinbarten Preis festlegt, und auf die administrativen
+        Schritte bis zur Bestätigung durch den Verwaltungsrat der AIFA und die Veröffentlichung.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="small">Der Meilenstein Italiens liegt also nach der Preisverhandlung, die anderen drei nicht. Deshalb
+    sind die Kurven nicht deckungsgleich; es ist kein Urteil über ein Land.</p>
   <p class="small">Länderprofile: <a href="united-states.html">USA</a> · <a href="italy.html">Italien</a> · <a href="germany.html">Deutschland</a> ·
     <a href="france.html">Frankreich</a> · <a href="england.html">England</a></p>
 </section>
