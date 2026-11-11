@@ -254,6 +254,11 @@ def calculations(f: dict) -> dict:
         out["it_days_waiting"] = calculated(
             days_between(ec, it["retrieved_date"]), ["ec_approval_date", "it_gu_date"],
             f"Still not reimbursed when checked on {it['retrieved_date']}")
+    price = f["it_price_opinion_date"]["value"]
+    if ec and price:
+        out["it_price_opinion_lag_days"] = calculated(days_between(ec, price), ["ec_approval_date", "it_price_opinion_date"])
+    if price and it["value"]:
+        out["it_admin_days"] = calculated(days_between(price, it["value"]), ["it_price_opinion_date", "it_gu_date"])
     gba = f["de_gba_decision_date"]["value"]
     if ec and gba:
         out["de_gba_lag_days"] = calculated(days_between(ec, gba), ["ec_approval_date", "de_gba_decision_date"])
@@ -308,7 +313,8 @@ def main() -> None:
                             if sponsor.get("value") else missing(notes="No holder in the EMA file and no FDA sponsor"))
         f["us_orphan_designated"] = manual_field(manual, did, "us_orphan_designated")
         f.update(ema_fields(record, ema_retrieved))
-        for field in ["it_gu_date", "it_reimbursement_class", "de_gba_decision_date",
+        for field in ["it_gu_date", "it_reimbursement_class", "it_innovative", "it_dossier_date", "it_cts_date",
+                      "it_price_opinion_date", "it_board_date", "de_gba_decision_date",
                       "de_gba_rating_best", "de_gba_any_no_added_benefit", "de_gba_orphan_route"]:
             f[field] = manual_field(manual, did, field)
         f.update(france_fields(did, has, has_retrieved))

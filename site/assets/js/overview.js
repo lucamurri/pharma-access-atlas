@@ -176,13 +176,15 @@
     { label: Atlas.t("js.col_reimbursed"), value: a => a.n, num: true },
   ]);
 
-  // ---- 4. Verdicts: Germany, France, England -----------------------------------
+  // ---- 4. Verdicts: Germany, France, England, and Italy's AIFA innovativeness ---
   const gOrder = ["major", "considerable", "minor", "non-quantifiable", "no added benefit", "lesser"];
   const fOrder = ["I", "II", "III", "IV", "V", "SMR insufficient"];
   const eOrder = ["recommended", "optimised", "managed access", "not recommended", "terminated"];
   const g = gOrder.map(k => s.gba_ratings[k]);
   const f = fOrder.map(k => s.fr_asmr[k]);
   const e = eOrder.map(k => s.en_decisions[k] || 0);
+  const iOrder = ["full", "conditional", "not recognised"];
+  const inn = iOrder.map(k => s.it_innov[k] || 0);
   const names = (key, k) => rows.filter(r => r[key] === k).map(r => r.brand_us);
   const tipFor = (key, order) => item => {
     const list = names(key, order[item.dataIndex]);
@@ -192,10 +194,12 @@
   const frLabel = k => Atlas.t(`asmr.${k}`);
   hbar("chart-fr", fOrder.map(frLabel), f, f.map(String), tipFor("fr_verdict", fOrder));
   hbar("chart-en", eOrder.map(k => Atlas.t(`nice.${k}`)), e, e.map(String), tipFor("en_decision", eOrder));
+  hbar("chart-it-innov", iOrder.map(k => Atlas.t(`innov.${k}`)), inn, inn.map(String), tipFor("it_innov", iOrder));
   const htaRows = [
     ...gOrder.map((k, i) => ({ country: Atlas.t("js.country.de"), verdict: Atlas.t(`gba.${k}`), n: g[i] })),
     ...fOrder.map((k, i) => ({ country: Atlas.t("js.country.fr"), verdict: frLabel(k), n: f[i] })),
     ...eOrder.map((k, i) => ({ country: Atlas.t("js.country.en"), verdict: Atlas.t(`nice.${k}`), n: e[i] })),
+    ...iOrder.map((k, i) => ({ country: Atlas.t("js.country.it"), verdict: Atlas.t(`innov.${k}`), n: inn[i] })),
   ];
   document.getElementById("table-hta").innerHTML = Atlas.table(htaRows, [
     { label: Atlas.t("js.col_country"), value: r => r.country }, { label: Atlas.t("js.col_verdict"), value: r => r.verdict },

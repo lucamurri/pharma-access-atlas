@@ -115,7 +115,8 @@ main { padding-top: 2.5rem; padding-bottom: 4rem; min-height: 60vh; }
 .legend li::before { content: ""; display: inline-block; width: 0.8em; height: 0.8em; border-radius: 2px; margin-right: 0.4em; vertical-align: -0.05em; background: var(--swatch); }
 .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.5rem; }
 .chart-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 1.5rem; }
-.chart-grid-3 h3 { font-family: var(--font-sans); font-size: 0.95rem; margin: 0 0 0.5rem; }
+.chart-grid-2x2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 1.5rem; }
+.chart-grid-3 h3, .chart-grid-2x2 h3 { font-family: var(--font-sans); font-size: 0.95rem; margin: 0 0 0.5rem; }
 details.data-view { margin-top: 0.75rem; font-size: 0.9rem; }
 details summary { cursor: pointer; color: var(--accent); }
 
@@ -181,7 +182,7 @@ details.sources summary { font-weight: 600; }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .kpis { grid-template-columns: repeat(2, 1fr); }
-  .chart-grid, .chart-grid-3 { grid-template-columns: 1fr; }
+  .chart-grid, .chart-grid-3, .chart-grid-2x2 { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   /* Header: brand on one line, the navigation as one row that scrolls sideways. */
@@ -244,7 +245,7 @@ details.sources summary { font-weight: 600; }
 .rank-list li > span { display: block; }
 .rank-days { font-variant-numeric: tabular-nums; color: var(--text); font-size: 0.9rem; }
 .spacer { height: 1.5rem; }
-.chart-grid > *, .chart-grid-3 > * { min-width: 0; }
+.chart-grid > *, .chart-grid-3 > *, .chart-grid-2x2 > * { min-width: 0; }
 
 /* Compare page */
 .compare-picker .filters { align-items: flex-end; }

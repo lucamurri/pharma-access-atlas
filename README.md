@@ -67,7 +67,7 @@ The site has an overview with time-to-access curves, a filterable drug explorer,
 | CMS Drug Price Negotiation | Selection, Maximum Fair Price | Data file, refreshed monthly |
 | French public medicines database (BDPM) | HAS SMR, ASMR and opinion date | Download, refreshed monthly; gaps from HAS open data and opinions |
 | NICE | England appraisal outcome, date, TA number | Manual, sourced CSV |
-| Gazzetta Ufficiale / AIFA | Italian reimbursement date and class | Manual, sourced CSV |
+| Gazzetta Ufficiale / AIFA | Italian reimbursement date and class; AIFA innovativeness and procedure dates from the same determination | Manual, sourced CSV (extracted from the full text) |
 | G-BA | AMNOG decision date and rating | Manual, sourced CSV |
 | FDA OOPD, CBER, CMS fact sheets | US orphan designation, cell and gene therapy dates, list price | Manual, sourced CSV |
 

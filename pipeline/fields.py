@@ -10,6 +10,7 @@ IT_CLASSES = ["A", "H", "C", "Cnn"]
 FR_SMR = ["important", "moderate", "low", "insufficient"]
 FR_ASMR = ["I", "II", "III", "IV", "V"]
 # NICE technology appraisal outcomes, as worded by NICE.
+IT_INNOVATIVE = ["full", "conditional", "not recognised"]
 NICE_DECISIONS = ["recommended", "optimised", "managed access", "not recommended", "terminated", "not appraised"]
 
 FIELDS = {
@@ -44,6 +45,12 @@ FIELDS = {
     # --- Italy: AIFA / Gazzetta Ufficiale ----------------------------------
     "it_gu_date":             {"group": "Italy", "kind": "date", "mode": "manual", "label": "Italy reimbursement (GU publication) date"},
     "it_reimbursement_class": {"group": "Italy", "kind": "enum", "mode": "manual", "label": "Italy reimbursement class", "allowed": IT_CLASSES},
+    # From the reimbursement determination itself (recitals and operative part)
+    "it_innovative":          {"group": "Italy", "kind": "enum", "mode": "manual", "label": "AIFA innovativeness in the reimbursement determination", "allowed": IT_INNOVATIVE},
+    "it_dossier_date":        {"group": "Italy", "kind": "date", "mode": "manual", "label": "Reimbursement application date (per determination)"},
+    "it_cts_date":            {"group": "Italy", "kind": "date", "mode": "manual", "label": "AIFA scientific opinion date (CTS, or CSE from 2024)"},
+    "it_price_opinion_date":  {"group": "Italy", "kind": "date", "mode": "manual", "label": "AIFA price opinion date (CPR, or CSE from 2024)"},
+    "it_board_date":          {"group": "Italy", "kind": "date", "mode": "manual", "label": "AIFA Board (CdA) resolution date"},
 
     # --- Germany: G-BA (AMNOG) ---------------------------------------------
     "de_gba_decision_date":        {"group": "Germany", "kind": "date", "mode": "manual", "label": "G-BA decision date (first)"},
@@ -73,6 +80,8 @@ FIELDS = {
     "us_eu_lag_days":        {"group": "Calculated", "kind": "number", "mode": "calculated", "label": "US-to-EU approval lag (days; negative = EU first)"},
     "first_region":          {"group": "Calculated", "kind": "text", "mode": "calculated", "label": "Approved first in"},
     "it_access_lag_days":    {"group": "Calculated", "kind": "number", "mode": "calculated", "label": "EC approval to Italian reimbursement (days)"},
+    "it_price_opinion_lag_days": {"group": "Calculated", "kind": "number", "mode": "calculated", "label": "EC approval to AIFA price opinion (days)"},
+    "it_admin_days":         {"group": "Calculated", "kind": "number", "mode": "calculated", "label": "AIFA price opinion to GU publication (days)"},
     "it_days_waiting":       {"group": "Calculated", "kind": "number", "mode": "calculated", "label": "Days since EC approval without Italian reimbursement (as of check)"},
     "de_gba_lag_days":       {"group": "Calculated", "kind": "number", "mode": "calculated", "label": "EC approval to G-BA decision (days)"},
     "fr_has_lag_days":       {"group": "Calculated", "kind": "number", "mode": "calculated", "label": "EC approval to HAS opinion (days)"},
@@ -82,7 +91,8 @@ FIELDS = {
 
 # Which manual CSV holds which fields (validation checks fields land in the right file).
 MANUAL_FILES = {
-    "italy_aifa.csv": ["it_gu_date", "it_reimbursement_class"],
+    "italy_aifa.csv": ["it_gu_date", "it_reimbursement_class", "it_innovative", "it_dossier_date", "it_cts_date",
+                       "it_price_opinion_date", "it_board_date"],
     "germany_gba.csv": ["de_gba_decision_date", "de_gba_rating_best", "de_gba_any_no_added_benefit", "de_gba_orphan_route"],
     "us_fda.csv": ["us_orphan_designated", "fda_approval_date", "fda_application", "fda_brand"],
     "cms_list_prices.csv": ["cms_list_price_30day", "cms_list_price_year"],
