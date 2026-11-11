@@ -47,6 +47,19 @@
     può essere venduto ma non è rimborsato. I farmaci ancora non rimborsati sono indicati come «in attesa» con i giorni trascorsi
     fino alla data della nostra verifica. Le mediane principali li contano (vedi <a href="#curves">tempo all'accesso</a>); il
     grafico per area terapeutica usa solo i farmaci rimborsati e lo dichiara.</dd>
+  <dt><strong>Italia: innovatività AIFA</strong></dt>
+  <dd>Se la determina di rimborsabilità riconosce lo stato di innovatività dell'AIFA: <em>piena</em>, <em>condizionata</em>
+    o <em>non riconosciuta</em> quando la determina non ne riconosce alcuna. È letta dalla determina che concede la
+    rimborsabilità, quindi uno stato riconosciuto in seguito (per esempio per una nuova indicazione) non è contato, e i farmaci non ancora
+    rimborsati non ne hanno. L'innovatività piena dà accesso al Fondo per i farmaci innovativi e, per legge, ai prontuari
+    terapeutici regionali senza attendere l'inclusione regionale (art. 10, c. 2, decreto-legge 158/2012). È il giudizio
+    proprio dell'Italia sul farmaco, formulato con criteri propri; non è sulla stessa scala dei giudizi di G-BA, HAS o NICE,
+    e l'atlante non li confronta con un punteggio.</dd>
+  <dt><strong>Italia: date della procedura AIFA</strong></dt>
+  <dd>La determina di rimborsabilità elenca i passaggi che la precedono: la domanda dell'azienda, il parere della
+    Commissione consultiva tecnico-scientifica (CTS) dell'AIFA, il parere del Comitato prezzi e rimborso (CPR), che fissa il prezzo
+    concordato per la rimborsabilità, e la delibera del Consiglio di amministrazione (CdA) dell'AIFA. Dal 2024 un'unica
+    Commissione scientifico-economica (CSE) ha sostituito CTS e CPR. Quando una commissione si è riunita in più giorni, si usa l'ultimo giorno.</dd>
   <dt><strong>Valutazione G-BA della Germania</strong></dt>
   <dd>L'esito della prima valutazione precoce del beneficio (Nutzenbewertung, AMNOG, § 35a SGB V) conclusa per il farmaco. Una decisione può
     suddividere i pazienti in gruppi con valutazioni diverse; mostriamo la <em>migliore</em> valutazione tra i gruppi e segnaliamo
@@ -114,6 +127,37 @@
   il che è corretto: non otterranno mai una raccomandazione del NICE. La curva inglese parte sopra lo 0% perché il NICE, lavorando
   sull'autorizzazione del Regno Unito, ha pubblicato raccomandazioni per alcuni farmaci prima dell'approvazione CE.</p>
 
+<h3 id="cohorts">Robustezza: approvazioni meno recenti e recenti</h3>
+<p>Molti farmaci dell'atlante sono stati approvati di recente e sono ancora in attesa, quindi le curve si appoggiano su di essi. Per verificare
+  se le mediane principali dipendono dalla composizione per anno, le curve sono state ridisegnate separatamente per i farmaci con approvazione
+  CE nel 2019–2021 e nel 2022–2025. Le differenze sono piccole e nessuna è statisticamente significativa
+  (test log-rank), quindi le curve complessive non dipendono da un solo periodo. Il gruppo recente ha avuto meno tempo per raggiungere
+  ciascuna tappa, quindi le sue quote a due anni poggiano su meno farmaci.</p>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+  <thead><tr><th scope="col">Tappa</th><th scope="col" class="num">2019–2021: giorni mediani</th><th scope="col" class="num">entro 2 anni</th><th scope="col" class="num">farmaci</th><th scope="col" class="num">2022–2025: giorni mediani</th><th scope="col" class="num">entro 2 anni</th><th scope="col" class="num">farmaci</th><th scope="col" class="num">p log-rank</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Francia: parere della HAS</th><td class="num">{{coh_fr_early_med}}</td><td class="num">{{coh_fr_early_2y}}%</td><td class="num">{{coh_fr_early_n}}</td><td class="num">{{coh_fr_late_med}}</td><td class="num">{{coh_fr_late_2y}}%</td><td class="num">{{coh_fr_late_n}}</td><td class="num">{{coh_fr_p}}</td></tr>
+    <tr><th scope="row">Germania: decisione del G-BA</th><td class="num">{{coh_de_early_med}}</td><td class="num">{{coh_de_early_2y}}%</td><td class="num">{{coh_de_early_n}}</td><td class="num">{{coh_de_late_med}}</td><td class="num">{{coh_de_late_2y}}%</td><td class="num">{{coh_de_late_n}}</td><td class="num">{{coh_de_p}}</td></tr>
+    <tr><th scope="row">Inghilterra: raccomandazione del NICE</th><td class="num">{{coh_en_early_med}}</td><td class="num">{{coh_en_early_2y}}%</td><td class="num">{{coh_en_early_n}}</td><td class="num">{{coh_en_late_med}}</td><td class="num">{{coh_en_late_2y}}%</td><td class="num">{{coh_en_late_n}}</td><td class="num">{{coh_en_p}}</td></tr>
+    <tr><th scope="row">Italia: rimborsabilità</th><td class="num">{{coh_it_early_med}}</td><td class="num">{{coh_it_early_2y}}%</td><td class="num">{{coh_it_early_n}}</td><td class="num">{{coh_it_late_med}}</td><td class="num">{{coh_it_late_2y}}%</td><td class="num">{{coh_it_late_n}}</td><td class="num">{{coh_it_p}}</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="prose">
+
+<h3 id="it-price">L'Italia misurata al parere sul prezzo</h3>
+<p>La tappa dell'Italia, la pubblicazione in Gazzetta Ufficiale, arriva dopo che il prezzo è stato concordato e dopo i
+  passaggi amministrativi che seguono. Come analisi aggiuntiva, senza modificare il confronto principale, la curva
+  italiana è stata disegnata anche fino alla data del parere dell'AIFA sul prezzo (CPR, o CSE dal 2024), letta da ciascuna determina.
+  Contando in questo modo, metà dei farmaci aveva un parere sul prezzo entro <strong>{{it_price_med}} giorni</strong> dall'approvazione UE
+  ({{it_price_n}} farmaci), contro {{it_med}} giorni alla pubblicazione. Per i {{it_admin_n}} farmaci con entrambe le date, il
+  tempo dal parere sul prezzo alla pubblicazione ha avuto una mediana di <strong>{{it_admin_med}} giorni</strong>, e metà dei
+  farmaci si è collocata tra {{it_admin_p25}} e {{it_admin_p75}} giorni. I farmaci non ancora rimborsati contano come se non avessero
+  raggiunto il parere sul prezzo nel giorno della verifica; alcuni potrebbero già averlo, quindi questa curva può sottostimare leggermente
+  la rapidità con cui arrivano i pareri sul prezzo.</p>
+
 <h3>Confronto tra gruppi di farmaci</h3>
 <p>Il risultato 7 suddivide i farmaci per una caratteristica alla volta (per esempio, orfano o no) e confronta le curve dei due gruppi
   con un <strong>test log-rank</strong>, il test standard per questo tipo di curve. Il test confronta le curve
@@ -136,7 +180,7 @@
     <tr><th scope="row"><a href="https://www.fda.gov/vaccines-blood-biologics">Lettere di approvazione FDA CBER</a></th><td>Date di approvazione delle terapie cellulari e geniche</td><td>Manuale</td><td>Pubblico dominio</td></tr>
     <tr><th scope="row"><a href="https://www.accessdata.fda.gov/scripts/opdlisting/oopd/">FDA Orphan Drug Designations (OOPD)</a></th><td>Designazione di farmaco orfano USA</td><td>Manuale</td><td>Pubblico dominio</td></tr>
     <tr><th scope="row"><a href="https://www.ema.europa.eu/en/medicines/download-medicine-data">Dati EMA sui medicinali</a></th><td>Date del parere CHMP e dell'approvazione CE, farmaco orfano UE, approvazione condizionata, titolare</td><td>Download, aggiornato ogni mese</td><td>Riuso con attribuzione</td></tr>
-    <tr><th scope="row"><a href="https://www.gazzettaufficiale.it/">Gazzetta Ufficiale</a> · <a href="https://www.aifa.gov.it/">AIFA</a></th><td>Data e classe di rimborsabilità in Italia</td><td>Manuale</td><td>Atti ufficiali (non soggetti a diritto d'autore); dati AIFA CC BY 4.0</td></tr>
+    <tr><th scope="row"><a href="https://www.gazzettaufficiale.it/">Gazzetta Ufficiale</a> · <a href="https://www.aifa.gov.it/">AIFA</a></th><td>Data e classe di rimborsabilità in Italia; innovatività AIFA e date della procedura dalla stessa determina</td><td>Manuale (dal testo integrale; TrovaNormeFarmaco da marzo 2025)</td><td>Atti ufficiali (non soggetti a diritto d'autore); dati AIFA CC BY 4.0</td></tr>
     <tr><th scope="row"><a href="https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/">Valutazioni del beneficio del G-BA</a></th><td>Data della decisione AMNOG e valutazione</td><td>Manuale</td><td>Riuso libero; nessuna alterazione delle decisioni</td></tr>
     <tr><th scope="row"><a href="https://base-donnees-publique.medicaments.gouv.fr/">Database pubblico francese dei medicinali (BDPM)</a></th><td>SMR, ASMR e data del parere HAS</td><td>Download, aggiornato ogni mese; lacune ricercate su has-sante.fr e negli open data della HAS</td><td>Licence ouverte (attribuzione, nessuna alterazione)</td></tr>
     <tr><th scope="row"><a href="https://www.nice.org.uk/guidance/published">Raccomandazioni NICE</a></th><td>Esito, data e numero TA della valutazione in Inghilterra</td><td>Manuale</td><td>Contenuti NICE, citati con link</td></tr>

@@ -65,7 +65,8 @@
       <tr><th scope="row">Angleterre</th><td>Recommandation du NICE, y compris {{en_n_term}} évaluations interrompues (généralement aucun
         dossier de l’entreprise), qui signifient l’absence de financement par le NHS</td><td>L’évaluation précède le financement.</td></tr>
       <tr><th scope="row">Italie</th><td>Remboursement publié à la Gazzetta Ufficiale</td><td>Intervient après l’avis du comité de l’AIFA, qui fixe le prix convenu pour le remboursement, et après les
-        étapes administratives jusqu’à la ratification par le conseil d’administration de l’AIFA et la publication.</td></tr>
+        étapes administratives jusqu’à la ratification par le conseil d’administration de l’AIFA et la publication (médiane de {{it_admin_med}} jours entre l’avis
+        sur le prix et la publication; <a href="methodology.html#it-price">détails</a>).</td></tr>
     </tbody>
   </table>
   </div>
@@ -104,14 +105,21 @@
     (<a href="methodology.html#no-verdict">pourquoi les autres n’en ont pas</a>). En Allemagne, « aucun bénéfice supplémentaire » est relatif
     au comparateur choisi par le G-BA et ne constitue pas un jugement sur la valeur clinique; « non quantifiable » signifie qu’un bénéfice supplémentaire
     a été reconnu mais que son ampleur n’a pas pu être fixée ({{gba_n_nq_orphan}} de ces {{gba_n_nq}} médicaments sont des médicaments orphelins).</p>
-  <div class="chart-grid-3">
+  <div class="chart-grid-2x2">
     <div><h3>Allemagne : bénéfice supplémentaire selon le G-BA (meilleur groupe de patients)</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-gba" role="img" aria-label="Évaluations du G-BA en Allemagne. Données dans le tableau ci-dessous."></canvas></div></div>
     <div><h3>France : ASMR de la HAS (I = majeure, V = aucune), ou SMR insuffisant</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-fr" role="img" aria-label="Évaluations ASMR en France. Données dans le tableau ci-dessous."></canvas></div></div>
     <div><h3>Angleterre : première décision du NICE</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-en" role="img" aria-label="Décisions du NICE. Données dans le tableau ci-dessous."></canvas></div></div>
+    <div><h3>Italie : statut d’innovation de l’AIFA, dans la décision de remboursement</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-it-innov" role="img" aria-label="Statut d’innovation de l’AIFA. Données dans le tableau ci-dessous."></canvas></div></div>
   </div>
+  <p class="small">Les quatre échelles répondent à des questions différentes, avec des critères et des comparateurs différents; elles sont donc
+    présentées côte à côte, sans être notées les unes par rapport aux autres. Le statut d’innovation de l’AIFA n’est décidé qu’avec le
+    remboursement; il porte donc sur les {{it_innov_n}} médicaments remboursés dont la determina a pu être lue. L’innovation complète
+    donne accès au fonds pour les médicaments innovants et, par la loi, aux formulaires régionaux sans attendre l’inscription
+    régionale; la manière dont les régions appliquent cette règle n’est pas mesurée.</p>
   <details class="data-view"><summary>Afficher les données sous forme de tableau</summary><div class="table-scroll" id="table-hta"></div></details>
 </section>
 

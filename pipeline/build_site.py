@@ -283,6 +283,9 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, defs: dict, t: i18n.Stri
     en_text = (t("brief.nice." + row["en_decision"]) if row["en_decision"]
                else t("brief.nice.pending") if row["en_pending"] else t("brief.unknown"))
 
+    innov_text = (t("brief.innov." + row["it_innov"]) if row["it_innov"]
+                  else t("brief.innov.none_yet") if row["it_status"] == "not reimbursed" else t("brief.unknown"))
+
     # --- access outcomes table ---------------------------------------------
     def cell(field, text):
         return f'{esc(str(text))} <span class="src">{source_link(f.get(field) or {}, src_word)}</span>'
@@ -321,6 +324,9 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, defs: dict, t: i18n.Stri
     <tr><th scope="row">{esc(t("brief.m_it"))}</th><td>{esc(t("brief.ms_it"))}</td>
         <td>{cell("it_gu_date", it_date)}</td>
         <td>{cell("it_reimbursement_class", it_outcome)}</td></tr>
+    <tr><th scope="row">{esc(t("brief.m_it"))}</th><td>{esc(t("brief.ms_it_price"))}</td>
+        <td>{cell("it_price_opinion_date", t.date(row["it_price_date"]) if row["it_price_date"] else t("na"))}</td>
+        <td>{cell("it_innovative", innov_text)}</td></tr>
     <tr><th scope="row">{esc(t("brief.m_de"))}</th><td>{esc(t("brief.ms_de"))}</td>
         <td>{cell("de_gba_decision_date", de_date)}</td>
         <td>{cell("de_gba_rating_best", de_outcome)}</td></tr>
@@ -433,6 +439,16 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
         "en_pct_positive": s["en_pct_positive"] if s["en_pct_positive"] is not None else t("na"), "en_n": n(s["en_n"]),
         "repo_url": REPO_URL,
         "n_all": n(s["n_all"]),
+        "it_innov_n": n(sum(s["it_innov"].values())), "it_innov_full": n(s["it_innov"]["full"]),
+        "it_innov_cond": n(s["it_innov"]["conditional"]), "it_innov_no": n(s["it_innov"]["not recognised"]),
+        "it_admin_med": n(analysis.days(s["it_admin"]["median"])) if s["it_admin"]["median"] is not None else t("na"),
+        "it_admin_p25": n(analysis.days(s["it_admin"]["p25"])) if s["it_admin"]["p25"] is not None else t("na"),
+        "it_admin_p75": n(analysis.days(s["it_admin"]["p75"])) if s["it_admin"]["p75"] is not None else t("na"),
+        "it_admin_n": n(s["it_admin"]["n"]),
+        **{f"inn_{key}_{g}_{m}": n(val) for key, gs in s["it_innov_by_verdict"].items() for g, ms in gs.items()
+           for m, val in (("n", sum(ms.values())), ("yes", ms["full"] + ms["conditional"]))},
+        "it_price_med": n(s["access"]["it_price"]["median"]) if s["access"]["it_price"]["median"] is not None else t("na"),
+        "it_price_n": n(s["access"]["it_price"]["n"]),
         "gba_none_n": n(sum(s["gba_none"].values())), "gba_none_na": n(s["gba_none"]["not_assessed"]),
         "gba_none_ongoing": n(s["gba_none"]["not_reimbursed_as_of"]), "gba_none_unk": n(s["gba_none"]["unknown"]),
         "gba_n_nq": n(s["gba_ratings"]["non-quantifiable"]), "gba_n_nq_orphan": n(s["gba_n_nq_orphan"]),
@@ -445,6 +461,14 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
         "en_med_cens": n(s["en_terminated_censored"]["median"]),
         "en_2y_cens": analysis.days(s["en_terminated_censored"]["pct_2y"]),
     }
+    # Robustness table on the Methodology page: early vs recent EC approvals
+    dec = lambda x: f"{x:.2f}".replace(".", t.loc["decimal"])
+    for k, c in s["access_by_cohort"].items():
+        for g in ("early", "late"):
+            values[f"coh_{k}_{g}_n"] = n(c[g]["n"])
+            values[f"coh_{k}_{g}_med"] = n(c[g]["median"]) if c[g]["median"] is not None else t("na")
+            values[f"coh_{k}_{g}_2y"] = analysis.days(c[g]["pct_2y"])
+        values[f"coh_{k}_p"] = dec(c["p"]) if c["p"] is not None else t("na")
     # Numbers for the Insights page (years stay as they are; other whole numbers are formatted locally).
     for key, value in (findings or {}).items():
         is_year = key in ("cms_ipay", "cms_list_year")

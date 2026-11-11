@@ -47,6 +47,19 @@
     may be sold but is not reimbursed. Drugs still not reimbursed are shown as “waiting” with the days elapsed
     up to the date we checked. Headline medians count them (see <a href="#curves">time to access</a>); the
     therapy-area chart uses reimbursed drugs only and says so.</dd>
+  <dt><strong>Italy: AIFA innovativeness</strong></dt>
+  <dd>Whether the reimbursement determination grants AIFA's innovativeness status: <em>full</em>, <em>conditional</em>,
+    or <em>not recognised</em> when the determination grants none. It is read from the determination that grants
+    reimbursement, so a status granted later (for example for a new indication) is not counted, and drugs not yet
+    reimbursed have none. Full innovativeness gives access to the innovative-medicines fund and, by law, to regional
+    formularies without waiting for regional inclusion (art. 10, c. 2, Decree-Law 158/2012). It is Italy's own
+    judgement on the drug, made with its own criteria; it is not on the same scale as the G-BA, HAS or NICE verdicts,
+    and the atlas does not score them against each other.</dd>
+  <dt><strong>Italy: AIFA procedure dates</strong></dt>
+  <dd>The reimbursement determination lists the steps before it: the company's application, the opinion of AIFA's
+    scientific committee (CTS), the opinion of the price and reimbursement committee (CPR), which sets the price
+    agreed for reimbursement, and the resolution of AIFA's Board (CdA). From 2024 a single scientific and economic
+    committee (CSE) replaced the CTS and CPR. Where a committee met over several days, the last day is used.</dd>
   <dt><strong>Germany G-BA rating</strong></dt>
   <dd>The result of the drug's first concluded early benefit assessment (AMNOG, § 35a SGB V). A decision can
     split patients into groups with different ratings; we show the <em>best</em> rating across groups and flag
@@ -114,6 +127,37 @@
   which is accurate: they never get NICE guidance. The English curve starts above 0% because NICE, working from
   the UK licence, published guidance for a few drugs before the EC approval.</p>
 
+<h3 id="cohorts">Robustness: early and recent approvals</h3>
+<p>Many drugs in the atlas were approved recently and are still waiting, so the curves lean on them. To check
+  whether the headline medians depend on the mix of years, the curves were redrawn separately for drugs with EC
+  approval in 2019–2021 and in 2022–2025. The differences are small and none is statistically significant
+  (log-rank test), so the overall curves are not driven by one period. The recent group has had less time to reach
+  each milestone, so its two-year shares rest on fewer drugs.</p>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+  <thead><tr><th scope="col">Milestone</th><th scope="col" class="num">2019–2021: median days</th><th scope="col" class="num">within 2 years</th><th scope="col" class="num">drugs</th><th scope="col" class="num">2022–2025: median days</th><th scope="col" class="num">within 2 years</th><th scope="col" class="num">drugs</th><th scope="col" class="num">Log-rank p</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">France: HAS opinion</th><td class="num">{{coh_fr_early_med}}</td><td class="num">{{coh_fr_early_2y}}%</td><td class="num">{{coh_fr_early_n}}</td><td class="num">{{coh_fr_late_med}}</td><td class="num">{{coh_fr_late_2y}}%</td><td class="num">{{coh_fr_late_n}}</td><td class="num">{{coh_fr_p}}</td></tr>
+    <tr><th scope="row">Germany: G-BA decision</th><td class="num">{{coh_de_early_med}}</td><td class="num">{{coh_de_early_2y}}%</td><td class="num">{{coh_de_early_n}}</td><td class="num">{{coh_de_late_med}}</td><td class="num">{{coh_de_late_2y}}%</td><td class="num">{{coh_de_late_n}}</td><td class="num">{{coh_de_p}}</td></tr>
+    <tr><th scope="row">England: NICE guidance</th><td class="num">{{coh_en_early_med}}</td><td class="num">{{coh_en_early_2y}}%</td><td class="num">{{coh_en_early_n}}</td><td class="num">{{coh_en_late_med}}</td><td class="num">{{coh_en_late_2y}}%</td><td class="num">{{coh_en_late_n}}</td><td class="num">{{coh_en_p}}</td></tr>
+    <tr><th scope="row">Italy: reimbursement</th><td class="num">{{coh_it_early_med}}</td><td class="num">{{coh_it_early_2y}}%</td><td class="num">{{coh_it_early_n}}</td><td class="num">{{coh_it_late_med}}</td><td class="num">{{coh_it_late_2y}}%</td><td class="num">{{coh_it_late_n}}</td><td class="num">{{coh_it_p}}</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="prose">
+
+<h3 id="it-price">Italy measured at the price opinion</h3>
+<p>Italy's milestone, publication in the Gazzetta Ufficiale, comes after the price has been agreed and after the
+  administrative steps that follow. As an additional analysis, without changing the main comparison, the Italian
+  curve was also drawn to the date of AIFA's price opinion (CPR, or CSE from 2024), read from each determination.
+  Counted that way, half of drugs had a price opinion within <strong>{{it_price_med}} days</strong> of EU approval
+  ({{it_price_n}} drugs), against {{it_med}} days to publication. For the {{it_admin_n}} drugs with both dates, the
+  time from the price opinion to publication had a median of <strong>{{it_admin_med}} days</strong>, and half of
+  drugs fell between {{it_admin_p25}} and {{it_admin_p75}} days. Drugs not yet reimbursed count as not having
+  reached the price opinion on the day they were checked; some may already have one, so this curve may slightly
+  understate how quickly price opinions come.</p>
+
 <h3>Comparing groups of drugs</h3>
 <p>Finding 7 splits the drugs by one trait at a time (for example, orphan or not) and compares the two groups'
   curves with a <strong>log-rank test</strong>, the standard test for this kind of curve. The test compares the
@@ -136,7 +180,7 @@
     <tr><th scope="row"><a href="https://www.fda.gov/vaccines-blood-biologics">FDA CBER approval letters</a></th><td>Approval dates for cell and gene therapies</td><td>Manual</td><td>Public domain</td></tr>
     <tr><th scope="row"><a href="https://www.accessdata.fda.gov/scripts/opdlisting/oopd/">FDA Orphan Drug Designations (OOPD)</a></th><td>US orphan designation</td><td>Manual</td><td>Public domain</td></tr>
     <tr><th scope="row"><a href="https://www.ema.europa.eu/en/medicines/download-medicine-data">EMA medicine data</a></th><td>CHMP opinion and EC approval dates, EU orphan, conditional approval, holder</td><td>Download, refreshed monthly</td><td>Reuse with acknowledgement</td></tr>
-    <tr><th scope="row"><a href="https://www.gazzettaufficiale.it/">Gazzetta Ufficiale</a> · <a href="https://www.aifa.gov.it/">AIFA</a></th><td>Italian reimbursement date and class</td><td>Manual</td><td>Official acts (not copyrighted); AIFA data CC BY 4.0</td></tr>
+    <tr><th scope="row"><a href="https://www.gazzettaufficiale.it/">Gazzetta Ufficiale</a> · <a href="https://www.aifa.gov.it/">AIFA</a></th><td>Italian reimbursement date and class; AIFA innovativeness and procedure dates from the same determination</td><td>Manual (from the full text; TrovaNormeFarmaco from March 2025)</td><td>Official acts (not copyrighted); AIFA data CC BY 4.0</td></tr>
     <tr><th scope="row"><a href="https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/">G-BA benefit assessments</a></th><td>AMNOG decision date and rating</td><td>Manual</td><td>Free reuse; no distortion of decisions</td></tr>
     <tr><th scope="row"><a href="https://base-donnees-publique.medicaments.gouv.fr/">French public medicines database (BDPM)</a></th><td>HAS SMR, ASMR and opinion date</td><td>Download, refreshed monthly; gaps researched on has-sante.fr and in HAS open data</td><td>Licence ouverte (attribution, no alteration)</td></tr>
     <tr><th scope="row"><a href="https://www.nice.org.uk/guidance/published">NICE guidance</a></th><td>England appraisal outcome, date and TA number</td><td>Manual</td><td>NICE content, cited with links</td></tr>

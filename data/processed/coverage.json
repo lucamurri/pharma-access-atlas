@@ -1,5 +1,5 @@
 {
-  "data_as_of": "2026-11-04",
+  "data_as_of": "2026-11-10",
   "groups": [
     {
       "group": "Identity",
@@ -47,13 +47,13 @@
       "modes": [
         "manual"
       ],
-      "fields": 2,
-      "cells": 414,
-      "filled": 355,
-      "checked_none": 39,
-      "unknown": 20,
-      "pct_filled": 85.7,
-      "pct_resolved": 95.2
+      "fields": 7,
+      "cells": 1449,
+      "filled": 1134,
+      "checked_none": 234,
+      "unknown": 81,
+      "pct_filled": 78.3,
+      "pct_resolved": 94.4
     },
     {
       "group": "Germany",
@@ -113,13 +113,13 @@
       "modes": [
         "calculated"
       ],
-      "fields": 2,
-      "cells": 414,
-      "filled": 414,
+      "fields": 4,
+      "cells": 828,
+      "filled": 728,
       "checked_none": 0,
-      "unknown": 0,
-      "pct_filled": 100.0,
-      "pct_resolved": 100.0
+      "unknown": 100,
+      "pct_filled": 87.9,
+      "pct_resolved": 87.9
     }
   ],
   "manual_fields": {
@@ -135,6 +135,31 @@
     "it_reimbursement_class": {
       "filled": 197,
       "unknown": 10
+    },
+    "it_innovative": {
+      "filled": 158,
+      "not_reimbursed_as_of": 39,
+      "unknown": 10
+    },
+    "it_dossier_date": {
+      "filled": 151,
+      "not_reimbursed_as_of": 39,
+      "unknown": 17
+    },
+    "it_cts_date": {
+      "filled": 157,
+      "not_reimbursed_as_of": 39,
+      "unknown": 11
+    },
+    "it_price_opinion_date": {
+      "filled": 157,
+      "not_reimbursed_as_of": 39,
+      "unknown": 11
+    },
+    "it_board_date": {
+      "filled": 156,
+      "not_reimbursed_as_of": 39,
+      "unknown": 12
     },
     "de_gba_decision_date": {
       "filled": 185,

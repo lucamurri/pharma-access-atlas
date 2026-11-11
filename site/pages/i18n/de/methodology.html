@@ -46,6 +46,20 @@
     verkauft werden darf, aber nicht erstattet wird. Noch nicht erstattete Arzneimittel erscheinen als „wartend“ mit den verstrichenen Tagen
     bis zum Datum unserer Prüfung. Die Kennzahlen-Mediane beziehen sie ein (siehe <a href="#curves">Zeit bis zum Zugang</a>); das
     Diagramm nach Therapiegebiet nutzt nur erstattete Arzneimittel und weist darauf hin.</dd>
+  <dt><strong>Italien: Innovationsstatus der AIFA</strong></dt>
+  <dd>Ob der Erstattungsbeschluss (determina) den Innovationsstatus der AIFA gewährt: <em>voll</em>, <em>bedingt</em> oder
+    <em>nicht anerkannt</em>, wenn der Beschluss keinen gewährt. Er wird aus dem Beschluss gelesen, der die Erstattung gewährt; ein
+    später gewährter Status (etwa für eine neue Indikation) wird daher nicht gezählt, und noch nicht erstattete Arzneimittel haben
+    keinen. Volle Innovation gewährt Zugang zum Fonds für innovative Arzneimittel und von Gesetzes wegen zu den regionalen
+    Arzneimittellisten, ohne die Aufnahme durch die Region abzuwarten (Art. 10 Abs. 2 des Gesetzesdekrets 158/2012). Er ist Italiens
+    eigenes Urteil über das Arzneimittel, nach eigenen Kriterien; er liegt nicht auf derselben Skala wie die Urteile von G-BA, HAS
+    oder NICE, und der Atlas bewertet sie nicht gegeneinander.</dd>
+  <dt><strong>Italien: Verfahrensdaten der AIFA</strong></dt>
+  <dd>Der Erstattungsbeschluss (determina) nennt die vorangegangenen Schritte: den Antrag des Unternehmens, die Stellungnahme der
+    wissenschaftlich-technischen Kommission der AIFA (CTS), die Stellungnahme des Preis- und Erstattungsausschusses (CPR), der den
+    für die Erstattung vereinbarten Preis festlegt, und den Beschluss des Verwaltungsrats der AIFA (CdA). Ab 2024 ersetzte eine
+    einzige wissenschaftlich-ökonomische Kommission (CSE) die CTS und die CPR. Hat ein Ausschuss an mehreren Tagen getagt, wird der
+    letzte Tag verwendet.</dd>
   <dt><strong>G-BA-Bewertung in Deutschland</strong></dt>
   <dd>Das Ergebnis der ersten abgeschlossenen frühen Nutzenbewertung des Arzneimittels (AMNOG, § 35a SGB V). Ein Beschluss kann Patienten
     in Gruppen mit unterschiedlichen Bewertungen aufteilen; wir zeigen die <em>beste</em> Bewertung über alle Gruppen und kennzeichnen,
@@ -113,6 +127,36 @@
   was zutreffend ist: Sie erhalten nie eine NICE-Empfehlung. Die englische Kurve beginnt über 0 %, weil NICE auf Grundlage der
   britischen Zulassung für einige Arzneimittel vor der EK-Zulassung eine Empfehlung veröffentlicht hat.</p>
 
+<h3 id="cohorts">Robustheit: frühe und jüngere Zulassungen</h3>
+<p>Viele Arzneimittel im Atlas wurden erst kürzlich zugelassen und warten noch, sodass die Kurven sich auf sie stützen. Um zu prüfen, ob
+  die Median-Kennzahlen von der Verteilung der Jahre abhängen, wurden die Kurven getrennt für Arzneimittel mit EK-Zulassung in
+  2019–2021 und in 2022–2025 neu gezeichnet. Die Unterschiede sind gering und keiner ist statistisch signifikant (Log-Rank-Test);
+  die Gesamtkurven werden also nicht von einem einzelnen Zeitraum bestimmt. Die jüngere Gruppe hatte weniger Zeit, jeden Meilenstein zu
+  erreichen, daher beruhen ihre Anteile nach zwei Jahren auf weniger Arzneimitteln.</p>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+  <thead><tr><th scope="col">Meilenstein</th><th scope="col" class="num">2019–2021: Median in Tagen</th><th scope="col" class="num">innerhalb von 2 Jahren</th><th scope="col" class="num">Arzneimittel</th><th scope="col" class="num">2022–2025: Median in Tagen</th><th scope="col" class="num">innerhalb von 2 Jahren</th><th scope="col" class="num">Arzneimittel</th><th scope="col" class="num">Log-Rank-p</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Frankreich: HAS-Stellungnahme</th><td class="num">{{coh_fr_early_med}}</td><td class="num">{{coh_fr_early_2y}} %</td><td class="num">{{coh_fr_early_n}}</td><td class="num">{{coh_fr_late_med}}</td><td class="num">{{coh_fr_late_2y}} %</td><td class="num">{{coh_fr_late_n}}</td><td class="num">{{coh_fr_p}}</td></tr>
+    <tr><th scope="row">Deutschland: G-BA-Beschluss</th><td class="num">{{coh_de_early_med}}</td><td class="num">{{coh_de_early_2y}} %</td><td class="num">{{coh_de_early_n}}</td><td class="num">{{coh_de_late_med}}</td><td class="num">{{coh_de_late_2y}} %</td><td class="num">{{coh_de_late_n}}</td><td class="num">{{coh_de_p}}</td></tr>
+    <tr><th scope="row">England: NICE-Empfehlung</th><td class="num">{{coh_en_early_med}}</td><td class="num">{{coh_en_early_2y}} %</td><td class="num">{{coh_en_early_n}}</td><td class="num">{{coh_en_late_med}}</td><td class="num">{{coh_en_late_2y}} %</td><td class="num">{{coh_en_late_n}}</td><td class="num">{{coh_en_p}}</td></tr>
+    <tr><th scope="row">Italien: Erstattung</th><td class="num">{{coh_it_early_med}}</td><td class="num">{{coh_it_early_2y}} %</td><td class="num">{{coh_it_early_n}}</td><td class="num">{{coh_it_late_med}}</td><td class="num">{{coh_it_late_2y}} %</td><td class="num">{{coh_it_late_n}}</td><td class="num">{{coh_it_p}}</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="prose">
+
+<h3 id="it-price">Italien, gemessen am Preisgutachten</h3>
+<p>Italiens Meilenstein, die Veröffentlichung in der Gazzetta Ufficiale, folgt auf die Preisvereinbarung und auf die anschließenden
+  administrativen Schritte. Als zusätzliche Analyse, ohne den Hauptvergleich zu ändern, wurde die italienische Kurve auch bis zum Datum
+  des Preisgutachtens der AIFA (CPR, ab 2024 CSE) gezeichnet, gelesen aus dem jeweiligen Beschluss. So gezählt, hatte die Hälfte der
+  Arzneimittel innerhalb von <strong>{{it_price_med}} Tagen</strong> nach der EU-Zulassung ein Preisgutachten ({{it_price_n}} Arzneimittel),
+  gegenüber {{it_med}} Tagen bis zur Veröffentlichung. Bei den {{it_admin_n}} Arzneimitteln mit beiden Daten betrug die Zeit vom
+  Preisgutachten bis zur Veröffentlichung im Median <strong>{{it_admin_med}} Tage</strong>, und die Hälfte der Arzneimittel lag zwischen
+  {{it_admin_p25}} und {{it_admin_p75}} Tagen. Noch nicht erstattete Arzneimittel zählen am Tag der Prüfung als ohne Preisgutachten;
+  einige haben möglicherweise bereits eines, sodass diese Kurve die Geschwindigkeit der Preisgutachten leicht unterschätzen kann.</p>
+
 <h3>Gruppen von Arzneimitteln vergleichen</h3>
 <p>Befund 7 teilt die Arzneimittel jeweils nach einem Merkmal auf (zum Beispiel Orphan oder nicht) und vergleicht die Kurven der beiden Gruppen
   mit einem <strong>Log-Rank-Test</strong>, dem Standardtest für diese Art von Kurven. Der Test vergleicht die
@@ -135,7 +179,7 @@
     <tr><th scope="row"><a href="https://www.fda.gov/vaccines-blood-biologics">FDA CBER approval letters</a></th><td>Zulassungsdaten für Zell- und Gentherapien</td><td>Manuell</td><td>Gemeinfrei</td></tr>
     <tr><th scope="row"><a href="https://www.accessdata.fda.gov/scripts/opdlisting/oopd/">FDA Orphan Drug Designations (OOPD)</a></th><td>US-Orphan-Designation</td><td>Manuell</td><td>Gemeinfrei</td></tr>
     <tr><th scope="row"><a href="https://www.ema.europa.eu/en/medicines/download-medicine-data">EMA medicine data</a></th><td>CHMP-Empfehlung und EK-Zulassungsdaten, EU-Orphan-Status, bedingte Zulassung, Inhaber</td><td>Download, monatlich aktualisiert</td><td>Nachnutzung mit Quellenangabe</td></tr>
-    <tr><th scope="row"><a href="https://www.gazzettaufficiale.it/">Gazzetta Ufficiale</a> · <a href="https://www.aifa.gov.it/">AIFA</a></th><td>Italienisches Erstattungsdatum und Klasse</td><td>Manuell</td><td>Amtliche Akte (nicht urheberrechtlich geschützt); AIFA-Daten CC BY 4.0</td></tr>
+    <tr><th scope="row"><a href="https://www.gazzettaufficiale.it/">Gazzetta Ufficiale</a> · <a href="https://www.aifa.gov.it/">AIFA</a></th><td>Italienisches Erstattungsdatum und Klasse; Innovationsstatus der AIFA und Verfahrensdaten aus demselben Beschluss</td><td>Manuell (aus dem Volltext; ab März 2025 TrovaNormeFarmaco)</td><td>Amtliche Akte (nicht urheberrechtlich geschützt); AIFA-Daten CC BY 4.0</td></tr>
     <tr><th scope="row"><a href="https://www.g-ba.de/bewertungsverfahren/nutzenbewertung/">G-BA-Nutzenbewertungen</a></th><td>AMNOG-Beschlussdatum und Bewertung</td><td>Manuell</td><td>Freie Nachnutzung; keine Entstellung der Beschlüsse</td></tr>
     <tr><th scope="row"><a href="https://base-donnees-publique.medicaments.gouv.fr/">Öffentliche französische Arzneimitteldatenbank (BDPM)</a></th><td>HAS-SMR, -ASMR und Datum der Stellungnahme</td><td>Download, monatlich aktualisiert; Lücken recherchiert auf has-sante.fr und in den offenen Daten der HAS</td><td>Licence ouverte (Namensnennung, keine Veränderung)</td></tr>
     <tr><th scope="row"><a href="https://www.nice.org.uk/guidance/published">NICE-Empfehlungen</a></th><td>Ergebnis der Bewertung in England, Datum und TA-Nummer</td><td>Manuell</td><td>NICE-Inhalte, mit Links zitiert</td></tr>

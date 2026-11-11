@@ -66,7 +66,8 @@
       <tr><th scope="row">Inghilterra</th><td>Raccomandazione del NICE, comprese {{en_n_term}} valutazioni terminate (di solito senza
         dossier dell'azienda), che significano nessun finanziamento da parte dell'NHS</td><td>La valutazione precede il finanziamento.</td></tr>
       <tr><th scope="row">Italia</th><td>Rimborsabilità pubblicata in Gazzetta Ufficiale</td><td>Arriva dopo il parere del comitato AIFA, che fissa il prezzo concordato per la rimborsabilità, e dopo i passaggi amministrativi
-        fino alla ratifica da parte del CdA dell'AIFA e alla pubblicazione.</td></tr>
+        fino alla ratifica da parte del CdA dell'AIFA e alla pubblicazione (una mediana di {{it_admin_med}} giorni dal parere sul
+        prezzo alla pubblicazione; <a href="methodology.html#it-price">dettagli</a>).</td></tr>
     </tbody>
   </table>
   </div>
@@ -106,14 +107,21 @@
     relativo al comparatore scelto dal G-BA, non un giudizio sul valore clinico; «non quantificabile» significa che è stato
     riconosciuto un beneficio aggiuntivo ma non è stato possibile stabilirne l'entità ({{gba_n_nq_orphan}} di questi {{gba_n_nq}}
     farmaci sono farmaci orfani).</p>
-  <div class="chart-grid-3">
+  <div class="chart-grid-2x2">
     <div><h3>Germania: beneficio aggiuntivo G-BA (miglior gruppo di pazienti)</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-gba" role="img" aria-label="Valutazioni G-BA della Germania. Dati nella tabella sottostante."></canvas></div></div>
     <div><h3>Francia: ASMR della HAS (I = maggiore, V = nessuno), o SMR insufficiente</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-fr" role="img" aria-label="Valutazioni ASMR della Francia. Dati nella tabella sottostante."></canvas></div></div>
     <div><h3>Inghilterra: prima decisione del NICE</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-en" role="img" aria-label="Decisioni del NICE. Dati nella tabella sottostante."></canvas></div></div>
+    <div><h3>Italia: innovatività AIFA, nella determina di rimborsabilità</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-it-innov" role="img" aria-label="Innovatività AIFA. Dati nella tabella sottostante."></canvas></div></div>
   </div>
+  <p class="small">Le quattro scale rispondono a domande diverse, con criteri e comparatori diversi, quindi sono
+    mostrate affiancate e non confrontate con un punteggio. L'innovatività AIFA è decisa solo insieme alla
+    rimborsabilità, perciò riguarda i {{it_innov_n}} farmaci rimborsati la cui determina è stato possibile leggere.
+    L'innovatività piena dà accesso al Fondo per i farmaci innovativi e, per legge, ai prontuari terapeutici regionali
+    senza attendere l'inclusione regionale; come le regioni applichino questa norma non è misurato.</p>
   <details class="data-view"><summary>Mostra i dati in una tabella</summary><div class="table-scroll" id="table-hta"></div></details>
 </section>
 

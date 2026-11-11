@@ -79,6 +79,8 @@ def flat_rows(data: dict) -> list[dict]:
             # Why a drug has no verdict yet: not_assessed (no procedure), not_reimbursed_as_of
             # (procedure in progress) or unknown (not verified).
             "gba_status": gba["status"], "fr_status": st("fr_has_date"), "en_status": st("en_nice_decision"),
+            "it_innov": v("it_innovative"), "it_price_date": v("it_price_opinion_date"),
+            "it_admin": v("it_admin_days"),
         })
     return rows
 
@@ -98,6 +100,8 @@ MILESTONES = {
     "fr": ("ec_approval_date", "fr_has_date"),
     "en": ("ec_approval_date", "en_nice_date"),
     "it_from_fda": ("fda_approval_date", "it_gu_date"),
+    # Sensitivity: Italy measured at the AIFA price opinion (CPR/CSE) instead of GU publication
+    "it_price": ("ec_approval_date", "it_price_opinion_date"),
     # The US page counts from FDA approval: how far behind the US each European milestone came.
     "ec_from_fda": ("fda_approval_date", "ec_approval_date"),
     "de_from_fda": ("fda_approval_date", "de_gba_decision_date"),
@@ -195,6 +199,29 @@ def access_curves(all_rows: list[dict]) -> dict:
     return {k: kaplan_meier([r["km"][k] for r in rows]) for k in MILESTONES}
 
 
+COHORT_SPLIT = "2021"  # EC approvals 2019-2021 ("early") vs 2022-2025 ("late")
+
+
+def access_by_cohort(all_rows: list[dict]) -> dict:
+    """Robustness check: the four country curves for early and recent EC approvals.
+
+    Recent drugs are many and often still waiting; if the curves moved a lot between
+    the two periods, the headline medians would depend on the mix of years.
+    """
+    rows = [r for r in core(all_rows) if r["ec_date"]]
+    out = {}
+    for k in ("fr", "de", "en", "it"):
+        groups = {"early": [r["km"][k] for r in rows if r["ec_date"][:4] <= COHORT_SPLIT],
+                  "late": [r["km"][k] for r in rows if r["ec_date"][:4] > COHORT_SPLIT]}
+        stats = {}
+        for g, pairs in groups.items():
+            km = kaplan_meier(pairs)
+            stats[g] = {f: km[f] for f in ("n", "waiting", "median", "pct_2y", "ci_2y")}
+        p = log_rank_p(groups["early"], groups["late"])
+        out[k] = {**stats, "p": round(p, 3) if p is not None else None}
+    return out
+
+
 FR_ORDER = ["I", "II", "III", "IV", "V", "SMR insufficient"]
 FR_NEGATIVE = ("V", "SMR insufficient")
 
@@ -202,6 +229,37 @@ FR_NEGATIVE = ("V", "SMR insufficient")
 def core(rows: list[dict]) -> list[dict]:
     """Headline statistics use only drugs selected by the inclusion rule."""
     return [r for r in rows if r["cohort"] == "core"]
+
+
+IT_INNOV_ORDER = ["full", "conditional", "not recognised"]
+
+
+def _quartiles(values):
+    values = sorted(v for v in values if v is not None)
+    if len(values) < 4:
+        return {"n": len(values), "median": median(values), "p25": None, "p75": None}
+    q = statistics.quantiles(values, n=4, method="inclusive")
+    return {"n": len(values), "median": median(values), "p25": q[0], "p75": q[2]}
+
+
+def innov_by_verdict(rows: list[dict]) -> dict:
+    """Counts only: AIFA innovativeness next to each other country's verdict on the same drug.
+
+    The scales are not comparable (different criteria and comparators), so no agreement
+    score is computed; the table just shows how the judgements sit side by side.
+    """
+    rated = [r for r in rows if r["it_innov"] in IT_INNOV_ORDER]
+    groups = {
+        "de_benefit": lambda r: _added_benefit(r),
+        "fr_benefit": lambda r: "yes" if r["fr_verdict"] in ("I", "II", "III", "IV") else "no" if r["fr_verdict"] else None,
+        "en_positive": lambda r: ("yes" if r["en_decision"] in NICE_POSITIVE else "no"
+                                   if r["en_decision"] in ("not recommended", "terminated") else None),
+    }
+    out = {}
+    for key, fn in groups.items():
+        out[key] = {g: {k: sum(1 for r in rated if fn(r) == g and r["it_innov"] == k) for k in IT_INNOV_ORDER}
+                    for g in ("yes", "no")}
+    return out
 
 
 def median(values):
@@ -276,8 +334,15 @@ def summary(all_rows: list[dict]) -> dict:
             [[r["km"]["en"][0], 0] if r["en_decision"] == "terminated" and r["km"]["en"] else r["km"]["en"]
              for r in rows]).items() if k in ("median", "pct_2y", "n", "events")},
         "n_all": len(all_rows),
+        # AIFA innovativeness, among reimbursed drugs (granted only with reimbursement)
+        "it_innov": {k: sum(1 for r in reimbursed if r["it_innov"] == k) for k in IT_INNOV_ORDER},
+        "it_innov_unknown": sum(1 for r in reimbursed if r["it_innov"] is None),
+        # Administrative phase: AIFA price opinion to GU publication
+        "it_admin": _quartiles([r["it_admin"] for r in reimbursed]),
+        "it_innov_by_verdict": innov_by_verdict(rows),
         "cms_n_selected": sum(1 for r in all_rows if r["cms_selected"] == "yes"),
         "access": access_curves(all_rows),
+        "access_by_cohort": access_by_cohort(all_rows),
         "companies": company_scorecard(all_rows),
         "drivers": italy_drivers(all_rows),
         "countries": country_profiles(all_rows),
@@ -537,6 +602,12 @@ def findings(all_rows: list[dict], s: dict) -> dict:
         "7: orphan status shows no clear link to Italy's speed (p >= 0.05)": drv["orphan"]["p"] >= 0.05,
         "7: company size is the only factor with p < 0.05": [d["key"] for d in s["drivers"] if d["p"] < 0.05] == ["large_company"],
         "7: large companies reach more drugs within two years": drv["large_company"]["yes"]["pct_2y"] > drv["large_company"]["no"]["pct_2y"],
+        "methodology: early vs recent approval curves do not differ significantly":
+            all(c["p"] is not None and c["p"] >= 0.05 for c in s["access_by_cohort"].values()),
+        "methodology: Italy reaches the price opinion before publication (median)":
+            None not in (s["access"]["it_price"]["median"], it) and s["access"]["it_price"]["median"] < it,
+        "index/methodology: price opinion to publication is never negative":
+            all(r["it_admin"] is None or r["it_admin"] >= 0 for r in rows),
         "methodology: every Medicare-selected drug is a reference drug":
             all(r["cohort"] == "reference" for r in all_rows if r["cms_selected"] == "yes"),
         "7: no comparison passes the Bonferroni threshold": all(d["p"] >= 0.05 / len(s["drivers"]) for d in s["drivers"]),

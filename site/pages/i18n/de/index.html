@@ -66,7 +66,8 @@
       <tr><th scope="row">England</th><td>NICE-Empfehlung, einschließlich {{en_n_term}} eingestellter Bewertungen (meist ohne Einreichung des
         Unternehmens), die keine Finanzierung durch den NHS bedeuten</td><td>Die Bewertung geht der Finanzierung voraus.</td></tr>
       <tr><th scope="row">Italien</th><td>Erstattung, veröffentlicht in der Gazzetta Ufficiale</td><td>Folgt auf die Stellungnahme des AIFA-Ausschusses, die den für die Erstattung vereinbarten Preis festlegt, und auf die administrativen
-        Schritte bis zur Bestätigung durch den Verwaltungsrat der AIFA und die Veröffentlichung.</td></tr>
+        Schritte bis zur Bestätigung durch den Verwaltungsrat der AIFA und die Veröffentlichung (Median {{it_admin_med}} Tage vom Preisgutachten
+        bis zur Veröffentlichung; <a href="methodology.html#it-price">Einzelheiten</a>).</td></tr>
     </tbody>
   </table>
   </div>
@@ -105,14 +106,21 @@
     (<a href="methodology.html#no-verdict">warum die übrigen keines haben</a>). In Deutschland ist „kein Zusatznutzen“ relativ
     zur vom G-BA gewählten zweckmäßigen Vergleichstherapie zu verstehen, kein Urteil über den klinischen Wert; „nicht quantifizierbar“ heißt, dass ein Zusatznutzen
     festgestellt, sein Ausmaß aber nicht bestimmt werden konnte ({{gba_n_nq_orphan}} dieser {{gba_n_nq}} Arzneimittel sind Orphan-Arzneimittel).</p>
-  <div class="chart-grid-3">
+  <div class="chart-grid-2x2">
     <div><h3>Deutschland: G-BA-Zusatznutzen (beste Patientengruppe)</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-gba" role="img" aria-label="G-BA-Bewertungen in Deutschland. Daten in der Tabelle darunter."></canvas></div></div>
     <div><h3>Frankreich: HAS-ASMR (I = erheblich, V = keine) oder SMR unzureichend</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-fr" role="img" aria-label="ASMR-Bewertungen in Frankreich. Daten in der Tabelle darunter."></canvas></div></div>
     <div><h3>England: erste NICE-Entscheidung</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-en" role="img" aria-label="NICE-Entscheidungen. Daten in der Tabelle darunter."></canvas></div></div>
+    <div><h3>Italien: Innovationsstatus der AIFA im Erstattungsbeschluss (determina)</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-it-innov" role="img" aria-label="Innovationsstatus der AIFA. Daten in der Tabelle darunter."></canvas></div></div>
   </div>
+  <p class="small">Die vier Skalen beantworten unterschiedliche Fragen mit unterschiedlichen Kriterien und Vergleichstherapien; sie
+    werden daher nebeneinander gezeigt und nicht gegeneinander bewertet. Der Innovationsstatus der AIFA wird nur zusammen mit der
+    Erstattung festgelegt und umfasst daher die {{it_innov_n}} erstatteten Arzneimittel, deren Beschluss gelesen werden konnte. Volle
+    Innovation gewährt Zugang zum Fonds für innovative Arzneimittel und von Gesetzes wegen zu den regionalen Arzneimittellisten, ohne
+    die Aufnahme durch die Region abzuwarten; wie die Regionen dies anwenden, wird nicht gemessen.</p>
   <details class="data-view"><summary>Daten als Tabelle anzeigen</summary><div class="table-scroll" id="table-hta"></div></details>
 </section>
 

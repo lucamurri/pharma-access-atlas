@@ -66,7 +66,8 @@
       <tr><th scope="row">England</th><td>NICE guidance, including {{en_n_term}} terminated appraisals (usually no
         company submission), which mean no NHS funding</td><td>The assessment comes before funding.</td></tr>
       <tr><th scope="row">Italy</th><td>Reimbursement published in the Gazzetta Ufficiale</td><td>Comes after the AIFA committee's opinion, which sets the price agreed for reimbursement, and after the administrative
-        steps up to ratification by AIFA's Board and publication.</td></tr>
+        steps up to ratification by AIFA's Board and publication (a median of {{it_admin_med}} days from the price
+        opinion to publication; <a href="methodology.html#it-price">details</a>).</td></tr>
     </tbody>
   </table>
   </div>
@@ -105,14 +106,21 @@
     (<a href="methodology.html#no-verdict">why the others have none</a>). In Germany, "no added benefit" is relative
     to the comparator the G-BA chose, not a judgement on clinical value; "non-quantifiable" means an added benefit
     was found but its size could not be set ({{gba_n_nq_orphan}} of these {{gba_n_nq}} drugs are orphan drugs).</p>
-  <div class="chart-grid-3">
+  <div class="chart-grid-2x2">
     <div><h3>Germany: G-BA added benefit (best patient group)</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-gba" role="img" aria-label="Germany G-BA ratings. Data in the table below."></canvas></div></div>
     <div><h3>France: HAS ASMR (I = major, V = none), or SMR insufficient</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-fr" role="img" aria-label="France ASMR ratings. Data in the table below."></canvas></div></div>
     <div><h3>England: NICE first decision</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-en" role="img" aria-label="NICE decisions. Data in the table below."></canvas></div></div>
+    <div><h3>Italy: AIFA innovativeness, in the reimbursement determination</h3>
+      <div class="chart-box" style="height: 240px"><canvas id="chart-it-innov" role="img" aria-label="AIFA innovativeness. Data in the table below."></canvas></div></div>
   </div>
+  <p class="small">The four scales answer different questions with different criteria and comparators, so they are
+    shown side by side, not scored against each other. AIFA innovativeness is decided only together with
+    reimbursement, so it covers the {{it_innov_n}} reimbursed drugs whose determination could be read. Full
+    innovativeness gives access to the innovative-medicines fund and, by law, to regional formularies without
+    waiting for regional inclusion; how regions apply this is not measured.</p>
   <details class="data-view"><summary>Show the data as a table</summary><div class="table-scroll" id="table-hta"></div></details>
 </section>
 

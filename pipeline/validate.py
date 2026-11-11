@@ -9,7 +9,8 @@ Checks
   3. Status consistency: 'verified' needs a value; 'unknown' must not have one.
   4. Allowed values: yes/no fields, G-BA ratings, Italian classes, ISO dates.
   5. Logical dates: CHMP opinion <= EC approval; Italian reimbursement and
-     G-BA decision on or after EC approval; nothing dated in the future;
+     G-BA decision on or after EC approval; AIFA price opinion <= Board
+     resolution <= GU publication; nothing dated in the future;
      FDA and EC approvals inside the 2019-2025 study window.
   6. Duplicates: drug_id, brands, FDA application and EMA number are unique.
 
@@ -124,6 +125,13 @@ def check_dates(drug_id: str, f: dict) -> None:
     for name, label in [("it_gu_date", "Italian reimbursement"), ("de_gba_decision_date", "G-BA decision")]:
         if ec and v(name) and v(name) < ec:
             errors.append(f"{drug_id}: {label} ({v(name)}) is before EC approval ({ec})")
+    # Italian procedure: price opinion, then Board resolution, then publication.
+    steps = [("it_price_opinion_date", "AIFA price opinion"), ("it_board_date", "AIFA Board resolution"),
+             ("it_gu_date", "Italian reimbursement")]
+    for (a, la), (b, lb) in zip(steps, steps[1:]):
+        if v(a) and v(b) and v(a) > v(b):
+            errors.append(f"{drug_id}: {la} ({v(a)}) is after {lb} ({v(b)})")
+    # The scientific committee can meet again after the price opinion (e.g. Zolgensma), so no order is enforced there.
     for name, value in [("fda_approval_date", fda), ("ec_approval_date", ec)]:
         if value and not (WINDOW[0] <= value <= WINDOW[1]):
             errors.append(f"{drug_id}: {name} {value} is outside the {WINDOW[0]}..{WINDOW[1]} study window")
