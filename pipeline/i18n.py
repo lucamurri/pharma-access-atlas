@@ -92,7 +92,7 @@ class Strings:
 
     def js(self) -> dict:
         """The strings the page scripts need (keys starting with js., label., or the shared verdict names)."""
-        prefixes = ("js.", "label.", "gba.", "asmr.", "nice.", "na")
+        prefixes = ("js.", "label.", "gba.", "asmr.", "nice.", "innov.", "na")
         return {k: v for k, v in self.table.items() if k.startswith(prefixes)}
 
 

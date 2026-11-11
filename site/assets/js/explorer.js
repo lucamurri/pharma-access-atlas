@@ -9,6 +9,7 @@
   rows.forEach(r => {
     r.it_sort = r.it_lag ?? (r.it_waiting !== null ? 100000 + r.it_waiting : null); // waiting sorts last
     r.gba_sort = r.gba_rating ? RATING_ORDER.indexOf(r.gba_rating) : null;
+    r.innov_sort = r.it_innov ? ["full", "conditional", "not recognised"].indexOf(r.it_innov) : null;
     r.fr_sort = r.fr_verdict ? ["I", "II", "III", "IV", "V", "SMR insufficient"].indexOf(r.fr_verdict) : null;
   });
 
@@ -44,7 +45,7 @@
   };
 
   // Card labels on phones (the column headers are hidden there).
-  const L = Object.fromEntries(["area", "company", "fda", "ec", "lag", "it", "de", "fr", "en", "orphan"]
+  const L = Object.fromEntries(["area", "company", "fda", "ec", "lag", "it", "innov", "de", "fr", "en", "orphan"]
     .map(k => [k, Atlas.esc(Atlas.t(`js.ex.${k}`))]));
 
   function render() {
@@ -76,12 +77,13 @@
         <td data-label="${L.ec}" style="white-space:nowrap">${Atlas.fmtDate(r.ec_date)}</td>
         <td class="num" data-label="${L.lag}">${r.lag === null ? Atlas.t("na") : Atlas.num(r.lag)}</td>
         <td class="num" data-label="${L.it}">${italyCell(r)}</td>
+        <td data-label="${L.innov}">${r.it_innov ? Atlas.esc(Atlas.t(`innov.${r.it_innov}`)) : `<span class="muted">${Atlas.t("na")}</span>`}</td>
         <td data-label="${L.de}">${ratingPill(r)}</td>
         <td data-label="${L.fr}">${r.fr_verdict ? Atlas.esc(Atlas.t(`asmr.${r.fr_verdict}`))
               : r.fr_pending ? `<span class="pill">${Atlas.t("js.no_opinion_yet")}</span>` : `<span class="muted">${Atlas.t("na")}</span>`}</td>
         <td data-label="${L.en}">${r.en_decision ? Atlas.esc(Atlas.t(`nice.${r.en_decision}`)) : r.en_pending ? `<span class="pill">${Atlas.t("js.in_progress")}</span>` : `<span class="muted">${Atlas.t("na")}</span>`}</td>
         <td data-label="${L.orphan}">${orphanCell(r)}</td>
-      </tr>`).join("") || `<tr><td colspan="11">${Atlas.t("js.no_match")}</td></tr>`;
+      </tr>`).join("") || `<tr><td colspan="12">${Atlas.t("js.no_match")}</td></tr>`;
 
     el("result-count").textContent = Atlas.t("js.showing", { n: visible.length, total: rows.length });
 
