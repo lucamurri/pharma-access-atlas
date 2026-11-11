@@ -1,8 +1,8 @@
 """Three 'so what' bullets per drug brief, generated from the data, in each site language.
 
 With ~200 drugs the bullets are written by rules instead of by hand, so every sentence is grounded in the
-drug's own sourced values and in medians for the whole atlas. The wording is cautious ("faster than the
-median") and never adds facts that are not in the data. The sentence patterns live in site/i18n/<lang>.json
+drug's own sourced values and in medians for the whole atlas. The wording is descriptive ("longer than the
+median", never a rank among drugs) and never adds facts that are not in the data. The sentence patterns live in site/i18n/<lang>.json
 (keys "so.*"); check_text.py verifies every number in the English version.
 """
 from __future__ import annotations
@@ -29,18 +29,11 @@ def bullets(r: dict, all_rows: list[dict], s: dict, t: i18n.Strings) -> list[str
 
     # 2. Italian access (the median counts drugs still waiting) -----------------
     it_med = s["access"]["it"]["median"]
-    reimbursed = sorted([x for x in core if x["it_lag"] is not None], key=lambda x: -x["it_lag"])
     if r["it_lag"] is not None:
-        rank = next((i + 1 for i, x in enumerate(reimbursed) if x["id"] == r["id"]), None)
-        quartile = ""
-        if rank and rank <= len(reimbursed) // 4:
-            quartile = t("so.it_rank_longest", ord=t.ordinal(rank), n=t.num(len(reimbursed)))
-        elif rank and rank > len(reimbursed) - len(reimbursed) // 4:
-            quartile = t("so.it_rank_fastest", ord=t.ordinal(len(reimbursed) - rank + 1), n=t.num(len(reimbursed)))
-        cmp = (t("so.cmp_slower") if r["it_lag"] > it_med else t("so.cmp_faster") if r["it_lag"] < it_med
+        # Compared with the median only: no rank among drugs, which would read as a league table.
+        cmp = (t("so.cmp_longer") if r["it_lag"] > it_med else t("so.cmp_shorter") if r["it_lag"] < it_med
                else t("so.cmp_equal"))
-        out.append(t("so.it_reimbursed", cls=r["it_class"], lag=t.num(r["it_lag"]), cmp=cmp,
-                     med=t.num(it_med), rank=quartile))
+        out.append(t("so.it_reimbursed", cls=r["it_class"], lag=t.num(r["it_lag"]), cmp=cmp, med=t.num(it_med)))
     elif r["it_status"] == "not reimbursed":
         out.append(t("so.it_waiting", days=t.num(r["it_waiting"]), cls=r["it_class"], date=t.date(r["it_checked"])))
     else:
