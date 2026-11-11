@@ -16,6 +16,10 @@
   <li>Zell- und Gentherapien (von der CBER der FDA zugelassen, nicht in openFDA) stammen aus der EMA-Liste der Arzneimittel für neuartige Therapien.
     Jede ist nur enthalten, wenn ihr FDA-Zulassungsdatum im Zeitraum von Hand überprüft wurde.</li>
   <li>Die Auswahl wurde mit den offiziellen jährlichen Listen der „novel drug approvals“ der FDA für 2021–2025 abgeglichen.</li>
+  <li><strong>Der Zeitraum schneidet jüngere Arzneimittel mit langen Abständen ab.</strong> Beide Zulassungen müssen in 2019–2025
+    liegen; ein Arzneimittel, das die FDA 2024–2025 und die EU erst ab 2026 zugelassen hat, ist nicht im Atlas. Unter den jüngeren
+    Zulassungen sind nur jene enthalten, die Europa schnell zugelassen hat; der mediane Abstand zwischen USA und EU von {{lag_median}} Tagen kann den
+    Abstand daher unterschätzen. Befund 2 lässt diese Jahre aus diesem Grund aus.</li>
   <li>{{n_reference}} <strong>Referenzarzneimittel</strong> (Rybelsus und Wegovy, neuere Marken von Semaglutid, das
     2017 erstmals als Ozempic zugelassen wurde) werden für den Medicare-Vergleich gezeigt, sind aber aus allen Kennzahlen ausgeschlossen.</li>
   <li>Auf der EU-Seite werden zentral zugelassene Arzneimittel verwendet. Ein Wirkstoff, der zuvor nur mit nationalen Zulassungen vertrieben wurde, kann
@@ -47,7 +51,10 @@
     in Gruppen mit unterschiedlichen Bewertungen aufteilen; wir zeigen die <em>beste</em> Bewertung über alle Gruppen und kennzeichnen,
     ob eine Gruppe „keinen Zusatznutzen“ erhielt. In Deutschland wird ein Arzneimittel ab Markteinführung erstattet. Die Bewertung,
     meist etwa sechs Monate später, prägt den verhandelten Erstattungsbetrag; sie misst also
-    den <em>anerkannten Wert</em>, nicht die Zeit bis zur Erstattung.</dd>
+    den <em>anerkannten Wert</em>, nicht die Zeit bis zur Erstattung. „Kein Zusatznutzen“ ist relativ zur vom G-BA für diese
+    Patientengruppe gewählten zweckmäßigen Vergleichstherapie zu verstehen; es heißt nicht, dass das Arzneimittel keinen klinischen Wert hat.
+    „Nicht quantifizierbar“ heißt, dass der G-BA einen Zusatznutzen festgestellt hat, die Daten aber keine Bestimmung des Ausmaßes zuließen;
+    {{gba_n_nq_orphan}} der {{gba_n_nq}} so bewerteten Arzneimittel sind Orphan-Arzneimittel, deren Zusatznutzen laut Gesetz als belegt gilt.</dd>
   <dt><strong>HAS-Bewertung in Frankreich</strong></dt>
   <dd>Die erste Stellungnahme der Commission de la Transparence der HAS zur Aufnahme in die Erstattung (inscription au remboursement). Der <em>SMR</em> besagt, ob das
     Arzneimittel überhaupt erstattungswürdig ist; der <em>ASMR</em> bewertet den Zusatznutzen von I (erheblich) bis V (keine Verbesserung). Wir zeigen
@@ -62,7 +69,11 @@
     <em>nicht empfohlen</em>; <em>eingestellt</em> (keine Einreichung des Unternehmens oder das Unternehmen hat zurückgezogen); und
     <em>nicht bewertet</em> (keine Empfehlung, einschließlich Bewertungen, die vor Veröffentlichung einer Empfehlung eingestellt wurden).
     Das Datum ist das Veröffentlichungsdatum. England nutzt nach dem Brexit seine eigene britische Zulassung, doch die Abstände werden
-    zur Vergleichbarkeit ab der EK-Zulassung gemessen.</dd>
+    zur Vergleichbarkeit ab der EK-Zulassung gemessen. Eine <em>eingestellte</em> Bewertung ({{en_n_term}} Arzneimittel) gilt am Tag ihrer
+    Veröffentlichung als Erreichen des Meilensteins, weil NICE sie als Empfehlung veröffentlicht und sie das Ergebnis festlegt: Der NHS
+    finanziert das Arzneimittel für diese Indikation nicht. Würden eingestellte Bewertungen stattdessen als noch nicht erreicht gezählt,
+    läge der englische Median bei {{en_med_cens}} statt {{en_med_all}} Tagen und der Anteil, der innerhalb von zwei Jahren erreicht wurde,
+    bei {{en_2y_cens}} % statt {{en_2y_all}} %.</dd>
   <dt><strong>Orphan-Status</strong></dt>
   <dd>USA: eine FDA-Orphan-Designation für die Indikation der Erstzulassung (FDA-OOPD-Datenbank). EU: der aktuelle
     Orphan-Status der EMA. Ein Arzneimittel, dessen Orphan-Status später entzogen wurde, wird mit „nein“ angezeigt.</dd>
@@ -70,6 +81,19 @@
   <dd>Ob CMS das Arzneimittel nach dem Inflation Reduction Act ausgewählt hat und, falls ja, den Maximum Fair Price (MFP)
     und den Listenpreis, den CMS für eine 30-Tage-Versorgung angibt.</dd>
 </dl>
+
+<h2 id="no-verdict">Arzneimittel ohne Urteil</h2>
+<p>Anteile von Urteilen (zum Beispiel „kein Zusatznutzen“ oder „ASMR V“) beziehen sich auf die Arzneimittel, die eines haben, nicht auf alle {{n}}.</p>
+<ul>
+  <li><strong>Deutschland:</strong> {{gba_n_assessed}} Arzneimittel haben eine G-BA-Bewertung. Von den übrigen {{gba_none_n}} haben
+    {{gba_none_na}} kein dokumentiertes G-BA-Verfahren (der Grund ist nicht erfasst),
+    bei {{gba_none_ongoing}} läuft die Bewertung noch und {{gba_none_unk}} konnten nicht überprüft werden.</li>
+  <li><strong>Frankreich:</strong> {{fr_n}} Arzneimittel haben eine HAS-Stellungnahme zur Aufnahme in die Erstattung. Die übrigen {{fr_none}} haben keine, oft
+    weil das Arzneimittel in Frankreich nie vermarktet wurde.</li>
+  <li><strong>England:</strong> {{en_n}} Arzneimittel haben eine NICE-Entscheidung (empfohlen, optimiert, Managed Access, nicht
+    empfohlen oder eingestellt). Von den übrigen {{en_none_n}} haben {{en_none_prog}} eine Bewertung in Entwicklung,
+    {{en_none_na}} werden nicht bewertet und {{en_none_unk}} konnten nicht überprüft werden.</li>
+</ul>
 
 <h2 id="curves">Zeit bis zum Zugang: noch wartende Arzneimittel mitzählen</h2>
 <p>Ein Median, der nur über Arzneimittel gebildet wird, die einen Meilenstein bereits erreicht haben, lässt die noch wartenden Arzneimittel aus,
@@ -131,7 +155,8 @@
 <ul>
   <li><strong>Preise sind größtenteils nicht Gegenstand.</strong> US-Listenpreise (WAC) sind nicht frei verfügbar, und
     europäische Nettopreise sind vertraulich. Gezeigt werden nur die Preise, die CMS für Arzneimittel veröffentlicht, die für die Medicare-Verhandlung
-    ausgewählt wurden ({{cms_n_selected}} von {{n}} hier).</li>
+    ausgewählt wurden ({{cms_n_selected}} von den {{n_all}} gezeigten Arzneimitteln, beide davon Referenzarzneimittel außerhalb
+    der Statistik der {{n}} Arzneimittel).</li>
   <li><strong>Nur wenige dieser Arzneimittel sind bisher verhandelbar.</strong> Gesetzlich wird ein Arzneimittel 7 Jahre nach der
     Zulassung berechtigt (11 bei Biologika). Rybelsus und Wegovy sind nur enthalten, weil CMS alle Semaglutid-Produkte mit
     Ozempic (zugelassen 2017) zusammengefasst hat.</li>
@@ -143,6 +168,8 @@
     Markteinführung erstattet; in Frankreich und England geht die Bewertung der Finanzierung voraus. Nur der Meilenstein Italiens ist die Erstattung selbst.</li>
   <li><strong>Reserveantibiotika in Deutschland</strong> gelten mit ihrem Zusatznutzen als „belegt“, ohne ausgewiesenes Ausmaß;
     ihre Bewertung bleibt daher leer.</li>
+  <li><strong>Die COVID-19-Pandemie</strong> fällt in den Untersuchungszeitraum. 2020–2021 haben Zulassungs- und Bewertungsbehörden
+    ihre Arbeit neu priorisiert, was die Zeitabläufe verändert haben kann. Der Atlas bereinigt dies nicht.</li>
   <li><strong>Neuere Arzneimittel sind unvollständig.</strong> Viele 2024–2025 zugelassene Arzneimittel sind noch in der Bewertung;
     sie erscheinen als wartend oder unbekannt, nie als „nein“.</li>
   <li><strong>Recherchierte Werte</strong> für Italien, Deutschland, Frankreich (wo in der BDPM nicht vorhanden), England und den US-Orphan-Status wurden aus

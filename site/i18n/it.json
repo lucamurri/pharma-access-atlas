@@ -72,7 +72,7 @@
  "title.countries": "Quattro tappe diverse, ciascuna contata dall'approvazione UE: per metà dei farmaci c'era un parere della HAS francese entro {fr} giorni, una decisione del G-BA tedesco entro {de}, una raccomandazione del NICE inglese entro {en} e la rimborsabilità italiana entro {it}",
  "title.countries_none": "Giorni dopo l'approvazione UE",
  "title.italy": "Tra i {n} farmaci rimborsati dall'Italia, il tempo mediano alla rimborsabilità è stato di {med} giorni, con ampie differenze per area terapeutica",
- "title.hta": "Nessun beneficio aggiuntivo in Germania: {de}% dei farmaci; nessun miglioramento o valore rimborsabile in Francia: {fr}%",
+ "title.hta": "Nessun beneficio aggiuntivo in Germania: {de}% dei {de_n} farmaci valutati; in Francia {fr_v}% di {fr_n} con nessun miglioramento (ASMR V, comunque rimborsabili) e {fr_smr}% con beneficio insufficiente per il rimborso",
  "title.companies": "Tra le {k} aziende con almeno {min} farmaci, il tempo mediano alla rimborsabilità in Italia è andato da {fast_days} giorni ({fast}) a {slow_days} ({slow})",
  "title.companies_none": "{k} aziende hanno almeno {min} farmaci nell'atlante",
  "brief.title": "Scheda di market access di {brand} | Pharma Access Atlas",

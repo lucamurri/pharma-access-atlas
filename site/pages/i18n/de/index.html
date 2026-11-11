@@ -28,12 +28,14 @@
   <div class="kpi">
     <p class="kpi-label">Deutschland: „kein Zusatznutzen“</p>
     <p class="kpi-value">{{gba_pct_nab}}<span class="kpi-unit">%</span></p>
-    <p class="kpi-note">{{gba_n_nab}} von {{gba_n_assessed}} Arzneimitteln, für jede Patientengruppe (erster G-BA-Beschluss)</p>
+    <p class="kpi-note">{{gba_n_nab}} von den {{gba_n_assessed}} Arzneimitteln mit G-BA-Bewertung, für jede Patientengruppe (erster
+      Beschluss); bei {{gba_none_n}} von {{n}} liegt noch keine Bewertung vor</p>
   </div>
   <div class="kpi">
     <p class="kpi-label">Frankreich: keine Verbesserung oder nicht erstattungswürdig</p>
     <p class="kpi-value">{{fr_pct_negative}}<span class="kpi-unit">%</span></p>
-    <p class="kpi-note">ASMR V oder SMR unzureichend, bei {{fr_n}} Arzneimitteln mit einer HAS-Stellungnahme zur Aufnahme in die Erstattung</p>
+    <p class="kpi-note">{{fr_n_v}} ASMR V (keine Verbesserung, weiterhin erstattungsfähig) und {{fr_n_smr}} SMR unzureichend (nicht
+      erstattet), bei den {{fr_n}} Arzneimitteln mit einer HAS-Stellungnahme; bei {{fr_none}} von {{n}} liegt keine vor</p>
   </div>
 </section>
 
@@ -61,7 +63,8 @@
     <tbody>
       <tr><th scope="row">Deutschland</th><td>G-BA-Beschluss (etwa sechs Monate nach Markteinführung)</td><td>Das Arzneimittel wird ab Markteinführung erstattet; die Bewertung fließt in den verhandelten Preis ein.</td></tr>
       <tr><th scope="row">Frankreich</th><td>Stellungnahme der Transparenzkommission der HAS</td><td>Die Bewertung geht der Finanzierung voraus.</td></tr>
-      <tr><th scope="row">England</th><td>NICE-Empfehlung</td><td>Die Bewertung geht der Finanzierung voraus.</td></tr>
+      <tr><th scope="row">England</th><td>NICE-Empfehlung, einschließlich {{en_n_term}} eingestellter Bewertungen (meist ohne Einreichung des
+        Unternehmens), die keine Finanzierung durch den NHS bedeuten</td><td>Die Bewertung geht der Finanzierung voraus.</td></tr>
       <tr><th scope="row">Italien</th><td>Erstattung, veröffentlicht in der Gazzetta Ufficiale</td><td>Folgt auf die Stellungnahme des AIFA-Ausschusses, die den für die Erstattung vereinbarten Preis festlegt, und auf die administrativen
         Schritte bis zur Bestätigung durch den Verwaltungsrat der AIFA und die Veröffentlichung.</td></tr>
     </tbody>
@@ -88,8 +91,8 @@
 <section class="chart-card" aria-labelledby="c-it-h">
   <h2 id="c-it-h">{{title_italy}}</h2>
   <p class="chart-sub">Median der Tage von der Zulassung durch die Europäische Kommission bis zur in der Gazzetta Ufficiale veröffentlichten Erstattung,
-    nach Therapiegebiet (Gebiete mit mindestens 3 erstatteten Arzneimitteln). Noch nicht erstattete Arzneimittel sind ausgeschlossen, sodass die
-    Mediane die Wartezeit unterschätzen.</p>
+    nach Therapiegebiet. Gezeigt werden nur Gebiete mit mindestens 5 erstatteten Arzneimitteln: Bei weniger kann ein einzelnes Arzneimittel den Median
+    stark verschieben. Noch nicht erstattete Arzneimittel sind ausgeschlossen, sodass die Mediane die Zeit bis zur Erstattung unterschätzen.</p>
   <div class="chart-box" style="height: 360px"><canvas id="chart-italy" role="img" aria-label="{{title_italy}}. Daten in der Tabelle darunter."></canvas></div>
   <details class="data-view"><summary>Daten als Tabelle anzeigen</summary><div class="table-scroll" id="table-italy"></div></details>
 </section>
@@ -97,7 +100,11 @@
 <section class="chart-card" aria-labelledby="c-hta-h">
   <h2 id="c-hta-h">{{title_hta}}</h2>
   <p class="chart-sub">Das erste Urteil jedes Landes zu jedem Arzneimittel. Deutschland und Frankreich bewerten den Zusatznutzen; das englische NICE
-    entscheidet, ob der NHS das Arzneimittel finanzieren soll. Anzahl der Arzneimittel.</p>
+    entscheidet, ob der NHS das Arzneimittel finanzieren soll. Anzahl der Arzneimittel. Die Anteile beziehen sich auf Arzneimittel mit einem Urteil: {{gba_n_assessed}} in
+    Deutschland, {{fr_n}} in Frankreich und {{en_n}} in England, von {{n}}
+    (<a href="methodology.html#no-verdict">warum die übrigen keines haben</a>). In Deutschland ist „kein Zusatznutzen“ relativ
+    zur vom G-BA gewählten zweckmäßigen Vergleichstherapie zu verstehen, kein Urteil über den klinischen Wert; „nicht quantifizierbar“ heißt, dass ein Zusatznutzen
+    festgestellt, sein Ausmaß aber nicht bestimmt werden konnte ({{gba_n_nq_orphan}} dieser {{gba_n_nq}} Arzneimittel sind Orphan-Arzneimittel).</p>
   <div class="chart-grid-3">
     <div><h3>Deutschland: G-BA-Zusatznutzen (beste Patientengruppe)</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-gba" role="img" aria-label="G-BA-Bewertungen in Deutschland. Daten in der Tabelle darunter."></canvas></div></div>

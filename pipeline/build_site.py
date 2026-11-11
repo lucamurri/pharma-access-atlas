@@ -154,7 +154,8 @@ def titles(s: dict, t: i18n.Strings) -> dict:
     out = {
         "lag": t("title.lag", us_first=t.num(s["lag_us_first"]), n=t.num(s["n"]), lag=t.num(analysis.days(s["lag_median"]))),
         "italy": t("title.italy", n=t.num(s["it_n_reimbursed"]), med=t.num(analysis.days(s["it_lag_median"]))),
-        "hta": t("title.hta", de=s["gba_pct_no_added_benefit"], fr=s["fr_pct_negative"]),
+        "hta": t("title.hta", de=s["gba_pct_no_added_benefit"], de_n=t.num(s["gba_n_assessed"]),
+                 fr_v=s["fr_pct_v"], fr_smr=s["fr_pct_smr_insufficient"], fr_n=t.num(s["fr_n"])),
     }
     # Fixed country order, no ranking: the four milestones are different events (see Methodology).
     if len(steps) == 4:
@@ -431,6 +432,18 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
         "fr_pct_negative": s["fr_pct_negative"], "fr_n": n(s["fr_n"]),
         "en_pct_positive": s["en_pct_positive"] if s["en_pct_positive"] is not None else t("na"), "en_n": n(s["en_n"]),
         "repo_url": REPO_URL,
+        "n_all": n(s["n_all"]),
+        "gba_none_n": n(sum(s["gba_none"].values())), "gba_none_na": n(s["gba_none"]["not_assessed"]),
+        "gba_none_ongoing": n(s["gba_none"]["not_reimbursed_as_of"]), "gba_none_unk": n(s["gba_none"]["unknown"]),
+        "gba_n_nq": n(s["gba_ratings"]["non-quantifiable"]), "gba_n_nq_orphan": n(s["gba_n_nq_orphan"]),
+        "fr_none": n(s["fr_none"]), "fr_n_v": n(s["fr_n_v"]), "fr_n_smr": n(s["fr_n_smr_insufficient"]),
+        "fr_pct_v": s["fr_pct_v"], "fr_pct_smr": s["fr_pct_smr_insufficient"],
+        "en_none_n": n(sum(s["en_none"].values())), "en_none_prog": n(s["en_none"]["in_progress"]),
+        "en_none_na": n(s["en_none"]["not_appraised"]), "en_none_unk": n(s["en_none"]["unknown"]),
+        "en_n_term": n(s["en_n_terminated"]),
+        "en_med_all": n(s["access"]["en"]["median"]), "en_2y_all": analysis.days(s["access"]["en"]["pct_2y"]),
+        "en_med_cens": n(s["en_terminated_censored"]["median"]),
+        "en_2y_cens": analysis.days(s["en_terminated_censored"]["pct_2y"]),
     }
     # Numbers for the Insights page (years stay as they are; other whole numbers are formatted locally).
     for key, value in (findings or {}).items():

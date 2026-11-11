@@ -165,7 +165,7 @@
   ]);
 
   // ---- 3. Italy delay by therapy area -----------------------------------------
-  const areas = Object.entries(s.it_lag_by_area).filter(([, v]) => v.n >= 3)
+  const areas = Object.entries(s.it_lag_by_area).filter(([, v]) => v.n >= 5)
     .map(([area, v]) => ({ area, ...v })).sort((a, b) => b.median - a.median);
   hbar("chart-italy", areas.map(a => Atlas.label(a.area)), areas.map(a => a.median),
        areas.map(a => `${Atlas.num(round(a.median))} (n=${a.n})`),

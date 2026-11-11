@@ -28,12 +28,14 @@
   <div class="kpi">
     <p class="kpi-label">Germania: «nessun beneficio aggiuntivo»</p>
     <p class="kpi-value">{{gba_pct_nab}}<span class="kpi-unit">%</span></p>
-    <p class="kpi-note">{{gba_n_nab}} farmaci su {{gba_n_assessed}}, per tutti i gruppi di pazienti (prima decisione del G-BA)</p>
+    <p class="kpi-note">{{gba_n_nab}} dei {{gba_n_assessed}} farmaci con una valutazione G-BA, per tutti i gruppi di pazienti (prima
+      decisione); {{gba_none_n}} su {{n}} non hanno ancora una valutazione</p>
   </div>
   <div class="kpi">
     <p class="kpi-label">Francia: nessun miglioramento, o non meritevole di rimborso</p>
     <p class="kpi-value">{{fr_pct_negative}}<span class="kpi-unit">%</span></p>
-    <p class="kpi-note">ASMR V o SMR insufficiente, su {{fr_n}} farmaci con un parere HAS sull'iscrizione al rimborso</p>
+    <p class="kpi-note">{{fr_n_v}} ASMR V (nessun miglioramento, ma rimborsabili) e {{fr_n_smr}} SMR insufficiente (non
+      rimborsati), sui {{fr_n}} farmaci con un parere HAS; {{fr_none}} su {{n}} non ne hanno</p>
   </div>
 </section>
 
@@ -61,7 +63,8 @@
     <tbody>
       <tr><th scope="row">Germania</th><td>Decisione del G-BA (circa sei mesi dopo il lancio)</td><td>Il farmaco è rimborsato dal lancio; la valutazione orienta il prezzo negoziato.</td></tr>
       <tr><th scope="row">Francia</th><td>Parere della Commission de la Transparence della HAS</td><td>La valutazione precede il finanziamento.</td></tr>
-      <tr><th scope="row">Inghilterra</th><td>Raccomandazione del NICE</td><td>La valutazione precede il finanziamento.</td></tr>
+      <tr><th scope="row">Inghilterra</th><td>Raccomandazione del NICE, comprese {{en_n_term}} valutazioni terminate (di solito senza
+        dossier dell'azienda), che significano nessun finanziamento da parte dell'NHS</td><td>La valutazione precede il finanziamento.</td></tr>
       <tr><th scope="row">Italia</th><td>Rimborsabilità pubblicata in Gazzetta Ufficiale</td><td>Arriva dopo il parere del comitato AIFA, che fissa il prezzo concordato per la rimborsabilità, e dopo i passaggi amministrativi
         fino alla ratifica da parte del CdA dell'AIFA e alla pubblicazione.</td></tr>
     </tbody>
@@ -88,8 +91,8 @@
 <section class="chart-card" aria-labelledby="c-it-h">
   <h2 id="c-it-h">{{title_italy}}</h2>
   <p class="chart-sub">Giorni mediani dall'approvazione della Commissione Europea alla rimborsabilità pubblicata in Gazzetta Ufficiale,
-    per area terapeutica (aree con almeno 3 farmaci rimborsati). I farmaci non ancora rimborsati sono esclusi, quindi le
-    mediane sottostimano l'attesa.</p>
+    per area terapeutica. Sono mostrate solo le aree con almeno 5 farmaci rimborsati: con meno farmaci, uno solo può spostare
+    molto la mediana. I farmaci non ancora rimborsati sono esclusi, quindi le mediane sottostimano il tempo.</p>
   <div class="chart-box" style="height: 360px"><canvas id="chart-italy" role="img" aria-label="{{title_italy}}. Dati nella tabella sottostante."></canvas></div>
   <details class="data-view"><summary>Mostra i dati in una tabella</summary><div class="table-scroll" id="table-italy"></div></details>
 </section>
@@ -97,7 +100,12 @@
 <section class="chart-card" aria-labelledby="c-hta-h">
   <h2 id="c-hta-h">{{title_hta}}</h2>
   <p class="chart-sub">Il primo giudizio di ciascun paese su ciascun farmaco. Germania e Francia valutano il beneficio aggiuntivo; il NICE inglese
-    decide se l'NHS debba finanziarlo. Numero di farmaci.</p>
+    decide se l'NHS debba finanziarlo. Numero di farmaci. Le quote sono calcolate sui farmaci con un giudizio: {{gba_n_assessed}} in
+    Germania, {{fr_n}} in Francia e {{en_n}} in Inghilterra, su {{n}}
+    (<a href="methodology.html#no-verdict">perché gli altri non ne hanno</a>). In Germania, «nessun beneficio aggiuntivo» è
+    relativo al comparatore scelto dal G-BA, non un giudizio sul valore clinico; «non quantificabile» significa che è stato
+    riconosciuto un beneficio aggiuntivo ma non è stato possibile stabilirne l'entità ({{gba_n_nq_orphan}} di questi {{gba_n_nq}}
+    farmaci sono farmaci orfani).</p>
   <div class="chart-grid-3">
     <div><h3>Germania: beneficio aggiuntivo G-BA (miglior gruppo di pazienti)</h3>
       <div class="chart-box" style="height: 240px"><canvas id="chart-gba" role="img" aria-label="Valutazioni G-BA della Germania. Dati nella tabella sottostante."></canvas></div></div>
