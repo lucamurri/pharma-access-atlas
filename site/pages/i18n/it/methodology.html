@@ -28,7 +28,10 @@
   <li><strong>La finestra esclude i farmaci recenti con intervalli lunghi.</strong> Entrambe le approvazioni devono cadere nel 2019–2025,
     quindi un farmaco approvato dalla FDA nel 2024–2025 e dall'UE solo dal 2026 non è nell'atlante. Tra le approvazioni recenti sono
     inclusi solo i farmaci che l'Europa ha approvato rapidamente, quindi l'intervallo mediano USA-UE di {{lag_median}} giorni può
-    sottostimare l'intervallo reale. Per questo il Risultato 2 lascia fuori quegli anni.</li>
+    sottostimare l'intervallo reale. Per questo il Risultato 2 lascia fuori quegli anni. Dei {{win_n}} farmaci negli
+    elenchi FDA dei nuovi farmaci per il 2024–2025, {{win_in}} sono nell'atlante, {{win_late}} sono stati autorizzati nell'UE
+    solo dal 2026 e {{win_none}} non hanno ancora un'autorizzazione centralizzata UE. Contando anche questi farmaci, l'intervallo
+    mediano resterebbe di {{win_med}} giorni; gli altri potrebbero alzarlo una volta autorizzati.</li>
   <li>I {{n_reference}} <strong>farmaci di riferimento</strong> (Rybelsus e Wegovy, marchi più recenti di semaglutide, che era
     stata approvata per la prima volta come Ozempic nel 2017) sono mostrati per il confronto con Medicare ma esclusi da ogni statistica principale.</li>
   <li>Il lato UE utilizza i prodotti autorizzati a livello centralizzato. Una sostanza venduta in precedenza solo con autorizzazioni nazionali può
@@ -109,7 +112,8 @@
 <ul>
   <li><strong>Germania:</strong> {{gba_n_assessed}} farmaci hanno una valutazione G-BA. Degli altri {{gba_none_n}},
     {{gba_none_na}} non hanno alcuna procedura G-BA registrata (il motivo non è registrato),
-    {{gba_none_ongoing}} hanno una valutazione ancora in corso e {{gba_none_unk}} non è stato possibile verificarli.</li>
+    {{gba_none_ongoing}} hanno una valutazione ancora in corso e {{gba_none_unk}} sono antibiotici di riserva, il cui beneficio
+    aggiuntivo è considerato dimostrato per legge senza una valutazione dell'entità.</li>
   <li><strong>Francia:</strong> {{fr_n}} farmaci hanno un parere HAS sull'iscrizione al rimborso. Gli altri {{fr_none}} non ne hanno, spesso
     perché il farmaco non è mai stato commercializzato in Francia.</li>
   <li><strong>Italia:</strong> {{it_n_reimbursed}} farmaci sono rimborsati e {{it_n_waiting}} non lo erano alla data
@@ -161,7 +165,7 @@
 <h3 id="it-price">L'Italia misurata al parere sul prezzo</h3>
 <p>La tappa dell'Italia, la pubblicazione in Gazzetta Ufficiale, arriva dopo che il prezzo è stato concordato e dopo i
   passaggi amministrativi che seguono. Come analisi aggiuntiva, senza modificare il confronto principale, la curva
-  italiana è stata disegnata anche fino alla data del parere dell'AIFA sul prezzo (CPR, o CSE dal 2024), letta da ciascuna determina.
+  italiana è stata calcolata anche fino alla data del parere dell'AIFA sul prezzo (CPR, o CSE dal 2024), letta da ciascuna determina.
   Contando in questo modo, metà dei farmaci aveva un parere sul prezzo entro <strong>{{it_price_med}} giorni</strong> dall'approvazione UE
   ({{it_price_n}} farmaci), contro {{it_med}} giorni alla pubblicazione. Per i {{it_admin_n}} farmaci con entrambe le date, il
   tempo dal parere sul prezzo alla pubblicazione ha avuto una mediana di <strong>{{it_admin_med}} giorni</strong>, e metà dei

@@ -36,10 +36,10 @@ The site has an overview with time-to-access curves, a filterable drug explorer,
    opinion within **212 days** of EU approval, a German G-BA decision within **232**, English NICE guidance within
    **399** and Italian reimbursement within **522**. These are different events: Italy's milestone comes after the
    price is agreed, while Germany reimburses from launch and France and England assess before funding.
-2. **Without the orphan rules, most drugs were rated as having no added benefit in Germany.** Of the 116 drugs assessed against an
+2. **Among drugs assessed against a comparator, most were rated as having no added benefit in Germany.** Of the 116 drugs assessed against an
    existing therapy, **72% showed no added benefit** for any patient group. All 69 drugs assessed under the orphan rules
    received a benefit rating.
-3. **England often funds what Germany found no added benefit for.** Of the 63 drugs Germany found had no added benefit and NICE also
+3. **Most drugs with no added benefit in Germany received a positive NICE decision.** Of the 63 drugs Germany found had no added benefit and NICE also
    appraised, **81% received a positive NICE decision**. Germany measures added benefit over a comparator; NICE
    judges value for money at the price offered.
 

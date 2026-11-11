@@ -27,7 +27,10 @@
   <li><strong>Der Zeitraum schneidet jüngere Arzneimittel mit langen Abständen ab.</strong> Beide Zulassungen müssen in 2019–2025
     liegen; ein Arzneimittel, das die FDA 2024–2025 und die EU erst ab 2026 zugelassen hat, ist nicht im Atlas. Unter den jüngeren
     Zulassungen sind nur jene enthalten, die Europa schnell zugelassen hat; der mediane Abstand zwischen USA und EU von {{lag_median}} Tagen kann den
-    Abstand daher unterschätzen. Befund 2 lässt diese Jahre aus diesem Grund aus.</li>
+    Abstand daher unterschätzen. Befund 2 lässt diese Jahre aus diesem Grund aus. Von den {{win_n}} Arzneimitteln auf den
+    FDA-Listen neuer Wirkstoffe für 2024–2025 sind {{win_in}} im Atlas, {{win_late}} wurden in der EU erst ab 2026 zugelassen
+    und {{win_none}} haben noch keine zentrale EU-Zulassung. Mit den {{win_late}} läge der mediane Abstand weiter bei
+    {{win_med}} Tagen; die übrigen könnten ihn nach ihrer Zulassung erhöhen.</li>
   <li>{{n_reference}} <strong>Referenzarzneimittel</strong> (Rybelsus und Wegovy, neuere Marken von Semaglutid, das
     2017 erstmals als Ozempic zugelassen wurde) werden für den Medicare-Vergleich gezeigt, sind aber aus allen Kennzahlen ausgeschlossen.</li>
   <li>Auf der EU-Seite werden zentral zugelassene Arzneimittel verwendet. Ein Wirkstoff, der zuvor nur mit nationalen Zulassungen vertrieben wurde, kann
@@ -109,7 +112,8 @@
 <ul>
   <li><strong>Deutschland:</strong> {{gba_n_assessed}} Arzneimittel haben eine G-BA-Bewertung. Von den übrigen {{gba_none_n}} haben
     {{gba_none_na}} kein dokumentiertes G-BA-Verfahren (der Grund ist nicht erfasst),
-    bei {{gba_none_ongoing}} läuft die Bewertung noch und {{gba_none_unk}} konnten nicht überprüft werden.</li>
+    bei {{gba_none_ongoing}} läuft die Bewertung noch und {{gba_none_unk}} sind Reserveantibiotika, deren Zusatznutzen
+    per Gesetz als belegt gilt, ohne Angabe des Ausmaßes.</li>
   <li><strong>Frankreich:</strong> {{fr_n}} Arzneimittel haben eine HAS-Stellungnahme zur Aufnahme in die Erstattung. Die übrigen {{fr_none}} haben keine, oft
     weil das Arzneimittel in Frankreich nie vermarktet wurde.</li>
   <li><strong>Italien:</strong> {{it_n_reimbursed}} Arzneimittel sind erstattet, {{it_n_waiting}} waren bei der Prüfung
@@ -161,7 +165,7 @@
 <h3 id="it-price">Italien, gemessen am Preisgutachten</h3>
 <p>Italiens Meilenstein, die Veröffentlichung in der Gazzetta Ufficiale, folgt auf die Preisvereinbarung und auf die anschließenden
   administrativen Schritte. Als zusätzliche Analyse, ohne den Hauptvergleich zu ändern, wurde die italienische Kurve auch bis zum Datum
-  des Preisgutachtens der AIFA (CPR, ab 2024 CSE) gezeichnet, gelesen aus dem jeweiligen Beschluss. So gezählt, hatte die Hälfte der
+  des Preisgutachtens der AIFA (CPR, ab 2024 CSE) berechnet, gelesen aus dem jeweiligen Beschluss. So gezählt, hatte die Hälfte der
   Arzneimittel innerhalb von <strong>{{it_price_med}} Tagen</strong> nach der EU-Zulassung ein Preisgutachten ({{it_price_n}} Arzneimittel),
   gegenüber {{it_med}} Tagen bis zur Veröffentlichung. Bei den {{it_admin_n}} Arzneimitteln mit beiden Daten betrug die Zeit vom
   Preisgutachten bis zur Veröffentlichung im Median <strong>{{it_admin_med}} Tage</strong>, und die Hälfte der Arzneimittel lag zwischen
