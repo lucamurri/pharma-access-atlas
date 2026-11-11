@@ -25,7 +25,7 @@ def main() -> None:
     for drug in load_drugs():
         app = drug["fda_application"].strip()
         if not app:
-            print(f"  skip {drug['drug_id']}: no openFDA application (CBER product, entered manually)")
+            print(f"  skip {drug['drug_id']}: no openFDA application (CBER product or withdrawn; entered manually)")
             continue
         url = API.format(app=app)
         payload = json.loads(http_get(url))

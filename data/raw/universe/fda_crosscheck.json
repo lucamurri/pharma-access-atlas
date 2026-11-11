@@ -1,0 +1,2444 @@
+{
+  "years": {
+    "2019": {
+      "source": "https://web.archive.org/web/20200111010109/https://www.fda.gov/drugs/new-drugs-fda-cders-new-molecular-entities-and-new-therapeutic-biological-products/novel-drug-approvals-2019",
+      "listed": 48,
+      "in_atlas": 27,
+      "drugs": [
+        {
+          "brand": "Ubrelvy",
+          "ingredient": "ubrogepant",
+          "fda_date": "2019-12-23",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Enhertu",
+          "ingredient": "fam-trastuzumab deruxtecan-nxki",
+          "fda_date": "2019-12-20",
+          "status": "in atlas",
+          "drug_id": "enhertu"
+        },
+        {
+          "brand": "Dayvigo",
+          "ingredient": "lemborexant",
+          "fda_date": "2019-12-20",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Caplyta",
+          "ingredient": "lumateperone tosylate",
+          "fda_date": "2019-12-20",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "TissueBlue",
+          "ingredient": "Brilliant Blue G Ophthalmic Solution",
+          "fda_date": "2019-12-20",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Padcev",
+          "ingredient": "enfortumab vedotin-ejfv",
+          "fda_date": "2019-12-18",
+          "status": "in atlas",
+          "drug_id": "padcev"
+        },
+        {
+          "brand": "Vyondys 53",
+          "ingredient": "golodirsen",
+          "fda_date": "2019-12-12",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Oxbryta",
+          "ingredient": "voxelotor",
+          "fda_date": "2019-11-25",
+          "status": "in atlas",
+          "drug_id": "oxbryta"
+        },
+        {
+          "brand": "Xcopri",
+          "ingredient": "cenobamate",
+          "fda_date": "2019-11-21",
+          "status": "in atlas",
+          "drug_id": "ontozry"
+        },
+        {
+          "brand": "Givlaari",
+          "ingredient": "givosiran",
+          "fda_date": "2019-11-20",
+          "status": "in atlas",
+          "drug_id": "givlaari"
+        },
+        {
+          "brand": "Adakveo",
+          "ingredient": "crizanlizumab-tmca",
+          "fda_date": "2019-11-15",
+          "status": "in atlas",
+          "drug_id": "adakveo"
+        },
+        {
+          "brand": "Fetroja",
+          "ingredient": "cefiderocol",
+          "fda_date": "2019-11-14",
+          "status": "in atlas",
+          "drug_id": "fetcroja"
+        },
+        {
+          "brand": "Brukinsa",
+          "ingredient": "zanubrutinib",
+          "fda_date": "2019-11-14",
+          "status": "in atlas",
+          "drug_id": "brukinsa"
+        },
+        {
+          "brand": "Reblozyl",
+          "ingredient": "luspatercept–aamt",
+          "fda_date": "2019-11-08",
+          "status": "in atlas",
+          "drug_id": "reblozyl"
+        },
+        {
+          "brand": "ExEm Foam",
+          "ingredient": "air polymer-type A",
+          "fda_date": "2019-11-07",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Trikafta",
+          "ingredient": "elexacaftor/ivacaftor/tezacaftor",
+          "fda_date": "2019-10-21",
+          "status": "in atlas",
+          "drug_id": "trikafta"
+        },
+        {
+          "brand": "Reyvow",
+          "ingredient": "lasmiditan",
+          "fda_date": "2019-10-11",
+          "status": "in atlas",
+          "drug_id": "rayvow"
+        },
+        {
+          "brand": "",
+          "ingredient": "fluorodopa F 18",
+          "fda_date": "2019-10-10",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Scenesse",
+          "ingredient": "afamelanotide",
+          "fda_date": "2019-10-08",
+          "status": "not in atlas",
+          "reason": "EU first authorisation before the window (2014-12-22)"
+        },
+        {
+          "brand": "Beovu",
+          "ingredient": "brolucizumab–dbll",
+          "fda_date": "2019-10-07",
+          "status": "in atlas",
+          "drug_id": "beovu"
+        },
+        {
+          "brand": "Aklief",
+          "ingredient": "trifarotene",
+          "fda_date": "2019-10-04",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Ibsrela",
+          "ingredient": "tenapanor",
+          "fda_date": "2019-09-12",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Nourianz",
+          "ingredient": "istradefylline",
+          "fda_date": "2019-08-27",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Ga-68-DOTATOC",
+          "ingredient": "Ga-68-DOTATOC",
+          "fda_date": "2019-08-21",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Xenleta",
+          "ingredient": "lefamulin",
+          "fda_date": "2019-08-19",
+          "status": "in atlas",
+          "drug_id": "xenleta"
+        },
+        {
+          "brand": "Rinvoq",
+          "ingredient": "upadacitinib",
+          "fda_date": "2019-08-16",
+          "status": "in atlas",
+          "drug_id": "rinvoq"
+        },
+        {
+          "brand": "Inrebic",
+          "ingredient": "fedratinib",
+          "fda_date": "2019-08-16",
+          "status": "in atlas",
+          "drug_id": "inrebic"
+        },
+        {
+          "brand": "Rozlytrek",
+          "ingredient": "entrectinib",
+          "fda_date": "2019-08-15",
+          "status": "in atlas",
+          "drug_id": "rozlytrek"
+        },
+        {
+          "brand": "Wakix",
+          "ingredient": "pitolisant",
+          "fda_date": "2019-08-14",
+          "status": "not in atlas",
+          "reason": "EU first authorisation before the window (2016-03-31)"
+        },
+        {
+          "brand": "",
+          "ingredient": "pretomanid",
+          "fda_date": "2019-08-14",
+          "status": "in atlas",
+          "drug_id": "dovprela"
+        },
+        {
+          "brand": "Turalio",
+          "ingredient": "pexidartinib",
+          "fda_date": "2019-08-02",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Nubeqa",
+          "ingredient": "darolutamide",
+          "fda_date": "2019-07-30",
+          "status": "in atlas",
+          "drug_id": "nubeqa"
+        },
+        {
+          "brand": "Accrufer",
+          "ingredient": "ferric maltol",
+          "fda_date": "2019-07-25",
+          "status": "not in atlas",
+          "reason": "EU first authorisation before the window (2016-02-18)"
+        },
+        {
+          "brand": "Recarbrio",
+          "ingredient": "imipenem, cilastatin and relebactam",
+          "fda_date": "2019-07-16",
+          "status": "in atlas",
+          "drug_id": "recarbrio"
+        },
+        {
+          "brand": "Xpovio",
+          "ingredient": "selinexor",
+          "fda_date": "2019-07-03",
+          "status": "in atlas",
+          "drug_id": "nexpovio"
+        },
+        {
+          "brand": "Vyleesi",
+          "ingredient": "bremelanotide",
+          "fda_date": "2018-06-21",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Polivy",
+          "ingredient": "polatuzumab vedotin-piiq",
+          "fda_date": "2019-06-10",
+          "status": "in atlas",
+          "drug_id": "polivy"
+        },
+        {
+          "brand": "Piqray",
+          "ingredient": "alpelisib",
+          "fda_date": "2019-05-24",
+          "status": "in atlas",
+          "drug_id": "piqray"
+        },
+        {
+          "brand": "Vyndaqel",
+          "ingredient": "tafamidis meglumine",
+          "fda_date": "2019-05-03",
+          "status": "not in atlas",
+          "reason": "EU first authorisation before the window (2011-11-16)"
+        },
+        {
+          "brand": "Skyrizi",
+          "ingredient": "risankizumab-rzaa",
+          "fda_date": "2019-04-23",
+          "status": "in atlas",
+          "drug_id": "skyrizi"
+        },
+        {
+          "brand": "Balversa",
+          "ingredient": "erdafitinib",
+          "fda_date": "2019-04-12",
+          "status": "in atlas",
+          "drug_id": "balversa"
+        },
+        {
+          "brand": "Evenity",
+          "ingredient": "romosozumab-aqqg",
+          "fda_date": "2019-04-09",
+          "status": "in atlas",
+          "drug_id": "evenity"
+        },
+        {
+          "brand": "Mayzent",
+          "ingredient": "siponimod",
+          "fda_date": "2019-03-26",
+          "status": "in atlas",
+          "drug_id": "mayzent"
+        },
+        {
+          "brand": "Sunosi",
+          "ingredient": "solriamfetol",
+          "fda_date": "2019-03-20",
+          "status": "in atlas",
+          "drug_id": "sunosi"
+        },
+        {
+          "brand": "Zulresso",
+          "ingredient": "brexanolone",
+          "fda_date": "2019-03-19",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Egaten",
+          "ingredient": "triclabendazole",
+          "fda_date": "2019-02-13",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Cablivi",
+          "ingredient": "caplacizumab-yhdp",
+          "fda_date": "2019-02-06",
+          "status": "not in atlas",
+          "reason": "EU first authorisation before the window (2018-08-30)"
+        },
+        {
+          "brand": "Jeuveau",
+          "ingredient": "prabotulinumtoxinA-xvfs",
+          "fda_date": "2019-02-01",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        }
+      ],
+      "atlas_not_listed": []
+    },
+    "2020": {
+      "source": "https://web.archive.org/web/20210614155937/https://www.fda.gov/drugs/new-drugs-fda-cders-new-molecular-entities-and-new-therapeutic-biological-products/novel-drug-approvals-2020",
+      "listed": 53,
+      "in_atlas": 35,
+      "drugs": [
+        {
+          "brand": "Gemtesa",
+          "ingredient": "vibegron",
+          "fda_date": "2020-12-23",
+          "status": "in atlas",
+          "drug_id": "obgemsa"
+        },
+        {
+          "brand": "Ebanga",
+          "ingredient": "ansuvimab-zykl",
+          "fda_date": "2020-12-21",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Orgovyx",
+          "ingredient": "relugolix",
+          "fda_date": "2020-12-18",
+          "status": "in atlas",
+          "drug_id": "orgovyx"
+        },
+        {
+          "brand": "Margenza",
+          "ingredient": "margetuximab (anti-HER2 mAb",
+          "fda_date": "2020-12-16",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Klisyri",
+          "ingredient": "tirbanibulin",
+          "fda_date": "2020-12-14",
+          "status": "in atlas",
+          "drug_id": "klisyri"
+        },
+        {
+          "brand": "Orladeyo",
+          "ingredient": "berotralstat",
+          "fda_date": "2020-12-03",
+          "status": "in atlas",
+          "drug_id": "orladeyo"
+        },
+        {
+          "brand": "Gallium 68 PSMA-11",
+          "ingredient": "Gallium 68 PSMA-11",
+          "fda_date": "2020-12-01",
+          "status": "not in atlas",
+          "reason": "no exact EU match; closest EU substance 'gallium (68Ga) chloride;germanium (68Ge) chloride' first authorised 2024-08-01, outside the window"
+        },
+        {
+          "brand": "Danyelza",
+          "ingredient": "naxitamab-gqgk",
+          "fda_date": "2020-11-25",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Imcivree",
+          "ingredient": "setmelanotide",
+          "fda_date": "2020-11-25",
+          "status": "in atlas",
+          "drug_id": "imcivree"
+        },
+        {
+          "brand": "Oxlumo",
+          "ingredient": "lumasiran",
+          "fda_date": "2020-11-23",
+          "status": "in atlas",
+          "drug_id": "oxlumo"
+        },
+        {
+          "brand": "Zokinvy",
+          "ingredient": "lonafarnib",
+          "fda_date": "2020-11-20",
+          "status": "in atlas",
+          "drug_id": "zokinvy"
+        },
+        {
+          "brand": "Veklury",
+          "ingredient": "remdesivir",
+          "fda_date": "2020-10-22",
+          "status": "in atlas",
+          "drug_id": "veklury"
+        },
+        {
+          "brand": "Inmazeb",
+          "ingredient": "atoltivimab, maftivimab, and odesivimab-ebgn",
+          "fda_date": "2020-10-14",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Gavreto",
+          "ingredient": "pralsetinib",
+          "fda_date": "2020-09-04",
+          "status": "in atlas",
+          "drug_id": "gavreto"
+        },
+        {
+          "brand": "Detectnet",
+          "ingredient": "copper Cu 64 dotatate injection",
+          "fda_date": "2020-09-03",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Sogroya",
+          "ingredient": "somapacitan-beco",
+          "fda_date": "2020-08-28",
+          "status": "in atlas",
+          "drug_id": "sogroya"
+        },
+        {
+          "brand": "Winlevi",
+          "ingredient": "clascoterone",
+          "fda_date": "2020-08-26",
+          "status": "in atlas",
+          "drug_id": "winlevi"
+        },
+        {
+          "brand": "Enspryng",
+          "ingredient": "satralizumab-mwge",
+          "fda_date": "2020-08-14",
+          "status": "in atlas",
+          "drug_id": "enspryng"
+        },
+        {
+          "brand": "Viltepso",
+          "ingredient": "viltolarsen",
+          "fda_date": "2020-08-12",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Olinvyk",
+          "ingredient": "oliceridine",
+          "fda_date": "2020-08-07",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Evrysdi",
+          "ingredient": "risdiplam",
+          "fda_date": "2020-08-07",
+          "status": "in atlas",
+          "drug_id": "evrysdi"
+        },
+        {
+          "brand": "Lampit",
+          "ingredient": "nifurtimox",
+          "fda_date": "2020-08-06",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Blenrep",
+          "ingredient": "belantamab mafodotin-blmf",
+          "fda_date": "2020-08-05",
+          "status": "in atlas",
+          "drug_id": "blenrep"
+        },
+        {
+          "brand": "Monjuvi",
+          "ingredient": "tafasitamab-cxix",
+          "fda_date": "2020-07-31",
+          "status": "in atlas",
+          "drug_id": "minjuvi"
+        },
+        {
+          "brand": "Xeglyze",
+          "ingredient": "abametapir",
+          "fda_date": "2020-07-24",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Inqovi",
+          "ingredient": "decitabine and cedazuridine",
+          "fda_date": "2020-07-07",
+          "status": "in atlas",
+          "drug_id": "inaqovi"
+        },
+        {
+          "brand": "Rukobia",
+          "ingredient": "fostemsavir",
+          "fda_date": "2020-07-02",
+          "status": "in atlas",
+          "drug_id": "rukobia"
+        },
+        {
+          "brand": "Byfavo",
+          "ingredient": "remimazolam",
+          "fda_date": "2020-07-02",
+          "status": "in atlas",
+          "drug_id": "byfavo"
+        },
+        {
+          "brand": "Dojolvi",
+          "ingredient": "triheptanoin",
+          "fda_date": "2020-06-30",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Zepzelca",
+          "ingredient": "lurbinectedin",
+          "fda_date": "2020-06-15",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-05-29)"
+        },
+        {
+          "brand": "Uplizna",
+          "ingredient": "inebilizumab-cdon",
+          "fda_date": "2020-06-11",
+          "status": "in atlas",
+          "drug_id": "uplizna"
+        },
+        {
+          "brand": "Tauvid",
+          "ingredient": "flortaucipir F18",
+          "fda_date": "2020-05-28",
+          "status": "not in atlas",
+          "reason": "diagnostic agent (excluded by rule)"
+        },
+        {
+          "brand": "Artesunate",
+          "ingredient": "artesunate",
+          "fda_date": "2020-05-26",
+          "status": "in atlas",
+          "drug_id": "artesunateamivas"
+        },
+        {
+          "brand": "Cerianna",
+          "ingredient": "fluoroestradiol F18",
+          "fda_date": "2020-05-20",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Qinlock",
+          "ingredient": "ripretinib",
+          "fda_date": "2020-05-15",
+          "status": "in atlas",
+          "drug_id": "qinlock"
+        },
+        {
+          "brand": "Retevmo",
+          "ingredient": "selpercatinib",
+          "fda_date": "2020-05-08",
+          "status": "in atlas",
+          "drug_id": "retevmo"
+        },
+        {
+          "brand": "Tabrecta",
+          "ingredient": "capmatinib",
+          "fda_date": "2020-05-06",
+          "status": "in atlas",
+          "drug_id": "tabrecta"
+        },
+        {
+          "brand": "Ongentys",
+          "ingredient": "opicapone",
+          "fda_date": "2020-04-24",
+          "status": "not in atlas",
+          "reason": "EU first authorisation before the window (2016-06-24)"
+        },
+        {
+          "brand": "Trodelvy",
+          "ingredient": "sacituzumab govitecan-hziy",
+          "fda_date": "2020-04-22",
+          "status": "in atlas",
+          "drug_id": "trodelvy"
+        },
+        {
+          "brand": "Pemazyre",
+          "ingredient": "pemigatinib",
+          "fda_date": "2020-04-17",
+          "status": "in atlas",
+          "drug_id": "pemazyre"
+        },
+        {
+          "brand": "Tukysa",
+          "ingredient": "tucatinib",
+          "fda_date": "2020-04-17",
+          "status": "in atlas",
+          "drug_id": "tukysa"
+        },
+        {
+          "brand": "Koselugo",
+          "ingredient": "selumetinib",
+          "fda_date": "2020-04-10",
+          "status": "in atlas",
+          "drug_id": "koselugo"
+        },
+        {
+          "brand": "Zeposia",
+          "ingredient": "ozanimod",
+          "fda_date": "2020-03-25",
+          "status": "in atlas",
+          "drug_id": "zeposia"
+        },
+        {
+          "brand": "Isturisa",
+          "ingredient": "osilodrostat",
+          "fda_date": "2020-03-06",
+          "status": "in atlas",
+          "drug_id": "isturisa"
+        },
+        {
+          "brand": "Sarclisa",
+          "ingredient": "isatuximab",
+          "fda_date": "2020-03-02",
+          "status": "in atlas",
+          "drug_id": "sarclisa"
+        },
+        {
+          "brand": "Nurtec ODT",
+          "ingredient": "rimegepant",
+          "fda_date": "2020-02-27",
+          "status": "in atlas",
+          "drug_id": "nurtec"
+        },
+        {
+          "brand": "Barhemsys",
+          "ingredient": "amisulpride",
+          "fda_date": "2020-02-26",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Vyepti",
+          "ingredient": "eptinezumab-jjmr",
+          "fda_date": "2020-02-21",
+          "status": "in atlas",
+          "drug_id": "vyepti"
+        },
+        {
+          "brand": "Nexletol",
+          "ingredient": "bempedoic acid",
+          "fda_date": "2020-02-21",
+          "status": "in atlas",
+          "drug_id": "nilemdo"
+        },
+        {
+          "brand": "Pizensy",
+          "ingredient": "lactitol",
+          "fda_date": "2020-02-12",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Tazverik",
+          "ingredient": "tazemetostat",
+          "fda_date": "2020-01-23",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Tepezza",
+          "ingredient": "teprotumumab-trbw",
+          "fda_date": "2020-01-21",
+          "status": "in atlas",
+          "drug_id": "tepezza"
+        },
+        {
+          "brand": "Ayvakit",
+          "ingredient": "avapritinib",
+          "fda_date": "2020-01-09",
+          "status": "in atlas",
+          "drug_id": "ayvakyt"
+        }
+      ],
+      "atlas_not_listed": [
+        {
+          "drug_id": "nustendi",
+          "inn": "bempedoic acid;ezetimibe",
+          "fda_date": "2020-02-26",
+          "reason": "Nexlizet (bempedoic acid with ezetimibe) is coded 'Type 1/4' in openFDA, so the rule includes it; FDA's list counts bempedoic acid once, under Nexletol (Nilemdo in the EU, also in the atlas)."
+        }
+      ]
+    },
+    "2021": {
+      "source": "https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2021",
+      "listed": 50,
+      "in_atlas": 34,
+      "drugs": [
+        {
+          "brand": "Adbry",
+          "ingredient": "tralokinumab-ldrm",
+          "fda_date": "2021-12-27",
+          "status": "in atlas",
+          "drug_id": "adbry"
+        },
+        {
+          "brand": "Leqvio",
+          "ingredient": "inclisiran",
+          "fda_date": "2021-12-22",
+          "status": "in atlas",
+          "drug_id": "leqvio"
+        },
+        {
+          "brand": "Vyvgart",
+          "ingredient": "efgartigimod alfa-fcab",
+          "fda_date": "2021-12-17",
+          "status": "in atlas",
+          "drug_id": "vyvgart"
+        },
+        {
+          "brand": "Tezspire",
+          "ingredient": "tezepelumab-ekko",
+          "fda_date": "2021-12-17",
+          "status": "in atlas",
+          "drug_id": "tezspire"
+        },
+        {
+          "brand": "Cytalux",
+          "ingredient": "pafolacianine",
+          "fda_date": "2021-11-29",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Livtencity",
+          "ingredient": "maribavir",
+          "fda_date": "2021-11-23",
+          "status": "in atlas",
+          "drug_id": "livtencity"
+        },
+        {
+          "brand": "Voxzogo",
+          "ingredient": "vosoritide",
+          "fda_date": "2021-11-19",
+          "status": "in atlas",
+          "drug_id": "voxzogo"
+        },
+        {
+          "brand": "Besremi",
+          "ingredient": "ropeginterferon alfa-2b-njft",
+          "fda_date": "2021-11-12",
+          "status": "in atlas",
+          "drug_id": "besremi"
+        },
+        {
+          "brand": "Scemblix",
+          "ingredient": "asciminib",
+          "fda_date": "2021-10-29",
+          "status": "in atlas",
+          "drug_id": "scemblix"
+        },
+        {
+          "brand": "Tavneos",
+          "ingredient": "avacopan",
+          "fda_date": "2021-10-07",
+          "status": "in atlas",
+          "drug_id": "tavneos"
+        },
+        {
+          "brand": "Livmarli",
+          "ingredient": "maralixibat",
+          "fda_date": "2021-09-29",
+          "status": "in atlas",
+          "drug_id": "livmarli"
+        },
+        {
+          "brand": "Qulipta",
+          "ingredient": "atogepant",
+          "fda_date": "2021-09-28",
+          "status": "in atlas",
+          "drug_id": "aquipta"
+        },
+        {
+          "brand": "Tivdak",
+          "ingredient": "tisotumab vedotin-tftv",
+          "fda_date": "2021-09-20",
+          "status": "in atlas",
+          "drug_id": "tivdak"
+        },
+        {
+          "brand": "Exkivity",
+          "ingredient": "mobocertinib",
+          "fda_date": "2021-09-15",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Skytrofa",
+          "ingredient": "lonapegsomatropin-tcgd",
+          "fda_date": "2021-08-25",
+          "status": "in atlas",
+          "drug_id": "skytrofa"
+        },
+        {
+          "brand": "Korsuva",
+          "ingredient": "difelikefalin",
+          "fda_date": "2021-08-23",
+          "status": "in atlas",
+          "drug_id": "kapruvia"
+        },
+        {
+          "brand": "Welireg",
+          "ingredient": "belzutifan",
+          "fda_date": "2021-08-13",
+          "status": "in atlas",
+          "drug_id": "welireg"
+        },
+        {
+          "brand": "Nexviazyme",
+          "ingredient": "avalglucosidase alfa-ngpt",
+          "fda_date": "2021-08-06",
+          "status": "in atlas",
+          "drug_id": "nexviadyme"
+        },
+        {
+          "brand": "Saphnelo",
+          "ingredient": "anifrolumab-fnia",
+          "fda_date": "2021-07-30",
+          "status": "in atlas",
+          "drug_id": "saphnelo"
+        },
+        {
+          "brand": "Bylvay",
+          "ingredient": "odevixibat",
+          "fda_date": "2021-07-20",
+          "status": "in atlas",
+          "drug_id": "bylvay"
+        },
+        {
+          "brand": "Rezurock",
+          "ingredient": "belumosudil",
+          "fda_date": "2021-07-16",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-03-24)"
+        },
+        {
+          "brand": "Fexinidazole",
+          "ingredient": "fexinidazole",
+          "fda_date": "2021-07-16",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Kerendia",
+          "ingredient": "finerenone",
+          "fda_date": "2021-07-09",
+          "status": "in atlas",
+          "drug_id": "kerendia"
+        },
+        {
+          "brand": "Rylaze",
+          "ingredient": "asparaginase erwinia chrysanthemi (recombinant)-rywn",
+          "fda_date": "2021-06-30",
+          "status": "not in atlas",
+          "reason": "no exact EU match; closest EU substance 'asparaginase' first authorised 2016-01-14, outside the window"
+        },
+        {
+          "brand": "Aduhelm",
+          "ingredient": "aducanumab - avwa",
+          "fda_date": "2021-06-07",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Brexafemme",
+          "ingredient": "ibrexafungerp",
+          "fda_date": "2021-06-01",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Lybalvi",
+          "ingredient": "olanzapine and samidorphan",
+          "fda_date": "2021-05-28",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Truseltiq",
+          "ingredient": "infigratinib",
+          "fda_date": "2021-05-28",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Lumakras",
+          "ingredient": "sotorasib",
+          "fda_date": "2021-05-28",
+          "status": "in atlas",
+          "drug_id": "lumakras"
+        },
+        {
+          "brand": "Pylarify",
+          "ingredient": "piflufolastat F 18",
+          "fda_date": "2021-05-26",
+          "status": "not in atlas",
+          "reason": "diagnostic agent (excluded by rule)"
+        },
+        {
+          "brand": "Rybrevant",
+          "ingredient": "amivantamab-vmjw",
+          "fda_date": "2021-05-21",
+          "status": "in atlas",
+          "drug_id": "rybrevant"
+        },
+        {
+          "brand": "Empaveli",
+          "ingredient": "pegcetacoplan",
+          "fda_date": "2021-05-14",
+          "status": "in atlas",
+          "drug_id": "aspaveli"
+        },
+        {
+          "brand": "Zynlonta",
+          "ingredient": "loncastuximab tesirine-lpyl",
+          "fda_date": "2021-04-23",
+          "status": "in atlas",
+          "drug_id": "zynlonta"
+        },
+        {
+          "brand": "Jemperli",
+          "ingredient": "dostarlimab-gxly",
+          "fda_date": "2021-04-22",
+          "status": "in atlas",
+          "drug_id": "jemperli"
+        },
+        {
+          "brand": "Nextstellis",
+          "ingredient": "drospirenone and estetrol",
+          "fda_date": "2021-04-15",
+          "status": "in atlas",
+          "drug_id": "lydisilka"
+        },
+        {
+          "brand": "Qelbree",
+          "ingredient": "viloxazine",
+          "fda_date": "2021-04-02",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Zegalogue",
+          "ingredient": "dasiglucagon",
+          "fda_date": "2021-03-22",
+          "status": "in atlas",
+          "drug_id": "zegalogue"
+        },
+        {
+          "brand": "Ponvory",
+          "ingredient": "ponesimod",
+          "fda_date": "2021-03-18",
+          "status": "in atlas",
+          "drug_id": "ponvory"
+        },
+        {
+          "brand": "Fotivda",
+          "ingredient": "tivozanib",
+          "fda_date": "2021-03-10",
+          "status": "not in atlas",
+          "reason": "EU first authorisation before the window (2017-08-24)"
+        },
+        {
+          "brand": "Azstarys",
+          "ingredient": "serdexmethylphenidate and dexmethylphenidate",
+          "fda_date": "2021-03-02",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Pepaxto",
+          "ingredient": "melphalan flufenamide",
+          "fda_date": "2021-02-26",
+          "status": "in atlas",
+          "drug_id": "pepaxti"
+        },
+        {
+          "brand": "Nulibry",
+          "ingredient": "fosdenopterin",
+          "fda_date": "2021-02-26",
+          "status": "in atlas",
+          "drug_id": "nulibry"
+        },
+        {
+          "brand": "Amondys 45",
+          "ingredient": "casimersen",
+          "fda_date": "2021-02-25",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Cosela",
+          "ingredient": "trilacicilib",
+          "fda_date": "2021-02-12",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Evkeeza",
+          "ingredient": "evinacumab-dgnb",
+          "fda_date": "2021-02-11",
+          "status": "in atlas",
+          "drug_id": "evkeeza"
+        },
+        {
+          "brand": "Ukoniq",
+          "ingredient": "umbralisib",
+          "fda_date": "2021-02-05",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Tepmetko",
+          "ingredient": "tepotinib",
+          "fda_date": "2021-02-03",
+          "status": "in atlas",
+          "drug_id": "tepmetko"
+        },
+        {
+          "brand": "Lupkynis",
+          "ingredient": "voclosporin",
+          "fda_date": "2021-01-22",
+          "status": "in atlas",
+          "drug_id": "lupkynis"
+        },
+        {
+          "brand": "Cabenuva",
+          "ingredient": "cabotegravir and rilpivirine (co-packaged)",
+          "fda_date": "2021-01-21",
+          "status": "in atlas",
+          "drug_id": "vocabria"
+        },
+        {
+          "brand": "Verquvo",
+          "ingredient": "vericiguat",
+          "fda_date": "2021-01-19",
+          "status": "in atlas",
+          "drug_id": "verquvo"
+        }
+      ],
+      "atlas_not_listed": []
+    },
+    "2022": {
+      "source": "https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2022",
+      "listed": 37,
+      "in_atlas": 24,
+      "drugs": [
+        {
+          "brand": "NexoBrid",
+          "ingredient": "anacaulase-bcdb",
+          "fda_date": "2022-12-28",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Briumvi",
+          "ingredient": "ublituximab-xiiy",
+          "fda_date": "2022-12-28",
+          "status": "in atlas",
+          "drug_id": "briumvi"
+        },
+        {
+          "brand": "Xenoview",
+          "ingredient": "hyperpolarized Xe-129",
+          "fda_date": "2022-12-23",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Lunsumio",
+          "ingredient": "mosunetuzumab-axgb",
+          "fda_date": "2022-12-22",
+          "status": "in atlas",
+          "drug_id": "lunsumio"
+        },
+        {
+          "brand": "Sunlenca",
+          "ingredient": "lenacapavir",
+          "fda_date": "2022-12-22",
+          "status": "in atlas",
+          "drug_id": "sunlenca"
+        },
+        {
+          "brand": "Krazati",
+          "ingredient": "adagrasib",
+          "fda_date": "2022-12-12",
+          "status": "in atlas",
+          "drug_id": "krazati"
+        },
+        {
+          "brand": "Rezlidhia",
+          "ingredient": "olutasidenib",
+          "fda_date": "2022-12-01",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Tzield",
+          "ingredient": "teplizumab-mzwv",
+          "fda_date": "2022-11-18",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-01-08)"
+        },
+        {
+          "brand": "Elahere",
+          "ingredient": "mirvetuximab soravtansine-gynx",
+          "fda_date": "2022-11-14",
+          "status": "in atlas",
+          "drug_id": "elahere"
+        },
+        {
+          "brand": "Tecvayli",
+          "ingredient": "teclistamab-cqyv",
+          "fda_date": "2022-10-25",
+          "status": "in atlas",
+          "drug_id": "tecvayli"
+        },
+        {
+          "brand": "Imjudo",
+          "ingredient": "tremelimumab",
+          "fda_date": "2022-10-21",
+          "status": "in atlas",
+          "drug_id": "imjudo"
+        },
+        {
+          "brand": "Lytgobi",
+          "ingredient": "futibatinib",
+          "fda_date": "2022-09-30",
+          "status": "in atlas",
+          "drug_id": "lytgobi"
+        },
+        {
+          "brand": "Relyvrio",
+          "ingredient": "sodium phenylbutyrate/taurursodiol",
+          "fda_date": "2022-09-29",
+          "status": "not in atlas",
+          "reason": "no exact EU match; closest EU substance 'sodium phenylbutyrate' first authorised 1999-12-07, outside the window"
+        },
+        {
+          "brand": "Omlonti",
+          "ingredient": "oomidenepag isopropyl ophthalmic solution",
+          "fda_date": "2022-09-22",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Elucirem",
+          "ingredient": "gadopiclenol",
+          "fda_date": "2022-09-21",
+          "status": "in atlas",
+          "drug_id": "elucirem"
+        },
+        {
+          "brand": "Terlivaz",
+          "ingredient": "terlipressin",
+          "fda_date": "2022-09-14",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Rolvedon",
+          "ingredient": "eflapegrastim",
+          "fda_date": "2022-09-09",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Sotyktu",
+          "ingredient": "deucravacitinib",
+          "fda_date": "2022-09-09",
+          "status": "in atlas",
+          "drug_id": "sotyktu"
+        },
+        {
+          "brand": "Daxxify",
+          "ingredient": "daxibotulinumtoixnA-lanm",
+          "fda_date": "2022-09-07",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Spevigo",
+          "ingredient": "spesolimab-sbzo",
+          "fda_date": "2022-09-01",
+          "status": "in atlas",
+          "drug_id": "spevigo"
+        },
+        {
+          "brand": "Xenpozyme",
+          "ingredient": "Olipudase alfa",
+          "fda_date": "2022-08-31",
+          "status": "in atlas",
+          "drug_id": "xenpozyme"
+        },
+        {
+          "brand": "Amvuttra",
+          "ingredient": "vutrisiran",
+          "fda_date": "2022-06-13",
+          "status": "in atlas",
+          "drug_id": "amvuttra"
+        },
+        {
+          "brand": "Vtama",
+          "ingredient": "tapinarof",
+          "fda_date": "2022-05-23",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Mounjaro",
+          "ingredient": "tirzepatide",
+          "fda_date": "2022-05-13",
+          "status": "in atlas",
+          "drug_id": "mounjaro"
+        },
+        {
+          "brand": "Voquezna",
+          "ingredient": "vonoprazan, amoxicillin, and clarithromycin",
+          "fda_date": "2022-05-03",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Camzyos",
+          "ingredient": "mavacamten",
+          "fda_date": "2022-04-28",
+          "status": "in atlas",
+          "drug_id": "camzyos"
+        },
+        {
+          "brand": "Vivjoa",
+          "ingredient": "oteseconazole",
+          "fda_date": "2022-04-26",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Pluvicto",
+          "ingredient": "lutetium (177Lu) vipivotide tetraxetan",
+          "fda_date": "2022-03-23",
+          "status": "in atlas",
+          "drug_id": "pluvicto"
+        },
+        {
+          "brand": "Opdualag",
+          "ingredient": "nivolumab and relatlimab-rmbw",
+          "fda_date": "2022-03-18",
+          "status": "in atlas",
+          "drug_id": "opdualag"
+        },
+        {
+          "brand": "Ztalmy",
+          "ingredient": "ganaxolone",
+          "fda_date": "2022-03-18",
+          "status": "in atlas",
+          "drug_id": "ztalmy"
+        },
+        {
+          "brand": "Vonjo",
+          "ingredient": "pacritinib",
+          "fda_date": "2022-02-28",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Pyrukynd",
+          "ingredient": "mitapivat",
+          "fda_date": "2022-02-17",
+          "status": "in atlas",
+          "drug_id": "pyrukynd"
+        },
+        {
+          "brand": "Enjaymo",
+          "ingredient": "sutimlimab-jome",
+          "fda_date": "2022-02-04",
+          "status": "in atlas",
+          "drug_id": "enjaymo"
+        },
+        {
+          "brand": "Vabysmo",
+          "ingredient": "faricimab-svoa",
+          "fda_date": "2022-01-28",
+          "status": "in atlas",
+          "drug_id": "vabysmo"
+        },
+        {
+          "brand": "Kimmtrak",
+          "ingredient": "tebentafusp-tebn",
+          "fda_date": "2022-01-25",
+          "status": "in atlas",
+          "drug_id": "kimmtrak"
+        },
+        {
+          "brand": "Cibinqo",
+          "ingredient": "abrocitinib",
+          "fda_date": "2022-01-14",
+          "status": "in atlas",
+          "drug_id": "cibinqo"
+        },
+        {
+          "brand": "Quviviq",
+          "ingredient": "daridorexant",
+          "fda_date": "2022-01-07",
+          "status": "in atlas",
+          "drug_id": "quviviq"
+        }
+      ],
+      "atlas_not_listed": []
+    },
+    "2023": {
+      "source": "https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2023",
+      "listed": 55,
+      "in_atlas": 36,
+      "drugs": [
+        {
+          "brand": "Leqembi",
+          "ingredient": "lecanemab-irmb",
+          "fda_date": "2023-01-06",
+          "status": "in atlas",
+          "drug_id": "leqembi"
+        },
+        {
+          "brand": "Brenzavvy",
+          "ingredient": "bexagliflozin",
+          "fda_date": "2023-01-20",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Jaypirca",
+          "ingredient": "pirtobrutinib",
+          "fda_date": "2023-01-27",
+          "status": "in atlas",
+          "drug_id": "jaypirca"
+        },
+        {
+          "brand": "Orserdu",
+          "ingredient": "elacestrant",
+          "fda_date": "2023-01-27",
+          "status": "in atlas",
+          "drug_id": "orserdu"
+        },
+        {
+          "brand": "Jesduvroq",
+          "ingredient": "daprodustat",
+          "fda_date": "2023-02-01",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Lamzede",
+          "ingredient": "velmanase alfa-tycv",
+          "fda_date": "2023-02-16",
+          "status": "not in atlas",
+          "reason": "EU first authorisation before the window (2018-03-23)"
+        },
+        {
+          "brand": "Filspari",
+          "ingredient": "sparsentan",
+          "fda_date": "2023-02-17",
+          "status": "in atlas",
+          "drug_id": "filspari"
+        },
+        {
+          "brand": "Skyclarys",
+          "ingredient": "omaveloxolone",
+          "fda_date": "2023-02-28",
+          "status": "in atlas",
+          "drug_id": "skyclarys"
+        },
+        {
+          "brand": "Zavzpret",
+          "ingredient": "zavegepant",
+          "fda_date": "2023-03-09",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Daybue",
+          "ingredient": "trofinetide",
+          "fda_date": "2023-03-10",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-08-20)"
+        },
+        {
+          "brand": "Zynyz",
+          "ingredient": "retifanlimab-dlwr",
+          "fda_date": "2023-03-22",
+          "status": "in atlas",
+          "drug_id": "zynyz"
+        },
+        {
+          "brand": "Rezzayo",
+          "ingredient": "rezafungin",
+          "fda_date": "2023-03-22",
+          "status": "in atlas",
+          "drug_id": "rezzayo"
+        },
+        {
+          "brand": "Joenja",
+          "ingredient": "leniolisib",
+          "fda_date": "2023-03-24",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-05-21)"
+        },
+        {
+          "brand": "Qalsody",
+          "ingredient": "tofersen",
+          "fda_date": "2023-04-25",
+          "status": "in atlas",
+          "drug_id": "qalsody"
+        },
+        {
+          "brand": "Elfabrio",
+          "ingredient": "pegunigalsidase alfa-iwxj",
+          "fda_date": "2023-05-09",
+          "status": "in atlas",
+          "drug_id": "elfabrio"
+        },
+        {
+          "brand": "Veozah",
+          "ingredient": "fezolinetant",
+          "fda_date": "2023-05-12",
+          "status": "in atlas",
+          "drug_id": "veoza"
+        },
+        {
+          "brand": "Miebo",
+          "ingredient": "perfluorhexyloctane",
+          "fda_date": "2023-05-18",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Epkinly",
+          "ingredient": "epcoritamab-bysp",
+          "fda_date": "2023-05-19",
+          "status": "in atlas",
+          "drug_id": "tepkinly"
+        },
+        {
+          "brand": "Xacduro",
+          "ingredient": "sulbactam, durlobactam",
+          "fda_date": "2023-05-23",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Paxlovid",
+          "ingredient": "nirmatrelvir, ritonavir",
+          "fda_date": "2023-05-25",
+          "status": "in atlas",
+          "drug_id": "paxlovid"
+        },
+        {
+          "brand": "Posluma",
+          "ingredient": "flotufolastat F 18",
+          "fda_date": "2023-05-25",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Inpefa",
+          "ingredient": "sotagliflozin",
+          "fda_date": "2023-05-26",
+          "status": "in atlas",
+          "drug_id": "zynquista"
+        },
+        {
+          "brand": "Columvi",
+          "ingredient": "glofitamab-gxbm",
+          "fda_date": "2023-06-15",
+          "status": "in atlas",
+          "drug_id": "columvi"
+        },
+        {
+          "brand": "Litfulo",
+          "ingredient": "ritlecitinib",
+          "fda_date": "2023-06-23",
+          "status": "in atlas",
+          "drug_id": "litfulo"
+        },
+        {
+          "brand": "Rystiggo",
+          "ingredient": "rozanolixizumab-noli",
+          "fda_date": "2023-06-26",
+          "status": "in atlas",
+          "drug_id": "rystiggo"
+        },
+        {
+          "brand": "Ngenla",
+          "ingredient": "somatrogon-ghla",
+          "fda_date": "2023-06-27",
+          "status": "in atlas",
+          "drug_id": "ngenla"
+        },
+        {
+          "brand": "Beyfortus",
+          "ingredient": "nirsevimab-alip",
+          "fda_date": "2023-07-17",
+          "status": "in atlas",
+          "drug_id": "beyfortus"
+        },
+        {
+          "brand": "Vanflyta",
+          "ingredient": "quizartinib",
+          "fda_date": "2023-07-20",
+          "status": "in atlas",
+          "drug_id": "vanflyta"
+        },
+        {
+          "brand": "Xdemvy",
+          "ingredient": "lotilaner",
+          "fda_date": "2023-07-25",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Zurzuvae",
+          "ingredient": "zuranolone",
+          "fda_date": "2023-08-04",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Izervay",
+          "ingredient": "avacincaptad pegol",
+          "fda_date": "2023-08-04",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Talvey",
+          "ingredient": "talquetamab-tgvs",
+          "fda_date": "2023-08-09",
+          "status": "in atlas",
+          "drug_id": "talvey"
+        },
+        {
+          "brand": "Elrexfio",
+          "ingredient": "elranatamab-bcmm",
+          "fda_date": "2023-08-14",
+          "status": "in atlas",
+          "drug_id": "elrexfio"
+        },
+        {
+          "brand": "Sohonos",
+          "ingredient": "palovarotene",
+          "fda_date": "2023-08-16",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Veopoz",
+          "ingredient": "pozelimab-bbfg",
+          "fda_date": "2023-08-18",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Aphexda",
+          "ingredient": "motixafortide",
+          "fda_date": "2023-09-08",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Ojjaara",
+          "ingredient": "momelotinib",
+          "fda_date": "2023-09-15",
+          "status": "in atlas",
+          "drug_id": "omjjara"
+        },
+        {
+          "brand": "Exxua",
+          "ingredient": "gepirone",
+          "fda_date": "2023-09-22",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Pombiliti",
+          "ingredient": "cipaglucosidase alfa-atga",
+          "fda_date": "2023-09-28",
+          "status": "in atlas",
+          "drug_id": "pombiliti"
+        },
+        {
+          "brand": "Rivfloza",
+          "ingredient": "nedosiran",
+          "fda_date": "2023-09-29",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Velsipity",
+          "ingredient": "etrasimod",
+          "fda_date": "2023-10-12",
+          "status": "in atlas",
+          "drug_id": "velsipity"
+        },
+        {
+          "brand": "Zilbrysq",
+          "ingredient": "zilucoplan",
+          "fda_date": "2023-10-17",
+          "status": "in atlas",
+          "drug_id": "zilbrysq"
+        },
+        {
+          "brand": "Bimzelx",
+          "ingredient": "bimekizumab",
+          "fda_date": "2023-10-17",
+          "status": "in atlas",
+          "drug_id": "bimzelx"
+        },
+        {
+          "brand": "Agamree",
+          "ingredient": "vamorolone",
+          "fda_date": "2023-10-26",
+          "status": "in atlas",
+          "drug_id": "agamree"
+        },
+        {
+          "brand": "Omvoh",
+          "ingredient": "mirikizumab-mrkz",
+          "fda_date": "2023-10-26",
+          "status": "in atlas",
+          "drug_id": "omvoh"
+        },
+        {
+          "brand": "Loqtorzi",
+          "ingredient": "toripalimab-tpzi",
+          "fda_date": "2023-10-27",
+          "status": "in atlas",
+          "drug_id": "loqtorzi"
+        },
+        {
+          "brand": "Fruzaqla",
+          "ingredient": "fruquintinib",
+          "fda_date": "2023-11-08",
+          "status": "in atlas",
+          "drug_id": "fruzaqla"
+        },
+        {
+          "brand": "Defencath",
+          "ingredient": "taurolidine, heparin",
+          "fda_date": "2023-11-15",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Augtyro",
+          "ingredient": "repotrectinib",
+          "fda_date": "2023-11-15",
+          "status": "in atlas",
+          "drug_id": "augtyro"
+        },
+        {
+          "brand": "Ryzneuta",
+          "ingredient": "efbemalenograstim alfa-vuxw",
+          "fda_date": "2023-11-16",
+          "status": "in atlas",
+          "drug_id": "ryzneuta"
+        },
+        {
+          "brand": "Truqap",
+          "ingredient": "capivasertib",
+          "fda_date": "2023-11-16",
+          "status": "in atlas",
+          "drug_id": "truqap"
+        },
+        {
+          "brand": "Ogsiveo",
+          "ingredient": "nirogacestat",
+          "fda_date": "2023-11-27",
+          "status": "in atlas",
+          "drug_id": "ogsiveo"
+        },
+        {
+          "brand": "Fabhalta",
+          "ingredient": "iptacopan",
+          "fda_date": "2023-12-05",
+          "status": "in atlas",
+          "drug_id": "fabhalta"
+        },
+        {
+          "brand": "Filsuvez",
+          "ingredient": "birch triterpenes",
+          "fda_date": "2023-12-18",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Wainua",
+          "ingredient": "eplontersen",
+          "fda_date": "2023-12-21",
+          "status": "in atlas",
+          "drug_id": "wainzua"
+        }
+      ],
+      "atlas_not_listed": []
+    },
+    "2024": {
+      "source": "https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2024",
+      "listed": 50,
+      "in_atlas": 24,
+      "drugs": [
+        {
+          "brand": "Alhemo",
+          "ingredient": "concizumab-mtci",
+          "fda_date": "2024-12-20",
+          "status": "in atlas",
+          "drug_id": "alhemo"
+        },
+        {
+          "brand": "Alyftrek",
+          "ingredient": "vanzacaftor, tezacaftor, and deutivacaftor",
+          "fda_date": "2024-12-20",
+          "status": "in atlas",
+          "drug_id": "alyftrek"
+        },
+        {
+          "brand": "Tryngolza",
+          "ingredient": "olezarsen",
+          "fda_date": "2024-12-19",
+          "status": "in atlas",
+          "drug_id": "tryngolza"
+        },
+        {
+          "brand": "Ensacove",
+          "ingredient": "ensartinib",
+          "fda_date": "2024-12-18",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Crenessity",
+          "ingredient": "crinecerfont",
+          "fda_date": "2024-12-13",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Unloxcyt",
+          "ingredient": "cosibelimab-ipdl",
+          "fda_date": "2024-12-13",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Bizengri",
+          "ingredient": "zenocutuzumab-zbco",
+          "fda_date": "2024-12-04",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Iomervu",
+          "ingredient": "iomeprol",
+          "fda_date": "2024-11-27",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Rapiblyk",
+          "ingredient": "landiolol",
+          "fda_date": "2024-11-22",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Attruby",
+          "ingredient": "acoramidis",
+          "fda_date": "2024-11-22",
+          "status": "in atlas",
+          "drug_id": "beyonttra"
+        },
+        {
+          "brand": "Ziihera",
+          "ingredient": "zanidatamab-hrii",
+          "fda_date": "2024-11-20",
+          "status": "in atlas",
+          "drug_id": "ziihera"
+        },
+        {
+          "brand": "Revuforj",
+          "ingredient": "revumenib",
+          "fda_date": "2024-11-15",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Orlynvah",
+          "ingredient": "sulopenem etzadroxil, probenecid",
+          "fda_date": "2024-10-25",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Vyloy",
+          "ingredient": "zolbetuximab-clzb",
+          "fda_date": "2024-10-18",
+          "status": "in atlas",
+          "drug_id": "vyloy"
+        },
+        {
+          "brand": "Hympavzi",
+          "ingredient": "marstacimab-hncq",
+          "fda_date": "2024-10-11",
+          "status": "in atlas",
+          "drug_id": "hympavzi"
+        },
+        {
+          "brand": "Itovebi",
+          "ingredient": "inavolisib",
+          "fda_date": "2024-10-10",
+          "status": "in atlas",
+          "drug_id": "itovebi"
+        },
+        {
+          "brand": "Flyrcado",
+          "ingredient": "flurpiridaz F 18",
+          "fda_date": "2024-09-27",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Cobenfy",
+          "ingredient": "xanomeline and trospium chloride",
+          "fda_date": "2024-09-26",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Aqneursa",
+          "ingredient": "levacetylleucine",
+          "fda_date": "2024-09-24",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Miplyffa",
+          "ingredient": "arimoclomol",
+          "fda_date": "2024-09-20",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Ebglyss",
+          "ingredient": "lebrikizumab-lbkz",
+          "fda_date": "2024-09-13",
+          "status": "in atlas",
+          "drug_id": "ebglyss"
+        },
+        {
+          "brand": "Lazcluze",
+          "ingredient": "lazertinib",
+          "fda_date": "2024-08-19",
+          "status": "in atlas",
+          "drug_id": "lazcluze"
+        },
+        {
+          "brand": "Niktimvo",
+          "ingredient": "axatilimab-csfr",
+          "fda_date": "2024-08-14",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Livdelzi",
+          "ingredient": "seladelpar",
+          "fda_date": "2024-08-14",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Nemluvio",
+          "ingredient": "nemolizumab-ilto",
+          "fda_date": "2024-08-12",
+          "status": "in atlas",
+          "drug_id": "nemluvio"
+        },
+        {
+          "brand": "Yorvipath",
+          "ingredient": "palopegteriparatide",
+          "fda_date": "2024-08-09",
+          "status": "in atlas",
+          "drug_id": "yorvipath"
+        },
+        {
+          "brand": "Voranigo",
+          "ingredient": "vorasidenib",
+          "fda_date": "2024-08-06",
+          "status": "in atlas",
+          "drug_id": "voranigo"
+        },
+        {
+          "brand": "Leqselvi",
+          "ingredient": "deuruxolitinib",
+          "fda_date": "2024-07-25",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Kisunla",
+          "ingredient": "donanemab-azbt",
+          "fda_date": "2024-07-02",
+          "status": "in atlas",
+          "drug_id": "kisunla"
+        },
+        {
+          "brand": "Ohtuvayre",
+          "ingredient": "ensifentrine",
+          "fda_date": "2024-06-26",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Piasky",
+          "ingredient": "crovalimab-akkz",
+          "fda_date": "2024-06-20",
+          "status": "in atlas",
+          "drug_id": "piasky"
+        },
+        {
+          "brand": "Sofdra",
+          "ingredient": "sofpironium",
+          "fda_date": "2024-06-18",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Iqirvo",
+          "ingredient": "elafibranor",
+          "fda_date": "2024-06-10",
+          "status": "in atlas",
+          "drug_id": "iqirvo"
+        },
+        {
+          "brand": "Rytelo",
+          "ingredient": "imetelstat",
+          "fda_date": "2024-06-06",
+          "status": "in atlas",
+          "drug_id": "rytelo"
+        },
+        {
+          "brand": "Imdelltra",
+          "ingredient": "tarlatamab-dlle",
+          "fda_date": "2024-05-16",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-05-29)"
+        },
+        {
+          "brand": "Xolremdi",
+          "ingredient": "mavorixafor",
+          "fda_date": "2024-04-26",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-04-27)"
+        },
+        {
+          "brand": "Ojemda",
+          "ingredient": "tovorafenib",
+          "fda_date": "2024-04-23",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-04-20)"
+        },
+        {
+          "brand": "Anktiva",
+          "ingredient": "nogapendekin alfa inbakicept-pmln",
+          "fda_date": "2024-04-22",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-02-16)"
+        },
+        {
+          "brand": "Lumisight",
+          "ingredient": "pegulicianine",
+          "fda_date": "2024-04-17",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Zevtera",
+          "ingredient": "ceftobiprole medocaril sodium",
+          "fda_date": "2024-04-03",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Voydeya",
+          "ingredient": "danicopan",
+          "fda_date": "2024-03-29",
+          "status": "in atlas",
+          "drug_id": "voydeya"
+        },
+        {
+          "brand": "Vafseo",
+          "ingredient": "vadadustat",
+          "fda_date": "2024-03-27",
+          "status": "in atlas",
+          "drug_id": "vafseo"
+        },
+        {
+          "brand": "Winrevair",
+          "ingredient": "sotatercept-csrk",
+          "fda_date": "2024-03-26",
+          "status": "in atlas",
+          "drug_id": "winrevair"
+        },
+        {
+          "brand": "Duvyzat",
+          "ingredient": "givinostat",
+          "fda_date": "2024-03-21",
+          "status": "in atlas",
+          "drug_id": "duvyzat"
+        },
+        {
+          "brand": "Tryvio",
+          "ingredient": "aprocitentan",
+          "fda_date": "2024-03-19",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Rezdiffra",
+          "ingredient": "resmetirom",
+          "fda_date": "2024-03-14",
+          "status": "in atlas",
+          "drug_id": "rezdiffra"
+        },
+        {
+          "brand": "Tevimbra",
+          "ingredient": "tislelizumab-jsgr",
+          "fda_date": "2024-03-13",
+          "status": "in atlas",
+          "drug_id": "tevimbra"
+        },
+        {
+          "brand": "Letybo",
+          "ingredient": "letibotulinumtoxinA-wlbg",
+          "fda_date": "2024-02-29",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Exblifep",
+          "ingredient": "cefepime, enmetazobactam",
+          "fda_date": "2024-02-22",
+          "status": "in atlas",
+          "drug_id": "exblifep"
+        },
+        {
+          "brand": "Zelsuvmi",
+          "ingredient": "berdazimer",
+          "fda_date": "2024-01-05",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        }
+      ],
+      "atlas_not_listed": []
+    },
+    "2025": {
+      "source": "https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2025",
+      "listed": 46,
+      "in_atlas": 13,
+      "drugs": [
+        {
+          "brand": "Nereus",
+          "ingredient": "tradipitant",
+          "fda_date": "2025-12-30",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Yartemlea",
+          "ingredient": "narsoplimab-wuug",
+          "fda_date": "2025-12-23",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Myqorzo",
+          "ingredient": "aficamten",
+          "fda_date": "2025-12-19",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-02-12)"
+        },
+        {
+          "brand": "Exdensur",
+          "ingredient": "depemokimab-ulaa",
+          "fda_date": "2025-12-16",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-02-12)"
+        },
+        {
+          "brand": "Cardamyst",
+          "ingredient": "etripamil",
+          "fda_date": "2025-12-12",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Nuzolvence",
+          "ingredient": "zoliflodacin",
+          "fda_date": "2025-12-12",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Lerochol",
+          "ingredient": "lerodalcibep-liga",
+          "fda_date": "2025-12-12",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Voyxact",
+          "ingredient": "sibeprenlimab-szsi",
+          "fda_date": "2025-11-25",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Hyrnuo",
+          "ingredient": "sevabertinib",
+          "fda_date": "2025-11-19",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Redemplo",
+          "ingredient": "plozasiran",
+          "fda_date": "2025-11-18",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-06-19)"
+        },
+        {
+          "brand": "Komzifti",
+          "ingredient": "ziftomenib",
+          "fda_date": "2025-11-13",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Kygevvi",
+          "ingredient": "doxecitine and doxribtimine",
+          "fda_date": "2025-11-03",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-03-26)"
+        },
+        {
+          "brand": "Lynkuet",
+          "ingredient": "elinzanetant",
+          "fda_date": "2025-10-24",
+          "status": "in atlas",
+          "drug_id": "lynkuet"
+        },
+        {
+          "brand": "Jascayd",
+          "ingredient": "nerandomilast",
+          "fda_date": "2025-10-07",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-07-15)"
+        },
+        {
+          "brand": "Rhapsido",
+          "ingredient": "remibrutinib",
+          "fda_date": "2025-09-30",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-04-23)"
+        },
+        {
+          "brand": "Palsonify",
+          "ingredient": "paltusotine",
+          "fda_date": "2025-09-25",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-04-23)"
+        },
+        {
+          "brand": "Inluriyo",
+          "ingredient": "imlunestrant",
+          "fda_date": "2025-09-25",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-01-09)"
+        },
+        {
+          "brand": "Forzinity",
+          "ingredient": "elamipretide",
+          "fda_date": "2025-09-19",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Keytruda Qlex",
+          "ingredient": "pembrolizumab and berahyaluronidase alfa-pmph",
+          "fda_date": "2025-09-19",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Wayrilz",
+          "ingredient": "rilzabrutinib",
+          "fda_date": "2025-08-29",
+          "status": "in atlas",
+          "drug_id": "wayrilz"
+        },
+        {
+          "brand": "Dawnzera",
+          "ingredient": "donidalorsen",
+          "fda_date": "2025-08-21",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-01-19)"
+        },
+        {
+          "brand": "Brinsupri",
+          "ingredient": "brensocatib",
+          "fda_date": "2025-08-12",
+          "status": "in atlas",
+          "drug_id": "brinsupri"
+        },
+        {
+          "brand": "Hernexeos",
+          "ingredient": "zongertinib",
+          "fda_date": "2025-08-08",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Modeyso",
+          "ingredient": "dordaviprone",
+          "fda_date": "2025-08-06",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Vizz",
+          "ingredient": "aceclidine",
+          "fda_date": "2025-07-31",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Sephience",
+          "ingredient": "sepiapterin",
+          "fda_date": "2025-07-28",
+          "status": "in atlas",
+          "drug_id": "sephience"
+        },
+        {
+          "brand": "Anzupgo",
+          "ingredient": "delgocitinib",
+          "fda_date": "2025-07-23",
+          "status": "in atlas",
+          "drug_id": "anzupgo"
+        },
+        {
+          "brand": "Ekterly",
+          "ingredient": "sebetralstat",
+          "fda_date": "2025-07-03",
+          "status": "in atlas",
+          "drug_id": "ekterly"
+        },
+        {
+          "brand": "Zegfrovy",
+          "ingredient": "sunvozertinib",
+          "fda_date": "2025-07-02",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Lynozyfic",
+          "ingredient": "linvoseltamab-gcpt",
+          "fda_date": "2025-07-02",
+          "status": "in atlas",
+          "drug_id": "lynozyfic"
+        },
+        {
+          "brand": "Andembry",
+          "ingredient": "garadacimab-gxii",
+          "fda_date": "2025-06-16",
+          "status": "in atlas",
+          "drug_id": "andembry"
+        },
+        {
+          "brand": "Ibtrozi",
+          "ingredient": "taletrectinib",
+          "fda_date": "2025-06-11",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Enflonsia",
+          "ingredient": "clesrovimab-cfor",
+          "fda_date": "2025-06-09",
+          "status": "not in atlas",
+          "reason": "EU first authorisation after the window (2026-04-15)"
+        },
+        {
+          "brand": "Tryptyr",
+          "ingredient": "acoltremon",
+          "fda_date": "2025-05-28",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Emrelis",
+          "ingredient": "telisotuzumab vedotin-tllv",
+          "fda_date": "2025-05-14",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Avmapki Fakzynja Co-Pack",
+          "ingredient": "avutometinib and defactinib",
+          "fda_date": "2025-05-08",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Imaavy",
+          "ingredient": "nipocalimab-aahu",
+          "fda_date": "2025-04-29",
+          "status": "in atlas",
+          "drug_id": "imaavy"
+        },
+        {
+          "brand": "penpulimab-kcqx",
+          "ingredient": "penpulimab-kcqx",
+          "fda_date": "2025-04-23",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Vanrafia",
+          "ingredient": "atrasentan",
+          "fda_date": "2025-04-02",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Qfitlia",
+          "ingredient": "fitusiran",
+          "fda_date": "2025-03-28",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Blujepa",
+          "ingredient": "gepotidacin",
+          "fda_date": "2025-03-25",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Romvimza",
+          "ingredient": "vimseltinib",
+          "fda_date": "2025-02-14",
+          "status": "in atlas",
+          "drug_id": "romvimza"
+        },
+        {
+          "brand": "Gomekli",
+          "ingredient": "mirdametinib",
+          "fda_date": "2025-02-11",
+          "status": "in atlas",
+          "drug_id": "ezmekly"
+        },
+        {
+          "brand": "Journavx",
+          "ingredient": "suzetrigine",
+          "fda_date": "2025-01-30",
+          "status": "not in atlas",
+          "reason": "no EU central authorisation found"
+        },
+        {
+          "brand": "Grafapex",
+          "ingredient": "treosulfan",
+          "fda_date": "2025-01-21",
+          "status": "in atlas",
+          "drug_id": "trecondi"
+        },
+        {
+          "brand": "Datroway",
+          "ingredient": "datopotamab deruxtecan-dlnk",
+          "fda_date": "2025-01-17",
+          "status": "in atlas",
+          "drug_id": "datroway"
+        }
+      ],
+      "atlas_not_listed": []
+    }
+  },
+  "known_differences": {
+    "nustendi": "Nexlizet (bempedoic acid with ezetimibe) is coded 'Type 1/4' in openFDA, so the rule includes it; FDA's list counts bempedoic acid once, under Nexletol (Nilemdo in the EU, also in the atlas)."
+  },
+  "unexplained": []
+}

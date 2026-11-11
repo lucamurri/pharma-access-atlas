@@ -16,7 +16,15 @@
   <li>Gli agenti diagnostici (ATC V04, V09) sono esclusi: non sono trattamenti e sono rimborsati con altri percorsi.</li>
   <li>Le terapie cellulari e geniche (approvate dal CBER della FDA, non presenti in openFDA) provengono dall'elenco EMA delle terapie avanzate.
     Ciascuna è inclusa solo se la sua data di approvazione FDA nella finestra è stata verificata manualmente.</li>
-  <li>La selezione è stata verificata incrociando gli elenchi annuali ufficiali della FDA delle «novel drug approvals» per il 2021–2025.</li>
+  <li>La selezione è stata verificata incrociando gli elenchi annuali ufficiali della FDA delle «Novel Drug Approvals»
+    per il 2019–2025 (la FDA non pubblica più le pagine del 2019 e del 2020, quindi sono state usate le copie
+    dell'Internet Archive). Ogni farmaco di quegli elenchi è nell'atlante oppure ne è escluso per un motivo dichiarato:
+    nessuna autorizzazione centralizzata UE, una prima autorizzazione UE fuori dal 2019–2025 o un agente diagnostico.
+    La verifica ha trovato quattro farmaci che una prima versione della selezione aveva tralasciato, per come è scritta
+    la sostanza nel file EMA (Mayzent, Rukobia, Vocabria) o perché il farmaco è stato ritirato negli USA e rimosso da
+    openFDA (Pepaxti, approvato dalla FDA come Pepaxto); ora sono inclusi. Un farmaco dell'atlante non compare negli
+    elenchi della FDA: Nustendi (acido bempedoico con ezetimibe), perché la FDA conta l'acido bempedoico una sola volta,
+    con Nexletol. La verifica è in <code>pipeline/crosscheck_fda.py</code>.</li>
   <li><strong>La finestra esclude i farmaci recenti con intervalli lunghi.</strong> Entrambe le approvazioni devono cadere nel 2019–2025,
     quindi un farmaco approvato dalla FDA nel 2024–2025 e dall'UE solo dal 2026 non è nell'atlante. Tra le approvazioni recenti sono
     inclusi solo i farmaci che l'Europa ha approvato rapidamente, quindi l'intervallo mediano USA-UE di {{lag_median}} giorni può

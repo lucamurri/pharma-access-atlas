@@ -1,6 +1,6 @@
 # Pharma Access Atlas
 
-**How quickly, and on what terms, do new drugs reach patients in the US and Europe? A fully sourced market-access dashboard covering every new medicine approved by both the FDA and the EU in 2019–2025 (205 drugs), with Italy, Germany, France and England.**
+**How quickly, and on what terms, do new drugs reach patients in the US and Europe? A fully sourced market-access dashboard covering every new medicine approved by both the FDA and the EU in 2019–2025 (209 drugs), with Italy, Germany, France and England.**
 
 **Live site → [lucamurri.github.io/pharma-access-atlas](https://lucamurri.github.io/pharma-access-atlas/)**
 in English, [Italiano](https://lucamurri.github.io/pharma-access-atlas/it/), [Deutsch](https://lucamurri.github.io/pharma-access-atlas/de/) and [Français](https://lucamurri.github.io/pharma-access-atlas/fr/).
@@ -16,7 +16,7 @@ EU-wide approval is followed by separate national decisions on price, reimbursem
 years and vary by country. The public data needed to see this is scattered across seven agencies, four
 languages and formats ranging from APIs to official gazettes.
 
-The atlas puts those pieces side by side for **all 205 new medicines** approved by both the FDA and the European
+The atlas puts those pieces side by side for **all 209 new medicines** approved by both the FDA and the European
 Commission in 2019–2025. They are selected by a fixed rule, not hand-picked. It tracks each drug from FDA approval
 and EU approval to benefit assessment in **Germany** (G-BA), **France** (HAS) and **England** (NICE), and to
 reimbursement in **Italy** (AIFA), plus Medicare price negotiation in the **US** where it applies.
@@ -29,26 +29,27 @@ The site has an overview with time-to-access curves, a filterable drug explorer,
 
 ## Three key findings
 
-*(Data as of 4 November 2026; full analysis on the [Insights](https://lucamurri.github.io/pharma-access-atlas/insights.html) page.)*
+*(Data as of 11 November 2026; full analysis on the [Insights](https://lucamurri.github.io/pharma-access-atlas/insights.html) page.)*
 
 1. **After EU approval, four countries reach four different milestones.** EU approval came a median
-   **212 days** after the FDA's. Counting the drugs still waiting (Kaplan–Meier), half of drugs had a French HAS
-   opinion within **215 days** of EU approval, a German G-BA decision within **234**, English NICE guidance within
+   **213 days** after the FDA's. Counting the drugs still waiting (Kaplan–Meier), half of drugs had a French HAS
+   opinion within **212 days** of EU approval, a German G-BA decision within **232**, English NICE guidance within
    **399** and Italian reimbursement within **522**. These are different events: Italy's milestone comes after the
    price is agreed, while Germany reimburses from launch and France and England assess before funding.
-2. **Without the orphan rules, most drugs were rated as having no added benefit in Germany.** Of the 112 drugs assessed against an
-   existing therapy, **71% showed no added benefit** for any patient group. All 69 drugs assessed under the orphan rules
+2. **Without the orphan rules, most drugs were rated as having no added benefit in Germany.** Of the 116 drugs assessed against an
+   existing therapy, **72% showed no added benefit** for any patient group. All 69 drugs assessed under the orphan rules
    received a benefit rating.
-3. **England often funds what Germany rejects.** Of the 60 drugs Germany found had no added benefit and NICE also
-   appraised, **82% received a positive NICE decision**. Germany measures added benefit over a comparator; NICE
+3. **England often funds what Germany found no added benefit for.** Of the 63 drugs Germany found had no added benefit and NICE also
+   appraised, **81% received a positive NICE decision**. Germany measures added benefit over a comparator; NICE
    judges value for money at the price offered.
 
 ## Methodology in brief
 
 - **Drugs:** every new active substance whose first FDA approval (openFDA: new-molecular-entity NDAs and original
   BLAs, plus FDA-verified cell and gene therapies) and first EU centralised authorisation both fall in 2019–2025.
-  Generics, biosimilars and diagnostics are excluded. The selection was cross-checked against FDA's official
-  novel-approval lists. Two semaglutide brands are kept as labelled reference drugs for the Medicare comparison.
+  Generics, biosimilars and diagnostics are excluded. The selection is cross-checked against FDA's official
+  novel-approval lists for 2019–2025 (`pipeline/crosscheck_fda.py`); every listed drug is either included or left
+  out for a stated reason. Two semaglutide brands are kept as labelled reference drugs for the Medicare comparison.
 - **Time to access:** medians of national milestones count drugs still waiting, using Kaplan–Meier curves (a drug
   confirmed as "not yet" stays in the count until the day it was checked), so slow cases are not left out.
 - **Measures:** US-to-EU approval lag; Italian time to national reimbursement (EC approval to publication in the

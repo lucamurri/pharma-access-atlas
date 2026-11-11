@@ -105,13 +105,14 @@ def load_cms():
 # ---------------------------------------------------------------------------
 def fda_fields(drug: dict, manual: dict) -> dict:
     app = drug["fda_application"].strip()
-    if drug["fda_center"] == "CBER":
-        # Cell & gene therapies: not in openFDA, so the date is entered by hand.
+    if drug["fda_center"] == "CBER" or not app:
+        # Cell & gene therapies, and drugs withdrawn from openFDA (Pepaxto): the date is entered by hand.
+        why = "CBER product: not in openFDA" if drug["fda_center"] == "CBER" else "Not in openFDA (withdrawn in the US)"
         return {
             "fda_approval_date": manual_field(manual, drug["drug_id"], "fda_approval_date"),
             "fda_application": manual_field(manual, drug["drug_id"], "fda_application"),
-            "fda_sponsor": missing(notes="CBER product: not in openFDA"),
-            "fda_review_priority": missing(notes="CBER product: not in openFDA"),
+            "fda_sponsor": missing(notes=why),
+            "fda_review_priority": missing(notes=why),
         }
     raw = json.loads((RAW / "fda" / f"{app}.json").read_text())
     retrieved = raw_retrieved_date(f"fda/{app}.json")

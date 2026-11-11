@@ -5,7 +5,7 @@
     "source_url": "https://www.cms.gov/files/zip/cms-negotiation-program-selected-drug-list-maximum-fair-price-data-file-20261102.zip"
   },
   "ema/medicines_subset.json": {
-    "sha256": "c468fbd0e2b25d08e9a61cd9a5ec64c6aa8448113ecfcebb7855a49950bcd11d",
+    "sha256": "cb79d19c8990bc6ff0533756dbae6ffb11b22854d0a86a5df19492c44d0f8529",
     "retrieved_date": "2026-11-04",
     "source_url": "https://www.ema.europa.eu/en/documents/report/medicines-output-medicines_json-report_en.json"
   },
@@ -359,6 +359,11 @@
     "retrieved_date": "2026-11-03",
     "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA209445%22&limit=1"
   },
+  "fda/NDA209884.json": {
+    "sha256": "b5471f035bf875dba8e3f84d7999d69eb59a2806d594c4088a65cf708f12c75b",
+    "retrieved_date": "2026-11-11",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA209884%22&limit=1"
+  },
   "fda/NDA209899.json": {
     "sha256": "c5da15940ed68829b62567853ce6316b18b6e63086af366d55b91ac535edf6aa",
     "retrieved_date": "2026-11-03",
@@ -473,6 +478,16 @@
     "sha256": "a908f924d49876621d40a93ecc7793307aa677d317f1328064dd550b3c3d322a",
     "retrieved_date": "2026-11-03",
     "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA212862%22&limit=1"
+  },
+  "fda/NDA212888.json": {
+    "sha256": "7f5065aebdc4b751d0b4f0a70ebda4acc5df9afa6f5edc95fdf1bee658a899f2",
+    "retrieved_date": "2026-11-11",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA212888%22&limit=1"
+  },
+  "fda/NDA212950.json": {
+    "sha256": "3a60d65cbbc7d25255d193eb4cee7279f0a9cb10796f59ccfb0d3a04ce29bdbe",
+    "retrieved_date": "2026-11-11",
+    "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA212950%22&limit=1"
   },
   "fda/NDA213006.json": {
     "sha256": "235392248e1b323a1b13da5b8048e06afd387b37d1ef4d32a9719d02af85a33f",
@@ -970,7 +985,7 @@
     "source_url": "https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA219685%22&limit=1"
   },
   "france/has_opinions.json": {
-    "sha256": "769208d19374a324850329350f8235d2f4795e57e408840148ffe662dd439aee",
+    "sha256": "c538282941aa4b21b5a23e43e39d705766dbd6feae81029680b7bb4c1fe56e92",
     "retrieved_date": "2026-11-03",
     "source_url": "https://base-donnees-publique.medicaments.gouv.fr/download/file/"
   }

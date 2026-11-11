@@ -48,8 +48,21 @@ NOISE = {
     "bromide", "chloride", "monohydrate", "dihydrate", "trihydrate", "sesquihydrate", "hemihydrate",
     "hydrate", "anhydrous", "tromethamine", "meglumine", "dimeglumine", "hydrobromide", "benzoate",
     "lactate", "malate", "oxalate", "edisylate", "camsylate", "free", "base", "injection", "oral",
-    "and", "fam",
+    "and", "fam", "trometamol",
 }
+# Salt names of two words, and a misspelling in the EMA file, found by the FDA cross-check
+# (pipeline/crosscheck_fda.py): without these, Mayzent and Vocabria did not match.
+SALT_PHRASES = ("fumaric acid",)
+SPELLING = {"cabotegavir": "cabotegravir"}
+
+# Drugs the rule selects but openFDA no longer holds: Pepaxto (melphalan flufenamide) was
+# withdrawn in the US and removed from openFDA. Its FDA approval is verified by hand in
+# data/manual/us_fda.csv, as for cell and gene therapies.
+NOT_IN_OPENFDA = {"EMEA/H/C/005681": "Pepaxto"}
+# A new substance the FDA first approved inside a co-pack with an older one, while the EU
+# authorised it on its own: cabotegravir (new) came with rilpivirine (EU 2011) in Cabenuva;
+# the EU authorised cabotegravir alone as Vocabria. FDA application -> EU product.
+CO_PACKAGED = {"NDA212888": "EMEA/H/C/004976"}
 
 # Rybelsus and Wegovy are new brands of an older molecule (semaglutide, first
 # approved as Ozempic in 2017), so the rule excludes them. They are kept as a
@@ -60,6 +73,10 @@ REFERENCE = {"EMEA/H/C/004953": "rybelsus", "EMEA/H/C/005422": "wegovy"}
 def tokens(name: str) -> frozenset:
     """Reduce a substance name to comparable words: 'FAM-TRASTUZUMAB DERUXTECAN-NXKI' -> {trastuzumab, deruxtecan}."""
     name = name.lower()
+    for phrase in SALT_PHRASES:
+        name = name.replace(phrase, " ")
+    for wrong, right in SPELLING.items():
+        name = re.sub(rf"\b{wrong}\b", right, name)
     name = re.sub(r"-[a-z]{4}\b", "", name)   # US biologic suffixes such as -nxki
     name = re.sub(r"\(.*?\)", " ", name)       # isotope notes such as (177Lu)
     words = set(re.findall(r"[a-z][a-z0-9]+", name)) - NOISE
@@ -144,6 +161,11 @@ def main() -> None:
         # keep the earliest FDA approval.
         matches.setdefault(first["ema_product_number"], {"fda": f, "ema": first})
 
+    ema_by_number = {r["ema_product_number"]: r for r in ema}
+    for app, number in CO_PACKAGED.items():
+        if app in fda and WINDOW[0] <= ema_date(ema_by_number[number]) <= WINDOW[1]:
+            matches.setdefault(number, {"fda": fda[app], "ema": ema_by_number[number]})
+
     # ---- CBER: EU advanced therapies in the window (FDA dates are researched by hand)
     atmps = [r for r in ema if r.get("advanced_therapy") == "Yes" and WINDOW[0] <= ema_date(r) <= WINDOW[1]]
 
@@ -188,6 +210,16 @@ def main() -> None:
         brand = manual.get((drug_id, "fda_brand"), {}).get("value", "").title()
         add(r, "", brand, "CBER", "core")
     ema_by_number = {r["ema_product_number"]: r for r in ema}
+    # Selected by the rule but absent from openFDA: included only with a verified FDA date in the window.
+    for number, brand in NOT_IN_OPENFDA.items():
+        r = ema_by_number[number]
+        old = existing.get(number)
+        drug_id = old["drug_id"] if old else slug(r["name_of_medicine"].split("(")[0])
+        date_row = manual.get((drug_id, "fda_approval_date"))
+        if date_row and date_row["status"] == "verified" and WINDOW[0] <= date_row["value"] <= WINDOW[1]:
+            add(r, "", brand, "CDER", "core")
+        else:
+            excluded.append({"eu_name": r["name_of_medicine"], "reason": "not in openFDA; no verified FDA approval in the window"})
     for number in REFERENCE:
         add(ema_by_number[number], existing[number]["fda_application"], existing[number]["brand_us"], "CDER", "reference")
 

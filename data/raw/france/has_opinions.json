@@ -1211,6 +1211,9 @@
    "68552628"
   ]
  },
+ "mayzent": {
+  "matched_cis": []
+ },
  "minjuvi": {
   "first_opinion": {
    "asmr": [
@@ -1611,6 +1614,9 @@
    "67695203"
   ]
  },
+ "pepaxti": {
+  "matched_cis": []
+ },
  "piasky": {
   "matched_cis": []
  },
@@ -1853,6 +1859,23 @@
  },
  "rozlytrek": {
   "matched_cis": []
+ },
+ "rukobia": {
+  "first_opinion": {
+   "asmr": [
+    "III"
+   ],
+   "date": "2021-06-02",
+   "dossier": "CT-19115",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3271861"
+  },
+  "matched_cis": [
+   "69610664"
+  ]
  },
  "rybelsus": {
   "matched_cis": []
@@ -2443,6 +2466,25 @@
  },
  "verquvo": {
   "matched_cis": []
+ },
+ "vocabria": {
+  "first_opinion": {
+   "asmr": [
+    "V"
+   ],
+   "date": "2021-04-21",
+   "dossier": "CT-18978",
+   "reason": "Inscription (CT)",
+   "smr": [
+    "Important",
+    "Insuffisant"
+   ],
+   "url": "https://www.has-sante.fr/jcms/p_3263063"
+  },
+  "matched_cis": [
+   "60543082",
+   "67129301"
+  ]
  },
  "voranigo": {
   "first_opinion": {

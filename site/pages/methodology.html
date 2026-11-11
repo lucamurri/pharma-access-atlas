@@ -16,7 +16,14 @@
   <li>Diagnostic agents (ATC V04, V09) are excluded: they are not treatments and are reimbursed through other routes.</li>
   <li>Cell and gene therapies (approved by FDA's CBER, not in openFDA) come from the EMA list of advanced therapies.
     Each is included only if its FDA approval date in the window was verified by hand.</li>
-  <li>The selection was cross-checked against FDA's official yearly "novel drug approvals" lists for 2021–2025.</li>
+  <li>The selection was cross-checked against FDA's official yearly "Novel Drug Approvals" lists for 2019–2025
+    (FDA no longer hosts the 2019 and 2020 pages, so Internet Archive copies were used). Every drug on those lists is
+    either in the atlas or left out for a stated reason: no EU central authorisation, a first EU authorisation outside
+    2019–2025, or a diagnostic agent. The check found four drugs a first version of the selection had missed, because
+    of how their substance is written in the EMA file (Mayzent, Rukobia, Vocabria) or because the drug was withdrawn
+    in the US and removed from openFDA (Pepaxti, approved by the FDA as Pepaxto); they are included. One drug in the
+    atlas is not on FDA's lists: Nustendi (bempedoic acid with ezetimibe), because FDA counts bempedoic acid once,
+    under Nexletol. The check is <code>pipeline/crosscheck_fda.py</code>.</li>
   <li><strong>The window cuts off recent drugs with long gaps.</strong> Both approvals must fall in 2019–2025, so a
     drug the FDA approved in 2024–2025 and the EU only from 2026 is not in the atlas. Among recent approvals, only
     those Europe approved quickly are included, so the median US-to-EU gap of {{lag_median}} days may understate the
