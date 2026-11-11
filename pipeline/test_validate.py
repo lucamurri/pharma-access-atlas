@@ -65,6 +65,16 @@ class ValidatorCatchesBadData(unittest.TestCase):
         self.field("enhertu", "ema_opinion_date")["value"] = "2030-01-01"
         self.assertIn("after EC approval", self.run_validator())
 
+    def test_price_opinion_after_publication_fails(self):
+        f = self.field("enhertu", "it_price_opinion_date")
+        f.update(value="2023-08-01", status="verified", source_url="https://example.org", retrieved_date="2026-01-01")
+        self.assertIn("AIFA price opinion (2023-08-01) is after", self.run_validator())
+
+    def test_bad_innovativeness_fails(self):
+        f = self.field("enhertu", "it_innovative")
+        f.update(value="partial", status="verified", source_url="https://example.org", retrieved_date="2026-01-01")
+        self.assertIn("it_innovative", self.run_validator())
+
     def test_bad_rating_fails(self):
         f = self.field("enhertu", "de_gba_rating_best")
         f.update(value="fantastic", status="verified", source_url="https://example.org", retrieved_date="2026-01-01")

@@ -138,6 +138,8 @@
     [Atlas.t("js.cmp.r_lag"), r => (r.lag === null ? na : r.lag < 0 ? Atlas.t("js.cmp.eu_first_by", { d: days(-r.lag) }) : days(r.lag))],
     [Atlas.t("js.country.it"), r => (r.it_lag !== null ? Atlas.t("js.cmp.it_reimb", { cls: Atlas.esc(r.it_class) }) + sub(Atlas.t("js.days_after_ec", { n: Atlas.num(r.it_lag) }))
       : r.it_status === "not reimbursed" ? Atlas.t("js.cmp.it_not") + sub(Atlas.t("js.cmp.it_so_far", { d: days(r.it_waiting), cls: Atlas.esc(r.it_class) })) : na)],
+    [Atlas.t("js.cmp.r_it_innov"), r => (r.it_innov ? Atlas.esc(Atlas.t(`innov.${r.it_innov}`))
+      : r.it_status === "not reimbursed" ? `<span class="muted">${Atlas.t("js.innov_none")}</span>` : na)],
     [Atlas.t("js.cmp.r_de"), r => (RATING[r.gba_rating] ? `${RATING[r.gba_rating]}${r.gba_orphan === "yes" ? Atlas.t("js.cmp.orphan_rules") : ""}`
       + (r.gba_lag !== null ? sub(Atlas.t("js.days_after_ec", { n: Atlas.num(r.gba_lag) })) : "")
       : r.gba_rating === "not assessed" ? Atlas.t("gba.not assessed") : r.gba_pending ? Atlas.t("js.cmp.in_progress") : na)],

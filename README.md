@@ -1,6 +1,6 @@
 # Pharma Access Atlas
 
-**How quickly, and on what terms, do new drugs reach patients in the US and Europe? A fully sourced market-access dashboard covering every new medicine approved by both the FDA and the EU in 2019–2025 (209 drugs), with Italy, Germany, France and England.**
+**What happens after a new drug is approved in the US and Europe? A fully sourced market-access dashboard covering every new medicine approved by both the FDA and the EU in 2019–2025 (209 drugs): benefit assessment in Germany, France and England, and reimbursement in Italy.**
 
 **Live site → [lucamurri.github.io/pharma-access-atlas](https://lucamurri.github.io/pharma-access-atlas/)**
 in English, [Italiano](https://lucamurri.github.io/pharma-access-atlas/it/), [Deutsch](https://lucamurri.github.io/pharma-access-atlas/de/) and [Français](https://lucamurri.github.io/pharma-access-atlas/fr/).
@@ -70,6 +70,7 @@ The site has an overview with time-to-access curves, a filterable drug explorer,
 | NICE | England appraisal outcome, date, TA number | Manual, sourced CSV |
 | Gazzetta Ufficiale / AIFA | Italian reimbursement date and class; AIFA innovativeness and procedure dates from the same determination | Manual, sourced CSV (extracted from the full text) |
 | G-BA | AMNOG decision date and rating | Manual, sourced CSV |
+| FDA Novel Drug Approvals lists | Cross-check of the drug selection, 2019–2025 | One-off check (`pipeline/crosscheck_fda.py`) |
 | FDA OOPD, CBER, CMS fact sheets | US orphan designation, cell and gene therapy dates, list price | Manual, sourced CSV |
 
 ## Tech stack
@@ -84,7 +85,8 @@ The site has an overview with time-to-access curves, a filterable drug explorer,
   navigation, and every chart has a data-table alternative.
 
 ```
-pipeline/           universe.py (drug selection); fetch_*.py → build.py → validate.py → coverage.py;
+pipeline/           universe.py (drug selection); crosscheck_fda.py (checks it against FDA's lists);
+                    fetch_*.py → build.py → validate.py → coverage.py;
                     watch_has.py (flags new HAS opinions); analysis.py, so_what.py, check_text.py, i18n.py, build_site.py
 data/raw/           trimmed extracts of the downloaded sources
 data/manual/        hand-maintained CSVs (one sourced fact per row; see its README)
