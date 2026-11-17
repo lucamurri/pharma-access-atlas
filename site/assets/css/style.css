@@ -33,10 +33,13 @@
   /* Chart colours (validated for colour-blind separation and contrast) */
   --series-1: #2a78d6;         /* US first / main series */
   --series-2: #eb6834;         /* EU first */
-  --series-neutral: #a1a8b0;   /* still waiting / not applicable */
-  --country-fr: #2a78d6; --country-de: #eda100; --country-en: #e87ba4; --country-it: #008300;
+  --series-neutral: #848d98;   /* still waiting / not applicable: 3.4:1 */
+  /* Country colours, all >= 3:1 on white (WCAG 1.4.11); validated as a set for colour-blind separation
+     (worst pair 6.6, allowed because every line is also labelled by name and every chart has a table). */
+  --country-fr: #2a78d6; --country-de: #c08600; --country-en: #c85c88; --country-it: #008300;
   --grid: #e8ebee;
-  --focus: #eda100;
+  --focus: #0b6470;            /* focus ring: petrol, 6.8:1 (WCAG 2.4.7 / 1.4.11) */
+  --field: #7b8590;            /* form field edges: 3.4:1+ (WCAG 1.4.11) */
 
   --font: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
   --max: 1180px;
@@ -61,6 +64,8 @@
     --series-neutral: #6e7883;
     --country-fr: #3987e5; --country-de: #c98500; --country-en: #d55181; --country-it: #008300;
     --grid: #26303b;
+    --focus: #6cc0ca;
+    --field: #6b7682;
   }
 }
 
@@ -88,6 +93,9 @@ strong { font-weight: 650; }
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 1px; }
+::placeholder { color: var(--muted); opacity: 1; }
+/* Keep a focused element clear of sticky bars (WCAG 2.2 focus not obscured). */
+html { scroll-padding-top: 4.5rem; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 .muted { color: var(--muted); }
 .small { font-size: 0.875rem; }
@@ -147,7 +155,7 @@ main.wrap { padding-top: 2.75rem; padding-bottom: 5rem; min-height: 60vh; }
 .kpi:first-child { border-left: 0; padding-left: 0; }
 .kpi-label { font-size: 0.875rem; color: var(--text-2); font-weight: 500; margin: 0 0 0.35rem; }
 .kpi-value { font-stretch: 66%; font-weight: 650; font-size: 3.1rem; line-height: 1; letter-spacing: -0.01em;
-             font-variant-numeric: tabular-nums lining-nums; margin: 0 0 0.4rem; }
+             font-variant-numeric: proportional-nums lining-nums; margin: 0 0 0.4rem; }
 .kpi-value-sm { font-stretch: 80%; font-size: 1.45rem; line-height: 1.15; font-weight: 650; }
 .kpi-unit { font-stretch: 100%; font-size: 1rem; font-weight: 500; color: var(--text-2); margin-left: 0.06em; }
 .kpi-note { font-size: 0.85rem; color: var(--muted); margin: 0; }
@@ -193,6 +201,7 @@ details.data-view[open] summary { margin-bottom: 0.5rem; }
 .filters select, .filters input, .filters button {
   font: inherit; font-size: 0.95rem; padding: 0.45rem 0.65rem; border: 1px solid var(--border);
   background: var(--bg); color: var(--text); border-radius: 2px; min-height: 2.5rem; min-width: 9rem;
+  border-color: var(--field);
 }
 .filters select:hover, .filters input:hover { border-color: var(--text-2); }
 .filters button { cursor: pointer; color: var(--accent); min-width: 0; font-weight: 600; }
@@ -305,7 +314,8 @@ details.sources summary { font-weight: 600; }
   table.cards th[scope="row"] { border: 0; padding: 0 0 0.4rem; min-width: 0; }
   table.cards td { border: 0; padding: 0.2rem 0; text-align: right; display: flex; justify-content: space-between; gap: 1rem; }
   table.cards td::before { content: attr(data-label); color: var(--text-2); text-align: left; font-size: 0.85rem; flex: 1; }
-  table.cards td > span { white-space: nowrap; }
+  table.cards td > span:not(.pill) { white-space: nowrap; }
+  table.cards .pill { white-space: normal; text-align: right; }
   .table-scroll:has(table.cards) { overflow-x: visible; }
 }
 @media (max-width: 560px) {
@@ -345,7 +355,7 @@ details.sources summary { font-weight: 600; }
 /* ---------- Quick drug search (header) ---------- */
 .site-search { order: 2; margin-left: auto; position: relative; width: min(22rem, 40vw); }
 .site-search input { width: 100%; font: inherit; font-size: 0.92rem; padding: 0.42rem 0.7rem 0.42rem 2rem; min-height: 2.35rem;
-  border: 1px solid var(--border); border-radius: 2px; background: var(--surface-2); color: var(--text);
+  border: 1px solid var(--field); border-radius: 2px; background: var(--surface-2); color: var(--text);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%235f6a76' stroke-width='1.6'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Cpath d='m11 11 3.5 3.5'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: 0.6rem center; background-size: 0.95rem; }
 .site-search input:hover { border-color: var(--text-2); }
@@ -429,4 +439,46 @@ a.src-link:hover { color: var(--accent); text-decoration-style: solid; text-deco
   .kpis-5 { grid-template-columns: 1fr; }
   .kpis-5 .kpi, .kpis-5 .kpi:nth-child(3) { border-left: 0; padding-left: 0; }
   .crumbs .crumb-action { margin-left: 0; flex-basis: 100%; }
+}
+
+/* A focused row link stays below the sticky table header. */
+.table-scroll:has(> #explorer), .table-scroll:has(> #scorecard) { scroll-padding-top: 3.75rem; }
+.chart-source { font-size: 0.8rem; color: var(--muted); margin: 0.6rem 0 0; }
+.chart-source a { color: var(--muted); }
+
+/* Reserve space before the scripts fill tables, so the page does not jump (CLS). */
+@media (min-width: 641px) {
+  .table-scroll:has(> #explorer):not(.loaded), .table-scroll:has(> #scorecard):not(.loaded) { min-height: min(78vh, 52rem); }
+}
+#compare-table:empty { display: block; min-height: 30rem; }
+.result-count { display: inline-block; margin-right: 1rem; }
+.csv-btn { font: inherit; font-size: 0.88rem; font-weight: 600; color: var(--accent); background: none; border: 1px solid var(--field);
+  border-radius: 2px; padding: 0.3rem 0.65rem; cursor: pointer; margin-bottom: 0.6rem; }
+.csv-btn:hover { background: var(--surface-2); }
+
+/* ---------- Countries landing page ---------- */
+.country-list { list-style: none; margin: 2.25rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 0 2.5rem; border-top: 2px solid var(--rule); }
+.country-list li { padding: 1rem 0 1.25rem; border-bottom: 1px solid var(--border); }
+.country-list h2 { margin: 0 0 0.25rem; font-size: 1.45rem; }
+.country-list h2 a { color: var(--text); text-decoration: none; }
+.country-list h2 a:hover { color: var(--accent); text-decoration: underline; }
+.country-ms { color: var(--text-2); margin: 0 0 0.5rem; }
+.country-key { font-weight: 600; margin: 0; max-width: 30rem; }
+
+/* ---------- Glossary and citation (methodology) ---------- */
+.glossary dt { font-weight: 650; margin-top: 0.9rem; }
+.glossary dd { margin: 0.15rem 0 0; color: var(--text-2); }
+.citation { margin: 0.75rem 0; padding: 0.9rem 1rem; border-left: 2px solid var(--accent); background: var(--surface-2);
+  font-size: 0.95rem; overflow-wrap: anywhere; user-select: all; }
+
+/* ---------- Page not found ---------- */
+.nf-links, .nf-langs { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 1.25rem 0; }
+.nf-langs { color: var(--muted); font-size: 0.95rem; }
+/* The result line is filled after the data loads: reserve its height so the table below does not move. */
+#result-count, #sc-count { display: inline-block; min-height: 2.3rem; line-height: 2.3rem; margin-bottom: 0.4rem; vertical-align: middle; }
+.csv-btn { vertical-align: middle; margin-bottom: 0.4rem; }
+/* Fixed widths: menus filled by script must not grow and re-wrap the filter row (layout shift). */
+@media (min-width: 561px) {
+  .filters select, .filters input[type="search"] { width: 12.5rem; max-width: 100%; }
 }
