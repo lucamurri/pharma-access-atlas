@@ -89,7 +89,6 @@
  "brief.kpi_it": "Italien: Zeit bis zur Erstattung",
  "brief.kpi_de": "G-BA-Bewertung Deutschland",
  "brief.kpi_fr": "HAS-Bewertung Frankreich",
- "brief.nice_inline": "NICE: {text}",
  "brief.h_outcomes": "Zugangsergebnisse nach Markt",
  "brief.h_sowhat": "Zur Einordnung",
  "brief.sources_summary": "Alle Datenpunkte und Quellen zu {brand}",
@@ -506,5 +505,18 @@
  "brief.f_inn": "Wirkstoff",
  "brief.f_company": "Unternehmen",
  "brief.f_area": "Therapiegebiet",
- "brief.facts_aria": "Eckdaten"
+ "brief.facts_aria": "Eckdaten",
+ "layout.search_label": "Arzneimittel suchen",
+ "layout.search_placeholder": "Arzneimittel suchen",
+ "layout.search_none": "Kein Arzneimittel gefunden",
+ "head.countries": "Zeit bis zum Meilenstein je Land",
+ "head.lag": "Abstand zwischen US- und EU-Zulassung",
+ "head.italy": "Italien: Zeit bis zur Erstattung nach Therapiegebiet",
+ "head.hta": "Erste Urteile je Land",
+ "layout.toc": "Auf dieser Seite",
+ "brief.src_title": "Quelle",
+ "brief.crumbs_aria": "Sie sind hier",
+ "brief.kpi_en": "NICE-Entscheidung England",
+ "brief.en_note": "NICE-Empfehlung, {date}",
+ "brief.outcomes_note": "Jedes Datum und jedes Ergebnis verweist auf seine amtliche Quelle."
 }

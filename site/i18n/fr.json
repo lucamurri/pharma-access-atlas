@@ -85,7 +85,6 @@
  "brief.kpi_it": "Italie : délai jusqu’au remboursement",
  "brief.kpi_de": "Évaluation du G-BA en Allemagne",
  "brief.kpi_fr": "Évaluation de la HAS en France",
- "brief.nice_inline": "NICE : {text}",
  "brief.h_outcomes": "Résultats d’accès par marché",
  "brief.h_sowhat": "En contexte",
  "brief.sources_summary": "Toutes les données et sources pour {brand}",
@@ -506,5 +505,18 @@
  "brief.f_inn": "Substance active",
  "brief.f_company": "Entreprise",
  "brief.f_area": "Aire thérapeutique",
- "brief.facts_aria": "Informations clés"
+ "brief.facts_aria": "Informations clés",
+ "layout.search_label": "Rechercher un médicament",
+ "layout.search_placeholder": "Rechercher un médicament",
+ "layout.search_none": "Aucun médicament ne correspond",
+ "head.countries": "Délai jusqu’à l’étape de chaque pays",
+ "head.lag": "Écart entre les autorisations américaine et européenne",
+ "head.italy": "Italie : délai de remboursement par aire thérapeutique",
+ "head.hta": "Premiers avis dans chaque pays",
+ "layout.toc": "Sur cette page",
+ "brief.src_title": "Source",
+ "brief.crumbs_aria": "Vous êtes ici",
+ "brief.kpi_en": "Décision du NICE (Angleterre)",
+ "brief.en_note": "Recommandation du NICE, {date}",
+ "brief.outcomes_note": "Chaque date et chaque résultat renvoient à leur source officielle."
 }

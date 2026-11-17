@@ -90,7 +90,6 @@
  "brief.kpi_it": "Italy: time to reimbursement",
  "brief.kpi_de": "Germany G-BA rating",
  "brief.kpi_fr": "France HAS rating",
- "brief.nice_inline": "NICE: {text}",
  "brief.h_outcomes": "Access outcomes by market",
  "brief.h_sowhat": "In context",
  "brief.sources_summary": "All data points and sources for {brand}",
@@ -507,5 +506,18 @@
  "brief.f_inn": "Active ingredient",
  "brief.f_company": "Company",
  "brief.f_area": "Therapy area",
- "brief.facts_aria": "Key facts"
+ "brief.facts_aria": "Key facts",
+ "layout.search_label": "Find a drug",
+ "layout.search_placeholder": "Find a drug",
+ "layout.search_none": "No drug matches",
+ "head.countries": "Time to each country's milestone",
+ "head.lag": "Gap between US and EU approval",
+ "head.italy": "Italy: time to reimbursement by therapy area",
+ "head.hta": "First verdicts in each country",
+ "layout.toc": "On this page",
+ "brief.src_title": "Source",
+ "brief.crumbs_aria": "You are here",
+ "brief.kpi_en": "England NICE decision",
+ "brief.en_note": "NICE guidance, {date}",
+ "brief.outcomes_note": "Each date and outcome links to its official source."
 }

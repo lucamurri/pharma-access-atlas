@@ -85,7 +85,6 @@
  "brief.kpi_it": "Italia: tempo alla rimborsabilità",
  "brief.kpi_de": "Valutazione G-BA Germania",
  "brief.kpi_fr": "Valutazione HAS Francia",
- "brief.nice_inline": "NICE: {text}",
  "brief.h_outcomes": "Esiti di accesso per mercato",
  "brief.h_sowhat": "Nel contesto",
  "brief.sources_summary": "Tutti i dati e le fonti per {brand}",
@@ -506,5 +505,18 @@
  "brief.f_inn": "Principio attivo",
  "brief.f_company": "Azienda",
  "brief.f_area": "Area terapeutica",
- "brief.facts_aria": "Dati principali"
+ "brief.facts_aria": "Dati principali",
+ "layout.search_label": "Cerca un farmaco",
+ "layout.search_placeholder": "Cerca un farmaco",
+ "layout.search_none": "Nessun farmaco corrisponde",
+ "head.countries": "Tempo alla tappa di ciascun paese",
+ "head.lag": "Intervallo tra approvazione USA e UE",
+ "head.italy": "Italia: tempo al rimborso per area terapeutica",
+ "head.hta": "Primi giudizi in ciascun paese",
+ "layout.toc": "In questa pagina",
+ "brief.src_title": "Fonte",
+ "brief.crumbs_aria": "Percorso",
+ "brief.kpi_en": "Decisione NICE in Inghilterra",
+ "brief.en_note": "Raccomandazione NICE, {date}",
+ "brief.outcomes_note": "Ogni data ed esito rimanda alla sua fonte ufficiale."
 }

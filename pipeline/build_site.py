@@ -102,11 +102,18 @@ def layout(t: i18n.Strings, title: str, description: str, body: str, active: str
 <link rel="stylesheet" href="{assets}assets/css/style.css">
 {script_tags}
 </head>
-<body data-root="{assets}" data-pages="{pages}" data-lang="{t.lang}"{extra_body_attr}>
+<body data-root="{assets}" data-pages="{pages}" data-lang="{t.lang}" data-toc="{esc(t('layout.toc'))}"{extra_body_attr}>
 <a class="skip-link" href="#main">{esc(t('layout.skip'))}</a>
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="{pages}index.html">Pharma Access Atlas</a>
+    <form class="site-search" role="search" onsubmit="return false" data-index="{assets}data/search.json"
+          data-pages="{pages}" data-none="{esc(t('layout.search_none'))}">
+      <label class="visually-hidden" for="site-search">{esc(t('layout.search_label'))}</label>
+      <input id="site-search" type="search" placeholder="{esc(t('layout.search_placeholder'))}" autocomplete="off"
+             spellcheck="false" role="combobox" aria-expanded="false" aria-controls="site-search-list" aria-autocomplete="list">
+      <ul id="site-search-list" role="listbox" aria-label="{esc(t('layout.search_label'))}" hidden></ul>
+    </form>
     <nav class="lang-switch" aria-label="{esc(t('layout.lang_aria'))}">{langs}</nav>
     <nav aria-label="{esc(t('layout.nav_aria'))}">
       <ul class="nav">{nav}</ul>
@@ -241,6 +248,7 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, defs: dict, t: i18n.Stri
     name = row["brand_us"] if row["brand_us"] == row["brand_eu"] else f'{row["brand_us"]} / {row["brand_eu"]}'
     days = lambda n: t("brief.days", n=t.num(n))
     src_word = t("brief.src_word")
+    src_title = t("brief.src_title")
 
     badges = []
     if row["us_orphan"] == "yes":
@@ -303,6 +311,7 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, defs: dict, t: i18n.Stri
         fr_text = (t("brief.fr_insufficient") if row["fr_smr"] == "insufficient"
                    else t("brief.fr_pending") if row["fr_pending"] else t("brief.unknown"))
     fr_note = t("brief.fr_note", date=t.date(row["fr_date"])) if row["fr_date"] else t("brief.not_available")
+    en_note = (t("brief.en_note", date=t.date(row["en_date"])) if row["en_date"] else t("brief.not_available"))
     en_text = (t("brief.nice." + row["en_decision"]) if row["en_decision"]
                else t("brief.nice.pending") if row["en_pending"] else t("brief.unknown"))
 
@@ -311,7 +320,13 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, defs: dict, t: i18n.Stri
 
     # --- access outcomes table ---------------------------------------------
     def cell(field, text):
-        return f'{esc(str(text))} <span class="src">{source_link(f.get(field) or {}, src_word)}</span>'
+        """The value itself links to its public source (no separate 'source' word in every cell)."""
+        obj = f.get(field) or {}
+        url = obj.get("source_url")
+        if not url:
+            return esc(str(text))
+        return (f'<a class="src-link" href="{esc(url)}" rel="noopener" title="{esc(src_title)}">{esc(str(text))}'
+                f'<span class="visually-hidden"> ({esc(src_title)})</span></a>')
 
     if row["it_status"] == "reimbursed":
         it_outcome = t("brief.it_out_reimbursed", cls=row["it_class"])
@@ -343,7 +358,7 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, defs: dict, t: i18n.Stri
     <tr><th scope="row">{esc(t("brief.m_us"))}</th><td>{esc(t("brief.ms_fda"))}</td><td>{cell("fda_approval_date", t.date(row["fda_date"]))}</td>
         <td>{cell("cms_selected", us_outcome)}</td></tr>
     <tr><th scope="row">{esc(t("brief.m_eu"))}</th><td>{esc(t("brief.ms_ec"))}</td><td>{cell("ec_approval_date", t.date(row["ec_date"]))}</td>
-        <td>{esc(t("brief.eu_conditional") if row["eu_conditional"] == "yes" else t("brief.eu_standard"))} <span class="src">{source_link(f["eu_conditional"], src_word)}</span></td></tr>
+        <td>{cell("eu_conditional", t("brief.eu_conditional") if row["eu_conditional"] == "yes" else t("brief.eu_standard"))}</td></tr>
     <tr><th scope="row">{esc(t("brief.m_it"))}</th><td>{esc(t("brief.ms_it"))}</td>
         <td>{cell("it_gu_date", it_date)}</td>
         <td>{cell("it_reimbursement_class", it_outcome)}</td></tr>
@@ -391,7 +406,10 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, defs: dict, t: i18n.Stri
 
     return f"""
 <article class="brief">
-  <p class="eyebrow">{esc(t("brief.kind"))}</p>
+  <nav class="crumbs" aria-label="{esc(t("brief.crumbs_aria"))}">
+    <a href="../explorer.html">{esc(t("nav.explorer"))}</a><span aria-hidden="true">/</span><span aria-current="page">{esc(name)}</span>
+    <a class="crumb-action" href="../compare.html?ids={row["id"]}">{esc(t("brief.compare_link", name=name))}</a>
+  </nav>
   <h1>{esc(name)}</h1>
   <dl class="facts" aria-label="{esc(t("brief.facts_aria"))}">
     <div><dt>{esc(t("brief.f_inn"))}</dt><dd>{esc(row["inn"])}</dd></div>
@@ -399,28 +417,29 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, defs: dict, t: i18n.Stri
     <div><dt>{esc(t("brief.f_area"))}</dt><dd>{esc(t.label(row["area"]))}</dd></div>
   </dl>
   <ul class="badges" aria-label="{esc(t("brief.badges_aria"))}">{badge_html}</ul>
-  <p class="small"><a href="../compare.html?ids={row["id"]}">{esc(t("brief.compare_link", name=name))}</a></p>
+
+  <section class="kpis kpis-5" aria-label="{esc(t("brief.kpis_aria"))}">
+    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_lag"))}</p><p class="kpi-value">{esc(lag_text)}</p><p class="kpi-note">{esc(lag_note)}</p></div>
+    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_it"))}</p><p class="kpi-value{"" if row["it_lag"] is not None else " kpi-value-sm"}">{esc(it_text)}</p><p class="kpi-note">{esc(it_note)}</p></div>
+    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_de"))}</p><p class="kpi-value kpi-value-sm">{esc(de_text)}</p><p class="kpi-note">{esc(de_note)}</p></div>
+    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_fr"))}</p><p class="kpi-value kpi-value-sm">{esc(fr_text)}</p><p class="kpi-note">{esc(fr_note)}</p></div>
+    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_en"))}</p><p class="kpi-value kpi-value-sm">{esc(en_text)}</p><p class="kpi-note">{esc(en_note)}</p></div>
+  </section>
 
   <section aria-labelledby="tl-h">
     <h2 id="tl-h">{esc(t("brief.h_timeline"))}</h2>
     <div class="timeline-wrap">{svg}{tl_list}</div>
   </section>
 
-  <section class="kpis" aria-label="{esc(t("brief.kpis_aria"))}">
-    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_lag"))}</p><p class="kpi-value">{esc(lag_text)}</p><p class="kpi-note">{esc(lag_note)}</p></div>
-    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_it"))}</p><p class="kpi-value{"" if row["it_lag"] is not None else " kpi-value-sm"}">{esc(it_text)}</p><p class="kpi-note">{esc(it_note)}</p></div>
-    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_de"))}</p><p class="kpi-value kpi-value-sm">{esc(de_text)}</p><p class="kpi-note">{esc(de_note)}</p></div>
-    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_fr"))}</p><p class="kpi-value kpi-value-sm">{esc(fr_text)}</p><p class="kpi-note">{esc(fr_note)} · {esc(t("brief.nice_inline", text=en_text))}</p></div>
+  <section aria-labelledby="sw-h" class="so-what">
+    <h2 id="sw-h">{esc(t("brief.h_sowhat"))}</h2>
+    {{{{so_what}}}}
   </section>
 
   <section aria-labelledby="out-h">
     <h2 id="out-h">{esc(t("brief.h_outcomes"))}</h2>
+    <p class="small muted">{esc(t("brief.outcomes_note"))}</p>
     <div class="table-scroll">{table}</div>
-  </section>
-
-  <section aria-labelledby="sw-h" class="so-what">
-    <h2 id="sw-h">{esc(t("brief.h_sowhat"))}</h2>
-    {{{{so_what}}}}
   </section>
 
   <details class="sources">
@@ -461,6 +480,8 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
         "gba_n_assessed": n(s["gba_n_assessed"]), "cms_n_selected": s["cms_n_selected"],
         "title_lag": esc(tt["lag"]), "title_italy": esc(tt["italy"]), "title_countries": esc(tt["countries"]),
         "title_hta": esc(tt["hta"]), "title_companies": esc(tt["companies"]),
+        "head_countries": esc(t("head.countries")), "head_lag": esc(t("head.lag")),
+        "head_italy": esc(t("head.italy")), "head_hta": esc(t("head.hta")),
         "scorecard_min": analysis.SCORECARD_MIN, "n_companies": len(s["companies"]), "n_reference": s["n_reference"],
         "fr_pct_negative": s["fr_pct_negative"], "fr_n": n(s["fr_n"]),
         "en_pct_positive": s["en_pct_positive"] if s["en_pct_positive"] is not None else t("na"), "en_n": n(s["en_n"]),
@@ -605,6 +626,10 @@ def main() -> None:
 
     ctx = {"data": data, "rows": rows, "s": s, "findings": findings, "as_of": data["data_as_of"]}
     counts = {lang: build_language(i18n.Strings(lang), ctx) for lang in i18n.available()}
+
+    # Small index for the quick drug search in the header (names are the same in every language).
+    write_json(OUT / "data" / "search.json",
+               [{"i": r["id"], "b": r["brand_us"], "e": r["brand_eu"], "n": r["inn"], "c": r["company"]} for r in rows])
 
     # Sitemap: every page in every language, with its translations (submit in Google Search Console).
     paths = (PAGES + [US_SLUG] + [c["slug"] for c in COUNTRIES] + [f'drugs/{r["id"]}.html' for r in rows])
