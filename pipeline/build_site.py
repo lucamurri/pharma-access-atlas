@@ -35,7 +35,7 @@ SITE_URL = "https://lucamurri.github.io/pharma-access-atlas/"
 LANG_NAMES = {"en": "English", "it": "Italiano", "de": "Deutsch", "fr": "Français"}
 
 NAV = [("index.html", "nav.overview"), ("explorer.html", "nav.explorer"), ("companies.html", "nav.companies"),
-       ("compare.html", "nav.compare"), ("italy.html", "nav.countries"), ("insights.html", "nav.insights"),
+       ("compare.html", "nav.compare"), ("countries.html", "nav.countries"), ("insights.html", "nav.insights"),
        ("methodology.html", "nav.methodology"), ("about.html", "nav.about")]
 PAGES = ["index.html", "explorer.html", "compare.html", "companies.html", "insights.html", "methodology.html",
          "about.html"]
@@ -61,6 +61,8 @@ def lang_prefix(lang: str) -> str:
 def layout(t: i18n.Strings, title: str, description: str, body: str, active: str, path: str,
            scripts=(), data_as_of: str = "", extra_body_attr: str = "") -> str:
     """path: the page's address inside a language, e.g. 'explorer.html' or 'drugs/kisunla.html'."""
+    if len(description) > 158:  # search engines show about 155-160 characters
+        description = description[:155].rsplit(" ", 1)[0].rstrip(",;:") + "…"
     depth = path.count("/")
     pages = "../" * depth                                  # back to this language's top folder
     assets = pages + ("../" if t.lang != "en" else "")     # back to the site root (assets, data)
@@ -102,7 +104,8 @@ def layout(t: i18n.Strings, title: str, description: str, body: str, active: str
 <link rel="stylesheet" href="{assets}assets/css/style.css">
 {script_tags}
 </head>
-<body data-root="{assets}" data-pages="{pages}" data-lang="{t.lang}" data-toc="{esc(t('layout.toc'))}"{extra_body_attr}>
+<body data-root="{assets}" data-pages="{pages}" data-lang="{t.lang}" data-toc="{esc(t('layout.toc'))}"
+      data-figure-source="{esc(t('layout.figure_source', date=t.date(data_as_of)))}" data-figure-csv="{esc(t('layout.figure_csv'))}"{extra_body_attr}>
 <a class="skip-link" href="#main">{esc(t('layout.skip'))}</a>
 <header class="site-header">
   <div class="wrap header-inner">
@@ -456,6 +459,37 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, defs: dict, t: i18n.Stri
 
 
 # ---------------------------------------------------------------------------
+def glossary_and_citation(t: i18n.Strings, as_of: str) -> str:
+    """Methodology page: a glossary of agency terms and a citation with the data date."""
+    terms = sorted(k[:-5] for k in t.table if k.startswith("glossary.") and k.endswith(".term"))
+    rows = "".join(f'<dt>{esc(t(k + ".term"))}</dt><dd>{esc(t(k + ".def"))}</dd>' for k in terms)
+    url = SITE_URL + lang_prefix(t.lang)
+    return (f'<div class="prose"><h2 id="glossary">{esc(t("glossary.h"))}</h2><dl class="glossary">{rows}</dl>'
+            f'<h2 id="cite">{esc(t("cite.h"))}</h2><p>{esc(t("cite.intro"))}</p>'
+            f'<blockquote class="citation">{esc(t("cite.text", date=t.date(as_of), url=url))}</blockquote>'
+            f'<p class="small muted">{esc(t("cite.licence"))}</p></div>')
+
+
+def dataset_jsonld(t: i18n.Strings, s: dict, as_of: str) -> str:
+    """schema.org Dataset metadata, so the atlas can appear in Google Dataset Search."""
+    meta = {
+        "@context": "https://schema.org", "@type": "Dataset",
+        "name": "Pharma Access Atlas", "description": t("page.index.desc"),
+        "url": SITE_URL + lang_prefix(t.lang), "inLanguage": t.lang,
+        "creator": {"@type": "Person", "name": "Luca Murri"},
+        "dateModified": as_of, "temporalCoverage": "2019-01-01/2025-12-31",
+        "spatialCoverage": ["United States", "European Union", "Italy", "Germany", "France", "England"],
+        "keywords": ["market access", "drug approval", "reimbursement", "health technology assessment", "FDA", "EMA",
+                     "AIFA", "G-BA", "HAS", "NICE"],
+        "isAccessibleForFree": True, "license": REPO_URL + "#licence",
+        "variableMeasured": ["US-to-EU approval lag", "time to national milestone", "G-BA rating", "HAS ASMR", "NICE decision"],
+        "distribution": [
+            {"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": SITE_URL + "data/atlas.csv"},
+            {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": SITE_URL + "data/drugs.json"}],
+    }
+    return f'<script type="application/ld+json">{json.dumps(meta, ensure_ascii=False)}</script>'
+
+
 def build_language(t: i18n.Strings, ctx: dict) -> int:
     data, rows, s, findings, as_of = ctx["data"], ctx["rows"], ctx["s"], ctx["findings"], ctx["as_of"]
     out = OUT / lang_prefix(t.lang)
@@ -544,7 +578,12 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
         tpl = template(page, t.lang)
         if page == "insights.html" and findings is None:
             tpl = f'<h1>{esc(t("nav.insights"))}</h1><p class="callout">{esc(t("page.insights.draft"))}</p>'
-        write(page, t(f"page.{key}.title"), t(f"page.{key}.desc"), fill(tpl, values), page, SCRIPTS.get(page, ()),
+        body = fill(tpl, values)
+        if page == "methodology.html":
+            body += glossary_and_citation(t, as_of)
+        if page == "index.html":
+            body += dataset_jsonld(t, s, as_of)
+        write(page, t(f"page.{key}.title"), t(f"page.{key}.desc"), body, page, SCRIPTS.get(page, ()),
               f' data-page="{key}"')
 
     # Country pages. The US page has its own template: FDA approval is market entry, so it
@@ -563,7 +602,7 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
                  "us_curve_title": esc(t("country.us.curve_title", ec=n(ua["ec_from_fda"]["median"]),
                                          it=n(ua["it_from_fda"]["median"])))}
     write(US_SLUG, t("country.us.page_title"), t("country.us.desc", pct=u["pct_us_first"]),
-          fill(template("us.html", t.lang), us_values), "italy.html",
+          fill(template("us.html", t.lang), us_values), "countries.html",
           ["vendor/chart.umd.min.js", "js/common.js", "js/us.js"])
 
     tpl = template("country.html", t.lang)
@@ -580,8 +619,23 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
                    "c_mix_title": esc(t(f"country.{k}.mix_title")), "c_mix_sub": esc(t(f"country.{k}.mix_sub")),
                    "c_note": esc(t(f"country.{k}.note"))}
         write(c["slug"], t("country.page_title", name=t(f"country.{k}.name"), title=t(f"country.{k}.title")),
-              t("country.desc", short=t(f"country.{k}.short"), median=median), fill(tpl, cvalues), "italy.html",
+              t("country.desc", short=t(f"country.{k}.short"), median=median), fill(tpl, cvalues), "countries.html",
               ["vendor/chart.umd.min.js", "js/common.js", "js/country.js"], f' data-country="{k}"')
+
+    # Countries landing page: the five profiles, each with its key figure.
+    items = [(US_SLUG, t("country.us.name"), t("country.us.page_title").split(" | ")[0].split(": ", 1)[-1],
+              t("country.us.curve_title", ec=n(ua["ec_from_fda"]["median"]), it=n(ua["it_from_fda"]["median"])))]
+    for c in COUNTRIES:
+        k, a = c["key"], s["access"][c["key"]]
+        median = n(a["median"]) if a["median"] is not None else t("country.not_reached")
+        items.append((c["slug"], t(f"country.{k}.name"), t(f"country.{k}.title"),
+                      t("country.curve_title", short=t(f"country.{k}.short"), median=median, pct=analysis.days(a["pct_2y"]))))
+    cards = "".join(f'<li><h2><a href="{slug}">{esc(name)}</a></h2><p class="country-ms">{esc(ms)}</p>'
+                    f'<p class="country-key">{esc(key)}</p></li>' for slug, name, ms, key in items)
+    body = (f'<h1>{esc(t("countries.h1"))}</h1><p class="lede">{esc(t("countries.lede"))}</p>'
+            f'<ul class="country-list">{cards}</ul>')
+    write("countries.html", t("page.countries.title"), t("page.countries.desc"), body, "countries.html",
+          (), ' data-page="countries"')
 
     # One brief per drug, ordered as in the drug list.
     defs = data["field_definitions"]
@@ -592,8 +646,7 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
         body = body.replace("{{so_what}}", "<ul>" + "".join(f"<li>{esc(b)}</li>" for b in bullets[row["id"]]) + "</ul>")
         # The preview text is the drug's own first two "so what" bullets (already checked against the data).
         desc = t("brief.desc", brand=row["brand_us"], inn=row["inn"], text=" ".join(bullets[row["id"]][:2]))
-        if len(desc) > 200:
-            desc = desc[:197].rsplit(" ", 1)[0] + "…"
+
         write(f'drugs/{row["id"]}.html', t("brief.title", brand=row["brand_us"]), desc, body, "explorer.html")
     return pages_written
 
@@ -627,12 +680,37 @@ def main() -> None:
     ctx = {"data": data, "rows": rows, "s": s, "findings": findings, "as_of": data["data_as_of"]}
     counts = {lang: build_language(i18n.Strings(lang), ctx) for lang in i18n.available()}
 
+    # Site-wide "page not found" (GitHub Pages serves /404.html at any depth, so paths are made absolute
+    # with a <base> pointing at the site root). Offers search, the main pages and the other languages.
+    t = i18n.Strings("en")
+    links = "".join(f'<li><a href="{lang_prefix(l)}index.html" hreflang="{l}" lang="{l}">{LANG_NAMES[l]}</a></li>'
+                    for l in i18n.available())
+    pages = "".join(f'<li><a href="{href}">{esc(t(key))}</a></li>' for href, key in NAV[:5])
+    body = (f'<h1>{esc(t("nf.h1"))}</h1><p class="lede">{esc(t("nf.lede"))}</p>'
+            f'<ul class="nf-links">{pages}</ul><ul class="nf-langs">{links}</ul>')
+    page = layout(t, t("nf.title"), t("nf.lede"), body, "", "404.html", ("js/common.js",), ctx["as_of"])
+    page = page.replace("<head>", f'<head>\n<base href="{SITE_URL}">', 1).replace(
+        '<meta name="description"', '<meta name="robots" content="noindex">\n<meta name="description"', 1)
+    (OUT / "404.html").write_text(page, encoding="utf-8")
+
+    # The dataset as CSV (one row per drug, the values shown on the site; sources are in drugs.json).
+    import csv, io
+    cols = ["id", "cohort", "brand_us", "brand_eu", "inn", "company", "area", "fda_date", "ec_date", "lag",
+            "first_region", "it_status", "it_date", "it_class", "it_lag", "it_waiting", "gba_rating", "gba_date",
+            "gba_lag", "gba_orphan", "fr_verdict", "fr_smr", "fr_date", "fr_lag", "en_decision", "en_date", "en_lag",
+            "en_ta", "us_orphan", "eu_orphan", "eu_conditional", "atmp", "eu_status"]
+    buf = io.StringIO()
+    w = csv.DictWriter(buf, fieldnames=cols, extrasaction="ignore", lineterminator="\n")
+    w.writeheader()
+    w.writerows(rows)
+    (OUT / "data" / "atlas.csv").write_text(buf.getvalue(), encoding="utf-8")
+
     # Small index for the quick drug search in the header (names are the same in every language).
     write_json(OUT / "data" / "search.json",
                [{"i": r["id"], "b": r["brand_us"], "e": r["brand_eu"], "n": r["inn"], "c": r["company"]} for r in rows])
 
     # Sitemap: every page in every language, with its translations (submit in Google Search Console).
-    paths = (PAGES + [US_SLUG] + [c["slug"] for c in COUNTRIES] + [f'drugs/{r["id"]}.html' for r in rows])
+    paths = (PAGES + ["countries.html", US_SLUG] + [c["slug"] for c in COUNTRIES] + [f'drugs/{r["id"]}.html' for r in rows])
     entries = []
     for p in paths:
         alts = "".join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{SITE_URL}{lang_prefix(l)}{p}"/>' for l in i18n.available())

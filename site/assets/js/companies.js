@@ -49,6 +49,7 @@
         <td class="num" data-label="${L.en}"><span>${share(c.en_pos, c.en_n)}</span></td>
       </tr>`).join("");
     el("sc-count").textContent = Atlas.t("js.sc_showing", { n: visible.length, total: companies.length });
+    el("scorecard").parentElement.classList.add("loaded");
 
     document.querySelectorAll("#scorecard th[data-key]").forEach(th => {
       if (th.dataset.key === sortKey) th.setAttribute("aria-sort", sortDir === "asc" ? "ascending" : "descending");

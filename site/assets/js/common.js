@@ -33,10 +33,13 @@ const Atlas = (() => {
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   }
 
+  // Same month abbreviations and order as the build (pipeline/i18n.py), so dates match across pages.
+  const MONTHS = {"en": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "it": ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"], "de": ["Jan.", "Feb.", "März", "Apr.", "Mai", "Juni", "Juli", "Aug.", "Sept.", "Okt.", "Nov.", "Dez."], "fr": ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."]};
   function fmtDate(iso) {
     if (!iso) return t("na");
     const [y, m, d] = iso.split("-").map(Number);
-    return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString(locale, { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+    const mon = (MONTHS[lang] || MONTHS.en)[m - 1];
+    return lang === "de" ? `${d}. ${mon} ${y}` : `${d} ${mon} ${y}`;
   }
 
   function esc(text) {
@@ -71,6 +74,25 @@ const Atlas = (() => {
 // page scripts fill tables in, when <details> table views open, and on resize.
 (() => {
   let pending = false;
+  // A unique, readable name: the table's caption, else the nearest heading before it, numbered if repeated.
+  const used = new Map();
+  const tableName = box => {
+    const cap = box.querySelector("caption");
+    let name = cap ? cap.textContent.trim() : "";
+    if (!name) {
+      for (let el = box; el && !name; el = el.parentElement) {
+        for (let prev = el.previousElementSibling; prev && !name; prev = prev.previousElementSibling) {
+          const h = /^H[1-4]$/.test(prev.tagName) ? prev : prev.querySelector?.("h1, h2, h3, h4");
+          if (h) name = h.textContent.trim();
+        }
+        if (el.id === "main") break;
+      }
+    }
+    const word = { en: "table", it: "tabella", de: "Tabelle", fr: "tableau" }[document.body.dataset.lang] || "table";
+    name = cap ? name : `${name || document.title}: ${word}`;  // distinct from the section it sits in
+    const n = (used.get(name) || 0) + 1; used.set(name, n);
+    return n > 1 ? `${name} (${n})` : name;
+  };
   const update = () => {
     pending = false;
     document.querySelectorAll(".table-scroll").forEach(box => {
@@ -78,8 +100,7 @@ const Atlas = (() => {
       if (scrolls && !box.hasAttribute("tabindex")) {
         box.setAttribute("tabindex", "0");
         box.setAttribute("role", "region");
-        const caption = box.querySelector("caption");
-        box.setAttribute("aria-label", caption ? caption.textContent.trim() : Atlas.t("js.table_scrolls"));
+        box.setAttribute("aria-label", tableName(box));
       } else if (!scrolls && box.getAttribute("tabindex") === "0") {
         ["tabindex", "role", "aria-label"].forEach(a => box.removeAttribute(a));
       }
@@ -203,3 +224,17 @@ document.addEventListener("click", e => {
   if (e.metaKey || e.ctrlKey) window.open(link.href, "_blank", "noopener");
   else location.href = link.href;
 });
+
+// Every figure ends with its sources and data date, and a link to the data (as in FT / OWID charts).
+(() => {
+  const src = document.body.dataset.figureSource;
+  if (!src) return;
+  document.querySelectorAll("#main .chart-card").forEach(card => {
+    if (card.querySelector(".chart-source")) return;
+    const p = document.createElement("p");
+    p.className = "chart-source";
+    p.innerHTML = `${Atlas.esc(src)} <a href="${Atlas.root}data/atlas.csv" download>${Atlas.esc(document.body.dataset.figureCsv)}</a>`;
+    const details = card.querySelector(":scope > details.data-view");
+    if (details) details.after(p); else card.append(p);
+  });
+})();

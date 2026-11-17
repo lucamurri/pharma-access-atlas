@@ -48,6 +48,22 @@
   const L = Object.fromEntries(["area", "company", "fda", "ec", "lag", "it", "innov", "de", "fr", "en", "orphan"]
     .map(k => [k, Atlas.esc(Atlas.t(`js.ex.${k}`))]));
 
+  // Download exactly the rows on screen (current filters and sort) as CSV.
+  let lastVisible = [];
+  const csvCell = v => (v === null || v === undefined ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v));
+  const CSV_COLS = ["id", "brand_us", "brand_eu", "inn", "company", "area", "fda_date", "ec_date", "lag", "it_status", "it_date",
+                    "it_class", "it_lag", "it_waiting", "gba_rating", "gba_date", "fr_verdict", "fr_date", "en_decision", "en_date",
+                    "us_orphan", "eu_orphan", "cohort"];
+  const dl = document.createElement("button");
+  dl.type = "button"; dl.className = "csv-btn"; dl.textContent = Atlas.t("js.ex.csv");
+  dl.addEventListener("click", () => {
+    const text = [CSV_COLS.join(","), ...lastVisible.map(r => CSV_COLS.map(k => csvCell(r[k])).join(","))].join("\n");
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([text], { type: "text/csv;charset=utf-8" }));
+    a.download = "pharma-access-atlas-drugs.csv"; a.click(); URL.revokeObjectURL(a.href);
+  });
+  el("result-count").after(dl);
+
   function render() {
     const q = controls.search.value.trim().toLowerCase();
     const visible = rows.filter(r =>
@@ -85,7 +101,12 @@
         <td data-label="${L.orphan}">${orphanCell(r)}</td>
       </tr>`).join("") || `<tr><td colspan="12">${Atlas.t("js.no_match")}</td></tr>`;
 
-    el("result-count").textContent = Atlas.t("js.showing", { n: visible.length, total: rows.length });
+    const refs = visible.filter(r => r.cohort === "reference").length;
+    el("result-count").textContent = refs
+      ? Atlas.t("js.showing_ref", { n: visible.length, total: rows.length, r: refs })
+      : Atlas.t("js.showing", { n: visible.length, total: rows.length });
+    lastVisible = visible;
+    el("explorer").parentElement.classList.add("loaded");
 
     // Tell screen readers which column is sorted.
     document.querySelectorAll("#explorer th[data-key]").forEach(th => {
