@@ -3,23 +3,24 @@
      chrome --headless=new --window-size=1200,630 --screenshot=site/assets/img/social.png docs/social-card.html
      No figures on purpose: the numbers change with each monthly refresh. -->
 <html><head><meta charset="utf-8"><style>
-  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #fcfcfb; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #16161a; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #ffffff; }
+  @font-face { font-family: "Archivo"; src: url("../site/assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 400 800; font-stretch: 62% 100%; }
+  body { font-family: "Archivo", Arial, sans-serif; color: #18222e; }
   .wrap { position: absolute; inset: 0; padding: 72px 80px; box-sizing: border-box; }
-  .brand { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 34px; font-weight: 600; display: flex; align-items: center; gap: 16px; }
-  .brand::before { content: ""; width: 26px; height: 26px; background: #1c5cab; display: inline-block; }
-  h1 { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 60px; line-height: 1.08; margin: 40px 0 0; max-width: 1040px; font-weight: 600; }
-  p { font-size: 26px; color: #4a4a52; margin: 26px 0 0; max-width: 690px; line-height: 1.4; }
+  .brand { font-size: 34px; font-weight: 750; font-stretch: 80%; display: flex; align-items: center; gap: 14px; }
+  .brand svg { width: 36px; height: 36px; fill: #0b6470; }
+  h1 { font-size: 76px; line-height: 1.0; margin: 40px 0 0; max-width: 820px; font-weight: 700; font-stretch: 72%; letter-spacing: -0.01em; }
+  p { font-size: 26px; color: #4a5562; margin: 26px 0 0; max-width: 690px; line-height: 1.4; }
   .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 14px; display: flex; }
   .bar span { flex: 1; }
-  svg { position: absolute; right: 80px; bottom: 70px; }
+  .curves { position: absolute; right: 80px; bottom: 70px; }
 </style></head><body><div class="wrap">
-  <div class="brand">Pharma Access Atlas</div>
+  <div class="brand"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M1 19h4v-5h4V9h4V4h6V1H11v5H7v5H3v4H1z"/></svg>Pharma Access Atlas</div>
   <h1>What happens after a new drug is approved in the US and Europe?</h1>
   <p>Every new medicine approved by both the FDA and the EU in 2019–2025, tracked to benefit assessment and
     reimbursement in Italy, Germany, France and England. Every number sourced.</p>
   <!-- Four illustrative step curves in the site's country colours (shape only, not data). -->
-  <svg width="300" height="150" viewBox="0 0 300 150" aria-hidden="true" fill="none" stroke-width="5" stroke-linejoin="round">
+  <svg class="curves" width="300" height="150" viewBox="0 0 300 150" aria-hidden="true" fill="none" stroke-width="5" stroke-linejoin="round">
     <path d="M0 150 H30 V120 H45 V70 H70 V40 H120 V28 H300" stroke="#2a78d6"/>
     <path d="M0 150 H50 V100 H60 V45 H110 V32 H300" stroke="#eda100"/>
     <path d="M0 150 H10 V135 H60 V110 H100 V70 H170 V55 H300" stroke="#e87ba4"/>

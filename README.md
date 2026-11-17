@@ -122,6 +122,8 @@ the CSVs in `data/manual/` as described in [`data/manual/README.md`](data/manual
   - BDPM (France) data is under the Licence ouverte: cite the source and do not alter it.
   - NICE guidance is cited with links to the original pages.
 - **Chart.js:** MIT, © Chart.js contributors.
+- **Archivo typeface:** SIL Open Font License 1.1, © The Archivo Project Authors; a Latin subset is stored in
+  `site/assets/fonts/` with its licence.
 
 *Not medical, legal or investment advice. Independent project, not affiliated with any agency or company named.*
 
