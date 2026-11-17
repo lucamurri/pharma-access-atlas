@@ -77,9 +77,8 @@
  "title.companies_none": "{k} entreprises comptent au moins {min} médicaments dans l’atlas",
  "brief.title": "Fiche d’accès au marché de {brand} | Pharma Access Atlas",
  "brief.desc": "{brand} ({inn}) : {text}",
- "brief.eyebrow": "{area} · Fiche d’accès au marché",
  "brief.badges_aria": "Caractéristiques",
- "brief.compare_link": "Comparer {name} avec d’autres médicaments →",
+ "brief.compare_link": "Comparer {name} avec d’autres médicaments",
  "brief.h_timeline": "Chronologie",
  "brief.kpis_aria": "Chiffres clés",
  "brief.kpi_lag": "Décalage d’autorisation États-Unis-UE",
@@ -502,5 +501,10 @@
  "country.it.subject": "l’Italie",
  "country.de.subject": "l’Allemagne",
  "country.fr.subject": "la France",
- "country.en.subject": "l’Angleterre"
+ "country.en.subject": "l’Angleterre",
+ "brief.kind": "Fiche d’accès au marché",
+ "brief.f_inn": "Substance active",
+ "brief.f_company": "Entreprise",
+ "brief.f_area": "Aire thérapeutique",
+ "brief.facts_aria": "Informations clés"
 }

@@ -82,9 +82,8 @@
  "title.companies_none": "{k} companies have at least {min} drugs in the atlas",
  "brief.title": "{brand} market-access brief | Pharma Access Atlas",
  "brief.desc": "{brand} ({inn}): {text}",
- "brief.eyebrow": "{area} · Market-access brief",
  "brief.badges_aria": "Characteristics",
- "brief.compare_link": "Compare {name} with other drugs →",
+ "brief.compare_link": "Compare {name} with other drugs",
  "brief.h_timeline": "Timeline",
  "brief.kpis_aria": "Key numbers",
  "brief.kpi_lag": "US-to-EU approval lag",
@@ -503,5 +502,10 @@
  "country.it.subject": "Italy",
  "country.de.subject": "Germany",
  "country.fr.subject": "France",
- "country.en.subject": "England"
+ "country.en.subject": "England",
+ "brief.kind": "Market-access brief",
+ "brief.f_inn": "Active ingredient",
+ "brief.f_company": "Company",
+ "brief.f_area": "Therapy area",
+ "brief.facts_aria": "Key facts"
 }

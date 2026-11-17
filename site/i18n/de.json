@@ -81,9 +81,8 @@
  "title.companies_none": "{k} Unternehmen haben mindestens {min} Arzneimittel im Atlas",
  "brief.title": "Market-Access-Steckbrief {brand} | Pharma Access Atlas",
  "brief.desc": "{brand} ({inn}): {text}",
- "brief.eyebrow": "{area} · Market-Access-Steckbrief",
  "brief.badges_aria": "Merkmale",
- "brief.compare_link": "{name} mit anderen Arzneimitteln vergleichen →",
+ "brief.compare_link": "{name} mit anderen Arzneimitteln vergleichen",
  "brief.h_timeline": "Zeitverlauf",
  "brief.kpis_aria": "Kennzahlen",
  "brief.kpi_lag": "Abstand der Zulassungen USA–EU",
@@ -502,5 +501,10 @@
  "country.it.subject": "Italien",
  "country.de.subject": "Deutschland",
  "country.fr.subject": "Frankreich",
- "country.en.subject": "England"
+ "country.en.subject": "England",
+ "brief.kind": "Market-Access-Steckbrief",
+ "brief.f_inn": "Wirkstoff",
+ "brief.f_company": "Unternehmen",
+ "brief.f_area": "Therapiegebiet",
+ "brief.facts_aria": "Eckdaten"
 }

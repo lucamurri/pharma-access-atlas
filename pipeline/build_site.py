@@ -16,6 +16,7 @@ All other text (navigation, briefs, chart labels, generated bullets) comes from 
 from __future__ import annotations
 
 import html
+import re
 import json
 import shutil
 import sys
@@ -97,6 +98,7 @@ def layout(t: i18n.Strings, title: str, description: str, body: str, active: str
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="{esc(t('layout.og_alt'))}">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="{assets}assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{assets}assets/css/style.css">
 {script_tags}
 </head>
@@ -389,9 +391,13 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, defs: dict, t: i18n.Stri
 
     return f"""
 <article class="brief">
-  <p class="eyebrow">{esc(t("brief.eyebrow", area=t.label(row["area"])))}</p>
+  <p class="eyebrow">{esc(t("brief.kind"))}</p>
   <h1>{esc(name)}</h1>
-  <p class="lede">{esc(row["inn"])} · {esc(row["company"])}</p>
+  <dl class="facts" aria-label="{esc(t("brief.facts_aria"))}">
+    <div><dt>{esc(t("brief.f_inn"))}</dt><dd>{esc(row["inn"])}</dd></div>
+    <div><dt>{esc(t("brief.f_company"))}</dt><dd>{esc(row["company"])}</dd></div>
+    <div><dt>{esc(t("brief.f_area"))}</dt><dd>{esc(t.label(row["area"]))}</dd></div>
+  </dl>
   <ul class="badges" aria-label="{esc(t("brief.badges_aria"))}">{badge_html}</ul>
   <p class="small"><a href="../compare.html?ids={row["id"]}">{esc(t("brief.compare_link", name=name))}</a></p>
 
@@ -402,7 +408,7 @@ def brief_page(drug: dict, row: dict, prev_next: tuple, defs: dict, t: i18n.Stri
 
   <section class="kpis" aria-label="{esc(t("brief.kpis_aria"))}">
     <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_lag"))}</p><p class="kpi-value">{esc(lag_text)}</p><p class="kpi-note">{esc(lag_note)}</p></div>
-    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_it"))}</p><p class="kpi-value">{esc(it_text)}</p><p class="kpi-note">{esc(it_note)}</p></div>
+    <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_it"))}</p><p class="kpi-value{"" if row["it_lag"] is not None else " kpi-value-sm"}">{esc(it_text)}</p><p class="kpi-note">{esc(it_note)}</p></div>
     <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_de"))}</p><p class="kpi-value kpi-value-sm">{esc(de_text)}</p><p class="kpi-note">{esc(de_note)}</p></div>
     <div class="kpi"><p class="kpi-label">{esc(t("brief.kpi_fr"))}</p><p class="kpi-value kpi-value-sm">{esc(fr_text)}</p><p class="kpi-note">{esc(fr_note)} · {esc(t("brief.nice_inline", text=en_text))}</p></div>
   </section>
@@ -503,9 +509,13 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
         target = out / path
         target.parent.mkdir(parents=True, exist_ok=True)
         page_assets = "../" * path.count("/") + ("../" if t.lang != "en" else "")
+        # A label that only repeats the page's menu name adds nothing: drop it.
+        body = re.sub(r'^\s*<p class="eyebrow">[^<]*</p>\s*', "", body, count=1)
         if page_assets:  # templates link the data file relative to the site root
             body = body.replace('href="data/', f'href="{page_assets}data/')
-        target.write_text(layout(t, title, desc, body, active, path, scripts, as_of, attr), encoding="utf-8")
+        # Every page loads the shared script (it also makes wide tables keyboard-scrollable).
+        target.write_text(layout(t, title, desc, body, active, path, scripts or ("js/common.js",), as_of, attr),
+                          encoding="utf-8")
         pages_written += 1
 
     for page in PAGES:
@@ -513,7 +523,8 @@ def build_language(t: i18n.Strings, ctx: dict) -> int:
         tpl = template(page, t.lang)
         if page == "insights.html" and findings is None:
             tpl = f'<h1>{esc(t("nav.insights"))}</h1><p class="callout">{esc(t("page.insights.draft"))}</p>'
-        write(page, t(f"page.{key}.title"), t(f"page.{key}.desc"), fill(tpl, values), page, SCRIPTS.get(page, ()))
+        write(page, t(f"page.{key}.title"), t(f"page.{key}.desc"), fill(tpl, values), page, SCRIPTS.get(page, ()),
+              f' data-page="{key}"')
 
     # Country pages. The US page has its own template: FDA approval is market entry, so it
     # measures how long after US approval each European milestone came.

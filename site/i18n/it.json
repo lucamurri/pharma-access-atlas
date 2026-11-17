@@ -77,9 +77,8 @@
  "title.companies_none": "{k} aziende hanno almeno {min} farmaci nell'atlante",
  "brief.title": "Scheda di market access di {brand} | Pharma Access Atlas",
  "brief.desc": "{brand} ({inn}): {text}",
- "brief.eyebrow": "{area} · Scheda di market access",
  "brief.badges_aria": "Caratteristiche",
- "brief.compare_link": "Confronta {name} con altri farmaci →",
+ "brief.compare_link": "Confronta {name} con altri farmaci",
  "brief.h_timeline": "Cronologia",
  "brief.kpis_aria": "Numeri chiave",
  "brief.kpi_lag": "Intervallo tra approvazione USA e UE",
@@ -502,5 +501,10 @@
  "country.it.subject": "l'Italia",
  "country.de.subject": "la Germania",
  "country.fr.subject": "la Francia",
- "country.en.subject": "l'Inghilterra"
+ "country.en.subject": "l'Inghilterra",
+ "brief.kind": "Scheda di market access",
+ "brief.f_inn": "Principio attivo",
+ "brief.f_company": "Azienda",
+ "brief.f_area": "Area terapeutica",
+ "brief.facts_aria": "Dati principali"
 }
