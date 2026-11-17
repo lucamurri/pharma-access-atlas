@@ -111,14 +111,14 @@ a:hover { text-decoration-thickness: 2px; }
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M1 19h4v-5h4V9h4V4h6V1H11v5H7v5H3v4H1z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 .brand { order: 1; }
-.site-header nav[aria-label]:not(.lang-switch) { order: 3; flex-basis: 100%; min-width: 0; }
+.site-header nav[aria-label]:not(.lang-switch) { order: 4; flex-basis: 100%; min-width: 0; }
 .nav { list-style: none; display: flex; flex-wrap: nowrap; gap: 0 1.6rem; margin: 0.35rem 0 0; padding: 0; font-size: 0.94rem;
        overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .nav::-webkit-scrollbar { display: none; }
 .nav a { color: var(--text-2); text-decoration: none; display: inline-block; padding: 0.6rem 0 0.65rem; border-bottom: 2px solid transparent; white-space: nowrap; }
 .nav a:hover { color: var(--text); }
 .nav a[aria-current="page"] { color: var(--text); font-weight: 600; border-bottom-color: var(--accent); }
-.lang-switch { order: 2; margin-left: auto; display: flex; gap: 0.1rem; font-size: 0.82rem; font-weight: 600; }
+.lang-switch { order: 3; display: flex; gap: 0.1rem; font-size: 0.82rem; font-weight: 600; }
 .lang-switch a { color: var(--muted); text-decoration: none; padding: 0.3rem 0.4rem; }
 .lang-switch a:hover { color: var(--text); }
 .lang-switch a[aria-current="page"] { color: var(--text); text-decoration: underline; text-decoration-color: var(--accent);
@@ -166,11 +166,16 @@ main.wrap { padding-top: 2.75rem; padding-bottom: 5rem; min-height: 60vh; }
 .chart-grid > *, .chart-grid-3 > *, .chart-grid-2x2 > * { min-width: 0; }
 .chart-grid-3 h3, .chart-grid-2x2 h3 { font-size: 0.98rem; margin: 0 0 0.5rem; }
 details.data-view { margin-top: 0.9rem; padding-top: 0.6rem; border-top: 1px solid var(--border); font-size: 0.9rem; }
-details summary { cursor: pointer; color: var(--accent); font-weight: 500; }
+details summary { cursor: pointer; color: var(--accent); font-weight: 500; list-style: none; display: inline-flex; align-items: center; gap: 0.45rem; }
+details summary::-webkit-details-marker { display: none; }
+/* The chevron turns when the section opens, so it is clear what changed. */
+details summary::before { content: ""; width: 0.42em; height: 0.42em; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor;
+  transform: rotate(-45deg); transition: transform 0.15s ease; margin-right: 0.1rem; }
+details[open] > summary::before { transform: rotate(45deg) translate(-1px, -1px); }
 details.data-view[open] summary { margin-bottom: 0.5rem; }
 
 /* ---------- Tables ---------- */
-.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-scroll { position: relative; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .data-table { width: 100%; border-collapse: collapse; font-size: 0.94rem; font-variant-numeric: tabular-nums lining-nums; }
 .data-table.small { font-size: 0.85rem; }
 .data-table th, .data-table td { text-align: left; padding: 0.6rem 0.8rem 0.6rem 0; border-bottom: 1px solid var(--border); vertical-align: top; }
@@ -335,4 +340,93 @@ details.sources summary { font-weight: 600; }
   body[data-page="index"] .kpis .kpi { border-left: 0; padding: 0.85rem 0 0.9rem; border-bottom: 1px solid var(--border); }
   body[data-page="index"] .kpis .kpi:last-child { border-bottom: 0; }
   body[data-page="index"] .intro h1 { max-width: 21ch; }
+}
+
+/* ---------- Quick drug search (header) ---------- */
+.site-search { order: 2; margin-left: auto; position: relative; width: min(22rem, 40vw); }
+.site-search input { width: 100%; font: inherit; font-size: 0.92rem; padding: 0.42rem 0.7rem 0.42rem 2rem; min-height: 2.35rem;
+  border: 1px solid var(--border); border-radius: 2px; background: var(--surface-2); color: var(--text);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%235f6a76' stroke-width='1.6'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Cpath d='m11 11 3.5 3.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: 0.6rem center; background-size: 0.95rem; }
+.site-search input:hover { border-color: var(--text-2); }
+.site-search input:focus { background-color: var(--bg); border-color: var(--accent); outline: 2px solid var(--accent); outline-offset: -1px; }
+.site-search [role="listbox"] { position: absolute; z-index: 20; top: calc(100% + 4px); left: 0; right: 0; margin: 0; padding: 0.25rem 0;
+  list-style: none; background: var(--bg); border: 1px solid var(--rule); box-shadow: 0 8px 24px rgba(16, 24, 32, 0.12); max-height: 22rem; overflow-y: auto; }
+.site-search [role="option"] { padding: 0.45rem 0.75rem; cursor: pointer; display: flex; flex-direction: column; gap: 0.05rem; }
+.site-search [role="option"][aria-selected="true"] { background: var(--accent-soft); }
+.site-search .ss-name { font-weight: 600; }
+.site-search .ss-meta { font-size: 0.8rem; color: var(--muted); }
+.site-search .ss-none { color: var(--muted); cursor: default; }
+@media (max-width: 640px) {
+  .site-search { order: 3; flex-basis: 100%; width: 100%; margin: 0.6rem 0 0.1rem; }
+  .lang-switch { order: 2; margin-left: auto; }
+}
+
+/* ---------- On this page ---------- */
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+.page-toc ol { list-style: none; margin: 0; padding: 0; }
+.page-toc a { color: var(--text-2); text-decoration: none; }
+.page-toc a:hover { color: var(--text); }
+.page-toc a[aria-current] { color: var(--text); font-weight: 600; }
+:target, h2[id] { scroll-margin-top: 4.5rem; }
+/* Overview: a sticky bar of the figures' headings. */
+.page-toc-bar { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--border);
+  margin: 2.5rem 0 0; grid-column: 1 / -1; }
+.page-toc-bar ol { display: flex; gap: 0 1.6rem; overflow-x: auto; scrollbar-width: none; }
+.page-toc-bar ol::-webkit-scrollbar { display: none; }
+.page-toc-bar a { display: block; white-space: nowrap; font-size: 0.9rem; padding: 0.7rem 0 0.65rem; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.page-toc-bar a[aria-current] { border-bottom-color: var(--accent); }
+.page-toc-bar + .chart-card { margin-top: 1.75rem; }
+/* Insights and Methodology: a contents column in the right margin. */
+.page-toc-rail { display: none; }
+.page-toc-label { font-size: 0.82rem; font-weight: 600; color: var(--muted); margin: 0 0 0.5rem; }
+.page-toc-rail li { border-left: 2px solid var(--border); }
+.page-toc-rail a { display: block; font-size: 0.88rem; line-height: 1.35; padding: 0.35rem 0 0.35rem 0.8rem; margin-left: -2px; border-left: 2px solid transparent; }
+.page-toc-rail a[aria-current] { border-left-color: var(--accent); }
+.toc-num { font-stretch: 66%; font-weight: 650; color: var(--accent); margin-right: 0.4rem; }
+@media (min-width: 1100px) {
+  body.has-toc[data-page="insights"] main, body.has-toc[data-page="methodology"] main {
+    display: grid; grid-template-columns: minmax(0, 1fr) 15rem; column-gap: 4rem; align-items: start; }
+  body.has-toc[data-page="insights"] main > *, body.has-toc[data-page="methodology"] main > * { grid-column: 1; }
+  body.has-toc main > .page-toc-rail { display: block; grid-column: 2; grid-row: 1 / span 40; position: sticky; top: 1.5rem;
+    max-height: calc(100vh - 3rem); overflow-y: auto; margin-top: 0.75rem; }
+}
+/* A figure's short heading, then its key point in one plain sentence (computed from the data). */
+.chart-takeaway { font-size: 1.06rem; font-weight: 600; line-height: 1.45; color: var(--text); margin: 0 0 0.35rem; max-width: 46rem; }
+
+/* ---------- Explorer and scorecard: a scrolling data frame ---------- */
+/* The table scrolls inside its own frame, so the column headers stay on top and the drug or
+   company name stays on the left while you scroll. (Phones use the card layout instead.) */
+@media (min-width: 641px) {
+  .table-scroll:has(> #explorer), .table-scroll:has(> #scorecard) {
+    max-height: min(78vh, 52rem); overflow: auto; border-top: 2px solid var(--rule); border-bottom: 1px solid var(--border); }
+  #explorer thead th, #scorecard thead th { position: sticky; top: 0; z-index: 2; background: var(--bg);
+    border-bottom: 0; box-shadow: inset 0 -1px 0 var(--rule); padding-top: 0.7rem; }
+  #explorer tbody th[scope="row"], #scorecard tbody th[scope="row"] { position: sticky; left: 0; z-index: 1; background: var(--bg);
+    box-shadow: inset -1px 0 0 var(--border); padding-right: 1rem; }
+  #explorer thead th:first-child, #scorecard thead th:first-child { left: 0; z-index: 3; box-shadow: inset 0 -1px 0 var(--rule), inset -1px 0 0 var(--border); }
+  #explorer th, #explorer td, #scorecard th, #scorecard td { padding-left: 0.65rem; }
+  #explorer th:first-child, #scorecard th:first-child { padding-left: 0.1rem; }
+}
+/* Whole rows open the brief (the name link stays the keyboard and screen-reader target). */
+#explorer tbody tr, #scorecard tbody tr { cursor: pointer; }
+
+/* ---------- Brief: trail, five figures, linked values ---------- */
+.crumbs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.5rem; font-size: 0.9rem; color: var(--muted); margin: 0 0 0.6rem; }
+.crumbs a { color: var(--text-2); }
+.crumbs [aria-current] { color: var(--text-2); }
+.crumbs .crumb-action { margin-left: auto; color: var(--accent); font-weight: 500; }
+.kpis-5 { grid-template-columns: repeat(5, 1fr); margin-top: 1.75rem; }
+@media (max-width: 1100px) { .kpis-5 { grid-template-columns: repeat(3, 1fr); }
+  .kpis-5 .kpi:nth-child(4) { border-left: 0; padding-left: 0; } .kpis-5 .kpi:nth-child(n+4) { border-top: 1px solid var(--border); } }
+@media (max-width: 960px) { .kpis-5 .kpi:nth-child(3) { border-left: 1px solid var(--border); padding-left: 1.25rem; } }
+a.src-link { color: inherit; text-decoration: underline dotted; text-decoration-color: var(--muted); text-underline-offset: 0.22em; }
+a.src-link:hover { color: var(--accent); text-decoration-style: solid; text-decoration-color: currentColor; }
+
+/* ---------- Row hover ---------- */
+.data-table tbody tr:hover > * { background: var(--surface-2); }
+@media (max-width: 560px) {
+  .kpis-5 { grid-template-columns: 1fr; }
+  .kpis-5 .kpi, .kpis-5 .kpi:nth-child(3) { border-left: 0; padding-left: 0; }
+  .crumbs .crumb-action { margin-left: 0; flex-basis: 100%; }
 }
